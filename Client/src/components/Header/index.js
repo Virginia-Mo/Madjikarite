@@ -8,12 +8,15 @@ import './styles.scss';
 function Header() {
   return (
     <header className="header">
-      <img src={logo} className="header__logo" alt="logo-madjikarite" />
-      <IconsHeader />
+      <div className="header__logo">
+        <img src={logo} className="header__logo" alt="logo-madjikarite" />
+      </div>
       <div className="header__title-bar">
         <h1>Soins biologiques et équitables à base de karité</h1>
         <Search />
       </div>
+      <IconsHeader />
+      
     </header>
   );
 }
