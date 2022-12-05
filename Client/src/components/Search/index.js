@@ -11,10 +11,8 @@ function Search() {
 
   // I get the value of the search bar
   const search = useSelector((state) => state.searchBar.search);
-  console.log(search);
   // I get the products from the data
   const products = data.produits;
-  console.log(products);
   // I filter the products according to the search bar value
   const filteredProducts = products.filter((product) => (
     product.nom.toLowerCase().includes(search.toLowerCase())
@@ -32,6 +30,8 @@ function Search() {
   };
 
   return (
+    // je veux afficher la page SearchResults quand je submit la barre de recherche
+    //  -> route /search renvoie vers Searchresults
     <div>
       <form action="" className="form-search-bar" onSubmit={handleSubmit}>
         <IoSearch className="form__searchIcon" />
