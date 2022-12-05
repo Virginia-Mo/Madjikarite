@@ -2,16 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS "admin",
-"address",
-"live",
-"user_review",
-"category",
-"shopping_cart_lign",
-"shopping_cart",
-"product",
-"user";
-
 CREATE TABLE "admin" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "email" TEXT NOT NULL,
