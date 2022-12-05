@@ -64,6 +64,7 @@ export default {
         "Conditionnement": "500ml",
         "prix": 13,
         "stock":3,
+        "categorie": "Savon Liquide",
         "image": "https://madjikarite.com/wp-content/uploads/savon-passion2-803x1024.jpg",
       },
       {
@@ -74,6 +75,7 @@ export default {
         "Conditionnement": "500ml",
         "prix": 13,
         "stock":5,
+        "categorie": "Savon Liquide",
         "image":"https://madjikarite.com/wp-content/uploads/savon-rose2.jpg",
       },
       {
