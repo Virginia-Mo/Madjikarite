@@ -1,17 +1,17 @@
 const adminController = {
 
-    // page d'accueil back office
+    // Homepage back office
     adminProductPage(req, res) {
         res.json({ page: 'page admin producer' });
     },
 
-    // créer nouveau produit
+    // create new product
     createNewProduct(req, res) {
         console.log('');
         res.json({ page: 'page adminNewProduct Page' });
     },
 
-    // valider le nouveau produit
+    // validate new produit
     validateFormNewProduct(req, res) {
         console.log('Le formulaire admin à été validé ');
         res.json({ page: 'Le formulaire admin à été validé' });
@@ -23,19 +23,19 @@ const adminController = {
         res.json({ page: 'page adminProductIdPage' });
     },
 
-    // mettre à jour un produit
+    // update new product
     updateProduct(req, res) {
         console.log('Le produit à été mis à jour');
         res.json({ page: 'Le produit à été mis à jour' });
     },
 
-    // supprimer un produit
+    // delete product
     adminDeleteProduct(req, res) {
         console.log('Le produit à été supprimé');
         res.json({ page: 'Le produit à été supprimé' });
     },
 
-    // Page de listing des commandes
+    // Listing order page
     viewListingOrder(req, res) {
         console.log('page adminOrderPage');
         res.json({ page: 'page adminOrderPage' });
@@ -51,25 +51,25 @@ const adminController = {
     //     console.log('page adminOrderPage');
     // }, suppression rapide via la page de listing des commandes.
 
-    // Page d’affichage d’une commande
+    // view order page
     orderAdministration(req, res) {
         console.log('page adminOrderIdPage');
         res.json({ page: 'page adminOrderIdPage' });
     },
 
-    // mise à jour d'une commande
+    // update order
     updateOrder(req, res) {
         console.log('La commande à été mise à jour');
         res.json({ page: 'La commande à été mise à jour' });
     },
 
-    // suppression d'une commande
+    // delete order
     deleteOrder(req, res) {
         console.log('La commande à été supprimée');
         res.json({ page: 'La commande à été supprimée' });
     },
 
-    // quitter une session
+    // log out
     adminlogOut(req, res) {
         res.json({ page: 'page adminLogOut' });
     },

@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS "admin",
 
 CREATE TABLE "admin" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "email" TEXT NOT NULL,
+    "email" TEXT NOT NULL UNIQUE,
     "password" TEXT NOT NULL
 );
 
@@ -27,7 +27,7 @@ CREATE TABLE "address" (
 
 CREATE TABLE "category" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "name" TEXT NOT NULL,
+    "name" TEXT NOT NULL UNIQUE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
@@ -37,7 +37,7 @@ CREATE TABLE "user" (
     "civility" TEXT NOT NULL,
     "first_name" TEXT NOT NULL,
     "last_name" TEXT NOT NULL,
-    "email" TEXT NOT NULL,
+    "email" TEXT NOT NULL UNIQUE,
     "phone_number" INT NOT NULL,
     "password" TEXT NOT NULL,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -52,7 +52,7 @@ CREATE TABLE "product" (
     "ingredients" TEXT NOT NULL,
     "packaging" TEXT NOT NULL,
     "price" NUMERIC NOT NULL,
-    "stock" INT NOT NULL,
+    "stock" INT DEFAULT 0,
     "admin_id" INT NOT NULL REFERENCES "admin" ("id"),
     "category_id" INT NOT NULL REFERENCES "category" ("id"),
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
