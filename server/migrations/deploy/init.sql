@@ -40,7 +40,7 @@ CREATE TABLE "product" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
     "short_description" TEXT NOT NULL,
-    "full description" TEXT NOT NULL,
+    "full_description" TEXT NOT NULL,
     "ingredients" TEXT NOT NULL,
     "packaging" TEXT NOT NULL,
     "price" NUMERIC NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE "shopping_cart" (
     "updated_at" TIMESTAMPTZ
 );
 
-CREATE TABLE "live" (
+CREATE TABLE "live_in" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "user_id" INT NOT NULL REFERENCES "user" ("id"),
     "address_id" INT NOT NULL REFERENCES "address" ("id"),

@@ -10,6 +10,6 @@ SELECT * FROM "product" WHERE false;
 SELECT * FROM "user_review" WHERE false;
 SELECT * FROM "shopping_cart" WHERE false;
 SELECT * FROM "shopping_cart_lign" WHERE false;
-SELECT * FROM "live" WHERE false;
+SELECT * FROM "live_in" WHERE false;
 
 ROLLBACK;

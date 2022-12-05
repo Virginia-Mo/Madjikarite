@@ -1,7 +1,7 @@
 
 Admin ( id, email, password )
 Address ( id, address, zip_code, city, country )
-Live ( id, #user_id, #address_id )
+Live_in ( id, #user_id, #address_id )
 User_review ( id, note, content, #product_id, #user_id )
 Category ( id, name )
 Shopping_cart_lign ( id, quantity, #shopping_cart_id, #product_id )

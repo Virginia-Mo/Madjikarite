@@ -2,7 +2,7 @@ BEGIN;
 
 DROP TABLE IF EXISTS "admin",
 "address",
-"live",
+"live_in",
 "user_review",
 "category",
 "shopping_cart_lign",
@@ -79,7 +79,7 @@ CREATE TABLE "shopping_cart" (
     "updated_at" TIMESTAMPTZ
 );
 
-CREATE TABLE "live" (
+CREATE TABLE "live_in" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "user_id" INT NOT NULL REFERENCES "user" ("id"),
     "address_id" INT NOT NULL REFERENCES "address" ("id"),

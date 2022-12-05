@@ -4,7 +4,7 @@ BEGIN;
 
 DROP TABLE "admin",
 "address",
-"live",
+"live_in",
 "user_review",
 "category",
 "shopping_cart_lign",
