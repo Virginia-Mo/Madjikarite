@@ -9,11 +9,12 @@ function Header() {
   return (
     <header className="header">
       <img src={logo} className="header__logo" alt="logo-madjikarite" />
-      <IconsHeader />
+    
       <div className="header__title-bar">
         <h1>Soins biologiques et équitables à base de karité</h1>
         <Search />
-      </div>
+      </div>  
+      <IconsHeader />
     </header>
   );
 }
