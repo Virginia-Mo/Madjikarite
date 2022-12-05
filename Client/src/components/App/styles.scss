@@ -1,0 +1,16 @@
+@use 'src/styles/vars' as v;
+
+.app {
+  width: 100%;
+}
+
+h1 {
+  font-family: v.$font-title;
+  font-size: v.$font-size-t;
+}
+
+p {
+  font-family: v.$font-paragraph;
+  font-size: v.$font-size-p;
+}
+

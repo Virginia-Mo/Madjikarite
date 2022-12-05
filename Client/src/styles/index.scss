@@ -1,0 +1,22 @@
+@use 'reset';
+@use 'vars';
+
+@font-face {
+  font-family: 'Abhaya-Bold';
+  src: url('../assets/fonts/AbhayaLibre-Bold.ttf')}
+@font-face {
+    font-family: 'Abhaya-SemiBold';
+    src: url('../assets/fonts/AbhayaLibre-SemiBold.ttf')}
+@font-face {
+      font-family: 'Glacial-Indifference';
+      src: url('../assets/fonts/GlacialIndifference-Regular.otf')}
+      
+body {
+  font-family: sans-serif;
+  font-size: 1.6rem;
+}
+
+html {
+  font-size: 10px;
+}
+ 
