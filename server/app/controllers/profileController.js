@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 const bcrypt = require('bcrypt');
-const profileDataMapper = require('../models/profile.js');
+const profileDataMapper = require('../dataMappers/profileDataMapper.js');
 
 const profileController = {
 

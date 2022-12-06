@@ -1,4 +1,4 @@
-const productDataMapper = require('../models/product.js');
+const productDataMapper = require('../dataMappers/productDataMapper.js');
 
 const productController = {
 

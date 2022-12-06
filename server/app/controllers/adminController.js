@@ -1,12 +1,12 @@
-const adminDataMapper = require('../models/admin');
+const adminDataMapper = require('../dataMappers/adminDataMapper');
 
 const adminController = {
 
     // Homepage back office
-    adminProductPage(req, res) {
+    async adminProductPage(req, res) {
         const id = parseInt(req.params.id);
-        const product = adminDataMapper.getAllProduct(id);
-        res.json({ page: 'page admin producer' });
+        const product = await adminDataMapper.getAllProduct(id);
+        res.json(product);
     },
 
     // create new product
@@ -43,7 +43,7 @@ const adminController = {
     viewListingOrder(req, res) {
         console.log('page adminOrderPage');
         res.json({ page: 'page adminOrderPage' });
-
+    },
 
     // view order page
     orderAdministration(req, res) {
