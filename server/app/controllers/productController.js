@@ -4,9 +4,9 @@ const productController = {
 
     // Show all the product of the selected category
     async getProductOfACategory(req, res) {
-        // console.log(req.params.id);
-        const products = await productDataMapper.getAllProductOfACategory(req.params.id);
-        // console.log(products);
+        // eslint-disable-next-line radix
+        const id = parseInt(req.params.id);
+        const products = await productDataMapper.getAllProductOfACategory(id);
         res.json(products);
     },
     // Show the page of a single product

@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 
 // on importe le router
 const router = require('./server/app/routers/mainRouter');
@@ -15,12 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 // Form URL encoded
 app.use(express.json()); // JSON
 
-// ejs
-// app.set('view engine', 'ejs');
-// app.set('views', `${__dirname}/app/views`);
-
-// servir les fichiers statiques qui sont dans "integration"
-// app.use(express.static('integration'));
+app.use(cors(process.env.CORS_DOMAINS ?? '*'));
 
 // routage !
 app.use(router);
