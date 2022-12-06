@@ -1,0 +1,42 @@
+@use 'sass:color';
+@use 'src/styles/vars';
+
+.field {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+  position: relative;
+  width: 100%;
+  $font-paragraph: 'Glacial-Indifference';
+}
+
+.login__field {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+  position: relative;
+  width: 100%;
+  display: contents;
+}
+
+.login__label {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  position: relative;
+}
+
+.login__button {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.login__input {
+  width: 40%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  $font-paragraph: 'Glacial-Indifference';
+  outline: none;
+}
