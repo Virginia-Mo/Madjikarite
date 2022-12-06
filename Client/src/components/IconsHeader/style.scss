@@ -1,0 +1,14 @@
+.header-icons {
+  font-size: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__basket, &__account {
+    margin-left: 2.5rem;
+    text-align: center;
+
+  }
+
+}
+

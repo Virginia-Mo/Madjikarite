@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IoSearch } from 'react-icons/io5';
 
 import data from 'src/Data/data';
+import noix from 'src/assets/imgs/noix.png';
 import { changeSearch, displaySearchRequest } from '../../actions/searchBar';
 
 import './style.scss';
@@ -32,9 +33,9 @@ function Search() {
   return (
     // je veux afficher la page SearchResults quand je submit la barre de recherche
     //  -> route /search renvoie vers Searchresults
-    <div>
-      <form action="" className="form-search-bar" onSubmit={handleSubmit}>
-        <IoSearch className="form__searchIcon" />
+    <div className="search">
+      <IoSearch className="search__icon" />
+      <form action="" className="search__form" onSubmit={handleSubmit}>
         <input
           className="form__input"
           type="text"
@@ -43,6 +44,7 @@ function Search() {
           onChange={handleChange}
         />
       </form>
+      <img src={noix} className="search__noix" alt="noix de karité" />
     </div>
   );
 }
