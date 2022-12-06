@@ -1,16 +1,14 @@
 // == Import
 import Header from 'src/components/Header';
-import SearchResults from 'src/components/SearchResults';
 
 import './styles.scss';
-
+import WelcomePage from '../WelcomePage';
 // == Composant
 function App() {
-
   return (
     <div className="app">
       <Header />
-      <SearchResults />
+      <WelcomePage />
     </div>
   );
 }

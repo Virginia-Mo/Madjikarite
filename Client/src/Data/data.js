@@ -21,7 +21,7 @@ export default {
         "Conditionnement": "poids 145-155g",
         "prix": 6,
         "stock": 7, 
-        "image": "https://madjikarite.com/produit/savon-karite-et-huile-de-moringa",
+        "image": "https://madjikarite.com/wp-content/uploads/savon-%C3%A0-l-huile-de-moringa-2-600x600.jpg",
       },
       {
         "id": 3,
@@ -59,6 +59,7 @@ export default {
       {
         "id": 6,
         "nom": "Fruit de la passion",
+        "categorie": "Savon liquide",
         "description_courte": "Savon naturel/artisanal/ hydratant, sur-gras, non desséchant, au beurre de karité bio",
         "description_complete": "Les ingrédients clés comprennent : le beurre de karité bio, huile de coco, l’huile d’olive, l’huile de tournesol, sans parfum",
         "Conditionnement": "500ml",
@@ -70,6 +71,7 @@ export default {
       {
         "id": 7,
         "nom": "Rose",
+        "categorie": "Savon liquide",
         "description_courte": "Savon naturel/artisanal/ hydratant, sur-gras, non desséchant, au beurre de karité bio",
         "description_complete": "Les ingrédients clés comprennent : le beurre de karité bio, huile de coco, l’huile d’olive, l’huile de tournesol, sans parfum",
         "Conditionnement": "500ml",
