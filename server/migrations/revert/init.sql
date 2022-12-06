@@ -2,7 +2,7 @@
 
 BEGIN;
 
-DROP TABLE "admin",
+DROP TABLE "role",
 "address",
 "live_in",
 "user_review",

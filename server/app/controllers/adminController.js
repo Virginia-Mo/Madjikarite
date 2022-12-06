@@ -41,16 +41,6 @@ const adminController = {
         res.json({ page: 'page adminOrderPage' });
     },
 
-    // modifier une commande
-    // updateOrder(req, res) {
-    //     console.log('page adminOrderPage');
-    //     res.json({ page: 'page adminOrderPage' });
-    // },
-
-    // deleteOrder(req, res) {
-    //     console.log('page adminOrderPage');
-    // }, suppression rapide via la page de listing des commandes.
-
     // view order page
     orderAdministration(req, res) {
         console.log('page adminOrderIdPage');

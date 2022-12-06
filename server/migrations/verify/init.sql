@@ -2,7 +2,7 @@
 
 BEGIN;
 
-SELECT * FROM "admin" WHERE false;
+SELECT * FROM "role" WHERE false;
 SELECT * FROM "address" WHERE false;
 SELECT * FROM "category" WHERE false;
 SELECT * FROM "user" WHERE false;

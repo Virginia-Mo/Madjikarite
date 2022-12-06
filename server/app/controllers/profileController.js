@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const bcrypt = require('bcrypt');
 const profileDataMapper = require('../models/profile.js');
 
@@ -8,12 +9,32 @@ const profileController = {
         res.json({ page: 'page login' });
     },
     // Verify the email and the encrypted password and allow or deni the connection
-    connection(req, res) {
-        res.json({ page: 'authentifiaction' });
+    // eslint-disable-next-line consistent-return
+    async connection(req, res) {
+        const { email, password } = req.body;
+
+        // We check if all the fields are filled
+        if (!email || !password) {
+            return res.status(400).json({ message: 'Tous les champs doivent être remplis' });
+        }
+        const user = await profileDataMapper.getOneUser(email);
+        if (!user) { return res.status(400).json({ message: 'Utilisateur inconnu' }); }
+        // We check if the password is correct
+        const result = await bcrypt.compare(password, user.password);
+        if (result) {
+            req.session.user = {
+                first_name: user.first_name,
+                role: user.role_id,
+            };
+            res.redirect('/');
+        } else {
+            res.status(400).json({ message: 'Mot de passe incorrect' });
+        }
     },
     // Delete the session to disconnect the user from his session
     logout(req, res) {
-        res.json({ page: 'déconnection' });
+        req.session.user = {};
+        res.redirect('/');
     },
     // Show the signup page
     signupPage(req, res) {
@@ -51,7 +72,7 @@ const profileController = {
         } else { // If all the fields are filled, we encrypt the password
             const encryptedPassword = await bcrypt.hash(password, 10);
             // We send all the data to the database
-            const profile = await profileDataMapper.createAnAccount({
+            await profileDataMapper.createAccount({
                 civility,
                 last_name,
                 first_name,
@@ -69,8 +90,39 @@ const profileController = {
         res.json({ page: 'page de profil' });
     },
     // Send the new data to the database
-    updateProfile(req, res) {
-        res.json({ page: 'mise à jour des informations du profil' });
+    async updateProfile(req, res) {
+        const user_id = req.session.user.id;
+        const newData = [];
+        newData.push(user_id);
+        const {
+            civility, last_name, first_name, email, phone_number, password,
+        } = req.body;
+        if (civility || last_name || first_name || email || phone_number) {
+            if (civility) {
+                newData.push(civility);
+            }
+            if (last_name) {
+                newData.push(last_name);
+            }
+            if (first_name) {
+                newData.push(first_name);
+            }
+            if (email) {
+                newData.push(email);
+            }
+            if (phone_number) {
+                newData.push(phone_number);
+            }
+            if (password) {
+                const encryptedPassword = await bcrypt.hash(password, 10);
+                newData.push(encryptedPassword);
+            }
+            await profileDataMapper.updateProfile(newData);
+        }
+    },
+    // Delete the account from the database
+    deleteProfile(req, res) {
+        res.json({ page: 'suppression du compte' });
     },
 };
 

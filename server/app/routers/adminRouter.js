@@ -23,9 +23,7 @@ router.route('/admin/product:id')
     .patch(adminController.updateProduct) // update product
     .delete(adminController.adminDeleteProduct); // delete product
 router.route('/admin/orders')
-    .get(adminController.viewListingOrder) // view order list
-    .patch(adminController.updateOrder) // update order
-    .delete(adminController.deleteOrder); // delete order
+    .get(adminController.viewListingOrder); // view order list
 router.route('/admin/order:id')
     .get(adminController.orderAdministration) // view order page
     .patch(adminController.updateOrder) // update order
