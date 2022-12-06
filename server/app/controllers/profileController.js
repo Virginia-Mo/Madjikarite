@@ -21,6 +21,7 @@ const profileController = {
         if (!user) { return res.status(400).json({ message: 'Utilisateur inconnu' }); }
         // We check if the password is correct
         const result = await bcrypt.compare(password, user.password);
+        // If the password is correct, we create a session
         if (result) {
             req.session.user = {
                 id: user.id,
@@ -96,13 +97,18 @@ const profileController = {
     },
     // Send the new data to the database
     async updateProfile(req, res) {
+        // TODO: supprimer la définition du req.session.user_id
         req.session.user_id = 2;
         const { user_id } = req.session;
         console.log(user_id);
+        // We get all the old data from the database
         const oldData = await profileDataMapper.getOneUser(user_id);
         const newData = [];
         newData.push(user_id);
         const { password } = req.body;
+        // We loop through the new data to check if the user has changed something
+        // If he has changed something, we add the new data to the newData array
+        // Else, we add the old data to the newData array
         // eslint-disable-next-line no-restricted-syntax, guard-for-in
         for (const key in req.body) {
             console.log(key);
@@ -117,7 +123,9 @@ const profileController = {
             newData.splice(6, 1, encryptedPassword);
         }
         console.log(newData);
+        // We send the new data to the database
         await profileDataMapper.updateProfile(newData);
+        // We update the session
         req.session.user = {
             id: user_id,
             first_name: newData[2],
@@ -126,8 +134,12 @@ const profileController = {
         res.json({ message: 'Votre profil a bien été mis à jour' });
     },
     // Delete the account from the database
-    deleteProfile(req, res) {
-        res.json({ page: 'suppression du compte' });
+    async deleteProfile(req, res) {
+        req.session.user = {
+            id: 2,
+        };
+        await profileDataMapper.deleteProfile(req.session.user.id);
+        res.json({ message: 'Votre compte à bien été supprimé' });
     },
 };
 

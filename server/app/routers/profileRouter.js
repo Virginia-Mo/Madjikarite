@@ -20,6 +20,7 @@ router.route('/signup')
     .post(profileController.createAccount);
 router.route('/profile')
     .get(profileController.profilePage)
-    .post(profileController.updateProfile);
+    .post(profileController.updateProfile)
+    .delete(profileController.deleteProfile);
 
 module.exports = router;

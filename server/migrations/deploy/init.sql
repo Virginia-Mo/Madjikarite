@@ -65,7 +65,7 @@ CREATE TABLE "user_review" (
     "note" INT NOT NULL,
     "content" TEXT,
     "product_id" INT NOT NULL REFERENCES "product" ("id"),
-    "user_id" INT NOT NULL REFERENCES "user" ("id"),
+    "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
