@@ -4,7 +4,7 @@ const adminController = {
 
     // Homepage back office
     async adminProductPage(req, res) {
-        const id = parseInt(req.params.id);
+        const id = parseInt(req.params.id, 10);
         const product = await adminDataMapper.getAllProduct(id);
         res.json(product);
     },

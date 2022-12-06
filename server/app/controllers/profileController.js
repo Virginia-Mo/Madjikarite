@@ -23,6 +23,7 @@ const profileController = {
         const result = await bcrypt.compare(password, user.password);
         if (result) {
             req.session.user = {
+                id: user.id,
                 first_name: user.first_name,
                 role: user.role_id,
             };
@@ -72,7 +73,7 @@ const profileController = {
         } else { // If all the fields are filled, we encrypt the password
             const encryptedPassword = await bcrypt.hash(password, 10);
             // We send all the data to the database
-            await profileDataMapper.createAccount({
+            const user = await profileDataMapper.createAccount({
                 civility,
                 last_name,
                 first_name,
@@ -81,7 +82,11 @@ const profileController = {
                 encryptedPassword,
             });
             // We create a session for the user
-            req.session.profile = first_name;
+            req.session.user = {
+                id: user.id,
+                first_name: user.first_name,
+                role: user.role_id,
+            };
             res.json({ message: 'Votre compte a bien été créé' });
         }
     },
@@ -91,34 +96,34 @@ const profileController = {
     },
     // Send the new data to the database
     async updateProfile(req, res) {
-        const user_id = req.session.user.id;
+        req.session.user_id = 2;
+        const { user_id } = req.session;
+        console.log(user_id);
+        const oldData = await profileDataMapper.getOneUser(user_id);
         const newData = [];
         newData.push(user_id);
-        const {
-            civility, last_name, first_name, email, phone_number, password,
-        } = req.body;
-        if (civility || last_name || first_name || email || phone_number) {
-            if (civility) {
-                newData.push(civility);
+        const { password } = req.body;
+        // eslint-disable-next-line no-restricted-syntax, guard-for-in
+        for (const key in req.body) {
+            console.log(key);
+            if (req.body[key] === '') {
+                newData.push(oldData[key]);
+            } else {
+                newData.push(req.body[key]);
             }
-            if (last_name) {
-                newData.push(last_name);
-            }
-            if (first_name) {
-                newData.push(first_name);
-            }
-            if (email) {
-                newData.push(email);
-            }
-            if (phone_number) {
-                newData.push(phone_number);
-            }
-            if (password) {
-                const encryptedPassword = await bcrypt.hash(password, 10);
-                newData.push(encryptedPassword);
-            }
-            await profileDataMapper.updateProfile(newData);
         }
+        if (password) {
+            const encryptedPassword = await bcrypt.hash(password, 10);
+            newData.splice(6, 1, encryptedPassword);
+        }
+        console.log(newData);
+        await profileDataMapper.updateProfile(newData);
+        req.session.user = {
+            id: user_id,
+            first_name: newData[2],
+        };
+        console.log(req.session.user);
+        res.json({ message: 'Votre profil a bien été mis à jour' });
     },
     // Delete the account from the database
     deleteProfile(req, res) {
