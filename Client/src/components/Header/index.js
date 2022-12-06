@@ -1,4 +1,5 @@
 //= = Import composants
+
 import logo from 'src/assets/imgs/logo-header.png';
 import Search from '../Search';
 import IconsHeader from '../IconsHeader';
@@ -16,7 +17,6 @@ function Header() {
         <Search />
       </div>
       <IconsHeader />
-      
     </header>
   );
 }
