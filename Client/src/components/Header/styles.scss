@@ -3,4 +3,28 @@
 .header {
   background-color:v.$color-green ;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  box-shadow: 0px 3px 4px 3px rgba(111, 112, 111, 0.537);
+
+  &__title-bar {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+
+    h1 {
+      font-size: 3rem;
+      color: rgb(0, 0, 0);
+      text-shadow: 1px -1px 0 #76767682;
+      font-family: v.$font-title;
+      //font-weight: 600;       
+    }
+
+  }
 }

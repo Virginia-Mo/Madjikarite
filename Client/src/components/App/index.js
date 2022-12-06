@@ -1,6 +1,8 @@
 // == Import
 import Header from 'src/components/Header';
-import SearchResults from 'src/components/SearchResults';
+import NavBar from '../NavBar';
+import Footer from '../Footer';
+// import SearchResults from 'src/components/SearchResults';
 
 import './styles.scss';
 
@@ -9,7 +11,8 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <SearchResults />
+      <NavBar />
+      <Footer />
     </div>
   );
 }
