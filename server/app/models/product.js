@@ -6,6 +6,10 @@ const productDataMapper = {
         const result = await client.query('SELECT * FROM product WHERE category_id = $1', [id]);
         return result.rows;
     },
+    async getOneProduct(id) {
+        const result = await client.query('SELECT * FROM product WHERE id = $1', [id]);
+        return result.rows[0];
+    },
 };
 
 module.exports = productDataMapper;

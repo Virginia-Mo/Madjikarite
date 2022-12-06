@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development npx nodemon"
+    "dev": "NODE_ENV=development npx nodemon",
+    "resetDB": "sqitch revert -y; sqitch deploy; psql -U spedata -d madjikarite -f /var/www/html/madjikarite/projet-08-madjikarite/server/data/seeding.sql"
   },
   "repository": {
     "type": "git",

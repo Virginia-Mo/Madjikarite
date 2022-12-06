@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
-const cors = require('cors');
+const session = require('express-session');
 
 // on importe le router
 const router = require('./server/app/routers/mainRouter');
@@ -16,7 +16,11 @@ app.use(express.urlencoded({ extended: true }));
 // Form URL encoded
 app.use(express.json()); // JSON
 
-app.use(cors(process.env.CORS_DOMAINS ?? '*'));
+app.use(session({
+    saveUninitialized: true,
+    resave: true,
+    secret: process.env.SESSION_SECRET,
+}));
 
 // routage !
 app.use(router);

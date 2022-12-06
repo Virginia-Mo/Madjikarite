@@ -10,8 +10,11 @@ const productController = {
         res.json(products);
     },
     // Show the page of a single product
-    getOneProduct(req, res) {
-        res.json({ page: "page d'un produit" });
+    async getOneProduct(req, res) {
+        // eslint-disable-next-line radix
+        const id = parseInt(req.params.id);
+        const product = await productDataMapper.getOneProduct(id);
+        res.json(product);
     },
 };
 
