@@ -1,8 +1,10 @@
+// Login page
 import { useDispatch, useSelector } from 'react-redux';
 
 import { login } from 'src/actions/user';
 import Field from './Field';
 
+import logo from '../../assets/imgs/logo-header.png';
 import './style.scss';
 
 function LoginForm() {
@@ -15,17 +17,22 @@ function LoginForm() {
   };
 
   return (
-    <form className="login" onSubmit={handleSubmit}>
+    <div className="login">
+
+    <img src={logo} alt="logo" className="login__logo" />
+
+    <form className="login__form" onSubmit={handleSubmit}>
+    
+    <h1 className="login__title">Bienvenue chez Madjikarité</h1>
+    
       <Field
         name="email"
         placeholder="Email"
-        type="email"
-      />
+        type="email" />
       <Field
         name="password"
         placeholder="Mot de passe"
-        type="password"
-      />
+        type="password" />
 
       <button
         type="submit"
@@ -34,6 +41,7 @@ function LoginForm() {
         {loading ? 'Chargement...' : 'Connexion'}
       </button>
     </form>
+    </div>
   );
 }
 
