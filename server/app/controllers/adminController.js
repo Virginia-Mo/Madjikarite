@@ -10,18 +10,19 @@ const adminController = {
     },
 
     // create new product
-    createNewProduct(req, res) {
-        async function createNewProduct() {
+    async createNewProduct(req, res) {
         const product = await adminDataMapper.createNewProduct(req.body);
         console.log('Je passe dans create new product');
         res.json({ page: 'page adminNewProduct Page' });
-    }
+    },
 
     // validate new produit
     validateFormNewProduct(req, res) {
+        //        async function validateFormNewProduct() {
+        //        const product = await adminDataMapper.validateFormNewProduct(req.body);
         console.log('Le formulaire admin à été validé ');
         res.json({ page: 'Le formulaire admin à été validé' });
-    }
+    },
 
     // Page d’un produit pouvant être modifié
     productAdministration(req, res) {
