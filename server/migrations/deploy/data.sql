@@ -4,14 +4,14 @@ BEGIN;
 
 INSERT INTO "category" ("name")
 VALUES
-('savons artisanaux sur-gras'),
-('savons ronds'),
-('savons liquides'),
-('beurres corporels'),
-('beurres à lèvres'),
-('beurres de karité pur non raffinés'),
-('coffrets cadeaux'),
-('cartes cadeaux'); 
+('savons artisanaux sur-gras'), -- id 1
+('savons ronds'), -- id 2
+('savons liquides'), -- id 3
+('beurres corporels'), -- id 4
+('beurres à lèvres'), -- id 5
+('beurres de karité pur non raffinés'), -- id 6
+('coffrets cadeaux'), -- id 7
+('cartes cadeaux'); -- id 8
 
 INSERT INTO "product" ("name", "short_description", "full_description", "ingredients", "packaging", "price", "stock", "category_id")
 VALUES

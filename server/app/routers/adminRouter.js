@@ -15,7 +15,7 @@ const adminController = require('../controllers/adminController');
 const router = new Router();
 
 router.get('/admin/product', adminController.adminProductPage); // home page admin
-router.route('/admin/newProduct')
+router.route('/admin/newproduct')
     .get(adminController.createNewProduct) // create new product
     .post(adminController.validateFormNewProduct); // validate new product
 router.route('/admin/product:id')
