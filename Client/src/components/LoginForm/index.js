@@ -6,6 +6,9 @@ import Field from './Field';
 
 import logo from '../../assets/imgs/logo-header.png';
 import './style.scss';
+import Header from '../Header';
+import NavBar from '../NavBar';
+import Footer from '../Footer';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -17,31 +20,36 @@ function LoginForm() {
   };
 
   return (
+    <>
+    <Header />
+    <NavBar />
     <div className="login">
 
-    <img src={logo} alt="logo" className="login__logo" />
+      <img src={logo} alt="logo" className="login__logo" />
 
-    <form className="login__form" onSubmit={handleSubmit}>
-    
-    <h1 className="login__title">Bienvenue chez Madjikarité</h1>
-    
-      <Field
-        name="email"
-        placeholder="Email"
-        type="email" />
-      <Field
-        name="password"
-        placeholder="Mot de passe"
-        type="password" />
+      <form className="login__form" onSubmit={handleSubmit}>
 
-      <button
-        type="submit"
-        className="login__button"
-      >
-        {loading ? 'Chargement...' : 'Connexion'}
-      </button>
-    </form>
+        <h1 className="login__title">Bienvenue chez Madjikarité</h1>
+
+        <Field
+          name="email"
+          placeholder="Email"
+          type="email" />
+        <Field
+          name="password"
+          placeholder="Mot de passe"
+          type="password" />
+
+        <button
+          type="submit"
+          className="login__button"
+        >
+          {loading ? 'Chargement...' : 'Connexion'}
+        </button>
+      </form>
     </div>
+    <Footer />
+    </>
   );
 }
 
