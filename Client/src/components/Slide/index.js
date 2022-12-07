@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import './style.scss';
 import { MdOutlineNavigateNext, MdNavigateBefore } from 'react-icons/md';
 import { React } from 'react';
 // Import Swiper React components
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper';
 
 import getRandomSlideItem from '../../selectors/RandomSlide';
+import './style.scss';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';

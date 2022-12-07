@@ -26,15 +26,12 @@
   &__article {
     display: flex;
     justify-content: space-between;
-    border: solid 0.5px v.$color-beige;
     border-radius: 0.5rem;
   }
   &__article:hover{
     background-color: rgba(239, 238, 238, 0.648);
   }
-  &__img:hover {
-    opacity: 0.8;
-  }
+
   &__imgDiv {
     width: 50%;
   }

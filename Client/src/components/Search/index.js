@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import {useNavigate} from 'react-router-dom';
 import { IoSearch } from 'react-icons/io5';
 
 import data from 'src/Data/data';
@@ -9,6 +10,7 @@ import './style.scss';
 
 function Search() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // I get the value of the search bar
   const search = useSelector((state) => state.searchBar.search);
@@ -28,6 +30,7 @@ function Search() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(displaySearchRequest(filteredProducts));
+    navigate('/search');
   };
 
   return (

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { IoBasketOutline, IoBasketSharp } from 'react-icons/io5';
 import { RiAccountCircleFill, RiAccountCircleLine } from 'react-icons/ri';
 import './style.scss';
