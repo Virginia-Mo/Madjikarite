@@ -6,14 +6,16 @@ function IconsHeader() {
   return (
     <div className="header-icons">
 
-      <div className="header-icons__basket"><IoBasketOutline />
+      <div className="header-icons__container-basket">
+        <IoBasketOutline className="header-icons__basket"/>
         <p>Mon panier</p>
       </div>
-      {/* <div className='header-icons__icon'><IoBasketSharp /> </div>  */}
-      <div className="header-icons__account"><RiAccountCircleLine />
+      {/* <div><IoBasketSharp /> </div>  */}
+      <div className="header-icons__container-account">
+        <RiAccountCircleLine className="header-icons__account"/>
         <p>Se connecter</p>
       </div>
-      {/* <div className='header-icons__icon'><RiAccountCircleFill /></div> */}
+      {/* <div><RiAccountCircleFill /></div> */}
     </div>
   );
 }
