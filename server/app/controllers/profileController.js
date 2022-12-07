@@ -100,7 +100,6 @@ const profileController = {
         // TODO: supprimer la définition du req.session.user_id
         req.session.user_id = 2;
         const { user_id } = req.session;
-        console.log(user_id);
         // We get all the old data from the database
         const oldData = await profileDataMapper.getOneUser(user_id);
         const newData = [];
@@ -111,7 +110,6 @@ const profileController = {
         // Else, we add the old data to the newData array
         // eslint-disable-next-line no-restricted-syntax, guard-for-in
         for (const key in req.body) {
-            console.log(key);
             if (req.body[key] === '') {
                 newData.push(oldData[key]);
             } else {
@@ -122,7 +120,6 @@ const profileController = {
             const encryptedPassword = await bcrypt.hash(password, 10);
             newData.splice(6, 1, encryptedPassword);
         }
-        console.log(newData);
         // We send the new data to the database
         await profileDataMapper.updateProfile(newData);
         // We update the session
@@ -130,13 +127,13 @@ const profileController = {
             id: user_id,
             first_name: newData[2],
         };
-        console.log(req.session.user);
         res.json({ message: 'Votre profil a bien été mis à jour' });
     },
     // Delete the account from the database
     async deleteProfile(req, res) {
+        // TODO: supprimer la définition du req.session.user_id
         req.session.user = {
-            id: 2,
+            id: 4,
         };
         await profileDataMapper.deleteProfile(req.session.user.id);
         res.json({ message: 'Votre compte à bien été supprimé' });

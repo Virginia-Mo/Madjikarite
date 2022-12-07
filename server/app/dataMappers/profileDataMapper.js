@@ -18,7 +18,6 @@ const profileDataMapper = {
     },
     // Delete a profile from the database
     async deleteProfile(id) {
-        // TODO: modifier pour que la suppression dans la table user_review soit faite en cascade
         const result = await client.query('DELETE FROM "user" WHERE id = $1', [id]);
         return result.rows[0];
     },

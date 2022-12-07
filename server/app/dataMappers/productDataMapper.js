@@ -11,6 +11,10 @@ const productDataMapper = {
         const result = await client.query('SELECT * FROM product WHERE id = $1', [id]);
         return result.rows[0];
     },
+    async getAllProduct() {
+        const result = await client.query('SELECT * FROM product');
+        return result.rows;
+    },
 };
 
 module.exports = productDataMapper;

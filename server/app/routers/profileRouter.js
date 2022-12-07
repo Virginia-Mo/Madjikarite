@@ -8,11 +8,12 @@ This router take care of all the authentication route and the profile one :
 
 const { Router } = require('express');
 const profileController = require('../controllers/profileController');
+const controllerwrapper = require('../helpers/controllerWrapper');
 
 const router = new Router();
 
 router.route('/login')
-    .get(profileController.loginPage)
+    .get(controllerwrapper(profileController.loginPage))
     .post(profileController.connection);
 router.get('/logout', profileController.logout);
 router.route('/signup')

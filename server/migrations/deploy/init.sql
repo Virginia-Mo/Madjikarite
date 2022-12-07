@@ -55,7 +55,7 @@ CREATE TABLE "product" (
     "packaging" TEXT NOT NULL,
     "price" NUMERIC NOT NULL,
     "stock" INT DEFAULT 0,
-    "category_id" INT NOT NULL REFERENCES "category" ("id"),
+    "category_id" INT NOT NULL REFERENCES "category" ("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
@@ -64,7 +64,7 @@ CREATE TABLE "user_review" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "note" INT NOT NULL,
     "content" TEXT,
-    "product_id" INT NOT NULL REFERENCES "product" ("id"),
+    "product_id" INT NOT NULL REFERENCES "product" ("id") ON DELETE CASCADE,
     "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
@@ -75,15 +75,15 @@ CREATE TABLE "shopping_cart" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "total_price" NUMERIC NOT NULL,
     "message" TEXT NOT NULL,
-    "user_id" INT NOT NULL REFERENCES "user" ("id"),
+    "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
 
 CREATE TABLE "live_in" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "user_id" INT NOT NULL REFERENCES "user" ("id"),
-    "address_id" INT NOT NULL REFERENCES "address" ("id"),
+    "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE,
+    "address_id" INT NOT NULL REFERENCES "address" ("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ 
 );
@@ -92,12 +92,12 @@ CREATE TABLE "live_in" (
 CREATE TABLE "shopping_cart_lign" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "quantity" INT NOT NULL,
-    "shopping_cart_id" INT NOT NULL REFERENCES "shopping_cart" ("id"),
-    "product_id" INT NOT NULL REFERENCES "product" ("id"),
+    "shopping_cart_id" INT NOT NULL REFERENCES "shopping_cart" ("id") ON DELETE CASCADE,
+    "product_id" INT NOT NULL REFERENCES "product" ("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
 
-ALTER TABLE "user" ADD COLUMN "shopping_cart_id" INT REFERENCES "shopping_cart" ("id");
+ALTER TABLE "user" ADD COLUMN "shopping_cart_id" INT REFERENCES "shopping_cart" ("id") ON DELETE CASCADE;
 
 COMMIT;
