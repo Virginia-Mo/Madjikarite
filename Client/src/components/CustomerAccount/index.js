@@ -36,17 +36,21 @@ function CustomerAccount() {
   return (
     <div className="customerAccount">
 
-      <h1 className="customerAccount__title">Création de compte</h1>
+    <form className="customerAccount__form" onSubmit={handleSubmit}>
 
-      <form className="customerAccount__form" onSubmit={handleSubmit}>
+    <h1 className="customerAccount__title">Création de compte</h1>
 
-      <div>
+    <div className="box__container">
+
+    <div className="box__container--left">
+    
+    <div className="civility">
         <input  type="checkbox" name="civilité"  />
         <label for="civilité">M.</label>
         <input  type="checkbox" name="civilité"  />
         <label for="civilité">Mme</label>
-      </div>
-        
+    </div>
+    
         <Field
           name="Prénom"
           type="text"
@@ -67,6 +71,9 @@ function CustomerAccount() {
           type="password"
           placeholder="Confirmation du mot de passe"
         />  
+      </div>
+
+      <div className="box__container--right">
         <Field
           name="Email"
           type="email"
@@ -92,8 +99,10 @@ function CustomerAccount() {
           type="text "
           placeholder="Téléphone"
         />  
+      </div>
+    </div>
         <button
-          className="customerAccount__form__button"
+          className="customerAccount__button"
           type="submit"
           disabled={loading}
         >

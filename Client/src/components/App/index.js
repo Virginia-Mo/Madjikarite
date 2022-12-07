@@ -5,6 +5,7 @@ import Footer from '../Footer';
 // import SearchResults from 'src/components/SearchResults';
 import SearchResults from 'src/components/SearchResults';
 import CustomerAccount from 'src/components/CustomerAccount';
+import LoginForm from 'src/components/LoginForm';
 
 import './styles.scss';
 import WelcomePage from '../WelcomePage';
@@ -18,6 +19,7 @@ function App() {
       <Footer />
       <SearchResults />
       <CustomerAccount />
+      <LoginForm />
     </div>
   );
 }
