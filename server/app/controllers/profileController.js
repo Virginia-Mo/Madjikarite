@@ -162,6 +162,13 @@ const profileController = {
         });
         res.json(address);
     },
+    async getOneAddress(req, res) {
+        // TODO: supprimer la définition du req.params.id
+        req.params.id = 1;
+        const { id } = req.params;
+        const address = await profileDataMapper.getOneAddress(id);
+        res.json(address);
+    },
 };
 
 module.exports = profileController;
