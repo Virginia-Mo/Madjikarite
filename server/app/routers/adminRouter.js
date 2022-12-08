@@ -11,23 +11,24 @@ admin logout
 
 const { Router } = require('express');
 const adminController = require('../controllers/adminController');
+const controllerWrapper = require('../helpers/controllerWrapper');
 
 const router = new Router();
 
-router.get('/admin/product', adminController.adminProductPage); // home page admin
+router.get('/admin/product', controllerWrapper(adminController.adminProductPage)); // home page admin
 router.route('/admin/newproduct')
-    .get(adminController.createNewProduct) // create new product
-    .post(adminController.validateFormNewProduct); // validate new product
+    .get(controllerWrapper(adminController.createNewProduct)) // create new product
+    .post(controllerWrapper(adminController.validateFormNewProduct)); // validate new product
 router.route('/admin/product:id')
-    .get(adminController.productAdministration) // view product page
-    .patch(adminController.updateProduct) // update product
-    .delete(adminController.adminDeleteProduct); // delete product
+    .get(controllerWrapper(adminController.productAdministration)) // view product page
+    .patch(controllerWrapper(adminController.updateProduct)) // update product
+    .delete(controllerWrapper(adminController.adminDeleteProduct)); // delete product
 router.route('/admin/orders')
-    .get(adminController.viewListingOrder); // view order list
+    .get(controllerWrapper(adminController.viewListingOrder)); // view order list
 router.route('/admin/order:id')
-    .get(adminController.orderAdministration) // view order page
-    .patch(adminController.updateOrder) // update order
-    .delete(adminController.deleteOrder); // delete order
-router.get('/admin/logOut', adminController.adminlogOut); // log out
+    .get(controllerWrapper(adminController.orderAdministration)) // view order page
+    .patch(controllerWrapper(adminController.updateOrder)) // update order
+    .delete(controllerWrapper(adminController.deleteOrder)); // delete order
+router.get('/admin/logOut', controllerWrapper(adminController.adminlogOut)); // log out
 
 module.exports = router;

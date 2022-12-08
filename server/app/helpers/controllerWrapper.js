@@ -1,8 +1,8 @@
-const controllerwrapper = (controller) => async (req, res, next) => {
+const controllerwrapper = (controller) => async (req, res) => {
     try {
-        await controller(req, res, next);
+        await controller(req, res);
     } catch (error) {
-        next(error);
+        res.status(error.status || 500).json({ error: error.message });
     }
 };
 

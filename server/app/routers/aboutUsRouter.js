@@ -8,12 +8,13 @@ benefits
 
 const { Router } = require('express');
 const aboutUsController = require('../controllers/aboutUsController');
+const controllerWrapper = require('../helpers/controllerWrapper');
 
 const router = new Router();
 
-router.get('/about-us/madjikarite', aboutUsController.madjikaritePage);
-router.get('/about-us/producer', aboutUsController.producerPage);
-router.get('/about-us/production', aboutUsController.productionPage);
-router.get('/about-us/benefits', aboutUsController.benefitsPage);
+router.get('/about-us/madjikarite', controllerWrapper(aboutUsController.madjikaritePage));
+router.get('/about-us/producer', controllerWrapper(aboutUsController.producerPage));
+router.get('/about-us/production', controllerWrapper(aboutUsController.productionPage));
+router.get('/about-us/benefits', controllerWrapper(aboutUsController.benefitsPage));
 
 module.exports = router;

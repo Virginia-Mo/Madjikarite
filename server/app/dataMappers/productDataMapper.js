@@ -11,6 +11,7 @@ const productDataMapper = {
         const result = await client.query('SELECT * FROM product WHERE id = $1', [id]);
         return result.rows[0];
     },
+    // Get all the product
     async getAllProduct() {
         const result = await client.query('SELECT * FROM product');
         return result.rows;

@@ -6,11 +6,12 @@ This router take care of all the product related route :
 
 const { Router } = require('express');
 const productController = require('../controllers/productController');
+const controllerWrapper = require('../helpers/controllerWrapper');
 
 const router = new Router();
 
-router.get('/products', productController.getAllProducts);
-router.get('/product:id', productController.getOneProduct);
-router.get('/category:id/products', productController.getProductOfACategory);
+router.get('/products', controllerWrapper(productController.getAllProducts));
+router.get('/product:id', controllerWrapper(productController.getOneProduct));
+router.get('/category:id/products', controllerWrapper(productController.getProductOfACategory));
 
 module.exports = router;

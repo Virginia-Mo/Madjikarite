@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 const bcrypt = require('bcrypt');
 const profileDataMapper = require('../dataMappers/profileDataMapper.js');
+const UserInputError = require('../helpers/userInputError.js');
 
 const profileController = {
 
@@ -30,7 +31,7 @@ const profileController = {
             };
             res.redirect('/');
         } else {
-            res.status(400).json({ message: 'Mot de passe incorrect' });
+            throw new UserInputError('Mot de passe incorrect');
         }
     },
     // Delete the session to disconnect the user from his session
@@ -70,7 +71,7 @@ const profileController = {
         }
 
         if (bodyErrors.length) {
-            res.status(400).json({ errors: bodyErrors });
+            throw new UserInputError('Tous les champs doivent être remplis', bodyErrors);
         } else { // If all the fields are filled, we encrypt the password
             const encryptedPassword = await bcrypt.hash(password, 10);
             // We send all the data to the database

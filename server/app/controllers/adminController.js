@@ -12,8 +12,7 @@ const adminController = {
     // create new product
     async createNewProduct(req, res) {
         const product = await adminDataMapper.createNewProduct(req.body);
-        console.log('Je passe dans create new product');
-        res.json({ page: 'page adminNewProduct Page' });
+        res.json(product);
     },
 
     // validate new produit
