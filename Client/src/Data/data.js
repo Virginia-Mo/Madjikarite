@@ -6,11 +6,13 @@ export default {
         "nom": "Savon lavande", 
         "categorie": "Savon sur-gras", 
         "description_courte": "Savon naturel/Artisanal/ hydratant fait main au beurre de karité bio, sur-gras, non desséchant,crémeux avec une mousse riche.Fabriqué à partir d’ingrédients naturels/biologiques et des vrais bourgeons de lavande",
-        "description complète": "Les ingrédients clés comprennent : lavande, le beurre de karité bio, l’huile de coco,l’huile d’olive, l’huile de tournesol",
+        "description_complete": "Les ingrédients clés comprennent : lavande, le beurre de karité bio, l’huile de coco,l’huile d’olive, l’huile de tournesol",
         "Conditionnement": "poids 145-155g",
         "prix": 6,
         "stock": 5,
-        "image": "https://madjikarite.com/wp-content/uploads/lavande-1-768x775.jpg",
+        "image": ["https://madjikarite.com/wp-content/uploads/lavande-1-768x775.jpg",
+        "https://madjikarite.com/wp-content/uploads/SAVON-LAVANDE-600x600.jpg",
+        "https://madjikarite.com/wp-content/uploads/SAVON-MADJIKARITE-A-600x600.jpg"]
       },
       {
         "id": 2,

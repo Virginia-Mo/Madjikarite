@@ -49,13 +49,14 @@ function Slide() {
         slidesPerView={3}
         grabCursor
         modules={[Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper0"
 
       >
         {/* For each element of the suffled array, I create a slide */}
         {shuffledArray.map((shuffledProduct) => (
           <SwiperSlide
             key={shuffledProduct.id}
+            className="swiper-slide"
           >
             <SlideItem
               {...shuffledProduct}

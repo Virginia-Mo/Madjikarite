@@ -11,6 +11,7 @@ import LoginForm from 'src/components/LoginForm';
 import WelcomePage from '../WelcomePage';
 
 import './styles.scss';
+import SingleProduct from '../SingleProduct';
 // == Composant
 function App() {
   return (
@@ -30,15 +31,21 @@ function App() {
 
         <Route
         path='/loginForm'
-        element={<LoginForm/>} 
-
+        element={<LoginForm />} 
         />
 
         <Route
           path="*"
           element={<Error />}
         />
+
+        <Route
+          path="/category/product"
+          element={<SingleProduct />}
+        />
+
       </Routes>
+
     </div>
   );
 }

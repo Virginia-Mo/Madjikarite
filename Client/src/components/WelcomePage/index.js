@@ -27,7 +27,7 @@ function WelcomePage() {
     <NavBar />
     <main className="welcomePage">
 
-      <h1 className="welcomePage__h1">Nos Produits</h1>
+      <h1 className="mainTitle__h1">Nos Produits</h1>
       {/* Insert the Slide components */}
       <Slide />
       <hr className="hr" />
