@@ -4,7 +4,7 @@ import { FaSquareFull, FaShoppingCart } from "react-icons/fa";
 
 import { handleDescription, handleComposition }from '../../actions/products';
 import { changeInputValue } from 'src/actions/user';
-import { addItemToCart, addAnimation } from '../../actions/cart';
+import { addItemToCart} from '../../actions/cart';
 import ProductSlide from './ProductSlide'
 import Slide from '../Slide';
 import data from "src/Data/data"
@@ -12,13 +12,15 @@ import './style.scss';
 import './styleButton.scss'
 
 function SingleProduct() {
+  // Creating refs to add an animation on submit
   const buttonAnimation = useRef();
   const addToCart = useRef();
+
   const dispatch = useDispatch()
   const product = data.test
   const activeDescription = useSelector((state) => state.products.activeDescription)
   const activeComposition = useSelector((state) => state.products.activeComposition)
- 
+
 // Getting the value for the number input
   const value = useSelector((state) => state.user[name]);
 
@@ -40,7 +42,9 @@ function SingleProduct() {
 //  Submit desired product and quantity 
   const submitItem = (event) => {
     event.preventDefault()
+    // adding the animation through a css class
     buttonAnimation.current.classList.add("clicked")
+    // getting back to the "add a product" text after the animation
     setTimeout(function() {
       buttonAnimation.current.classList.remove("clicked");
       addToCart.current.classList.add("unclicked")
@@ -80,6 +84,7 @@ function SingleProduct() {
             placeholder='1'
             className="singleProduct__input--number"
             value={value}
+            defaultValue="1"
             onChange={handleChange}
       />
           <button type='submit' className="cart-button" ref={buttonAnimation}> 
@@ -101,7 +106,7 @@ function SingleProduct() {
            className={activeComposition ? "singleProduct__h2_description singleProduct__h2--active" : "singleProduct__h2_description"} 
            onClick={handleActiveComposition}>Composition</button>
       </div>
-           {/* Show description if activeDescription is true */}
+  {/* Show description if activeDescription is true */}
            <div className="singleProduct__articlesDiv">
       { activeDescription && 
       <article className="singleProduct__description"> 

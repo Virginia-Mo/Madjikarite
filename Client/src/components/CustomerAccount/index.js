@@ -38,8 +38,6 @@ function CustomerAccount() {
 
   return (
     <>
-    <Header />
-    <NavBar />
     <div className="customerAccount">
 
     <form className="customerAccount__form" onSubmit={handleSubmit}>
@@ -109,7 +107,6 @@ function CustomerAccount() {
         </button>
       </form>
     </div>
-    <Footer />
     </>
   );
 }

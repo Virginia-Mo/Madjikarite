@@ -6,7 +6,7 @@
   flex-direction: row;
   width: 70%;
   height: auto;
-  margin: 0 auto;
+  margin: 10rem auto 5rem;
   gap: 1rem;
   border: 2px solid #ccc;
   border-radius: 0.5rem;
@@ -48,7 +48,12 @@
     margin: 0 auto;
     padding: 1rem;
   }
-
+  &__signUp {
+margin: 1rem 0 4rem;
+}
+  &__signUp:hover {
+ text-decoration: underline;
+  }
 
 }
 .login__img {

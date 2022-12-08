@@ -1,11 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -22,8 +23,12 @@ function ProductSlide({product}) {
   const { image, nom } = product
   const imageArray = image
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+},);
   return (
-    <div className="singleProduct__div">
+    <div className="singleProduct__div" >
     <Swiper
       style={{
         "--swiper-navigation-color": "#fff",
@@ -71,11 +76,11 @@ function ProductSlide({product}) {
 );
     };
 
-// ProductSlide.propTypes = {
-//   nom: PropTypes.string.isRequired,
-//   image : PropTypes.arrayOf(
-//       PropTypes.string
-//   ).isRequired
+ProductSlide.propTypes = {
+  nom: PropTypes.string.isRequired,
+  image : PropTypes.arrayOf(
+      PropTypes.string
+  ).isRequired
   
-// }
+}
 export default ProductSlide
