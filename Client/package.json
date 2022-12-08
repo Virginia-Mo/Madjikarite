@@ -48,6 +48,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "axios": "^1.2.1",
     "@emailjs/browser": "^3.10.0",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",

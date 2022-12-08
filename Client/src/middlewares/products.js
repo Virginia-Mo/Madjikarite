@@ -1,18 +1,19 @@
 import axios from 'axios';
-// import { RECIPES_FETCH, saveRecipes } from '../actions/recipes';
+// import products from "src/Data/data"
+import { PRODUCT_BY_CATEGORY, saveProductByCategory } from '../actions/products';
 
-const API_BASE_URL = 'https://madjikarite.onrender.com/category4/product';
+const API_BASE_URL = 'https://madjikarite.onrender.com';
 
-const recipesAPI = (store) => (next) => (action) => {
+const productsAPI = (store) => (next) => (action) => {
   switch (action.type) {
-    case RECIPES_FETCH:
+    case PRODUCT_BY_CATEGORY:
       axios
-        .get(`${API_BASE_URL}`)
+        .get(`${API_BASE_URL}/category1/product`)
         .then((response) => {
-          // console.log(response.data);
-          store.dispatch(set(response.data));
+          console.log(response.data);
+          store.dispatch(saveProductByCategory(response.data));
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log(error))
       next(action);
       break;
 
@@ -21,5 +22,6 @@ const recipesAPI = (store) => (next) => (action) => {
   }
 };
 
-export default recipesAPI;
+export default productsAPI;
+
 
