@@ -7,12 +7,12 @@ VALUES
     ('admin'),
     ('user');
 
-INSERT INTO "address" ("address", "zip_code", "country") 
+INSERT INTO "address" ("address", "zip_code", "city", "country") 
 VALUES
-    ('8 rue tartanpion', '45356', 'France'),
-    ('10 avenue de la tarte', '24534', 'France'),
-    ('54 avenida de la mare', '12902', 'Espagne'),
-    ('18 rue de la chute', '35510', 'France');
+    ('8 rue tartanpion', '45356', 'Pau', 'France'),
+    ('10 avenue de la tarte', '24534', 'Marseille', 'France'),
+    ('54 avenida de la mare', '12902', 'Madrid', 'Espagne'),
+    ('18 rue de la chute', '35510', 'Paris', 'France');
 
 INSERT INTO "user" ("civility", "first_name", "last_name", "email", "phone_number", "password", "role_id" ) 
 VALUES

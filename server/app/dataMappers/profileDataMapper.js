@@ -32,9 +32,21 @@ const profileDataMapper = {
         const result = await client.query('SELECT "address"."address", "address"."zip_code", "address"."country" FROM "user" JOIN "live_in" ON "live_in"."user_id" = "user"."id" JOIN "address" ON "live_in"."address_id" = "address"."id" WHERE "user"."id" = $1', [id]);
         return result.rows;
     },
-    async getOneAddress(id) {
+    async createAddress(id, address) {
         console.log(id);
+        console.log(address);
+        const resultAddress = await client.query('INSERT INTO "address" (address, zip_code, city, country) VALUES ($1, $2, $3, $4) RETURNING "address"."id"', [address.address, address.zip_code, address.city, address.country]);
+        const addressId = resultAddress.rows[0].id;
+        console.log(addressId);
+        const result = await client.query('INSERT INTO "live_in" (user_id, address_id) VALUES ($1, $2)', [id, addressId]);
+        return result.rows[0];
+    },
+    async getOneAddress(id) {
         const result = await client.query('SELECT * FROM "address" WHERE id = $1', [id]);
+        return result.rows[0];
+    },
+    async updateAddress(id) {
+        const result = await client.query('UPDATE "address" SET address = $2, zip_code = $3, country = $4 WHERE id = $1 RETURNING *', [id]);
         return result.rows[0];
     },
 };

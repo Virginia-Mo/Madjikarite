@@ -21,6 +21,7 @@ CREATE TABLE "address" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "address" TEXT NOT NULL,
     "zip_code" TEXT NOT NULL,
+    "city" TEXT NOT NULL,
     "country" TEXT NOT NULL,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ

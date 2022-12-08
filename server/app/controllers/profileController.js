@@ -155,11 +155,8 @@ const profileController = {
         req.session.user = {
             id: 4,
         };
-        const { user_id } = req.session.user;
-        const address = await profileDataMapper.createAddress({
-            user_id,
-            ...req.body,
-        });
+        const { id } = req.session.user;
+        const address = await profileDataMapper.createAddress(id, req.body);
         res.json(address);
     },
     async getOneAddress(req, res) {
@@ -167,6 +164,13 @@ const profileController = {
         req.params.id = 1;
         const { id } = req.params;
         const address = await profileDataMapper.getOneAddress(id);
+        res.json(address);
+    },
+    async updateAddress(req, res) {
+        // TODO: supprimer la définition du req.params.id
+        req.params.id = 1;
+        const { id } = req.params;
+        const address = await profileDataMapper.updateAddress(id, req.body);
         res.json(address);
     },
 };
