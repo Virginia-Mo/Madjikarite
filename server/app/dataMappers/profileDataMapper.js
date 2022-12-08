@@ -7,7 +7,7 @@ const profileDataMapper = {
         return result.rows[0];
     },
     // Get one user from the database
-    async getOneUser(email) {
+    async getOneUserWithEmail(email) {
         const result = await client.query('SELECT * FROM "user" WHERE email = $1', [email]);
         return result.rows[0];
     },
@@ -20,6 +20,13 @@ const profileDataMapper = {
     async deleteProfile(id) {
         const result = await client.query('DELETE FROM "user" WHERE id = $1', [id]);
         return result.rows[0];
+    },
+    async getOneUserWithId(id) {
+        const result = await client.query('SELECT * FROM "user" WHERE id = $1', [id]);
+        return {
+            // eslint-disable-next-line max-len
+            civility: result.rows[0].civility, last_name: result.rows[0].last_name, first_name: result.rows[0].first_name, email: result.rows[0].email, phone_number: result.rows[0].phone_number,
+        };
     },
 };
 

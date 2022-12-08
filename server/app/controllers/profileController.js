@@ -18,7 +18,7 @@ const profileController = {
         if (!email || !password) {
             return res.status(400).json({ message: 'Tous les champs doivent être remplis' });
         }
-        const user = await profileDataMapper.getOneUser(email);
+        const user = await profileDataMapper.getOneUserWithEmail(email);
         if (!user) { return res.status(400).json({ message: 'Utilisateur inconnu' }); }
         // We check if the password is correct
         const result = await bcrypt.compare(password, user.password);
@@ -93,8 +93,11 @@ const profileController = {
         }
     },
     // Show the profile page
-    profilePage(req, res) {
-        res.json({ page: 'page de profil' });
+    async profilePage(req, res) {
+        // TODO: supprimer la définition du req.session.user_id
+        req.session.user_id = 2;
+        const profile = await profileDataMapper.getOneUserWithId(req.session.user_id);
+        res.json(profile);
     },
     // Send the new data to the database
     async updateProfile(req, res) {
