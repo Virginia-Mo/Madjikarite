@@ -13,7 +13,7 @@ const profileDataMapper = {
     },
     // Update a profile in the database
     async updateProfile(newData) {
-        const result = await client.query('UPDATE "user" SET civility = $2, last_name = $3, first_name = $4, email = $5, phone_number = $6, password = $7 WHERE id = $1', newData);
+        const result = await client.query('UPDATE "user" SET civility = $2, last_name = $3, first_name = $4, email = $5, phone_number = $6, password = $7 WHERE id = $1 RETURNING *', newData);
         return result.rows[0];
     },
     // Delete a profile from the database

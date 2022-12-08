@@ -1,73 +1,88 @@
 const adminDataMapper = require('../dataMappers/adminDataMapper');
+const productDataMapper = require('../dataMappers/productDataMapper');
+const NotFoundError = require('../helpers/notFoundError');
+const UserInputError = require('../helpers/userInputError');
 
 const adminController = {
 
     // Homepage back office
-    async adminProductPage(req, res) {
-        const id = parseInt(req.params.id, 10);
-        const product = await adminDataMapper.getAllProduct(id);
-        res.json(product);
+    async getProductsPage(req, res) {
+        const products = await productDataMapper.getAllProduct();
+        res.json(products);
     },
 
-    // create new product
-    async createNewProduct(req, res) {
-        const product = await adminDataMapper.createNewProduct(req.body);
-        res.json(product);
+    // get the create new product page
+    async getCreateNewProductPage(req, res) {
+        res.json({ page: 'page adminNewProductPage' });
     },
 
     // validate new produit
-    validateFormNewProduct(req, res) {
-        //        async function validateFormNewProduct() {
-        //        const product = await adminDataMapper.validateFormNewProduct(req.body);
-        console.log('Le formulaire admin à été validé ');
-        res.json({ page: 'Le formulaire admin à été validé' });
+    async validateFormNewProduct(req, res) {
+        if (!req.body.name || !req.body.short_description
+            || !req.body.full_description || !req.body.ingredients
+            || !req.body.packaging || !req.body.price || !req.body.stock
+            || !req.body.category_id) {
+            throw new UserInputError('Tous les champs ne sont pas remplis');
+        }
+        const product = await adminDataMapper.createNewProduct(req.body);
+        if (!product) {
+            throw new UserInputError('Le produit n\'a pas pu être créé');
+        }
+        res.json(product);
     },
 
-    // Page d’un produit pouvant être modifié
-    productAdministration(req, res) {
-        console.log('page adminProductIdPage');
-        res.json({ page: 'page adminProductIdPage' });
+    // get one product page
+    async getOneProduct(req, res) {
+        const product = await productDataMapper.getOneProduct(req.params.id);
+        if (!product) {
+            throw new NotFoundError('Le produit n\'existe pas');
+        }
+        res.json(product);
     },
 
-    // update new product
-    updateProduct(req, res) {
-        console.log('Le produit à été mis à jour');
-        res.json({ page: 'Le produit à été mis à jour' });
+    // update product
+    async updateProduct(req, res) {
+        // eslint-disable-next-line camelcase
+        const product_id = parseInt(req.params.id, 10);
+        const oldData = await productDataMapper.getOneProduct(product_id);
+        const newData = [];
+        newData.push(product_id);
+        // eslint-disable-next-line no-restricted-syntax
+        for (const key in req.body) {
+            if (req.body[key] === '') {
+                newData.push(oldData[key]);
+            } else {
+                newData.push(req.body[key]);
+            }
+        }
+        const updatedProduct = await adminDataMapper.updateProduct(newData);
+        res.json(updatedProduct);
     },
 
     // delete product
-    adminDeleteProduct(req, res) {
-        console.log('Le produit à été supprimé');
-        res.json({ page: 'Le produit à été supprimé' });
+    async deleteProduct(req, res) {
+        await adminDataMapper.deleteProduct(req.params.id);
+        res.json({ message: 'Le produit à été supprimé' });
     },
 
-    // Listing order page
+    // get all the order page
     viewListingOrder(req, res) {
-        console.log('page adminOrderPage');
         res.json({ page: 'page adminOrderPage' });
     },
 
-    // view order page
-    orderAdministration(req, res) {
-        console.log('page adminOrderIdPage');
+    // get an order page
+    getOrdersPage(req, res) {
         res.json({ page: 'page adminOrderIdPage' });
     },
 
     // update order
     updateOrder(req, res) {
-        console.log('La commande à été mise à jour');
         res.json({ page: 'La commande à été mise à jour' });
     },
 
     // delete order
     deleteOrder(req, res) {
-        console.log('La commande à été supprimée');
         res.json({ page: 'La commande à été supprimée' });
-    },
-
-    // log out
-    adminlogOut(req, res) {
-        res.json({ page: 'page adminLogOut' });
     },
 };
 

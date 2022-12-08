@@ -21,7 +21,7 @@ router.route('/signup')
     .post(controllerWrapper(profileController.createAccount));
 router.route('/profile')
     .get(controllerWrapper(profileController.profilePage))
-    .post(controllerWrapper(profileController.updateProfile))
+    .patch(controllerWrapper(profileController.updateProfile))
     .delete(controllerWrapper(profileController.deleteProfile));
 
 module.exports = router;

@@ -48,7 +48,7 @@ CREATE TABLE "product" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
     "short_description" TEXT NOT NULL,
-    "full description" TEXT NOT NULL,
+    "full_description" TEXT NOT NULL,
     "ingredients" TEXT NOT NULL,
     "packaging" TEXT NOT NULL,
     "price" NUMERIC NOT NULL,
