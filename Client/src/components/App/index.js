@@ -31,9 +31,7 @@ function App() {
   return (
     <div className="app">
    
-      <Header />
-      <NavBar /> 
-      <div>
+      {/* <div>
          <ul>
        { categoryProducts.map((product) => (
           <li key={product.id}>Nom : {product.name}, Description : {product.short_description}</li>
@@ -41,8 +39,8 @@ function App() {
 )}
 </ul> 
       </div>
-      
-      <Footer />
+       */}
+
      {/* <SearchResults />
       <WelcomePage />
       <CustomerAccount />
