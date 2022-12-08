@@ -4,6 +4,10 @@ import Field from '../../LoginForm/Field';
 
 import { USER_SAVE } from 'src/actions/user';
 
+import Header from 'src/components/Header';
+import NavBar from 'src/components/NavBar';
+import Footer from 'src/components/Footer';
+
 import './style.scss';
 
 function CustomerAdress() {
@@ -33,9 +37,12 @@ function CustomerAdress() {
   };  
 
   return (
+    <>
+    <Header />
+    <NavBar />
+    <h1 className="customerAdress__title">Adresse de livraison</h1>
     <div className="customerAdress">
       <form className="customerAdress__form" onSubmit={handleSubmit}>
-        <h1 className="customerAdress__title">Adresse de livraison</h1>
         
            
         <Field
@@ -62,6 +69,9 @@ function CustomerAdress() {
         <button className="customerAdress__button" type="submit">Ajouter une nouvelle adresse</button>
       </form>
     </div>
+  
+    <Footer />
+    </>
   );
 }
 

@@ -56,7 +56,9 @@ function LoginForm() {
           <img src={img} alt="sheaCream" className="login__img" />
         </div>
       </div>
-    </div></>
+    </div>
+    <Footer />
+    </>
   );
 }
 

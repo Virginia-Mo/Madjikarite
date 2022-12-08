@@ -31,26 +31,17 @@ function App() {
   return (
     <div className="app">
    
-      <Header />
-      <NavBar /> 
-      <div>
-         <ul>
-       { categoryProducts.map((product) => (
+      {/* <Header />
+      <NavBar />  */}
+      {/* <div>
+         {/* <ul> */}
+       {/* { categoryProducts.map((product) => (
           <li key={product.id}>Nom : {product.name}, Description : {product.short_description}</li>
           )
 )}
 </ul> 
-      </div>
-      
-      <Footer />
-     {/* <SearchResults />
-      <WelcomePage />
-      <CustomerAccount />
-      <CustomerAdress />
-      <DeleteAccount />
-      <LoginForm /> */}
-      {/* <SearchResults />
-      <CustomerAccount /> */}
+      </div> */} 
+
       <Routes>
         <Route
           path="/"
@@ -60,6 +51,21 @@ function App() {
         <Route
           path="/search"
           element={<SearchResults />}
+        />
+
+        <Route
+        path='/CustomerAccount'
+        element={<CustomerAccount />} 
+        />
+
+        <Route
+        path='/CustomerAdress'
+        element={<CustomerAdress />}
+        />
+
+        <Route
+        path='/DeleteAccount'
+        element={<DeleteAccount />}
         />
 
         <Route
