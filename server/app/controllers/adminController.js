@@ -88,8 +88,10 @@ const adminController = {
     },
 
     // delete order
-    deleteOrder(req, res) {
-        res.json({ page: 'La commande à été supprimée' });
+    async deleteOrder(req, res) {
+        const id = parseInt(req.params.id, 10);
+        await adminDataMapper.deleteOrder(id);
+        res.json({ message: 'La commande à été supprimé' });
     },
 };
 

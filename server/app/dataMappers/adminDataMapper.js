@@ -35,6 +35,11 @@ const adminDataMapper = {
         const result = await client.query('SELECT "product_id", "product"."name", "quantity", "product"."packaging", "product"."price" FROM "shopping_cart_lign" JOIN "product" ON "shopping_cart_lign"."product_id" = "product"."id" WHERE shopping_cart_id = $1', [id]);
         return result.rows;
     },
+    // delete an order
+    async deleteOrder(id) {
+        const result = await client.query('DELETE FROM "shopping_cart" WHERE id = $1', [id]);
+        return result.rows[0];
+    },
 };
 
 module.exports = adminDataMapper;
