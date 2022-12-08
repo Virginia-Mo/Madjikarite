@@ -26,7 +26,7 @@ function ProductSlide({product}) {
 
   useEffect(() => {
     window.scroll(0, 0);
-},);
+},[]);
   return (
     <div className="singleProduct__div" >
     <Swiper
