@@ -28,6 +28,10 @@ const profileDataMapper = {
             civility: result.rows[0].civility, last_name: result.rows[0].last_name, first_name: result.rows[0].first_name, email: result.rows[0].email, phone_number: result.rows[0].phone_number,
         };
     },
+    async getAddresses(id) {
+        const result = await client.query('SELECT "address"."address", "address"."zip_code", "address"."country" FROM "user" JOIN "live_in" ON "live_in"."user_id" = "user"."id" JOIN "address" ON "live_in"."address_id" = "address"."id" WHERE "user"."id" = $1', [id]);
+        return result.rows;
+    },
 };
 
 module.exports = profileDataMapper;

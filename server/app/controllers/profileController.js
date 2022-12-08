@@ -142,6 +142,26 @@ const profileController = {
         await profileDataMapper.deleteProfile(req.session.user.id);
         res.json({ message: 'Votre compte à bien été supprimé' });
     },
+    async addressPage(req, res) {
+        // TODO: supprimer la définition du req.session.user_id
+        req.session.user = {
+            id: 3,
+        };
+        const addresses = await profileDataMapper.getAddresses(req.session.user.id);
+        res.json(addresses);
+    },
+    async createAddress(req, res) {
+        // TODO: supprimer la définition du req.session.user_id
+        req.session.user = {
+            id: 4,
+        };
+        const { user_id } = req.session.user;
+        const address = await profileDataMapper.createAddress({
+            user_id,
+            ...req.body,
+        });
+        res.json(address);
+    },
 };
 
 module.exports = profileController;

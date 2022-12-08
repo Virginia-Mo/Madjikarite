@@ -41,7 +41,6 @@ CREATE TABLE "user" (
     "email" TEXT NOT NULL UNIQUE,
     "phone_number" INT NOT NULL,
     "password" TEXT NOT NULL,
-    "address_id" INT NOT NULL REFERENCES "address" ("id") ON DELETE CASCADE,
     "role_id" INT REFERENCES "role" ("id") DEFAULT 2,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
@@ -100,5 +99,7 @@ CREATE TABLE "shopping_cart_lign" (
 );
 
 ALTER TABLE "user" ADD COLUMN "shopping_cart_id" INT REFERENCES "shopping_cart" ("id") ON DELETE CASCADE;
+ALTER TABLE "user" ADD COLUMN "live_in_id" INT REFERENCES "live_in" ("id") ON DELETE CASCADE;
+ALTER TABLE "address" ADD COLUMN "live_in_id" INT REFERENCES "live_in" ("id") ON DELETE CASCADE;
 
 COMMIT;

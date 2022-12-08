@@ -25,10 +25,15 @@ const adminDataMapper = {
         const result = await client.query('SELECT * FROM "shopping_cart"');
         return result.rows;
     },
-    // get one order
-    async getOneOrder(id) {
-        const result = await client.query('SELECT "shopping_cart"."id", "total_price", "message", "user"."civility", "user"."first_name", "user"."first_name", "user"."email", "user"."phone_number", "address"."address", "address"."zip_code", "address"."country", "shopping_cart"."created_at" AS "Date de commande" FROM "shopping_cart" JOIN "user" ON "shopping_cart"."user_id" = "user"."id" JOIN "address" ON "user"."address_id" = "address"."id" WHERE "shopping_cart"."id" = $1', [id]);
+    // get the user that made the order
+    async getOneOrderUser(id) {
+        const result = await client.query('SELECT "shopping_cart"."id" AS "Numéro de commande", "user"."civility", "user"."last_name", "user"."first_name", "user"."email", "user"."phone_number" FROM "shopping_cart" JOIN "user" ON "shopping_cart"."user_id" = "user"."id" WHERE "shopping_cart"."id" = $1', [id]);
         return result.rows[0];
+    },
+    // get all addresses of a user
+    async getAllAddressesOfAUser(id) {
+        const result = await client.query('SELECT "address"."address", "address"."zip_code", "address"."country" FROM "user" JOIN "live_in" ON "live_in"."user_id" = "user"."id" JOIN "address" ON "live_in"."address_id" = "address"."id" WHERE "user"."id" = $1', [id]);
+        return result.rows;
     },
     // get all items of an order
     async getAllItemsOfAnOrder(id) {

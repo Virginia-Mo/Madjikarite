@@ -23,5 +23,12 @@ router.route('/profile')
     .get(controllerWrapper(profileController.profilePage))
     .patch(controllerWrapper(profileController.updateProfile))
     .delete(controllerWrapper(profileController.deleteProfile));
+router.route('/profile/address')
+    .get(controllerWrapper(profileController.addressPage))
+    .post(controllerWrapper(profileController.createAddress));
+router.route('/profile/address:id')
+    .get(controllerWrapper(profileController.getOneAddress))
+    .patch(controllerWrapper(profileController.updateAddress))
+    .delete(controllerWrapper(profileController.deleteAddress));
 
 module.exports = router;
