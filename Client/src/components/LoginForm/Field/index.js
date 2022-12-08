@@ -33,7 +33,7 @@ function Field({
         name={name}
         type={type}
         placeholder={placeholder}
-        className="login__input"
+        className="login__input login__input--number"
         value={value}
         onChange={handleChange}
       />
@@ -44,8 +44,9 @@ function Field({
 
 Field.propTypes = {
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 };
-
+Field.defaultProps = {
+  placeholder: ""
+};
 export default Field;

@@ -23,30 +23,57 @@
     margin-top: 3rem;
     font-size: 2.2rem;
     line-height: 3rem;
+    &--description {
+      margin-top: 0;
+      padding: 2rem;
+    }
   }
   &__form {
     margin-top: 4rem;
   }
-  &__input {
-    width:5rem;
-    height: 3rem;
-  }
-  &__button {
-    height: 3rem;
-    margin:1rem;
-    background-color: v.$color-light-green;
-    border: none;
-    padding: 0 1rem;
-    border-radius: 0.5rem;
-    font-size: 1.6rem;
-  }
-  &__button:hover {
-    background-color: v.$color-green;
-  }
-  &__h3 {
+
+  &__h2, &__h2_description {
+    font-family: v.$font-title;
     text-transform: uppercase;
     font-size: 3rem;
+    background-color: transparent;
+    border: none;
+  } 
+  &__h2_description:hover {
+    border-bottom: solid 1px v.$color-green;
+    color: v.$color-green;
   }
+  &__h2--active {
+    border-bottom: solid 0.5px v.$color-green;
+   color: v.$color-green;
+  }
+  &__mainDescription {
+    padding: 3rem 8rem;
+    display: flex;
+    flex-direction: column;
+  }
+  &__titles {
+    display: flex;
+    gap: 3rem;
+  }
+
+  &__articlesDiv {
+    display: flex;
+    flex-direction: column;
+    // border: solid 1px v.$color-light-green;
+    border-radius: 0.5rem;
+  }
+  &__input--number{
+    width:5rem;
+    height: 4rem;
+    font-size: 1.9rem;
+    padding-left: 1rem;
+}
+}
+.slideContainer__SlidePresentation {
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 5rem;
 }
 .singleProduct__swiper--2__slide, .swiper-slide {
   text-align: center;

@@ -19,7 +19,7 @@ import "./style.scss";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
 function ProductSlide({product}) {
-  const { image, nom} = product
+  const { image, nom } = product
   const imageArray = image
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
@@ -71,11 +71,11 @@ function ProductSlide({product}) {
 );
     };
 
-ProductSlide.propTypes = {
-  nom: PropTypes.string.isRequired,
-  image : PropTypes.arrayOf(
-      PropTypes.string
-  ).isRequired
+// ProductSlide.propTypes = {
+//   nom: PropTypes.string.isRequired,
+//   image : PropTypes.arrayOf(
+//       PropTypes.string
+//   ).isRequired
   
-}
+// }
 export default ProductSlide

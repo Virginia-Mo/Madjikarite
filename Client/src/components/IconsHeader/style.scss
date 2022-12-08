@@ -1,3 +1,4 @@
+@use 'src/styles/vars' as v;
 .header-icons {
   display: flex;
   flex-wrap: wrap;
@@ -6,7 +7,7 @@
   &__basket, &__account {
     width: 5rem;
     border-radius: 50%;
-    background-color: white;
+    background-color: transparent;
     color: black;
     display: flex;
     justify-content: center;
@@ -15,7 +16,8 @@
     transition: all .3s;
 
     &:hover {
-      background-color: black;
+      border: solid 1px v.$color-light-brown;
+      color: v.$color-light-brown;
     }
   }
     

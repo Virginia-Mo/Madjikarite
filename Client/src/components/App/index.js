@@ -2,7 +2,7 @@
 import Header from 'src/components/Header';
 import NavBar from '../NavBar';
 import Footer from '../Footer';
-
+import Cart from '../ShoppingCart';
 
 import { Route, Routes } from 'react-router-dom';
 import SearchResults from 'src/components/SearchResults';
@@ -18,6 +18,8 @@ function App() {
     <div className="app">
       {/* <SearchResults />
       <CustomerAccount /> */}
+      <Header />
+      <NavBar />
       <Routes>
         <Route
           path="/"
@@ -43,9 +45,13 @@ function App() {
           path="/category/product"
           element={<SingleProduct />}
         />
+        <Route
+          path="/shoppingcart"
+          element={<Cart />}
+        />
 
       </Routes>
-
+<Footer />
     </div>
   );
 }
