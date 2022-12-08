@@ -1,4 +1,5 @@
 import { RiFacebookCircleFill, RiTwitterFill } from 'react-icons/ri';
+import { MdContactMail } from "react-icons/md";
 
 import './style.scss';
 
@@ -7,13 +8,13 @@ function Footer() {
     <footer className="footer">
       <div className="footer__contact-container">
         <div className="footer__contact">
-          <h3>CONTACT</h3>
-          <p>Une question sur nos produits ?</p>
-          <p>Vous souhaitez savoir où en est votre commade ?</p>
-          <p>N'hésitez à nous contacter</p>
-          <p>
-            <a href="">Accéder au formulaire de contact</a>
-          </p>
+          <MdContactMail className="footer__contact-icon"/>
+          <div className="footer__contact-form">
+            <h3>CONTACT</h3>
+            <p>
+              <a href="">Accéder au formulaire de contact</a>
+            </p>
+          </div>
         </div>
         <div className="footer__adress">
           <p>Adresse postale :</p>
@@ -22,6 +23,9 @@ function Footer() {
           <p>62232 Fouquiéres les Béthune</p>
         </div>
       </div>
+        <p className="footer__legal">
+          <a href="">Mentions légales |  </a> © 2022 Madjikarité
+        </p>
       <div className="footer__social-media">
         <h3>SUIVEZ-NOUS</h3>
         <div className="footer__social-media-icons">
