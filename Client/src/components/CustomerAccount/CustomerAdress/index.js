@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import Field from '../LoginForm/Field';
+import Field from '../../LoginForm/Field';
 
 import { USER_SAVE } from 'src/actions/user';
 

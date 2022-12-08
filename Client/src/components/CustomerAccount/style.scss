@@ -79,3 +79,22 @@
   background-color: #9fb16f;
 }
 
+h1 {
+  font-size: 2rem;
+  font-family: vars.$font-title;
+  margin-bottom: 1rem;
+}
+
+.delete {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 70%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  border: 2px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
