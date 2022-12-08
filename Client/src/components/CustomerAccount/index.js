@@ -9,6 +9,7 @@ import './style.scss';
 import Header from '../Header';
 import NavBar from '../NavBar';
 import Footer from '../Footer';
+import { Link } from 'react-router-dom';
 
 function CustomerAccount() {
   const dispatch = useDispatch();
@@ -106,6 +107,10 @@ function CustomerAccount() {
           {loading ? 'En cours...' : 'Valider'}
         </button>
       </form>
+    <div>
+    <Link to="/customeraccount/adress"> <h2 style={{fontSize:"3rem"}}>Adresses</h2></Link>
+    <Link to="/customeraccount/delete"> <h2 style={{fontSize:"3rem"}}>Supprimer le compte</h2></Link>
+    </div>
     </div>
     </>
   );

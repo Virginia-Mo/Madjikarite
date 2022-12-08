@@ -84,6 +84,15 @@ function App() {
           path="/customeraccount"
           element={<CustomerAccount />}
         />
+
+          <Route
+          path="/customeraccount/adress"
+          element={<CustomerAdress />}
+        />
+         <Route
+          path="/customeraccount/delete"
+          element={<DeleteAccount />}
+        />
         <Route
           path="*"
           element={<Error />}
