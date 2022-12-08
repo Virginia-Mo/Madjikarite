@@ -39,6 +39,7 @@ CREATE TABLE "user" (
     "email" TEXT NOT NULL UNIQUE,
     "phone_number" INT NOT NULL,
     "password" TEXT NOT NULL,
+    "address_id" INT NOT NULL REFERENCES "address" ("id") ON DELETE CASCADE,
     "role_id" INT REFERENCES "role" ("id") DEFAULT 2,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
@@ -90,7 +91,7 @@ CREATE TABLE "live_in" (
 CREATE TABLE "shopping_cart_lign" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "quantity" INT NOT NULL,
-    "shopping_cart_id" INT NOT NULL REFERENCES "shopping_cart" ("id"),
+    "shopping_cart_id" INT NOT NULL REFERENCES "shopping_cart" ("id") ON DELETE CASCADE,
     "product_id" INT NOT NULL REFERENCES "product" ("id"),
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ

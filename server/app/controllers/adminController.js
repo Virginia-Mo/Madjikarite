@@ -66,13 +66,20 @@ const adminController = {
     },
 
     // get all the order page
-    viewListingOrder(req, res) {
-        res.json({ page: 'page adminOrderPage' });
+    async viewListingOrder(req, res) {
+        const orders = await adminDataMapper.getAllOrders();
+        res.json(orders);
     },
 
     // get an order page
-    getOrdersPage(req, res) {
-        res.json({ page: 'page adminOrderIdPage' });
+    async getAnOrderPage(req, res) {
+        const id = parseInt(req.params.id, 10);
+        const order = await adminDataMapper.getOneOrder(id);
+        if (!order) {
+            throw new NotFoundError('La commande n\'existe pas');
+        }
+        const orderDetails = await adminDataMapper.getAllItemsOfAnOrder(id);
+        res.json({ 'Informations générale de la commande': order, 'Détails de la commande': orderDetails });
     },
 
     // update order

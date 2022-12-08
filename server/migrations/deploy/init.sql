@@ -41,6 +41,7 @@ CREATE TABLE "user" (
     "email" TEXT NOT NULL UNIQUE,
     "phone_number" INT NOT NULL,
     "password" TEXT NOT NULL,
+    "address_id" INT NOT NULL REFERENCES "address" ("id") ON DELETE CASCADE,
     "role_id" INT REFERENCES "role" ("id") DEFAULT 2,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ

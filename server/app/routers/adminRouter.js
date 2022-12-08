@@ -26,7 +26,7 @@ router.route('/admin/product:id')
 router.route('/admin/orders')
     .get(controllerWrapper(adminController.viewListingOrder)); // view order list
 router.route('/admin/order:id')
-    .get(controllerWrapper(adminController.getOrdersPage)) // view order page
+    .get(controllerWrapper(adminController.getAnOrderPage)) // view order page
     .patch(controllerWrapper(adminController.updateOrder)) // update order
     .delete(controllerWrapper(adminController.deleteOrder)); // delete order
 

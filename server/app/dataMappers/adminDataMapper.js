@@ -20,6 +20,21 @@ const adminDataMapper = {
         const result = await client.query('DELETE FROM product WHERE id = $1', [id]);
         return result.rows[0];
     },
+    // get all the orders
+    async getAllOrders() {
+        const result = await client.query('SELECT * FROM "shopping_cart"');
+        return result.rows;
+    },
+    // get one order
+    async getOneOrder(id) {
+        const result = await client.query('SELECT "shopping_cart"."id", "total_price", "message", "user"."civility", "user"."first_name", "user"."first_name", "user"."email", "user"."phone_number", "address"."address", "address"."zip_code", "address"."country", "shopping_cart"."created_at" AS "Date de commande" FROM "shopping_cart" JOIN "user" ON "shopping_cart"."user_id" = "user"."id" JOIN "address" ON "user"."address_id" = "address"."id" WHERE "shopping_cart"."id" = $1', [id]);
+        return result.rows[0];
+    },
+    // get all items of an order
+    async getAllItemsOfAnOrder(id) {
+        const result = await client.query('SELECT "product_id", "product"."name", "quantity", "product"."packaging", "product"."price" FROM "shopping_cart_lign" JOIN "product" ON "shopping_cart_lign"."product_id" = "product"."id" WHERE shopping_cart_id = $1', [id]);
+        return result.rows;
+    },
 };
 
 module.exports = adminDataMapper;
