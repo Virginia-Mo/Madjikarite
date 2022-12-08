@@ -1,7 +1,6 @@
 import products from "src/Data/data"
-import { HANDLE_DESCRIPTION, HANDLE_COMPOSITION } from "../actions/products";
-import products from "src/Data/data";
-import { SAVE_PRODUCT_BY_CATEGORY } from "src/actions/products";
+import { HANDLE_DESCRIPTION, HANDLE_COMPOSITION, SAVE_PRODUCT_BY_CATEGORY } from "../actions/products";
+
 
 export const initialState = {
   listProducts : products.produits,
