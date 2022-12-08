@@ -49,6 +49,10 @@ const profileDataMapper = {
         const result = await client.query('UPDATE "address" SET address = $2, zip_code = $3, city = $4, country = $5 WHERE id = $1 RETURNING *', [id, address.address, address.zip_code, address.city, address.country]);
         return result.rows[0];
     },
+    async deleteAddress(id) {
+        const result = await client.query('DELETE FROM "address" WHERE id = $1', [id]);
+        return result.rows[0];
+    },
 };
 
 module.exports = profileDataMapper;

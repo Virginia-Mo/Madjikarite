@@ -173,6 +173,13 @@ const profileController = {
         const address = await profileDataMapper.updateAddress(id, req.body);
         res.json(address);
     },
+    async deleteAddress(req, res) {
+        // TODO: supprimer la définition du req.params.id
+        req.params.id = 1;
+        const { id } = req.params;
+        await profileDataMapper.deleteAddress(id);
+        res.json({ message: 'L\'adresse à bien été supprimé' });
+    },
 };
 
 module.exports = profileController;
