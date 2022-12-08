@@ -6,6 +6,9 @@ import Field from '../LoginForm/Field';
 import { USER_SAVE } from 'src/actions/user';
 
 import './style.scss';
+import Header from '../Header';
+import NavBar from '../NavBar';
+import Footer from '../Footer';
 
 function CustomerAccount() {
   const dispatch = useDispatch();
@@ -34,6 +37,9 @@ function CustomerAccount() {
   };  
 
   return (
+    <>
+    <Header />
+    <NavBar />
     <div className="customerAccount">
 
     <form className="customerAccount__form" onSubmit={handleSubmit}>
@@ -54,18 +60,15 @@ function CustomerAccount() {
         <Field
           name="Prénom"
           type="text"
-          placeholder="Prénom"
-        />
+          placeholder="Prénom" />
         <Field
           name="Nom"
           type="text"
-          placeholder="Nom"
-        />
+          placeholder="Nom" />
         <Field
           name="Mot de passe"
           type="password"
-          placeholder="Mot de passe"
-        />
+          placeholder="Mot de passe" />
         <Field
           name="Confirmation du mot de passe"
           type="password"
@@ -77,23 +80,19 @@ function CustomerAccount() {
         <Field
           name="Email"
           type="email"
-          placeholder="Email"
-        />
+          placeholder="Email" />
         <Field
           name="Adresse de livraison"
           type="text"
-          placeholder="Adresse de livraison"
-        />
+          placeholder="Adresse de livraison" />
         <Field
           name="Code postal"
           type="text"
-          placeholder="Code postal"
-        />
+          placeholder="Code postal" />
         <Field
           name="Ville"
-          type="text" 
-          placeholder="Ville"
-        />
+          type="text"
+          placeholder="Ville" />
         <Field
           name="Téléphone"
           type="text "
@@ -110,6 +109,8 @@ function CustomerAccount() {
         </button>
       </form>
     </div>
+    <Footer />
+    </>
   );
 }
 

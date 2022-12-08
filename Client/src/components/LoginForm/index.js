@@ -7,6 +7,9 @@ import Field from './Field';
 import logo from '../../assets/imgs/logo-header.png';
 import img from '../../assets/imgs/sheaCream.jpeg'
 import './style.scss';
+import Header from '../Header';
+import NavBar from '../NavBar';
+import Footer from '../Footer';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -18,42 +21,42 @@ function LoginForm() {
   };
 
   return (
-    <div className="login">
+    <><Header /><NavBar /><div className="login">
 
-    <div className="left__box">
-    <form className="login__form" onSubmit={handleSubmit}>
+      <div className="left__box">
+        <form className="login__form" onSubmit={handleSubmit}>
 
-    <img src={logo} alt="logo" className="login__logo" />
-
-    
-    <h1 className="login__title">Bienvenue chez Madjikarité</h1>
-    
-      <Field
-        name="email"
-        placeholder="Email"
-        type="email" />
-      <Field
-        name="password"
-        placeholder="Mot de passe"
-        type="password" />
+          <img src={logo} alt="logo" className="login__logo" />
 
 
-      <button
-        type="submit"
-        className="login__button"
-      >
-        {loading ? 'Chargement...' : 'Connexion'}
-      </button>
-    </form>
-    </div>
+          <h1 className="login__title">Bienvenue chez Madjikarité</h1>
 
-    <div className="right__box">
-<div className='right__box--imgContainer'>
-    
-    <img src={img}  alt="sheaCream" className="login__img" /> 
-    </div>
-</div>
-    </div>
+          <Field
+            name="email"
+            placeholder="Email"
+            type="email" />
+          <Field
+            name="password"
+            placeholder="Mot de passe"
+            type="password" />
+
+
+          <button
+            type="submit"
+            className="login__button"
+          >
+            {loading ? 'Chargement...' : 'Connexion'}
+          </button>
+        </form>
+      </div>
+
+      <div className="right__box">
+        <div className='right__box--imgContainer'>
+
+          <img src={img} alt="sheaCream" className="login__img" />
+        </div>
+      </div>
+    </div></>
   );
 }
 
