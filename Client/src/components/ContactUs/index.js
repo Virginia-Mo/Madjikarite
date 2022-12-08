@@ -2,38 +2,59 @@ import React, { useRef } from 'react';
 import ReCaptcha from "react-google-recaptcha"
 import emailjs from '@emailjs/browser';
 
+import './style.scss';
+
 const ContactUs = () => {
+  // Create a reference to the form so we can access it later
   const form = useRef();
-
-  function onChange(value) {
-    console.log("Captcha value:", value);
-  }
-
+  //use emailJS to send the email
   const sendEmail = (e) => {
     e.preventDefault();
-
-    emailjs.sendForm('contact_service', 'contact_form', form.current, 'zjy4R6hZ3OLhBruLh')
+   
+    emailjs.sendForm(
+      process.env.EMAIL_JS_SERVICE,
+      process.env.EMAIL_JS_TEMPLATE,
+      form.current,
+      process.env.EMAIL_JS_KEY
+    )
       .then((result) => {
-          console.log(result.text);
+        // If the email is sent successfully, alert the user
+        if (result.status === 200) {
+          alert("Votre message a bien été envoyé.");
+          // Reset the form
+          form.current.reset();
+        }
       }, (error) => {
-          console.log(error.text);
+        // If the email is not sent successfully, alert the user
+        if (error.status === 400) {
+          alert("Veuillez remplir tous les champs et valider le captcha.");
+        }
       });
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail}>
-      <label>Name</label>
-      <input type="text" name="user_name" />
-      <label>Email</label>
-      <input type="email" name="user_email" />
-      <label>Message</label>
-      <textarea name="message" />
-      <ReCaptcha
-        sitekey={"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"} 
-        onChange={onChange}
-      />
-      <input type="submit" value="Send" />
-    </form>
+    <div className="contact-us">
+      <h2 className="contact-us__title">Formulaire de contact</h2>
+      <form className="contact-us-form" ref={form} onSubmit={sendEmail}>
+        <div className="contact-us-form__container">
+          <div className="contact-us-form__container-left">
+            <label className="contact-us-form__label">Votre nom</label>
+            <input className="contact-us-form__input" type="text" name="user_name" required="required"/>
+            <label className="contact-us-form__label">Votre courriel</label>
+            <input className="contact-us-form__input" type="email" name="user_email" required="required"/>
+          </div>
+          <div className="contact-us-form__container-right">
+            <label className="contact-us-form__label">Message</label>
+            <textarea className="contact-us-form__textarea" name="message" required="required"/>
+          </div> 
+        </div>
+        <ReCaptcha 
+            className="contact-us-form__recaptcha"
+            sitekey={process.env.CAPTCHA_SITE_KEY} 
+        />     
+        <input className="contact-us-form__submit-button" type="submit" value="Envoyer votre message" />
+      </form>
+    </div>
   );
 };
 

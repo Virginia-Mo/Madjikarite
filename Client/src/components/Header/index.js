@@ -2,7 +2,7 @@
 
 import logo from 'src/assets/imgs/logo-header.png';
 import Search from '../Search';
-import IconsHeader from '../IconsHeader';
+import IconsHeader from 'src/components/Header/IconsHeader';
 
 import './styles.scss';
 

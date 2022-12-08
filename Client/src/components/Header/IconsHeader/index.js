@@ -9,12 +9,12 @@ function IconsHeader() {
 
       <div className="header-icons__container-basket">
         <IoBasketOutline className="header-icons__basket"/>
-        <p>Mon panier</p>
+        <p><a href="" className="header-icons__link-text">Mon panier</a></p>
       </div>
       {/* <div><IoBasketSharp /> </div>  */}
       <div className="header-icons__container-account">
         <RiAccountCircleLine className="header-icons__account"/>
-        <p>Se connecter</p>
+        <p><a href="" className="header-icons__link-text">Se connecter</a></p>
       </div>
       {/* <div><RiAccountCircleFill /></div> */}
     </div>

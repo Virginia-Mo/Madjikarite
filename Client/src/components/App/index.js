@@ -1,23 +1,27 @@
 // == Import
-import Header from 'src/components/Header';
-import NavBar from '../NavBar';
-import Footer from '../Footer';
-
-
 import { Route, Routes } from 'react-router-dom';
+
+import Header from 'src/components/Header';
+import NavBar from 'src/components/NavBar';
+import Footer from 'src/components/Footer';
 import SearchResults from 'src/components/SearchResults';
 import CustomerAccount from 'src/components/CustomerAccount';
 import LoginForm from 'src/components/LoginForm';
-import WelcomePage from '../WelcomePage';
+import WelcomePage from 'src/components/WelcomePage';
+import ContactUs from '../ContactUs';
 
 import './styles.scss';
+
 // == Composant
 function App() {
   return (
     <div className="app">
+      <Header />
+      <NavBar />
+      <ContactUs />
       {/* <SearchResults />
       <CustomerAccount /> */}
-      <Routes>
+      {/* <Routes>
         <Route
           path="/"
           element={<WelcomePage />}
@@ -38,7 +42,7 @@ function App() {
           path="*"
           element={<Error />}
         />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }

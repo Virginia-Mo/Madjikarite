@@ -3,20 +3,14 @@
   flex-wrap: wrap;
   justify-content: center;
 
+  &__link-text:hover {
+    text-decoration: underline;
+  }
+
   &__basket, &__account {
     width: 5rem;
     border-radius: 50%;
-    background-color: white;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all .3s;
-
-    &:hover {
-      background-color: black;
-    }
+    color: #000000;
   }
     
 
