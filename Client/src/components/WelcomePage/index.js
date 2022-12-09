@@ -23,8 +23,6 @@ function WelcomePage() {
 
   return (
     <>
-    <Header />
-    <NavBar />
     <main className="welcomePage">
 
       <h1 className="mainTitle__h1">Nos Produits</h1>
@@ -61,7 +59,6 @@ function WelcomePage() {
 
       </section>
     </main>
-    <Footer />
     </>
   );
 }

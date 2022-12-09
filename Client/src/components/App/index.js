@@ -7,17 +7,18 @@ import Footer from '../Footer';
 import { Route, Routes } from 'react-router-dom';
 import SearchResults from 'src/components/SearchResults';
 import CustomerAccount from 'src/components/CustomerAccount';
+import CustomerAdress from '../CustomerAccount/CustomerAdress';
+import DeleteAccount from '../CustomerAccount/DeleteAccount';
 import LoginForm from 'src/components/LoginForm';
 
 import './styles.scss';
 import WelcomePage from '../WelcomePage';
-import CustomerAdress from '../CustomerAccount/CustomerAdress';
-import DeleteAccount from '../CustomerAccount/DeleteAccount';
 import { fetchProductByCategory } from '../../actions/products';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import SingleProduct from '../SingleProduct';
+import AboutUs from '../AboutUs';
 // == Composant
 function App() {
   const dispatch = useDispatch();
@@ -30,16 +31,16 @@ function App() {
 
   return (
     <div className="app">
-   
-      {/* <Header />
-      <NavBar />  */}
+      <Header />
+      <NavBar />
+     
       {/* <div>
          {/* <ul> */}
        {/* { categoryProducts.map((product) => (
           <li key={product.id}>Nom : {product.name}, Description : {product.short_description}</li>
           )
-)}
-</ul> 
+        )}
+        </ul> 
       </div> */} 
 
       <Routes>
@@ -54,22 +55,27 @@ function App() {
         />
 
         <Route
-        path='/CustomerAccount'
+        path="/aboutus"
+        element={<AboutUs />}
+        />
+
+        <Route
+        path="/customeraccount"
         element={<CustomerAccount />} 
         />
 
         <Route
-        path='/CustomerAdress'
+        path="/customeradress"
         element={<CustomerAdress />}
         />
 
         <Route
-        path='/DeleteAccount'
+        path="/deleteaccount"
         element={<DeleteAccount />}
         />
 
         <Route
-        path='/loginForm'
+        path='/loginform'
         element={<LoginForm />} 
         />
 
@@ -84,7 +90,8 @@ function App() {
         />
 
       </Routes>
-
+      
+      <Footer />
     </div>
   );
 }

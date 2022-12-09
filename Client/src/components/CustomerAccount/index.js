@@ -6,9 +6,6 @@ import Field from '../LoginForm/Field';
 import { USER_SAVE } from 'src/actions/user';
 
 import './style.scss';
-import Header from '../Header';
-import NavBar from '../NavBar';
-import Footer from '../Footer';
 
 function CustomerAccount() {
   const dispatch = useDispatch();
@@ -37,9 +34,7 @@ function CustomerAccount() {
   };  
 
   return (
-    <>
-    <Header />
-    <NavBar />
+
     <div className="customerAccount">
 
     <form className="customerAccount__form" onSubmit={handleSubmit}>
@@ -109,8 +104,7 @@ function CustomerAccount() {
         </button>
       </form>
     </div>
-    <Footer />
-    </>
+    
   );
 }
 

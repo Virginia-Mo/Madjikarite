@@ -1,9 +1,9 @@
 import './style.scss';
 
-function () {
+function SheaBenefits() {
   return (
     <div></div>
   );
 }
 
-export default ;
+export default SheaBenefits;

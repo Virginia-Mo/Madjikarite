@@ -4,10 +4,6 @@ import Field from '../../LoginForm/Field';
 
 import { USER_SAVE } from 'src/actions/user';
 
-import Header from 'src/components/Header';
-import NavBar from 'src/components/NavBar';
-import Footer from 'src/components/Footer';
-
 import './style.scss';
 
 function CustomerAdress() {
@@ -37,41 +33,34 @@ function CustomerAdress() {
   };  
 
   return (
+    
     <>
-    <Header />
-    <NavBar />
     <h1 className="customerAdress__title">Adresse de livraison</h1>
     <div className="customerAdress">
       <form className="customerAdress__form" onSubmit={handleSubmit}>
-        
-           
+
+
         <Field
           name="Adresse de livraison"
           type="text"
-          placeholder="Adresse de livraison"
-        />
+          placeholder="Adresse de livraison" />
         <Field
           name="Code postal"
           type="text"
-          placeholder="Code postal"
-        />
+          placeholder="Code postal" />
         <Field
 
           name="Ville"
           type="text"
-          placeholder="Ville"
-        />
+          placeholder="Ville" />
         <Field
           name="Téléphone"
           type="text"
-          placeholder="Téléphone"
-        />
+          placeholder="Téléphone" />
         <button className="customerAdress__button" type="submit">Ajouter une nouvelle adresse</button>
       </form>
-    </div>
+    </div></>
   
-    <Footer />
-    </>
   );
 }
 
