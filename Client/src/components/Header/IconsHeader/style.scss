@@ -1,0 +1,37 @@
+@use 'src/styles/vars' as v;
+.header-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__link-text:hover {
+    text-decoration: underline;
+  }
+
+  &__basket, &__account {
+    width: 5rem;
+    border-radius: 50%;
+    background-color: transparent;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s;
+    margin: 0 auto;
+
+    &:hover {
+      border: solid 1px v.$color-light-brown;
+      color: v.$color-light-brown;
+    }
+  }
+    
+
+  &__container-basket, &__container-account {
+    margin-left: 2.5rem;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 100;
+  }
+}
+

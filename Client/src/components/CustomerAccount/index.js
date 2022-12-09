@@ -34,7 +34,6 @@ function CustomerAccount() {
   };  
 
   return (
-
     <div className="customerAccount">
 
     <form className="customerAccount__form" onSubmit={handleSubmit}>
@@ -103,6 +102,10 @@ function CustomerAccount() {
           {loading ? 'En cours...' : 'Valider'}
         </button>
       </form>
+    <div>
+    <Link to="/customeraccount/adress"> <h2 style={{fontSize:"3rem"}}>Adresses</h2></Link>
+    <Link to="/customeraccount/delete"> <h2 style={{fontSize:"3rem"}}>Supprimer le compte</h2></Link>
+    </div>
     </div>
     
   );

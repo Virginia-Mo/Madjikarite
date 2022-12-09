@@ -5,20 +5,22 @@
   margin-bottom: 2rem;
 
   &__list {
+    width: 100%;
     display: flex;
     justify-content: center;
   }
 
   &__item {
     display: block;
+    height: 6rem;
     padding: 2rem 4rem;
-    text-align: center;
     border-right: 0.2rem solid rgba(161, 155, 155, 0.561);
     
     &:hover {
       border-bottom: 0.5rem solid v.$color-brown;
+      box-sizing: border-box;
       color: v.$color-brown;
-      font-weight: 600;
+      // font-weight: 600;
     }
   }
 
@@ -30,6 +32,7 @@
     font-size: 2rem;
     font-family: v.$font-paragraph;
   }
+
   &__item--about-us {
     position: relative;
   }
@@ -41,10 +44,9 @@
     }
 }
 
-
 .nav-bar__item--about-us:hover > .nav-bar__under-list {
   display: block;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   z-index: 99;
 }
 
@@ -52,13 +54,13 @@
   padding: 1.2rem;
   background-color: rgba(255, 255, 255, 0.9);
   text-align: left;
-  color: rgba(1, 1, 1, 0.561);
+  color: #000000e5;
   font-weight: 500;
-  border-bottom: 0.2rem solid rgba(161, 155, 155, 0.561);
+  border-bottom: 0.2rem solid rgba(190, 189, 189, 0.466);
 
   &:hover {
-    background-color: rgba(211, 209, 209, 0.561);
+    background-color: #f4f2f2e5;
     color: v.$color-brown;
-    font-weight: 600;
+    // font-weight: 600;
   }
 }

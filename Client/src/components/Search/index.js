@@ -4,6 +4,7 @@ import { IoSearch } from 'react-icons/io5';
 
 import data from 'src/Data/data';
 import noix from 'src/assets/imgs/noix.png';
+
 import { changeSearch, displaySearchRequest } from '../../actions/searchBar';
 
 import './style.scss';
@@ -30,12 +31,12 @@ function Search() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(displaySearchRequest(filteredProducts));
+    // I redirect to the search page
     navigate('/search');
   };
 
   return (
-    // je veux afficher la page SearchResults quand je submit la barre de recherche
-    //  -> route /search renvoie vers Searchresults
+    
     <div className="search">
       <IoSearch className="search__icon" />
       <form action="" className="search__form" onSubmit={handleSubmit}>

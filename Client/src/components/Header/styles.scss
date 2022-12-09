@@ -1,7 +1,7 @@
 @use 'src/styles/vars' as v;
 
 .header {
-  background-color:v.$color-green ;
+  background: v.$color-green;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -23,6 +23,7 @@
       color: rgb(0, 0, 0);
       text-shadow: 1px -1px 0 #76767682;
       font-family: v.$font-title;
+      margin-bottom: 0;
       //font-weight: 600;       
     }
 

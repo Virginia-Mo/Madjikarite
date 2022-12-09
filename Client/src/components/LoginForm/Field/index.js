@@ -44,8 +44,9 @@ function Field({
 
 Field.propTypes = {
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 };
-
+Field.defaultProps = {
+  placeholder: ""
+};
 export default Field;

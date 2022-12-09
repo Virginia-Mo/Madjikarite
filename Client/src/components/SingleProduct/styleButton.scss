@@ -1,0 +1,119 @@
+@use 'src/styles/vars' as v;
+
+.cart-button {
+  position: relative;
+  outline: 0;
+  margin:1rem;
+  background-color: v.$color-green;
+  color: #fff;
+  border: none;
+  height:4rem;
+  width: 200px;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  line-height: 0px;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 1.6rem;
+
+  &:hover {
+      background-color: v.$color-light-brown;
+  }
+    &:focus {
+  outline: none !important;
+}
+}
+.cart-button .fa-shopping-cart {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: -20%;
+  font-size: 1.8em;
+  transform: translate(-50%, -50%);
+}
+.cart-button .fa-square {
+  position: absolute;
+  z-index: 1;
+  top: -20%;
+  left: 53%;
+  font-size: 0.8em;
+  transform: translate(-50%, -50%);
+}
+.cart-button span {
+  color: #fff;
+  transform: translate(-50%, -50%);
+}
+.add-to-cart {  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  line-height: 2rem;
+}
+.cart-button span.added {
+  opacity: 0;
+}
+.cart-button.clicked .fa-shopping-cart {
+  animation: cart 2s ease-in forwards;
+}
+.cart-button.clicked .fa-square {
+  animation: box 2s ease-in forwards;
+}
+.cart-button.clicked span.add-to-cart {
+  animation: addcart 2s ease-in forwards;
+}
+.cart-button.clicked span.added {
+  animation: added 2s ease-in forwards;
+}
+.unclicked {
+  animation: added 1s ease-in forwards;
+}
+@keyframes cart {
+  0% {
+      left: -10%;
+  }
+  40%,
+  60% {
+      left: 50%;
+  }
+  100% {
+      left: 110%;
+  }
+}
+@keyframes box {
+  0%,
+  40% {
+      top: -20%;
+  }
+  60% {
+      top: 36%;
+      left: 53%;
+  }
+  100% {
+      top: 40%;
+      left: 112%;
+  }
+}
+@keyframes addcart {
+  0%,
+  30% {
+      opacity: 1;
+      display: block;
+  }
+  30%,
+  100% {
+      opacity: 0;
+      display:none;
+  }
+}
+@keyframes added {
+  0%,
+  80% {
+      opacity: 0;
+      display:none;
+  }
+  100% {
+      opacity: 1;
+      display: block;
+  }
+}

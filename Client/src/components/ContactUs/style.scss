@@ -1,0 +1,84 @@
+@use 'src/styles/vars' as v;
+
+.contact-us__title {
+  font-size: v.$font-size-t;
+  font-family: v.$font-title;
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.contact-us-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  margin: 2rem auto;
+  border: 0.3rem solid #d1d0d0d0;;
+  border-radius: 5px;
+  font-size: v.$font-size-p;
+  font-family: v.$font-paragraph;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__container-left, &__container-right {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem;
+  }
+
+  &__container-left {
+    width: 35%;
+  }
+  &__container-right {
+    width: 65%;
+  }
+
+  &__label {
+    margin: 2rem 0;
+    display: block;
+  }
+
+  &__input, &__textarea {
+    border-radius: 5px;
+    border: 0.2rem solid #d1d0d0d0;
+    padding: 0.7rem;
+    :invalid {
+      background-color: ivory;
+      border: none;
+      outline: 2px solid red;
+    }
+  }
+
+  &__textarea {
+    height: 10rem;
+  }
+
+  &__recaptcha {
+    margin: 2rem 0;
+  }
+
+  &__submit-button {
+    margin: 2rem 0;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    background-color: #f1efefeb;
+    color: #000000;
+    font-size: v.$font-size-p;
+    font-family: v.$font-paragraph;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    :hover {
+      background-color: #ffffff;
+      color: #000000;
+      border: 0.2rem solid #000000;
+    }
+  }
+  
+}

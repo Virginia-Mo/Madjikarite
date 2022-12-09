@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { useEffect } from 'react';
 
-import Header from '../Header';
-import NavBar from '../NavBar';
-import Footer from '../Footer';
-
 import SheaCream from 'src/assets/imgs/sheaCream.jpeg';
 import Producers from 'src/assets/imgs/producers.jpg';
 import Slide from '../Slide';
@@ -25,7 +21,7 @@ function WelcomePage() {
     <>
     <main className="welcomePage">
 
-      <h1 className="mainTitle__h1">Nos Produits</h1>
+      <h2 className="mainTitle__h2">Nos Produits</h2>
       {/* Insert the Slide components */}
       <Slide />
       <hr className="hr" />
@@ -59,6 +55,7 @@ function WelcomePage() {
 
       </section>
     </main>
+    
     </>
   );
 }

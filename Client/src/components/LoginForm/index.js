@@ -10,6 +10,7 @@ import './style.scss';
 import Header from '../Header';
 import NavBar from '../NavBar';
 import Footer from '../Footer';
+import { Link } from 'react-router-dom';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -21,7 +22,8 @@ function LoginForm() {
   };
 
   return (
-    <><Header /><NavBar /><div className="login">
+    <>
+    <div className="login">
 
       <div className="left__box">
         <form className="login__form" onSubmit={handleSubmit}>
@@ -48,6 +50,9 @@ function LoginForm() {
             {loading ? 'Chargement...' : 'Connexion'}
           </button>
         </form>
+        <Link to="/customeraccount">
+        <p className='login__signUp'>Créer un compte utilisateur</p>
+        </Link> 
       </div>
 
       <div className="right__box">
