@@ -5,11 +5,11 @@ import { fetchProductByCategory } from '../../actions/products';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Header from 'src/components/Header';
 import NavBar from '../NavBar';
 import Footer from '../Footer';
 import Cart from '../ShoppingCart';
 
+import Header from 'src/components/Header';
 import SearchResults from 'src/components/SearchResults';
 import CustomerAccount from 'src/components/CustomerAccount';
 import CustomerAdress from '../CustomerAccount/CustomerAdress';
