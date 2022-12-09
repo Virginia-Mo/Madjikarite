@@ -18,13 +18,13 @@ function Field({
     dispatch(changeInputValue(name, event.target.value));
   };
 
-  const inputId = `login-${name}`;
+  const inputId = `field__${name}`;
 
   return (
-    <div className="login__field">
+    <div className="field">
       <label
         htmlFor={inputId}
-        className="login__label"
+        className="field__label"
       >
         {placeholder}
       </label>
@@ -32,8 +32,8 @@ function Field({
         id={inputId}
         name={name}
         type={type}
-        placeholder={placeholder}
-        className="login__input"
+//        placeholder={placeholder}
+        className="field__input"
         value={value}
         onChange={handleChange}
       />
@@ -44,8 +44,9 @@ function Field({
 
 Field.propTypes = {
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 };
-
+Field.defaultProps = {
+  placeholder: ""
+};
 export default Field;

@@ -33,7 +33,7 @@
     font-family: v.$font-paragraph;
   }
 }
-.mySwiper {
+.swiper__products {
   overflow: visible;
   width: 70%;
   margin: 2rem 0;
@@ -57,6 +57,7 @@
 }
 @media screen and (max-width : 1024px){
   .slide__button {
+    top: 100%;
     &-prev {
       left: 5rem;
     }
@@ -68,6 +69,7 @@
 
 @media (min-width : 1024px) and (max-width : 1350px){
   .slide__button {
+    top: 86%;
     &-prev {
       left: 10rem;
     }

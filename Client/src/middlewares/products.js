@@ -1,26 +1,27 @@
-// import axios from 'axios';
+import axios from 'axios';
 // import products from "src/Data/data"
-// // import { RECIPES_FETCH, saveRecipes } from '../actions/recipes';
+import { PRODUCT_BY_CATEGORY, saveProductByCategory } from '../actions/products';
 
-// // const API_BASE_URL = 'http://localhost:3001';
+const API_BASE_URL = 'https://madjikarite.onrender.com';
 
-// const recipesAPI = (store) => (next) => (action) => {
-//   switch (action.type) {
-//     case RECIPES_FETCH:
-//       axios
-//         .get(`${API_BASE_URL}/recipes`)
-//         .then((response) => {
-//           // console.log(response.data);
-//           store.dispatch(saveRecipes(response.data));
-//         })
-//         .catch((error) => console.log(error));
-//       next(action);
-//       break;
+const productsAPI = (store) => (next) => (action) => {
+  switch (action.type) {
+    case PRODUCT_BY_CATEGORY:
+      axios
+        .get(`${API_BASE_URL}/category1/product`)
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(saveProductByCategory(response.data));
+        })
+        .catch((error) => console.log(error))
+      next(action);
+      break;
 
-//     default:
-//       next(action);
-//   }
-// };
+    default:
+      next(action);
+  }
+};
 
-// export default recipesAPI;
+export default productsAPI;
+
 

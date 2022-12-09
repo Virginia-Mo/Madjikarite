@@ -3,40 +3,28 @@
 
 .field {
   display: flex;
-  align-items: center;
-  margin: 1em 0;
-  position: relative;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
-  $font-paragraph: 'Glacial-Indifference';
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: color.adjust(#fff, $alpha: -0.1);
+
+
+  &__label {
+    font-family: vars.$font-paragraph;
+    font-size: vars.$font-size-p;
 }
 
-.login__field {
-  display: flex;
-  align-items: center;
-  margin: 1em 0;
-  position: relative;
-  width: 100%;
-  display: contents;
-}
-
-.login__label {
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  position: relative;
-}
-
-.login__button {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-}
-
-.login__input {
-  width: 40%;
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
+  &__input {
+  padding: 0.5rem;
+  border: 2px solid #ccc;
   border-radius: 0.5rem;
-  font-size: 1.5rem;
-  $font-paragraph: 'Glacial-Indifference';
-  outline: none;
+  background-color: color.adjust(#fff, $alpha: -0.1);
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  font-family: vars.$font-paragraph;
+  font-size: vars.$font-size-p;
+}
 }

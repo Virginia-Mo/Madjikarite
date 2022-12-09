@@ -1,16 +1,32 @@
 /* eslint-disable */
 export default {
+  test : 
+  {
+    "id": 1,
+    "nom": "Savon lavande", 
+    "categorie": "Savon sur-gras", 
+    "description_courte": "Savon surgras fait main fabriqué à partir d'ingrédients naturels et des vrais bourgeons de lavande.Un savon crémeux avec une mousse riche pour tous types de peau.",
+    "description_complete": "Un savon idéal pour la toilette quotidienne du corps, la peau retrouve sa douceur et son velouté. La glycérine végétale laisse un film protecteur sur la peau qui est parfaitement nettoyée sans être agressée. L'huile essentielle de lavande laisse une odeur agréable.Régénérante et réparatrice, cette huile essentielle de Lavande s'utilise sur les cicatrices, petites plaies et infections cutanées. Calmante et sédative, elle favorise le sommeil, l'élimination des tensions nerveuses, des migraines et des douleurs musculaires.",
+    "composition": "Les ingrédients clés comprennent : le beurre de karité bio, l'huile de coco, l’huile d’olive, l’huile de tournesol, l'huile essentielle de lavande et les fleurs de lavande. Ingrédients issus de l'agriculture biologique. INCI : sodium olivate (huile d'olive saponifiée), sodium cocoate (huile de noix de coco saponifiée), Aqua (eau), Butyrospermum parkii butter ( beurre de karité), sunflower seed oil, Lavandula angustifolia oil, Lavandula vera, Tocopheryl acetate. Allergène : geraniol, linalool, limonene.", 
+    "Conditionnement": "poids 145-155g",
+    "prix": 6,
+    "stock": 5,
+    "image": ["https://madjikarite.com/wp-content/uploads/lavande-1-768x775.jpg",
+    "https://madjikarite.com/wp-content/uploads/SAVON-LAVANDE-600x600.jpg",
+    "https://madjikarite.com/wp-content/uploads/SAVON-MADJIKARITE-A-600x600.jpg"]
+  },
   produits :[
     {
         "id": 1,
         "nom": "Savon lavande", 
         "categorie": "Savon sur-gras", 
-        "description_courte": "Savon naturel/Artisanal/ hydratant fait main au beurre de karité bio, sur-gras, non desséchant,crémeux avec une mousse riche.Fabriqué à partir d’ingrédients naturels/biologiques et des vrais bourgeons de lavande",
-        "description complète": "Les ingrédients clés comprennent : lavande, le beurre de karité bio, l’huile de coco,l’huile d’olive, l’huile de tournesol",
+        "description_courte": "Savon surgras fait main fabriqué à partir d'ingrédients naturels et des vrais bourgeons de lavande.Un savon crémeux avec une mousse riche pour tous types de peau.",
+        "description_complete": "Un savon idéal pour la toilette quotidienne du corps, la peau retrouve sa douceur et son velouté. La glycérine végétale laisse un film protecteur sur la peau qui est parfaitement nettoyée sans être agressée. L'huile essentielle de lavande laisse une odeur agréable.Régénérante et réparatrice, cette huile essentielle de Lavande s'utilise sur les cicatrices, petites plaies et infections cutanées. Calmante et sédative, elle favorise le sommeil, l'élimination des tensions nerveuses, des migraines et des douleurs musculaires.",
+        "composition": "Les ingrédients clés comprennent : le beurre de karité bio, l'huile de coco, l’huile d’olive, l’huile de tournesol, l'huile essentielle de lavande et les fleurs de lavande. Ingrédients issus de l'agriculture biologique. INCI : sodium olivate (huile d'olive saponifiée), sodium cocoate (huile de noix de coco saponifiée), Aqua (eau), Butyrospermum parkii butter ( beurre de karité), sunflower seed oil, Lavandula angustifolia oil, Lavandula vera, Tocopheryl acetate. Allergène : geraniol, linalool, limonene.", 
         "Conditionnement": "poids 145-155g",
         "prix": 6,
         "stock": 5,
-        "image": "https://madjikarite.com/wp-content/uploads/lavande-1-768x775.jpg",
+        "image": "https://madjikarite.com/wp-content/uploads/lavande-1-768x775.jpg"
       },
       {
         "id": 2,

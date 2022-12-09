@@ -8,15 +8,18 @@ function ProductItem({
 }) {
   return (
     <div className="product-item">
-      <div className="product-item__image">
-        <img src={image} alt={nom} />
-      </div>
-      <div className="product-item__content">
-        <h4>{nom}</h4>
-        <p><span>Catégorie:</span>  {categorie}</p>
-        <p><span>Prix:</span>  {prix} €</p>
-      </div>
+    <div className="product-item__image">
+      <img src={image} alt={nom} />
     </div>
+    <div className="product-item__content">
+    <h4>{nom}</h4>
+    <p><span>Catégorie:</span>  {categorie}</p>
+    <p><span>Description:</span></p>
+    <p>{description_courte}</p>
+    <p><span>Conditionnement:</span>  {Conditionnement}</p>
+    <p><span>Prix:</span>  {prix} €</p>
+  </div>
+</div>
   );
 }
 

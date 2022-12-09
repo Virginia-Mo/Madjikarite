@@ -9,6 +9,7 @@ import './styles.scss';
 function Header() {
   return (
     <header className="header">
+    
       <div className="header__logo">
         <img src={logo} className="header__logo" alt="logo de madjikarite" />
       </div>
