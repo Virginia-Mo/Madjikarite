@@ -17,6 +17,7 @@ import DeleteAccount from '../CustomerAccount/DeleteAccount';
 import LoginForm from 'src/components/LoginForm';
 import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
+import SingleProduct from '../SingleProduct';
 import './styles.scss';
 
 

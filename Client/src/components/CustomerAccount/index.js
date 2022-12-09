@@ -38,7 +38,7 @@ function CustomerAccount() {
 
     <form className="customerAccount__form" onSubmit={handleSubmit}>
 
-    <h1 className="customerAccount__title">Création de compte</h1>
+    <h2 className="customerAccount__title">Création de compte</h2>
 
     <div className="box__container">
 
