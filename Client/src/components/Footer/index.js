@@ -2,6 +2,7 @@ import { RiFacebookCircleFill, RiTwitterFill } from 'react-icons/ri';
 import { MdContactMail } from "react-icons/md";
 
 import './style.scss';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -12,7 +13,7 @@ function Footer() {
           <div className="footer__contact-form">
             <h3>CONTACT</h3>
             <p>
-              <a href="">Accéder au formulaire de contact</a>
+              <Link to="/contact">Accéder au formulaire de contact</Link>
             </p>
           </div>
         </div>

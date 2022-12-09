@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import './style.scss';
 
@@ -7,6 +8,7 @@ function ProductItem({
   image, nom, categorie, description_courte, Conditionnement, prix,
 }) {
   return (
+    <Link to="/searchedproduct">
     <div className="product-item">
     <div className="product-item__image">
       <img src={image} alt={nom} />
@@ -20,6 +22,7 @@ function ProductItem({
     <p><span>Prix:</span>  {prix} €</p>
   </div>
 </div>
+</Link>
   );
 }
 
