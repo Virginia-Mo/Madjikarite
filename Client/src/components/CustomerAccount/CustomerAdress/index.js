@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Field from '../../LoginForm/Field';
 
@@ -34,12 +35,17 @@ function CustomerAdress() {
 
   return (
     
-    <>
-    <h1 className="customerAdress__title">Adresse de livraison</h1>
+    <><h1 className="customerAdress__title">Adresse de livraison</h1>
+
     <div className="customerAdress">
+      
+      <span className="customerAside">
+        {/* <Link to="/customeraccount"> <h2 style={{ fontSize: "3rem" }}>Informations du compte</h2></Link>
+        <Link to="/customeraccount/adress"> <h2 style={{ fontSize: "3rem" }}>Adresses</h2></Link> */}
+        <Link to="/customeraccount/delete"> <h2 style={{ fontSize: "3rem" }}>Supprimer le compte</h2></Link>
+      </span>
+
       <form className="customerAdress__form" onSubmit={handleSubmit}>
-
-
         <Field
           name="Adresse de livraison"
           type="text"
@@ -58,9 +64,14 @@ function CustomerAdress() {
           type="text"
           placeholder="Téléphone" />
         <button className="customerAdress__button" type="submit">Ajouter une nouvelle adresse</button>
+
       </form>
+    
+   
+      
     </div></>
-  
+
+   
   );
 }
 

@@ -74,10 +74,10 @@
   border-radius: 1rem;
   margin-top: 1rem;
   font-family: vars.$font-paragraph;
-}
-  hover {
-  background-color: #9fb16f;
-}
+  &:hover {
+    background-color: vars.$color-light-brown;
+  }
+  }
 
 h1 {
   font-size: 2rem;
@@ -97,4 +97,10 @@ h1 {
   border: 2px solid #ccc;
   border-radius: 0.5rem;
   padding: 2rem;
+}
+
+.delete__title {
+  font-size: vars.$font-size-p;
+  font-family: vars.$font-paragraph;
+  margin-bottom: 1rem;
 }
