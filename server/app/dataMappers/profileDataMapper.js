@@ -29,7 +29,7 @@ const profileDataMapper = {
         };
     },
     async getAddresses(id) {
-        const result = await client.query('SELECT "address"."address", "address"."zip_code", "address"."country" FROM "user" JOIN "live_in" ON "live_in"."user_id" = "user"."id" JOIN "address" ON "live_in"."address_id" = "address"."id" WHERE "user"."id" = $1', [id]);
+        const result = await client.query('SELECT "address"."address", "address"."zip_code", "address"."city", "address"."country" FROM "user" JOIN "live_in" ON "live_in"."user_id" = "user"."id" JOIN "address" ON "live_in"."address_id" = "address"."id" WHERE "user"."id" = $1', [id]);
         return result.rows;
     },
     async createAddress(id, address) {
