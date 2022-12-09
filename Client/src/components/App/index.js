@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../NavBar';
 import Footer from '../Footer';
 import Cart from '../ShoppingCart';
-
 import Header from 'src/components/Header';
 import SearchResults from 'src/components/SearchResults';
+import SingleProduct from 'src/components/SingleProduct';
 import CustomerAccount from 'src/components/CustomerAccount';
 import CustomerAdress from '../CustomerAccount/CustomerAdress';
 import DeleteAccount from '../CustomerAccount/DeleteAccount';
