@@ -1,26 +1,25 @@
 // == Import
-import Header from 'src/components/Header';
+import WelcomePage from '../WelcomePage';
+import { Route, Routes } from 'react-router-dom';
+import { fetchProductByCategory } from '../../actions/products';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import NavBar from '../NavBar';
 import Footer from '../Footer';
 import Cart from '../ShoppingCart';
 
-import { Route, Routes } from 'react-router-dom';
-
+import Header from 'src/components/Header';
 import SearchResults from 'src/components/SearchResults';
 import CustomerAccount from 'src/components/CustomerAccount';
 import CustomerAdress from '../CustomerAccount/CustomerAdress';
 import DeleteAccount from '../CustomerAccount/DeleteAccount';
 import LoginForm from 'src/components/LoginForm';
 import ContactUs from '../ContactUs';
-
-import './styles.scss';
-import WelcomePage from '../WelcomePage';
-import { fetchProductByCategory } from '../../actions/products';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import SingleProduct from '../SingleProduct';
 import AboutUs from '../AboutUs';
+import './styles.scss';
+
+
 // == Composant
 function App() {
   const dispatch = useDispatch();

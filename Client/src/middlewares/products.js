@@ -8,10 +8,10 @@ const productsAPI = (store) => (next) => (action) => {
   switch (action.type) {
     case PRODUCT_BY_CATEGORY:
       axios
-        .get(`${API_BASE_URL}/category1/product`)
+        .get(`${API_BASE_URL}/products`)
         .then((response) => {
           console.log(response.data);
-          store.dispatch(saveProductByCategory(response.data));
+          store.dispatch(saveProducts(response.data));
         })
         .catch((error) => console.log(error))
       next(action);
