@@ -23,7 +23,7 @@ export function fetchProductByCategory() {
 
 export const SAVE_PRODUCT_BY_CATEGORY = 'SAVE_PRODUCT_BY_CATEGORY';
 
-export function saveProductByCategory(products) {
+export function saveProducts(products) {
   return {
     type: SAVE_PRODUCT_BY_CATEGORY,
     payload : { products },

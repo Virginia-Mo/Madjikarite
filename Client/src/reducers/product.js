@@ -30,7 +30,7 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_PRODUCT_BY_CATEGORY:
       return {
         ...state,
-        categoryProducts: payload.products,
+        listProducts: payload.products,
       };
     default:
       return state;
