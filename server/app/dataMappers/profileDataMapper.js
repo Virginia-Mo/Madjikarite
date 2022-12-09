@@ -33,12 +33,9 @@ const profileDataMapper = {
         return result.rows;
     },
     async createAddress(id, address) {
-        console.log(id);
-        console.log(address);
         const resultAddress = await client.query('INSERT INTO "address" (address, zip_code, city, country) VALUES ($1, $2, $3, $4) RETURNING "address"."id"', [address.address, address.zip_code, address.city, address.country]);
         const addressId = resultAddress.rows[0].id;
-        console.log(addressId);
-        const result = await client.query('INSERT INTO "live_in" (user_id, address_id) VALUES ($1, $2)', [id, addressId]);
+        const result = await client.query('INSERT INTO "live_in" (user_id, address_id) VALUES ($1, $2) RETURNING *', [id, addressId]);
         return result.rows[0];
     },
     async getOneAddress(id) {
