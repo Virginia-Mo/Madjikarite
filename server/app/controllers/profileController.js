@@ -94,15 +94,11 @@ const profileController = {
     },
     // Show the profile page
     async profilePage(req, res) {
-        // TODO: supprimer la définition du req.session.user_id
-        req.session.user_id = 2;
         const profile = await profileDataMapper.getOneUserWithId(req.session.user_id);
         res.json(profile);
     },
     // Send the new data to the database
     async updateProfile(req, res) {
-        // TODO: supprimer la définition du req.session.user_id
-        req.session.user_id = 2;
         const { user_id } = req.session;
         // We get all the old data from the database
         const oldData = await profileDataMapper.getOneUser(user_id);
@@ -135,47 +131,29 @@ const profileController = {
     },
     // Delete the account from the database
     async deleteProfile(req, res) {
-        // TODO: supprimer la définition du req.session.user_id
-        req.session.user = {
-            id: 4,
-        };
         await profileDataMapper.deleteProfile(req.session.user.id);
         res.json({ message: 'Votre compte à bien été supprimé' });
     },
     async addressPage(req, res) {
-        // TODO: supprimer la définition du req.session.user_id
-        req.session.user = {
-            id: 3,
-        };
         const addresses = await profileDataMapper.getAddresses(req.session.user.id);
         res.json(addresses);
     },
     async createAddress(req, res) {
-        // TODO: supprimer la définition du req.session.user_id
-        req.session.user = {
-            id: 4,
-        };
         const { id } = req.session.user;
         const address = await profileDataMapper.createAddress(id, req.body);
         res.json(address);
     },
     async getOneAddress(req, res) {
-        // TODO: supprimer la définition du req.params.id
-        req.params.id = 1;
         const { id } = req.params;
         const address = await profileDataMapper.getOneAddress(id);
         res.json(address);
     },
     async updateAddress(req, res) {
-        // TODO: supprimer la définition du req.params.id
-        req.params.id = 1;
         const { id } = req.params;
         const address = await profileDataMapper.updateAddress(id, req.body);
         res.json(address);
     },
     async deleteAddress(req, res) {
-        // TODO: supprimer la définition du req.params.id
-        req.params.id = 1;
         const { id } = req.params;
         await profileDataMapper.deleteAddress(id);
         res.json({ message: 'L\'adresse à bien été supprimé' });

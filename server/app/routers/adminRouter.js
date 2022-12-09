@@ -15,7 +15,7 @@ const controllerWrapper = require('../helpers/controllerWrapper');
 
 const router = new Router();
 
-router.get('/admin/products', controllerWrapper(adminController.getProductsPage)); // home page admin
+router.get('/admin/products', (adminController.getProductsPage)); // home page admin
 router.route('/admin/new-product')
     .get(controllerWrapper(adminController.getCreateNewProductPage)) // create a new product page
     .post(controllerWrapper(adminController.validateFormNewProduct)); // validate new product

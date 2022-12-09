@@ -1,4 +1,4 @@
-const controllerwrapper = (controller) => async (req, res) => {
+const controllerWrapper = (controller) => async (req, res) => {
     try {
         await controller(req, res);
     } catch (error) {
@@ -6,4 +6,4 @@ const controllerwrapper = (controller) => async (req, res) => {
     }
 };
 
-module.exports = controllerwrapper;
+module.exports = controllerWrapper;

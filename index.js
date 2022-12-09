@@ -7,13 +7,12 @@ const cors = require('cors');
 // on importe le router
 const router = require('./server/app/routers/mainRouter');
 
-// un peu de config
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-// on ajoute le middleware cors
-app.use(cors('*'));
+// We add a middleware to enable the CORS
+app.use(cors('localhost:8080'));
 
 // Add a body parser middleware : enable to treat the requests body
 app.use(express.urlencoded({ extended: true }));
@@ -24,12 +23,13 @@ app.use(session({
     saveUninitialized: true,
     resave: true,
     secret: process.env.SESSION_SECRET,
+    cookie: { secure: true },
 }));
 
-// routage !
+// We use the router
 app.use(router);
 
-// on lance le serveur
+// We start the server
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);
 });
