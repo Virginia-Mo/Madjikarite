@@ -5,10 +5,8 @@ import { HANDLE_DESCRIPTION, HANDLE_COMPOSITION, SAVE_PRODUCT_BY_CATEGORY } from
 export const initialState = {
   listProducts : products.produits,
   categoryProducts : [],
-};
   activeDescription : true,
   activeComposition : false,
-    categoryProducts : [],
 }
 
 
