@@ -9,6 +9,7 @@ This router take care of all the authentication route and the profile one :
 const { Router } = require('express');
 const profileController = require('../controllers/profileController');
 const controllerWrapper = require('../helpers/controllerWrapper');
+const authUser = require('../helpers/userMiddleware');
 
 const router = new Router();
 
@@ -20,15 +21,15 @@ router.route('/signup')
     .get(controllerWrapper(profileController.signupPage))
     .post(controllerWrapper(profileController.createAccount));
 router.route('/profile')
-    .get(controllerWrapper(profileController.profilePage))
-    .patch(controllerWrapper(profileController.updateProfile))
-    .delete(controllerWrapper(profileController.deleteProfile));
+    .get(authUser, controllerWrapper(profileController.profilePage))
+    .patch(authUser, controllerWrapper(profileController.updateProfile))
+    .delete(authUser, controllerWrapper(profileController.deleteProfile));
 router.route('/profile/address')
-    .get(controllerWrapper(profileController.addressPage))
-    .post(controllerWrapper(profileController.createAddress));
+    .get(authUser, controllerWrapper(profileController.addressPage))
+    .post(authUser, controllerWrapper(profileController.createAddress));
 router.route('/profile/address:id')
-    .get(controllerWrapper(profileController.getOneAddress))
-    .patch(controllerWrapper(profileController.updateAddress))
-    .delete(controllerWrapper(profileController.deleteAddress));
+    .get(authUser, controllerWrapper(profileController.getOneAddress))
+    .patch(authUser, controllerWrapper(profileController.updateAddress))
+    .delete(authUser, controllerWrapper(profileController.deleteAddress));
 
 module.exports = router;
