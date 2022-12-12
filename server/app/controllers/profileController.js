@@ -139,6 +139,10 @@ const profileController = {
         res.json(addresses);
     },
     async createAddress(req, res) {
+        // TODO: delete req.session.user.id
+        req.session.user = {
+            id: 2,
+        };
         const { id } = req.session.user;
         const address = await profileDataMapper.createAddress(id, req.body);
         res.json(address);

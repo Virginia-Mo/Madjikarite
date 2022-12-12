@@ -42,6 +42,7 @@ l''huile de noix de coco Cette huile possède des vertus émollientes et adoucis
 ('ARGILE BLANCHE/MANDRINE &CITRON 145-155G', ' Eliminer les taches noirs/marrons et les boutons. l''argile blanche, citron et mandarine, apportent une douceur infinie à votre peau .Utiliser deux fois par semaine sur le visage, elle révèle instantanément l''éclat de votre peau.tout types de peaux/Fabriqué à partir ', ' Les ingrédients clés comprennent : le beurre de karité bio, l''huile de coco, l''huile d''olive, l''huile de tournesol.
 Beurre de karité Le beurre de karité pur est un émollient naturel qui, guérit et protège la peau. il protège la peau des méfaits du soleil, l''adoucit et régénère les peaux abîmées. Il nourrit également les cheveux et leur redonne brillance et beauté. Il est traditionnellement utilisé pour nourrir la peau, pour le garder souple et jeune. Il est également utilisé pour traiter une variété d''affections cutanées telles que: l''eczéma, irritations, sécheresse extrême, vergetures et la prévention des rides, des brûlures, des coupures et des petites plaies de la peau, les soins après-soleil, les piqûres d''insectes. Le Beurre de Karité rétablit l''élasticité naturelle de la peau. Riche en vitamines A, D, E, F mais aussi en latex et en insaponifiables (qui empêche la transformation en savon),
 l''huile de noix de coco Cette huile possède des vertus émollientes et adoucissantes exceptionnelles. Elle est un antioxydant naturel, qui aide à lutter contre les radicaux libres, ralentir le processus de vieillissement de la peau et rajeunir les cellules. l''huile d''olive l''huile d''olive est un excellent hydratant et convient à tous types de peau. Elle aide à préserver l''hydratation naturelle de la peau et la laisse hydratée et éclatante. Le pouvoir hydratant de l''huile d''olive en fait un excellent soin pour les peaux très sèches. Riche en vitamine E. l''huile de tournesol Elle adoucit la peau, prévient son vieillissement, renforce le système immunitaire, rend les cheveux doux, souples et brillants, limite leur perte et leur casse et favorise leur croissance. Ingrédients issus de l''agriculture biologique.', 'Ingredients : sodium oliveate (huile d''olive saponifiée), sodium cocate (huile de noix de coco saponifiée), Aqua (eau), Butyrospermum parkii butter (beurre de karité),sunflower seed , Citrus limon peel oil/Citrus reticulata oil, Tocopheryl acetate. Allergene : citral,geraniol, linalool,limonene.', '145-155g', ' 6', '10 ', '1'),
+
 ('Moringa 145-155g', 'Savon merveilleux,l''huile de Moringa à des vertus anti-âge reconnues:elle hydrate votre peau,réduit les rides. sans parfum ajouté  pour ne garder que les propriétés de huile de moringa,un savon qui rajeunit. Fabriqué à partir des ingrédients naturels/biologiques.
 Hydratant. Adoucissant. Pour tous
 ', 'Les ingrédients clés comprennent : l''huile de moringa, le beurre de karité bio, l''huile de coco, l''huile d''olive, l''huile de tournesol. l''huile de moringa Pour les peaux fatiguées, ridées, vieillissantes. Cette  huile possède des vertus anti-âge reconnues, qui renforcent les tissus de la peau et minimisent la formation des rides. La vitamine C est efficace pour la régénération des cellules.
@@ -79,6 +80,7 @@ Parfum de mangue et citron. Le parfum de mangue reconnu pour ces propriétés as
 Hydratant. Adoucissant. Pour tous types de peau. Saponification à froid.', 'Composition Les ingrédients clés comprennent : le beurre de karité bio, l''huile de coco, l''huile d''olive, l''huile de tournesol, l''huile essentielle de lavande et les fleurs de lavande.
 Beurre de karité Le beurre de karité pur est un émollient naturel qui, guérit et protège la peau. Le beurre protège la peau des méfaits du soleil, l''adoucit et régénère les peaux abîmées. Il nourrit également les cheveux et leur redonne brillance et beauté. Il est traditionnellement utilisé pour nourrir la peau, pour le garder souple et jeune. Il est également utilisé pour traiter une variété d''affections cutanées telles que: l''eczéma, irritations, sécheresse extrême, vergetures et la prévention des rides, des brûlures, des coupures et des petites plaies de la peau, les soins après-soleil, les piqûres d''insectes. Le Beurre de Karité rétablit l''élasticité naturelle de la peau. Riche en vitamines A, D, E, F mais aussi en latex et en insaponifiables (qui empêche la transformation en savon),
 l''huile de noix de coco Cette huile possède des vertus émollientes et adoucissantes exceptionnelles. Elle est un antioxydant naturel, qui aide à lutter contre les radicaux libres, ralentir le processus de vieillissement de la peau et rajeunir les cellules. l''huile d''olive l''huile d''olive est un excellent hydratant et convient à tous types de peau. Elle aide à préserver l''hydratation naturelle de la peau et la laisse hydratée et éclatante. Le pouvoir hydratant de l''huile d''olive en fait un excellent soin pour les peaux très sèches. Riche en vitamine E. l''huile de tournesol Elle adoucit la peau, prévient son vieillissement, renforce le système immunitaire, rend les cheveux doux, souples et brillants, limite leur perte et leur casse et favorise leur croissance. l''huile essentielle de lavande Régénérante et réparatrice, cette huile essentielle de Lavande s''utilise sur les cicatrices, petites plaies et infections cutanées. Calmante et sédative, elle favorise le sommeil, l''élimination des tensions nerveuses, des migraines et des douleurs musculaires.', 'Ingrédients issus de l''agriculture biologique. INCI : sodium oliveate (huile d''olive saponifiée), sodium cocate (huile de noix de coco saponifiée), Aqua (eau), Butyrospermum parkii butter ( beurre de karité), sunflower seed oil, Lavandula angustifolia oil, Lavandula vera, Tocopheryl acetate. Allergene : geraniol, linalool, limonene.','100g','4','0','2'),
+
 ('Savon Neutre/500ml', 'Savon naturel/artisanal/ hydratant, sur-gras, non desséchant, au beurre de karité bio. Pour tous types de peau. Fabriqué à partir d''ingrédients naturels  et sans parfum. Saponification traditionnelle à la potasse. Agiter avant utilisation& refermer après usage.
 ', 'Beurre de karité Le beurre de karité pur est un émollient naturel qui, guérit et protège la peau. Il protège la peau des méfaits du soleil, l''adoucit et régénère les peaux abîmées. Il nourrit également les cheveux et leur redonne brillance et beauté. Il est traditionnellement utilisé pour nourrir la peau, pour le garder souple et jeune. Il est également utilisé pour traiter une variété d''affections cutanées telles que: l''eczéma, irritations, sécheresse extrême, vergetures et la prévention des rides, des brûlures, des coupures et des petites plaies de la peau, les soins après-soleil, les piqûres d''insectes. Le Beurre de Karité rétablit l''élasticité naturelle de la peau. Riche en vitamines A, D, E, F mais aussi en latex et en insaponifiables (qui empêche la transformation en savon),
 l''huile de noix de coco Cette huile possède des vertus émollientes et adoucissantes exceptionnelles. Elle est un antioxydant naturel, qui aide à lutter contre les radicaux libres, ralentir le processus de vieillissement de la peau et rajeunir les cellules. l''huile d''olive l''huile d''olive est un excellent hydratant et convient à tous types de peau. Elle aide à préserver l''hydratation naturelle de la peau et la laisse hydratée et éclatante. Le pouvoir hydratant de l''huile d''olive en fait un excellent soin pour les peaux très sèches. Riche en vitamine E. l''huile de tournesol Elle adoucit la peau, prévient son vieillissement, renforce le système immunitaire, rend les cheveux doux, souples et brillants, limite leur perte et leur casse et favorise leur croissance. sans parfum
@@ -119,6 +121,7 @@ Géranium est très efficace Pour assécher une peau trop grasse, hydrater une p
 ('Vanille 150g', 'Beurre corporel  crémeux.hydratation durable et rend votre peau étonnamment lisse:les peaux abîmées, (très) sèches, normales, sensibles et matures : le corps, le visage, les mains, les pieds et le cuir chevelu, pour l''hydratation, le massage et le rasage. Fabriqué ', 'Un beurre corporel crémeux qui  fournit une hydratation durable et rend votre peau étonnamment lisse. Il est fait avec 60 % beurre de karité biologique, l''un des meilleurs émollients de la nature.
 D''autres ingrédients clés comprennent : le beurre de cacao pour adoucir et enrichir votre peau ; l''huile de noix de coco pour lisser, nourrir et ajouté une lueur chaude à votre peau ; l''huile de tournesol, qui est riche en omégas pour  garder votre peau souple, élastique et saine ; la vitamine E pour  préserver la jeunesse de votre peau et prévenir le vieillissement prématuré.
 Un beurre végétalien,  fait main. Parfumé à la vanille', 'Ingrédients : INCI : butyrospermum parkii (beurre de karité), butter cocos nucifera (huile de coco),  helianthus annuus (huile de tournesol),  theobroma cacao (beurre de cacao), Vanilla planifolia fruit ( vanille)   , Tocopheryl acetate ( vitamine E) . Allergene :  sans allergène.','150g','14','6','4'),
+
 ('Vanille 50g', 'Beurre corporel  crémeux.hydratation durable et rend votre peau étonnamment lisse:les peaux abîmées, (très) sèches, normales, sensibles et matures : le corps, le visage, les mains, les pieds et le cuir chevelu, pour l''hydratation, le massage et le rasage. Fabriqué ', 'Un beurre corporel crémeux qui  fournit une hydratation durable et rend votre peau étonnamment lisse. Il est fait avec 60 % beurre de karité biologique, l''un des meilleurs émollients de la nature.
 D''autres ingrédients clés comprennent : le beurre de cacao pour adoucir et enrichir votre peau ; l''huile de noix de coco pour lisser, nourrir et ajouté une lueur chaude à votre peau ; l''huile de tournesol, qui est riche en omégas pour  garder votre peau souple, élastique et saine ; la vitamine E pour  préserver la jeunesse de votre peau et prévenir le vieillissement prématuré.
 Un beurre végétalien,  fait main. Parfumé à la vanille', 'Ingrédients : INCI : butyrospermum parkii (beurre de karité), butter cocos nucifera (huile de coco),  helianthus annuus (huile de tournesol),  theobroma cacao (beurre de cacao), Vanilla planifolia fruit ( vanille)   , Tocopheryl acetate ( vitamine E) . Allergene :  sans allergène.','50g','14','6','4'),
@@ -182,45 +185,45 @@ Les utilisateurs réguliers de pur beurre de karité non raffiné ont  une  peau
 
 ('Maxi-Pochon Noel', 'Pochon Noel : 1 savon liquide 500ml , 1 beurre corporel 150g, 1 stick à lèvres ', 'Pochon Noel : 1 savon liquide 500ml , 1 beurre corporel 150g, 1 stick à lèvres . ', 'ingrédients','Baluchon 690g','31.50','24','7'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 5 euros', '','','5','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 5 euros', '','','5','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 10 euros', '','','10','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 10 euros', '','','10','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 15 euros', '','','15','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 15 euros', '','','15','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 20 euros', '','','20','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 20 euros', '','','20','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 25 euros', '','','25','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 25 euros', '','','25','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 30 euros', '','','30','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 30 euros', '','','30','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 35 euros', '','','35','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 35 euros', '','','35','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 40 euros', '','','40','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 40 euros', '','','40','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 45 euros', '','','45','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 45 euros', '','','45','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 50 euros', '','','50','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 50 euros', '','','50','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 55 euros', '','','55','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 55 euros', '','','55','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 60 euros', '','','60','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 60 euros', '','','60','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 65 euros', '','','65','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 65 euros', '','','65','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 70 euros', '','','70','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 70 euros', '','','70','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 75 euros', '','','75','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 75 euros', '','','75','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 80 euros', '','','80','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 80 euros', '','','80','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 85 euros', '','','85','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 85 euros', '','','85','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 90 euros', '','','90','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 90 euros', '','','90','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 95 euros', '','','95','99','8'),
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 95 euros', '','','95','99','8'),
 
-('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau 100 euros', '','','100','99','8');
+('Carte Cadeau', 'Carte Cadeau', 'Carte Cadeau de 100 euros', '','','100','99','8');
 
 
 COMMIT;

@@ -1,3 +1,5 @@
+-- Deploy madjikarite:init to pg
+
 BEGIN;
 
 DROP TABLE IF EXISTS "role",
@@ -21,7 +23,6 @@ CREATE TABLE "address" (
     "zip_code" TEXT NOT NULL,
     "city" TEXT NOT NULL,
     "country" TEXT NOT NULL,
-    "live_in_id" INT NOT NULL REFERENCES "live_in" ("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
@@ -41,8 +42,7 @@ CREATE TABLE "user" (
     "email" TEXT NOT NULL UNIQUE,
     "phone_number" INT NOT NULL,
     "password" TEXT NOT NULL,
-    "live_in_id" INT NOT NULL REFERENCES "live_in" ("id") ON DELETE CASCADE,
-    "role_id" INT REFERENCES "role" ("id") DEFAULT 2,
+    "role_id" INT REFERENCES "role" ("id") ON DELETE CASCADE ON UPDATE CASCADE DEFAULT 2,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
@@ -56,7 +56,7 @@ CREATE TABLE "product" (
     "packaging" TEXT NOT NULL,
     "price" NUMERIC NOT NULL,
     "stock" INT DEFAULT 0,
-    "category_id" INT NOT NULL REFERENCES "category" ("id") ON DELETE CASCADE,
+    "category_id" INT NOT NULL REFERENCES "category" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
@@ -65,8 +65,8 @@ CREATE TABLE "user_review" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "note" INT NOT NULL,
     "content" TEXT,
-    "product_id" INT NOT NULL REFERENCES "product" ("id") ON DELETE CASCADE,
-    "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE,
+    "product_id" INT NOT NULL REFERENCES "product" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
@@ -76,15 +76,15 @@ CREATE TABLE "shopping_cart" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "total_price" NUMERIC NOT NULL,
     "message" TEXT NOT NULL,
-    "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE,
+    "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
 
 CREATE TABLE "live_in" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE,
-    "address_id" INT NOT NULL REFERENCES "address" ("id") ON DELETE CASCADE,
+    "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    "address_id" INT NOT NULL REFERENCES "address" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ 
 );
@@ -93,12 +93,10 @@ CREATE TABLE "live_in" (
 CREATE TABLE "shopping_cart_lign" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "quantity" INT NOT NULL,
-    "shopping_cart_id" INT NOT NULL REFERENCES "shopping_cart" ("id") ON DELETE CASCADE,
-    "product_id" INT NOT NULL REFERENCES "product" ("id") ON DELETE CASCADE,
+    "shopping_cart_id" INT NOT NULL REFERENCES "shopping_cart" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    "product_id" INT NOT NULL REFERENCES "product" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
-
-ALTER TABLE "user" ADD COLUMN "shopping_cart_id" INT REFERENCES "shopping_cart" ("id") ON DELETE CASCADE;
 
 COMMIT;
