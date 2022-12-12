@@ -26,7 +26,7 @@ const profileController = {
         if (result) {
             req.session.user = {
                 id: user.id,
-                first_name: user.first_name,
+                firstName: user.first_name,
                 role: user.role_id,
             };
             res.redirect('/');
@@ -118,6 +118,7 @@ const profileController = {
         }
         if (password) {
             const encryptedPassword = await bcrypt.hash(password, 10);
+            // TODO: mettre en dynamique
             newData.splice(6, 1, encryptedPassword);
         }
         // We send the new data to the database
@@ -139,6 +140,10 @@ const profileController = {
         res.json(addresses);
     },
     async createAddress(req, res) {
+        // TODO: delete req.session.user.id
+        req.session.user = {
+            id: 2,
+        };
         const { id } = req.session.user;
         const address = await profileDataMapper.createAddress(id, req.body);
         res.json(address);

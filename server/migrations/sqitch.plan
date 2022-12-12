@@ -3,3 +3,5 @@
 
 init 2022-12-05T10:56:20Z Pierre Goursolas <pierre.goursol@gmail.com> # DB initialization
 data 2022-12-07T08:27:52Z Pierre Goursolas <pierre.goursol@gmail.com> # data implementation
+picture 2022-12-09T10:34:52Z Pierre Goursolas <pierre.goursol@gmail.com> # Add picture table and alter product table to link it to picture table
+data_picture 2022-12-09T10:51:51Z Pierre Goursolas <pierre.goursol@gmail.com> # add picture data

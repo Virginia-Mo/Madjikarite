@@ -73,13 +73,17 @@ const adminController = {
 
     // get an order page
     async getAnOrderPage(req, res) {
-        const id = parseInt(req.params.id, 10);
-        const user = await adminDataMapper.getOneOrderUser(id);
-        const addresses = await adminDataMapper.getAllAddressesOfAUser(id);
+        // TODO : delete req.params.id
+        req.params = {
+            id: 2,
+        };
+        const orderId = parseInt(req.params.id, 10);
+        const user = await adminDataMapper.getOneOrderUser(orderId);
+        const addresses = await adminDataMapper.getAllAddressesOfAUser(user.user_id);
         if (!user) {
             throw new NotFoundError('La commande n\'existe pas');
         }
-        const orderDetails = await adminDataMapper.getAllItemsOfAnOrder(id);
+        const orderDetails = await adminDataMapper.getAllItemsOfAnOrder(orderId);
         res.json({ 'Numéro de commande et client': user, 'Adresses du client': addresses, 'Détails de la commande': orderDetails });
     },
 

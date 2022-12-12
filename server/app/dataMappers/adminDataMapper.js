@@ -27,7 +27,7 @@ const adminDataMapper = {
     },
     // get the user that made the order
     async getOneOrderUser(id) {
-        const result = await client.query('SELECT "shopping_cart"."id" AS "Numéro de commande", "user"."civility", "user"."last_name", "user"."first_name", "user"."email", "user"."phone_number" FROM "shopping_cart" JOIN "user" ON "shopping_cart"."user_id" = "user"."id" WHERE "shopping_cart"."id" = $1', [id]);
+        const result = await client.query('SELECT "shopping_cart"."id" AS "Numéro de commande", "user"."id" AS "user_id", "user"."civility", "user"."last_name", "user"."first_name", "user"."email", "user"."phone_number" FROM "shopping_cart" JOIN "user" ON "shopping_cart"."user_id" = "user"."id" WHERE "shopping_cart"."id" = $1', [id]);
         return result.rows[0];
     },
     // get all addresses of a user

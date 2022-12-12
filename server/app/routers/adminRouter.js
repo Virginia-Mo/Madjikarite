@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /*
 This router is about admin routes
 
