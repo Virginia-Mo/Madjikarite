@@ -23,7 +23,6 @@ function SingleProduct() {
   const product = useSelector((state) => (
     findProduct(state.products.listProducts, slug)
   ));
-  console.log("params" + product.id);
   // Creating refs to add an animation on submit
   const buttonAnimation = useRef();
   const addToCart = useRef();
@@ -41,12 +40,10 @@ function SingleProduct() {
   // handling the click to toggle the description and compositon display
   const handleActiveDescription = (event) =>{
     event.preventDefault();
-    console.log("click")
     dispatch(handleDescription())
   }
   const handleActiveComposition = (event) =>{
     event.preventDefault();
-    console.log("click")
     dispatch(handleComposition())
   }
 //  Submit desired product and quantity 

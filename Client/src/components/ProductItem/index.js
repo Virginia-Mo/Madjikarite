@@ -32,7 +32,6 @@ function ProductItem({
     price : parseInt(price),
     total : parseInt(price) * 1
   }
- console.log(typeof(formData.price)) 
   dispatch(addItemToCart(formData))
   setTimeout(function() {
     cartIcon.current.classList.remove("animate__fadeOutUp");

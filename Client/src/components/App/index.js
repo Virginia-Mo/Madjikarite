@@ -17,18 +17,15 @@ import DeleteAccount from '../CustomerAccount/DeleteAccount';
 import LoginForm from 'src/components/LoginForm';
 import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
-import SingleProduct from '../SingleProduct';
 import './styles.scss';
 
 
 // == Composant
 function App() {
   const dispatch = useDispatch();
-  const categoryProducts = useSelector((state) => state.products.categoryProducts);
 
     useEffect(() => {
         dispatch(fetchProducts());
-        console.log("useEffect" + categoryProducts)
       }, []); // au 1er rendu
 
   return (

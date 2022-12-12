@@ -15,7 +15,7 @@ const productsAPI = (store) => (next) => (action) => {
         .catch((error) => console.log(error))
       next(action);
       break;
-      // case GET_CHOSEN_PRODUCT:
+      // case GET_CATEGORIES:
       //   console.log("click")
       //   axios
       //     .get(`${API_BASE_URL}/product:${slug}`)
@@ -25,7 +25,7 @@ const productsAPI = (store) => (next) => (action) => {
       //     })
       //     .catch((error) => console.log(error))
       //   next(action);
-        // break;
+      //   break;
     default:
       next(action);
   }

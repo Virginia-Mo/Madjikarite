@@ -10,7 +10,6 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   const { type, payload } = action;
-  console.log(payload);
   
   switch (type) {
     case HANDLE_DESCRIPTION:
