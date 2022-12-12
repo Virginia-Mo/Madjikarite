@@ -74,16 +74,10 @@
   border-radius: 1rem;
   margin-top: 1rem;
   font-family: vars.$font-paragraph;
-}
-  hover {
-  background-color: #9fb16f;
-}
-
-h1 {
-  font-size: 2rem;
-  font-family: vars.$font-title;
-  margin-bottom: 1rem;
-}
+  &:hover {
+    background-color: vars.$color-light-brown;
+  }
+  }
 
 .delete {
   display: flex;
@@ -97,4 +91,10 @@ h1 {
   border: 2px solid #ccc;
   border-radius: 0.5rem;
   padding: 2rem;
+}
+
+.delete__title {
+  font-size: vars.$font-size-p;
+  font-family: vars.$font-paragraph;
+  margin-bottom: 1rem;
 }

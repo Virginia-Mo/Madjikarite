@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import Field from '../../LoginForm/Field';
 
@@ -34,33 +35,40 @@ function CustomerAdress() {
 
   return (
     
-    <>
-    <h1 className="customerAdress__title">Adresse de livraison</h1>
-    <div className="customerAdress">
-      <form className="customerAdress__form" onSubmit={handleSubmit}>
+    <><h2 className="customerAdress__title">Adresse de livraison</h2><div className="customerAdress">
 
+      <div className="customerAside">
+      <p className="customerAside__lien">Informations du compte</p>
+      <p className="customerAside__lien">Adresses</p>
+      <p className="customerAside__lien">Historiques des commandes</p>
+      <NavLink to="/customeraccount/delete"> <p className="customerAside__lien">Supprimer son compte</p></NavLink>
+    </div> 
 
-        <Field
-          name="Adresse de livraison"
-          type="text"
-          placeholder="Adresse de livraison" />
-        <Field
-          name="Code postal"
-          type="text"
-          placeholder="Code postal" />
-        <Field
+    <form className="customerAdress__form" onSubmit={handleSubmit}>
+          <Field
+            name="Adresse de livraison"
+            type="text"
+            placeholder="Adresse de livraison" />
+          <Field
+            name="Code postal"
+            type="text"
+            placeholder="Code postal" />
+          <Field
 
-          name="Ville"
-          type="text"
-          placeholder="Ville" />
-        <Field
-          name="Téléphone"
-          type="text"
-          placeholder="Téléphone" />
-        <button className="customerAdress__button" type="submit">Ajouter une nouvelle adresse</button>
-      </form>
+            name="Ville"
+            type="text"
+            placeholder="Ville" />
+          <Field
+            name="Téléphone"
+            type="text"
+            placeholder="Téléphone" />
+          <button className="customerAdress__button" type="submit">Ajouter une nouvelle adresse</button>
+
+        </form>
+
     </div></>
-  
+
+   
   );
 }
 

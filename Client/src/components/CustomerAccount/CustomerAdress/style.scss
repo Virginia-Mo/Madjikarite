@@ -1,27 +1,64 @@
 @use 'sass:color';
 @use 'src/styles/vars' as v;
 
-h1 {
-  font-family: v.$font-title;
-  font-size: v.$font-size-t;
-  margin-bottom: 5rem;
+.customerAside {
+  width: 30%;
+  height: 50%;
+  border: 2px solid #ccc;
+  border-radius: 0.5rem;
+  font-family: v.$font-paragraph;
+  font-size: v.$font-size-p;
+  text-align: left;
+  align-items: flex-start;
+  margin-left: 0;
+  background-color: v.$color-green;
+  border: none;
+  padding: v.$gutter;
+  &__lien {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: v.$font-paragraph;
+    font-size: v.$font-size-p;
+    text-align: left;
+    align-items: flex-start;
+    margin-left: 0;
+    background-color: v.$color-green;
+    border: none;
+    padding: v.$gutter;
+    border-bottom: solid 1px v.$color-light-brown;
+    &:hover {
+      background-color: v.$color-light-brown;
+    }
+  }
 }
+
 
 .customerAdress {
   display: flex;
-  flex-direction: wrap;
-  align-content: space-around;
-  gap: 1rem;
-  width: 50%;
+  align-items: flex-start;
+  gap: 8rem;
+  width: 80%;
   height: auto;
-  margin: 0 auto;
+  margin-left: 5rem;
   margin-top: 4rem;
   margin-bottom: 4rem;
-  border: 2px solid #ccc;
-  border-radius: 0.5rem;
-  padding: 2rem;
   font-family: v.$font-paragraph;
-  font-size: v.$font-size-p;
+  font-size: v.$font-size-p;  
+
+&__title {
+  margin-left: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  font-family: v.$font-title;
+  font-size: v.$font-size-t;
+  text-align: center;
+}
 
 &__form {
   display: flex;
@@ -29,10 +66,9 @@ h1 {
   gap: 1rem;
   width: 100%;
   height: auto;
-  margin: 0 auto;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
   padding: 2rem;
+  border: 2px solid #ccc;
+  border-radius: 0.5rem;
   font-family: v.$font-paragraph;
   font-size: v.$font-size-p;
   }
@@ -49,6 +85,6 @@ h1 {
   font-family: v.$font-paragraph;
   }
   &__button:hover {
-  background-color: color.scale(v.$color-green, $lightness: -10%);
+  background-color: color.scale(v.$color-light-brown, $lightness: -10%);
   }
 }

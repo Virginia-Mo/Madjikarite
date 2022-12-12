@@ -13,14 +13,14 @@ function IconsHeader() {
         <div className="header-icons__container-basket">
         { cart.length === 0 &&  <IoBasketOutline className="header-icons__basket"/> }
         { cart.length > 0 && <IoBasketSharp className="header-icons__basket"/> }
-        <p>Mon panier</p>
+        <p className="header-icons__link-text">Mon panier</p>
         </div>
       </Link>
       {/* <div></div>  */}
     <Link to="/loginForm">
       <div className="header-icons__container-account">
         <RiAccountCircleLine className="header-icons__account"/>
-        <p><a href="" className="header-icons__link-text">Se connecter</a></p>
+        <p className="header-icons__link-text">Se connecter</p>
       </div>
     </Link>
       {/* <div><RiAccountCircleFill /></div> */}
