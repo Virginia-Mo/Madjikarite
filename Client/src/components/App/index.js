@@ -1,7 +1,7 @@
 // == Import
 import WelcomePage from '../WelcomePage';
 import { Route, Routes } from 'react-router-dom';
-import { fetchProductByCategory } from '../../actions/products';
+import { fetchProducts } from '../../actions/products';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -27,7 +27,7 @@ function App() {
   const categoryProducts = useSelector((state) => state.products.categoryProducts);
 
     useEffect(() => {
-        dispatch(fetchProductByCategory());
+        dispatch(fetchProducts());
         console.log("useEffect" + categoryProducts)
       }, []); // au 1er rendu
 
@@ -82,7 +82,7 @@ function App() {
         />
 
         <Route
-          path="searchedproduct"
+          path="/product/:slug"
           element={<SingleProduct />}
         />
 

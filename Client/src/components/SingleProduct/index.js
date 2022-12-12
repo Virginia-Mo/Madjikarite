@@ -1,23 +1,33 @@
-import React, {useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { FaSquareFull, FaShoppingCart } from "react-icons/fa";
 
 import { handleDescription, handleComposition }from '../../actions/products';
 import { changeInputValue } from 'src/actions/user';
 import { addItemToCart} from '../../actions/cart';
+import {findProduct } from '../../selectors/singleProduct';
 import ProductSlide from './ProductSlide'
 import Slide from '../Slide';
-import data from "src/Data/data"
 import './style.scss';
 import './styleButton.scss'
+import 'animate.css';
+
 
 function SingleProduct() {
+  useEffect(() => {
+    window.scroll(0, 0);
+},[]);
+  const {slug} = useParams()
+
+  const product = useSelector((state) => (
+    findProduct(state.products.listProducts, slug)
+  ));
+  console.log("params" + product.id);
   // Creating refs to add an animation on submit
   const buttonAnimation = useRef();
   const addToCart = useRef();
-
   const dispatch = useDispatch()
-  const product = data.test
   const activeDescription = useSelector((state) => state.products.activeDescription)
   const activeComposition = useSelector((state) => state.products.activeComposition)
 
@@ -54,10 +64,11 @@ function SingleProduct() {
     const data = new FormData(form);
     const formData = {
     id: product.id,
-    name : product.nom,
-    item: product.nom,
+    name : product.name,
+    item: product.name,
     quantity: parseInt(data.get("quantity")),
-    price : product.prix
+    price : parseInt(product.price),
+    total : product.price * parseInt(data.get("quantity"))
   };
     dispatch(addItemToCart(formData))
   }
@@ -65,17 +76,17 @@ function SingleProduct() {
   return (
     <>
     <div>
-      <h2 className="mainTitle__h2">{product.nom} <br />
-        <span>Catégorie: {product.categorie}</span></h2>
+      <h2 className="mainTitle__h2">{product.name} <br />
+        <span>Catégorie: {product.category}</span></h2>
       <section className="singleProductContainer">
         <article className="singleProduct__imgDiv">
-          <ProductSlide product={product} />
+          {/* <ProductSlide product={product} /> */}
         </article>
         <article className="singleProduct__descriptionDiv">
-        <h2 className="singleProduct__h2">{product.nom}</h2>
-        <p className="singleProduct__formatPrice">{product.Conditionnement}</p>
-        <p className="singleProduct__formatPrice">{product.prix} €</p>
-          <p className="singleProduct__p">{product.description_courte}</p>
+        <h2 className="singleProduct__h2">{product.name}</h2>
+        <p className="singleProduct__formatPrice">{product.packaging}</p>
+        <p className="singleProduct__formatPrice">{product.price} €</p>
+          <p className="singleProduct__p">{product.short_description}</p>
           <form action="" className="singleProduct__form" onSubmit={submitItem}>
           <input
             name="quantity"
@@ -110,12 +121,12 @@ function SingleProduct() {
            <div className="singleProduct__articlesDiv">
       { activeDescription && 
       <article className="singleProduct__description"> 
-        <p className="singleProduct__p singleProduct__p--description">{product.description_complete}</p>
+        <p className="singleProduct__p singleProduct__p--description">{product.short_description}</p>
         </article>}
   {/* Show composition if activeComposition is true */}
       { activeComposition && 
       <article className="singleProduct__composition">
-        <p className="singleProduct__p singleProduct__p--description">{product.composition}</p>
+        <p className="singleProduct__p singleProduct__p--description">{product.ingredients}</p>
         </article>}
         </div>
       </section>
