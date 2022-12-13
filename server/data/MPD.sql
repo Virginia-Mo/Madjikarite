@@ -54,6 +54,7 @@ CREATE TABLE "product" (
     "full_description" TEXT NOT NULL,
     "ingredients" TEXT NOT NULL,
     "packaging" TEXT NOT NULL,
+    "weight" INT NOT NULL,
     "price" NUMERIC NOT NULL,
     "stock" INT DEFAULT 0,
     "category_id" INT NOT NULL REFERENCES "category" ("id") ON DELETE CASCADE ON UPDATE CASCADE,

@@ -1,4 +1,5 @@
 function setUser(req, res, next) {
+    // TODo: delete req.session.user
     req.session.user = {
         id: 1,
         firstname: 'admin',
