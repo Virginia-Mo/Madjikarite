@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from 'prop-types';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,8 +20,8 @@ import "./style.scss";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
 function ProductSlide({product}) {
-  const { image, nom } = product
-  const imageArray = image
+  const { pictures, product_name, category_name } = product
+  const imageArray = pictures
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
 
@@ -44,8 +44,8 @@ function ProductSlide({product}) {
       className="singleProduct__swiper--2__slide">
        <Zoom>
           <img
-            src={image}
-            alt={nom}
+            src={image.url}
+            alt={product_name}
             className="singleProduct__swiper--img"  
           />
       </Zoom> 
@@ -63,10 +63,11 @@ function ProductSlide({product}) {
         className="singleProduct__swiper"
       >
           {imageArray.map((image, index)=> 
+
       <SwiperSlide 
       key={index}
       className="singleProduct__swiper__slide">
-        <img src={image} alt={nom} className="singleProduct__swiper--img"/>
+        <img src={image.url} alt={product_name}  className="singleProduct__swiper--img singleProduct__swiper--img2"/>
       </SwiperSlide>
     )}
       </Swiper>

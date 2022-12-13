@@ -10,6 +10,7 @@ const productsAPI = (store) => (next) => (action) => {
       axios
         .get(`${API_BASE_URL}/products`)
         .then((response) => {
+          console.log("API");
           store.dispatch(saveProducts(response.data));
         })
         .catch((error) => console.log(error))

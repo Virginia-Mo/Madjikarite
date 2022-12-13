@@ -5,7 +5,7 @@
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: rgb(255, 255, 255);
   border-radius: 1rem;
-  padding: 1rem 0;
+  padding: 1rem;
   margin-bottom: 1rem;
   &:hover {
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
@@ -20,13 +20,13 @@
   }
   &__title {
     font-family: v.$font-title;
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: bold;
     text-align: center;
     margin-top: 1.5rem;
   }
   &__price {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     padding-bottom: 1rem;
     line-height: 2.2rem;
     font-size: 2rem;
