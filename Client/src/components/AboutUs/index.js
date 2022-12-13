@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import SheaCream from 'src/assets/imgs/sheaCream.jpeg';
-import Producers from 'src/assets/imgs/producers.jpg';
-import Slide from '../Slide';
+import YankiPresentation from 'src/assets/imgs/yankiPresentation.jpg';
+import YankiHistory from 'src/assets/imgs/yankiHistory.jpg';
+
 import AOS from 'aos';
 
 import "aos/dist/aos.css";
@@ -21,50 +20,106 @@ function AboutUs() {
 
     <main className="aboutUs">
 
-      <h1 className="mainTitle__h1">Nos valeurs</h1>
-      {/* Insert the Slide components */}
-      <Slide />
-      <hr className="hr" />
-      <section className="welcomePage__section">
-        <article className="bloc__article"
+    <h2 className="mainTitle__h2">Nos engagements</h2>
+
+    <section className="valuesSection">
+
+      <div className="articleA">   
+        <div className="articleA__originalText"><p className="articleA__originalText--title">La lutte contre l'excision</p></div>
+        <div className="articleA__hoverText">La lutte contre l’excision doit s’intensifier. 
+          Bien que cette pratique soit interdite, les cas d’excision se multiplient au Tchad. 
+          Les normes sociales et les traditions séculaires sont souvent bien plus fortes que la peur 
+          d’une condamnation. Mais au-delà d’un changement de mentalité et de comportement, il s’agit 
+          avant tout de proposer aux exciseuses un choix alternatif pour gagner en autonomie financière. 
+        </div>
+      </div>
+
+      <div className="articleB">
+        <div className="articleB__originalText"><p className="articleB__originalText--title">La lutte pour l'égalité homme - femme</p></div>
+        <div className="articleB__hoverText">La lutte pour l’égalité homme - femme est un enjeu majeur 
+          pour Madjikarité. J’ai donc créé un produit naturel d’excellente qualité pour la beauté de votre 
+          peau, mais également une marque qui destinée à promouvoir l’autonomisation financière des femmes 
+          et à lutter contre leur pauvreté en milieu rural.
+        </div>  
+      </div>
+
+      <div className="articleC">
+        <div className="articleC__originalText"><p className="articleC__originalText--title">Le respect de l'environnement</p></div>
+        <div className="articleC__hoverText">La désertification est un problème majeur. Contrairement aux cultures 
+        destinées à l’exportation, l’arbre de  karité est un arbre sauvage qui permet de lutter contre ce phénomène 
+        de désertification. Cependant, la filière karité est peu développée 
+        au Tchad alors qu’il est établi par de nombreuses études qu’elle peut être un levier de développement pour ce pays. 
+        </div>
+      </div>
+
+      <div className="articleD">
+        <div className="articleD__originalText"><p className="articleD__originalText--title">La qualité de nos produits</p></div>
+        <div className="articleD__hoverText">Un autre enjeu est d’offrir aux consommateurs des produits de qualité 
+        issus du commerce équitable. Je propose une gamme de soins cosmétiques, fabriqués à la main dans mon atelier en France. 
+        J’utilise comme base, un beurre de karité pur, non raffiné, provenant d’une agriculture biologique au Burkina, où les 
+        coopératives sont déjà formées aux techniques de production.  
+        </div>  
+      </div>
+
+    </section>
+
+    
+    <hr className="hr" />
+    
+    <section className="aboutUs__section">
+        <article className="aboutUsBloc__article"
           data-aos="fade-up"
           data-aos-duration="1500"
         >
-          <div className="bloc__imgDiv">
-            <img src={Producers} alt="Photo des producteurs de karité" className="bloc__img" />
+          <div className="aboutUsBloc__imgDiv">
+            <img src={YankiPresentation} alt="yanki présentation" className="aboutUsBloc__img" />
           </div>
-          <div className="bloc__pDiv">
-            <h3 className="bloc__h3">Portrait de Yanki</h3>
-            <p className="bloc__p">Mon nom est Yankimadji RASSEMBAYE et je suis la fondatrice de l'entreprise Madjikarité. J'ai 30 ans et je suis née à la campagne,
-            d’un père cultivateur et d’une mère ménagère. J’ai rejoint la ville de Sarh (Tchad) à l’âge de 4ans, où mes parents m’avaient confiée à ma tante. 
-            À l’âge de 7 ans, ma tante m’a envoyée à l’école du quartier. En échange, j’aidais aux tâches ménagères de la maison. Tout a commencé quand un couple français
-            est arrivé dans la famille de ma tante, en 2000. J’ai été confiée à ce couple. J’ai vécu pendant 9 mois avec eux. Mon destin a commencé à se tracer à ce moment là. 
-            Au terme de mon séjour au Tchad, le couple s’est engagé à prendre entièrement en charge ma scolarité. Grâce à eux, j’ai pu accéder aux meilleures écoles et 
-            faire des études universitaires. Je suis titulaire d’un master2 en Ingénierie des projets de coopération et d’une licence en gestion des entreprises. 
-            Désireuse de contribuer dans mon pays, à la lutte contre les inégalités femmes/ hommes, je cherche à renforcer l’autonomisation financière des femmes en Afrique 
-            (Burkina, Tchad) à partir de la mise en valeur des ressources locales aujourd’hui peu valorisées .La filière karité est peu développée au Tchad et il est établi 
-            par de nombreuses études qu’elle peut-être un levier de développement pour ce pays..</p>
+          <div className="aboutUsBloc__pDiv">
+            <h3 className="aboutUsBloc__h3">Portrait de Yanki</h3>
+            <p className="aboutUsBloc__p">Mon nom est Yankimadji RASSEMBAYE et j’ai 30 ans. Je suis née à la campagne, d’un père cultivateur et d’une mère femme de ménage.
+              Mes parents m’ont confié à ma tante, qui vivait dans la ville de Sarh, au Tchad. À l’âge de 7 ans, ma tante m’a envoyée à l’école du quartier.
+              En échange, j’aidais aux tâches ménagères de la maison.</p>
+            <p className="aboutUsBloc__p">En 2000, un couple de Français est arrivé dans  la famille de ma tante. J’ai été confié à ce couple
+              et j’ai vécu  pendant 9 mois avec eux. Ce fut un épisode marquant de mon histoire personnelle. Au terme de son séjour au Tchad, le couple s’est engagé à
+              prendre entièrement en charge ma scolarité. Grâce à eux, j’ai pu accéder aux meilleures écoles et faire des études universitaires. Titulaire d’un master2
+              en Ingénierie des projets de coopération et d’une licence en gestion des entreprises, je me suis intéressée à la place des femme dans le développement.
+              Cette analyse m’a permis de conclure qu’elles étaient les plus pauvres.</p>
+            <p className="aboutUsBloc__p">Après mon master, j’ai cherché du travail pendant 1 an et demi dans les organismes
+              de développement. Le marché étant saturé,  j’ai décidé de lancer mon propre projet professionnel. A l’instar de ces organismes, j’avais à cœur de mettre en
+              place un projet qui implique le changement et  le développement d’un territoire.</p>
           </div>
         </article>
 
-        <article className="bloc__article bloc__article--mobile"
+        <article className="aboutUsBloc__article aboutUsBloc__article--mobile"
           data-aos="fade-up"
           data-aos-duration="1500">
-          <div className="bloc__pDiv">
-            <h3 className="bloc__h3">L'histoire de Madjikarité</h3>
-            <p className="bloc__p">Après mon master, je me suis intéressée à la place de la femme dans le développement. Résultat de l’analyse: elles sont les plus pauvres. 
-            Après mon master, j’ai cherché du travail pendant 1 an et demi 
-            dans les organismes de développement. Le marché étant saturé, j’ai décidé de lancer mon projet professionnel. À l’instar de certains organismes de développement, 
-            j’ai décidé de mettre en place moi aussi un projet qui provoque le changement, le développement d’un territoire.</p>
+          <div className="aboutUsBloc__pDiv">
+            <h3 className="aboutUsBloc__h3">L'histoire de Madjikarité</h3>
+            <p className="aboutUsBloc__p">«Madji» vient du «sar» une langue du sud du Tchad, qui signifie «bien». Madjikarité veut donc dire «les bienfaits du karité» ou encore
+              traduit mot à mot: « karité quelque chose de bien». Les bienfaits du karité pour le corps, mais aussi  pour l’autonomisation de la femme. On retrouve «Madji»
+              dans mon prénom Yankimadji, qui veut dire «quelque chose de bien». J’ai voulu traduire en acte ce joli prénom que je porte pour donner du sens à ma lutte pour
+              l’égalité, soit: «Madjikarité»,  «quelque chose de bien».</p>
+            <p className="aboutUsBloc__p">L’ambition de Madjikarité est de promouvoir l’autonomisation financière des femmes en milieu rural,
+              de lutter contre l’excision en donnant une activité aux exciseuses, contre la désertification par la plantation d’arbre de karité, de lutter contre la dépigmentation
+              de la peau en proposant des produits naturels et bio et de promouvoir un développement durable au Tchad. La vision de Madjikarité est celle d’une société Tchadienne
+              où chaque femme jouit de son autonomie financière. Sa mission est de lutter contre la pauvreté féminine au Tchad et promouvoir un développement durable. Désireuse
+              d’apporter ma contribution dans mon pays, à la lutte contre les inégalités femmes/ hommes, je cherche à renforcer l’autonomisation financière des femmes en Afrique
+              (Burkina, Tchad) à partir de la mise en valeur des ressources locales aujourd’hui peu valorisées.</p>
+            <p className="aboutUsBloc__p">Ma rencontre avec Mme Russell Chinwe, la présidente de Sheabynature qui fabrique des produits naturels à base de karité depuis 15 ans, a donné de la valeur à mon projet.
+              Elle m’a formé, m’a appris à faire les savons, les laits corporels, les beurres corporels et les beurres à lèvres. Mon ambition à terme serait de former quelques femmes Tchadiennes au Burkina
+              et de créer une association pour que femmes tchadiennes et burkinabés puissent travailler ensemble. L’idée est de mettre en place une usine de beurre de karité
+              biologique  et équitable au Tchad. Ce beurre de karité serait destiné à être raffiné dans mes produits cosmétiques, fabriqués et commercialisés en France.
+              J’ai donc fait le choix d’une démarche d’économie sociale et solidaire. Il s’agit à la fois d’offrir aux consommateurs un produit naturel de qualité, et de donner
+              une activité salariale aux femmes en milieu rural, pour lutter contre leur pauvreté.</p>
+            <p className="aboutUsBloc__p">Découvrir plus en cliquant sur ce lien:</p>
+            <p className="aboutUsBloc__p"><href className="aboutUsBloc__link">https://www.histoiresordinaires.fr/Yankimadji-a-cree-son-entreprise-ici-pour-les-femmes-de-la-bas-au-Tchad_a2795.html</href></p>
           </div>
-          <div className="bloc__imgDiv">
-            <img src={SheaCream} alt="Photo décorative, karité" className="bloc__img" />
+          <div className="aboutUsBloc__imgDiv">
+            <img src={YankiHistory} alt="Yanki au Tchad" className="aboutUsBloc__img" />
           </div>
         </article>
-
       </section>
     </main>
-  
   );
 }
 

@@ -10,13 +10,15 @@ import Footer from '../Footer';
 import Cart from '../ShoppingCart';
 import Header from 'src/components/Header';
 import SearchResults from 'src/components/SearchResults';
-import SingleProduct from 'src/components/SingleProduct';
 import CustomerAccount from 'src/components/CustomerAccount';
 import CustomerAdress from '../CustomerAccount/CustomerAdress';
 import DeleteAccount from '../CustomerAccount/DeleteAccount';
 import LoginForm from 'src/components/LoginForm';
 import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
+import SheaBenefits from '../SheaBenefits';
+import SingleProduct from '../SingleProduct';
+import Workers from '../Workers';
 import './styles.scss';
 
 
@@ -59,6 +61,16 @@ function App() {
         />
 
         <Route
+        path="/sheabenefits"
+        element={<SheaBenefits />}
+        />
+
+        <Route
+        path="/workers"
+        element={<Workers />}
+        />
+        
+        <Route
         path="/customeraccount"
         element={<CustomerAccount />} 
         />
@@ -93,19 +105,6 @@ function App() {
           element={<ContactUs />}
         />
 
-        <Route
-          path="/customeraccount"
-          element={<CustomerAccount />}
-        />
-
-          <Route
-          path="/customeraccount/adress"
-          element={<CustomerAdress />}
-        />
-         <Route
-          path="/customeraccount/delete"
-          element={<DeleteAccount />}
-        />
         <Route
           path="*"
           element={<Error />}
