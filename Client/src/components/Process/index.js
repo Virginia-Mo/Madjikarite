@@ -1,9 +1,9 @@
 import './style.scss';
 
-function () {
+function process() {
   return (
     <div></div>
   );
 }
 
-export default ;
+export default process;
