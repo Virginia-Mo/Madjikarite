@@ -14,6 +14,7 @@ const { Router } = require('express');
 const adminController = require('../controllers/adminController');
 const controllerWrapper = require('../helpers/controllerWrapper');
 const adminMiddleware = require('../helpers/adminMiddleware');
+// const authUser = require('../helpers/userMiddleware');
 
 const router = new Router();
 

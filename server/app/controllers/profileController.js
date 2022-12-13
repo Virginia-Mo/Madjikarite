@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 const bcrypt = require('bcrypt');
 const profileDataMapper = require('../dataMappers/profileDataMapper.js');
+const token = require('../helpers/token.js');
 const UserInputError = require('../helpers/userInputError.js');
 
 const profileController = {
@@ -16,10 +17,11 @@ const profileController = {
 
         // We check if all the fields are filled
         if (!email || !password) {
-            return res.status(400).json({ message: 'Tous les champs doivent être remplis' });
+            throw new UserInputError('Tous les champs doivent être remplis');
         }
+        // We check if the email is in the database
         const user = await profileDataMapper.getOneUserWithEmail(email);
-        if (!user) { return res.status(400).json({ message: 'Utilisateur inconnu' }); }
+        if (!user) { throw new UserInputError('Utilisateur inconnu'); }
         // We check if the password is correct
         const result = await bcrypt.compare(password, user.password);
         // If the password is correct, we create a session
@@ -28,11 +30,11 @@ const profileController = {
                 id: user.id,
                 firstName: user.first_name,
                 role: user.role_id,
+                token: token.createToken(user),
             };
-            res.redirect('/');
-        } else {
-            throw new UserInputError('Mot de passe incorrect');
+            return res.json(req.session.user);
         }
+        throw new UserInputError('Mot de passe incorrect');
     },
     // Delete the session to disconnect the user from his session
     logout(req, res) {
@@ -94,7 +96,14 @@ const profileController = {
     },
     // Show the profile page
     async profilePage(req, res) {
-        const profile = await profileDataMapper.getOneUserWithId(req.session.user_id);
+        // TODO: delete req.session.user_id = 1;
+        req.session.user = {
+            id: 1,
+            first_name: 'Larry',
+            role: 1,
+            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjcwOTM3NDIxLCJleHAiOjE2NzA5NDEwMjF9.rLQu-FlyEqbhr5V3GTFa_CEnKeHrRMJwoSpisGGBOgE',
+        };
+        const profile = await profileDataMapper.getOneUserWithId(req.session.user.id);
         res.json(profile);
     },
     // Send the new data to the database

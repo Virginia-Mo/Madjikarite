@@ -8,7 +8,7 @@ const profileDataMapper = {
     },
     // Get one user from the database
     async getOneUserWithEmail(email) {
-        const result = await client.query('SELECT * FROM "user" WHERE email = $1', [email]);
+        const result = await client.query('SELECT "id", "first_name", "last_name", "password", "role_id" FROM "user" WHERE email = $1', [email]);
         return result.rows[0];
     },
     // Update a profile in the database

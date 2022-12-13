@@ -1,8 +1,11 @@
+const token = require('./token');
+
 function authUser(req, res, next) {
     if (req.user) {
+        token.verifyToken(req, res, next);
         next();
     } else {
-        res.status(403).send('Unauthorized');
+        throw new Error('No token');
     }
 }
 
