@@ -24,9 +24,7 @@ function ProductSlide({product}) {
   const imageArray = image
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-  useEffect(() => {
-    window.scroll(0, 0);
-},[]);
+
   return (
     <div className="singleProduct__div" >
     <Swiper
