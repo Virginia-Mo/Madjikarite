@@ -21,6 +21,11 @@ const productDataMapper = {
         const result = await client.query('SELECT "product"."id", "product"."name" AS "product_name", "product"."short_description", "product"."full_description", "product"."ingredients", "product"."packaging", "product"."weight", "product"."price", "product"."stock", "product"."category_id", "category"."name" AS "category_name", "product"."created_at" FROM "product" JOIN "category" ON "product"."category_id" = "category"."id"');
         return result.rows;
     },
+    // get all categories
+    async getAllCategories() {
+        const result = await client.query('SELECT * FROM category');
+        return result.rows;
+    },
 };
 
 module.exports = productDataMapper;
