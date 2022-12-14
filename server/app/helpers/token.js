@@ -8,7 +8,7 @@ const token = {
             firstname: user.firstname,
             role: user.role,
         };
-        const options = { expiresIn: '40sec' };
+        const options = { expiresIn: '1h' };
         const secret = process.env.ACCESS_TOKEN_SECRET;
         const accessToken = jwt.sign(payload, secret, options);
         return accessToken;

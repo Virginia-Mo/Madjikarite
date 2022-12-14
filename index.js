@@ -26,11 +26,6 @@ app.use(session({
     cookie: { secure: true },
 }));
 
-const setUser = require('./server/app/helpers/setUser');
-
-// We add a middleware to set the user in the request
-app.use(setUser);
-
 // We use the router
 app.use(router);
 
