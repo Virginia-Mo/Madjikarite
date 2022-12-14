@@ -24,7 +24,7 @@ router.route('/profile')
     .get(authUser, controllerWrapper(profileController.profilePage))
     .patch(authUser, controllerWrapper(profileController.updateProfile))
     .delete(authUser, controllerWrapper(profileController.deleteProfile));
-router.route('/profile/address')
+router.route('/profile/addresses')
     .get(authUser, controllerWrapper(profileController.addressPage))
     .post(authUser, controllerWrapper(profileController.createAddress));
 router.route('/profile/address:id')

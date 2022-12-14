@@ -16,9 +16,9 @@ const token = {
     verifyToken: (req, res, next) => {
         const authHeader = req.headers.authorization;
         const accessToken = authHeader && authHeader.split(' ')[1];
-        if (accessToken == null) return new Error('No token');
+        if (accessToken == null) throw new Error('No token');
         jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-            if (err) return new Error('Invalid token');
+            if (err) throw new Error('Invalid token');
             req.user = user;
             next();
         });
