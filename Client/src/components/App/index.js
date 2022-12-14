@@ -19,6 +19,7 @@ import AboutUs from '../AboutUs';
 import SheaBenefits from '../SheaBenefits';
 import SingleProduct from '../SingleProduct';
 import Workers from '../Workers';
+import Process from '../Process';
 import './styles.scss';
 
 
@@ -68,6 +69,11 @@ function App() {
         <Route
         path="/workers"
         element={<Workers />}
+        />
+
+        <Route
+        path="/process"
+        element={<Process />}
         />
         
         <Route
