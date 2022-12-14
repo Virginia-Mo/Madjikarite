@@ -105,6 +105,10 @@ function App() {
           element={<ContactUs />}
         />
 
+        <Route 
+        path="/category${slug}/product"
+        element={<SearchResults />} />
+
         <Route
           path="*"
           element={<Error />}

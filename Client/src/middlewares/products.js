@@ -16,7 +16,16 @@ const productsAPI = (store) => (next) => (action) => {
         .catch((error) => console.log(error))
       next(action);
       break;
-      
+      // case GET_PRODUCTS_BY_CATEGORY:
+      //   axios
+      //     .get(`${API_BASE_URL}/category${id}/products`)
+      //     .then((response) => {
+      //       console.log("API");
+      //       store.dispatch(saveCategories(response.data));
+      //     })
+      //     .catch((error) => console.log(error))
+      //   next(action);
+      //   break;
     default:
       next(action);
   }

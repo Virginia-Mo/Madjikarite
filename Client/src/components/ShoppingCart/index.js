@@ -1,3 +1,4 @@
+import { IoSadOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from '../../actions/cart';
 import Slide from '../Slide';
@@ -43,7 +44,10 @@ function cart() {
       <section className="cart__items">
         <h2 className="cart__items--h2">Panier</h2>
         {cart.length === 0 && (
-          <p>Pas d'article dans le panier.</p>
+          <div>
+          <p className='cart__items--p'>Pas d'article dans le panier.</p>
+          <IoSadOutline className='cart__items--icon' />
+          </div>
         )}
 {/* If there's at list an item in the cart show : */}
         {cart.length > 0 && cart.map((item) => (

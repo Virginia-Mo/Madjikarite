@@ -9,11 +9,17 @@
   }
   &__items {
     width: 50%;
+    &--p {
+      margin-top: 5rem;
+    }
+    &--icon {
+      font-size: 3rem;
+    }
   }
   &__items--h2 {
     font-family: v.$font-paragraph;
     font-size: 4.5rem;
-    padding: 0 0 1rem 2rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid #c7c7c7;
   }
   &__total {
@@ -46,7 +52,7 @@
   &__Container {
     display: flex;
     justify-content: space-between;
-    margin: 6rem;
+    margin: 6rem 15rem;
   }
   &__totalContainer {
     width: 30%;
