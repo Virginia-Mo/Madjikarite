@@ -54,7 +54,8 @@ CREATE TABLE "product" (
     "full_description" TEXT NOT NULL,
     "ingredients" TEXT NOT NULL,
     "packaging" TEXT NOT NULL,
-    "price" NUMERIC NOT NULL,
+    "weight" INT NOT NULL,
+    "price" NUMERIC(6, 2) NOT NULL,
     "stock" INT DEFAULT 0,
     "category_id" INT NOT NULL REFERENCES "category" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -74,7 +75,7 @@ CREATE TABLE "user_review" (
 
 CREATE TABLE "shopping_cart" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "total_price" NUMERIC NOT NULL,
+    "total_price" NUMERIC(9,2) NOT NULL,
     "message" TEXT NOT NULL,
     "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),

@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 const bcrypt = require('bcrypt');
 const profileDataMapper = require('../dataMappers/profileDataMapper.js');
+const token = require('../helpers/token.js');
 const UserInputError = require('../helpers/userInputError.js');
 
 const profileController = {
@@ -16,23 +17,27 @@ const profileController = {
 
         // We check if all the fields are filled
         if (!email || !password) {
-            return res.status(400).json({ message: 'Tous les champs doivent être remplis' });
+            throw new UserInputError('Tous les champs doivent être remplis');
         }
+        // We check if the email is in the database
         const user = await profileDataMapper.getOneUserWithEmail(email);
-        if (!user) { return res.status(400).json({ message: 'Utilisateur inconnu' }); }
+        if (!user) { throw new UserInputError('Utilisateur inconnu'); }
         // We check if the password is correct
         const result = await bcrypt.compare(password, user.password);
         // If the password is correct, we create a session
+        const tokenUser = {
+            id: user.id,
+            firstName: user.first_name,
+            role: user.role_id,
+        };
         if (result) {
             req.session.user = {
-                id: user.id,
                 firstName: user.first_name,
-                role: user.role_id,
+                token: token.createToken(tokenUser),
             };
-            res.redirect('/');
-        } else {
-            throw new UserInputError('Mot de passe incorrect');
+            return res.json(req.session.user);
         }
+        throw new UserInputError('Mot de passe incorrect');
     },
     // Delete the session to disconnect the user from his session
     logout(req, res) {
@@ -85,25 +90,24 @@ const profileController = {
             });
             // We create a session for the user
             req.session.user = {
-                id: user.id,
                 first_name: user.first_name,
-                role: user.role_id,
+                token: token.createToken(user),
             };
             res.json({ message: 'Votre compte a bien été créé' });
         }
     },
     // Show the profile page
     async profilePage(req, res) {
-        const profile = await profileDataMapper.getOneUserWithId(req.session.user_id);
+        const profile = await profileDataMapper.getOneUserWithId(req.user.id);
         res.json(profile);
     },
     // Send the new data to the database
     async updateProfile(req, res) {
-        const { user_id } = req.session;
+        const { id } = req.user;
         // We get all the old data from the database
-        const oldData = await profileDataMapper.getOneUser(user_id);
+        const oldData = await profileDataMapper.getOneUser(id);
         const newData = [];
-        newData.push(user_id);
+        newData.push(id);
         const { password } = req.body;
         // We loop through the new data to check if the user has changed something
         // If he has changed something, we add the new data to the newData array
@@ -125,32 +129,32 @@ const profileController = {
         await profileDataMapper.updateProfile(newData);
         // We update the session
         req.session.user = {
-            id: user_id,
             first_name: newData[2],
+            token: req.user.token,
         };
         res.json({ message: 'Votre profil a bien été mis à jour' });
     },
     // Delete the account from the database
     async deleteProfile(req, res) {
-        await profileDataMapper.deleteProfile(req.session.user.id);
+        await profileDataMapper.deleteProfile(req.user.id);
         res.json({ message: 'Votre compte à bien été supprimé' });
     },
     async addressPage(req, res) {
-        const addresses = await profileDataMapper.getAddresses(req.session.user.id);
+        console.log(req.user.id);
+        const addresses = await profileDataMapper.getAddresses(req.user.id);
+        console.log(addresses);
         res.json(addresses);
     },
     async createAddress(req, res) {
-        // TODO: delete req.session.user.id
-        req.session.user = {
-            id: 2,
-        };
-        const { id } = req.session.user;
+        const { id } = req.user;
         const address = await profileDataMapper.createAddress(id, req.body);
         res.json(address);
     },
     async getOneAddress(req, res) {
         const { id } = req.params;
+        console.log(id);
         const address = await profileDataMapper.getOneAddress(id);
+        console.log(address);
         res.json(address);
     },
     async updateAddress(req, res) {

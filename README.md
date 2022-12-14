@@ -1,26 +1,5 @@
 # projet-08-madjikarite
 
-
-<!-- Heading	# H1
-                ## H2
-                ### H3
-
-Bold	**bold text**
-
-Italic	*italicized text*
-
-Blockquote	> blockquote
-Ordered List	1. First item
-                1. Second item
-                2. Third item
-
-Unordered List	- First item
-                - Second item
-                - Third item
-Code	`code`
-Horizontal Rule	--- -->
-
-
 ### projet-08-Madjikarité
 
 <h1 align="center">Madjikarité</h1>
@@ -61,15 +40,56 @@ We mainly used those libs to build our e-commerce website:
    git@github.com:O-clock-Icare/projet-08-madjikarite.git
    ```
 
-2. Install NPM or yarn
+2. Install NPM or YARN
 
    ```sh
    npm install
    yarn install
    ```
 
-3. Link to data base
+3. Connect to PSQL:
 
    ```sh
-
+   sudo -i -u postgres psql
    ```
+
+4. Create new user:
+
+   ```sh
+   CREATE USER admin WITH PASSWORD 'YourPassword';
+   ```
+
+5. Create database:
+
+   ```sh
+   CREATE DATABASE madjikarite OWNER admin ;
+
+6. Rename sqitch module:
+
+   ```sh
+   sqitch.example.conf -> sqitch.conf
+   (adapt sqitch.conf according to your database\'name)
+   ```
+
+7. Rename dotEnv module:
+
+   ```sh
+   .env.example -> .env
+   (adapt .env according to your user)
+   ```
+
+8. Link to data base
+
+   ```sh
+   'sqitch deploy' in terminal;
+   ```
+
+### About us
+
+We are students from O'clock web school learning web development.
+
+- Pierre G. <https://github.com/PierreGoursolas>,
+- Virginia M. <https://github.com/Virginia-Mo>
+- Caroline K. <https://github.com/madjikariteCaroline-K>,
+- Jérémy N. <https://github.com/Jeremy-Nourri>,
+- Nicolas Z. <https://github.com/NicolasZIELINSKI>.
