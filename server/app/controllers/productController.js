@@ -46,6 +46,11 @@ const productController = {
         }
         res.json(products);
     },
+    // get all categories page
+    async getAllCategories(req, res) {
+        const categories = await productDataMapper.getAllCategories();
+        res.json(categories);
+    },
 };
 
 module.exports = productController;

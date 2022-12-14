@@ -13,5 +13,6 @@ const router = new Router();
 router.get('/products', controllerWrapper(productController.getAllProducts));
 router.get('/product:id', controllerWrapper(productController.getOneProduct));
 router.get('/category:id/products', controllerWrapper(productController.getProductOfACategory));
+router.get('/categories', controllerWrapper(productController.getAllCategories));
 
 module.exports = router;
