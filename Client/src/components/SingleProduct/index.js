@@ -18,11 +18,12 @@ function SingleProduct() {
   useEffect(() => {
     window.scroll(0, 0);
 },[]);
-  const {slug} = useParams()
 
-  const product = useSelector((state) => (
+  const {slug} = useParams()
+const product = useSelector((state) => (
     findProduct(state.products.listProducts, slug)
   ));
+  
   // Creating refs to add an animation on submit
   const buttonAnimation = useRef();
   const addToCart = useRef();
@@ -34,7 +35,7 @@ function SingleProduct() {
   const value = useSelector((state) => state.user[name]);
 
   const handleChange = (event) => {
-    dispatch(changeInputValue(name, event.target.value));
+    dispatch(changeInputValue(product.product_name, event.target.value));
   };
 
   // handling the click to toggle the description and compositon display
@@ -61,11 +62,12 @@ function SingleProduct() {
     const data = new FormData(form);
     const formData = {
     id: product.id,
-    name : product.name,
-    item: product.name,
+    name : product.product_name,
     quantity: parseInt(data.get("quantity")),
     price : parseInt(product.price),
-    total : product.price * parseInt(data.get("quantity"))
+    total : product.price * parseInt(data.get("quantity")),
+    image : product.pictures[0].url,
+    packaging : product.packaging
   };
     dispatch(addItemToCart(formData))
   }
@@ -73,14 +75,14 @@ function SingleProduct() {
   return (
     <>
     <div>
-      <h2 className="mainTitle__h2">{product.name} <br />
-        <span>Catégorie: {product.category}</span></h2>
+      <h2 className="mainTitle__h2">{product.product_name} <br />
+        <span>Catégorie: {product.category_name}</span></h2>
       <section className="singleProductContainer">
         <article className="singleProduct__imgDiv">
-          {/* <ProductSlide product={product} /> */}
+           <ProductSlide product={product} /> 
         </article>
         <article className="singleProduct__descriptionDiv">
-        <h2 className="singleProduct__h2">{product.name}</h2>
+        <h2 className="singleProduct__h2">{product.product_name}</h2>
         <p className="singleProduct__formatPrice">{product.packaging}</p>
         <p className="singleProduct__formatPrice">{product.price} €</p>
           <p className="singleProduct__p">{product.short_description}</p>
@@ -88,6 +90,7 @@ function SingleProduct() {
           <input
             name="quantity"
             type="number"
+            aria-label="Quantité souhaitée"
             min="1"
             placeholder='1'
             className="singleProduct__input--number"
@@ -129,7 +132,7 @@ function SingleProduct() {
       </section>
       <section className="slideContainer">
       <h2 className='slideContainer__SlidePresentation'>Vous aimerez aussi...</h2>
-       <Slide />  
+       <Slide className="slideContainer__slide" />  
       </section> 
 
     </div></>

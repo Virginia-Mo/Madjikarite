@@ -17,11 +17,11 @@ function Search() {
   // I get the products from the data
   const products = useSelector((state) => state.products.listProducts);
   // I filter the products according to the search bar value
-  // const filteredProducts = products.filter((product) => (
-  //   product.name.toLowerCase().includes(search.toLowerCase())
-    //|| product.category.toLowerCase().includes(search.toLowerCase())
-      // )
-      // );
+  const filteredProducts = products.filter((product) => (
+    product.product_name.toLowerCase().includes(search.toLowerCase())
+       || product.category_name.toLowerCase().includes(search.toLowerCase())
+      )
+      );
 
   // I dispatch the value of the search bar
   const handleChange = (event) => {

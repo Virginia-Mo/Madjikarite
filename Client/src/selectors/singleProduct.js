@@ -1,14 +1,8 @@
-import { MdProductionQuantityLimits } from "react-icons/md";
 
 export function findProduct(products, searchedSlug) {
+  // i look for a product which has the same id than the given slug (sent by clicking on an item card)
   const product = products.find((testedproduct) => {
     return testedproduct.id === parseInt(searchedSlug);
   });
   return product;
 }
-
-
-// findcategory
-
-// je veux trouver les catégories des MdProductionQuantityLimits
-// filter(produit => produit.categorie_id === categori.id)

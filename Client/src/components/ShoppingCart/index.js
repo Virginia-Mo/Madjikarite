@@ -1,8 +1,8 @@
+import { IoSadOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from '../../actions/cart';
 import Slide from '../Slide';
 import ShoppingLine from './ShoppingLine';
-
 import './style.scss';
 
 function cart() {
@@ -11,6 +11,7 @@ function cart() {
   const cart = useSelector((state)=> state.cart.cart)
   const totalPrice = useSelector((state)=> state.cart.totalPrice)
 
+  // I add an item to the cart
   const handleChange = (price, id) => {
 
     const formData = {
@@ -22,34 +23,34 @@ function cart() {
     dispatch(addItemToCart(formData))
   }
 
-  
-
-
   const handleSubmit = (event)=> {
     event.preventDefault();
-    for (item in cart){
-  //     const form = event.target;
-  //   const data = new FormData(form);
-  //   const formData = {
-  //     cart: cart,
-  //   message: data.get("message")
-  // };
-  //   
-      
-    console.log(item)
+ 
+    const form = event.target;
+    const data = new FormData(form);
+    const formData = {
+      cart: cart,
+      totalPrice : totalPrice,
+      message: data.get("message")
+  };
+     
+    console.log(formData)
     }
   
-  }
+  
   return (
-    <><div className='cart__Container'>
+    <>
+    <div className='cart__Container'>
       <section className="cart__items">
         <h2 className="cart__items--h2">Panier</h2>
         {cart.length === 0 && (
-          <p>Pas d'article dans le panier.</p>
+          <div>
+          <p className='cart__items--p'>Pas d'article dans le panier.</p>
+          <IoSadOutline className='cart__items--icon' />
+          </div>
         )}
-
+{/* If there's at list an item in the cart show : */}
         {cart.length > 0 && cart.map((item) => (
-
           <ShoppingLine item={item} />
         ))}
       </section>

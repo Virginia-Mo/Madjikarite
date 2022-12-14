@@ -5,7 +5,7 @@ import { React } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper';
 
-import getRandomSlideItem from '../../selectors/RandomSlide';
+import getRandomSlideItem from '../../selectors/randomSlide';
 import './style.scss';
 // Import Swiper styles
 import 'swiper/css';
@@ -20,7 +20,7 @@ function Slide() {
   const shuffledArray = getRandomSlideItem(product);
 
   const sliderSettings = {
-    440: {
+    0: {
       slidesPerView: 1,
       spaceBetween: 30,
     },

@@ -2,19 +2,18 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import React, {useRef} from 'react'
-import imageTest from 'src/assets/imgs/sheaHeader.jpg'
 import { addItemToCart} from '../../actions/cart';
 import {  MdAddShoppingCart } from "react-icons/md";
 import './style.scss';
 
 function ProductItem({
   // eslint-disable-next-line camelcase
-  id, image, name, category, short_description, packaging, price,
+  id, pictures, product_name, category_name, short_description, packaging, price,
 }){
   const dispatch = useDispatch()
   const cartIcon = useRef()
   const slug = id;
-
+  const image = pictures[0].url
 
   const addItem = (event) => {
     event.preventDefault()
@@ -26,11 +25,12 @@ function ProductItem({
 
     const formData = {
     id: id,
-    name : name,
-    item: name,
+    name : product_name,
     quantity: 1,
     price : parseInt(price),
-    total : parseInt(price) * 1
+    total : parseInt(price) * 1,
+    image : image,
+    packaging : packaging
   }
   dispatch(addItemToCart(formData))
   setTimeout(function() {
@@ -46,11 +46,11 @@ function ProductItem({
       <div className="product-item"
       >
         <div className="product-item__image">
-          <img src={imageTest} alt={name} />
+          <img src={image} alt={product_name} />
         </div>
         <div className="product-item__content">
-          <h4>{name}</h4>
-          <p><span>Catégorie:</span>  {category}</p>
+          <h4>{product_name}</h4>
+          <p><span>Catégorie:</span>  {category_name}</p>
           <p><span>Description:</span></p>
           <p>{short_description}</p>
           <p><span>Conditionnement:</span>  {packaging}</p>
