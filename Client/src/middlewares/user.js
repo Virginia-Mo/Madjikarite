@@ -4,9 +4,6 @@ import {  saveUser } from '../actions/user';
 
 const API_BASE_URL = 'https://madjikarite.onrender.com';
 
-
-// const navigate = useNavigate();
-
 const usersAPI = (store) => (next) => (action) => {
 
     switch (action.type) {

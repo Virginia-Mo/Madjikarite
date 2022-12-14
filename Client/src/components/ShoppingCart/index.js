@@ -1,21 +1,19 @@
 import { IoSadOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItemToCart } from '../../actions/cart';
 import Slide from '../Slide';
 import ShoppingLine from './ShoppingLine';
 import { getWeightQuantity } from "src/selectors/getCartQuantity";
 import './style.scss';
-import { useEffect } from 'react';
 
 function cart() {
 
   const dispatch = useDispatch()
   const cart = useSelector((state)=> state.cart.cart)
   const totalPrice = useSelector((state)=> state.cart.totalPrice)
-const shipping = useSelector((state) => (
+  const shipping = useSelector((state) => (
     getWeightQuantity()
   ));
-
+  const finalPrice = shipping + totalPrice
   const handleSubmit = (event)=> {
     event.preventDefault();
  
@@ -26,6 +24,9 @@ const shipping = useSelector((state) => (
       totalPrice : totalPrice,
       message: data.get("message")
   };
+  if(totalPrice <=0){
+    return
+  }
     console.log(formData)
     }
   
@@ -61,16 +62,13 @@ const shipping = useSelector((state) => (
         
         <div className="cart__total">
           <p>Total des produits: <span>{totalPrice} €</span></p>
-          <p>Frais de port: <span>{shipping}</span></p> 
-          <p><strong>TOTAL</strong>: <span>{totalPrice} €</span></p>
+          <p>Frais de port: <span>{shipping}€</span></p> 
+          <p><strong>TOTAL</strong>: <span>{finalPrice} €</span></p>
         </div>
         <div className="cart__coupon">
           <p>Carte cadeaux: <span>???</span></p>
         </div>
-        <div className="cart__button">
-          <button type="button" className='cart__button--submit' >Calculer les frais de port</button>
-
-        </div>
+       
         <div className="cart__button">
           <button type="submit" className='cart__button--submit'>Valider la commande</button>
         </div>

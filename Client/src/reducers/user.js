@@ -1,6 +1,7 @@
 import { CHANGE_INPUT_VALUE, USER_SAVE } from '../actions/user';
 
 export const initialState = { 
+  quantity : 0,
   civility:"",
   first_name: "", 
   last_name: "", 

@@ -4,7 +4,6 @@ import { addItemToCart,minusItemFromCart, removeArticleFromCart } from '../../ac
 import { HiOutlineTrash } from "react-icons/hi2";
 
 function ShoppingLine({item}) { 
-console.log(item);
   const dispatch = useDispatch()
 // const image = item.pictures[0].url
 
@@ -14,7 +13,8 @@ const formData = {
   price : parseInt(item.price),
   total : parseInt(item.price) * 1,
   packaging : item.packaging,
-  weight: item.weight
+  weight: item.weight,
+  totalWeight : item.weight * 1
 }
 
   const handleChange = () => {

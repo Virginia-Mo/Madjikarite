@@ -28,7 +28,30 @@ export function getWeightQuantity (){
       // for each item in the cart, i take it's quantity and add it to sum
       sum += element.totalWeight;
 });
-//  sum return the quantity of items in the cart
-return +sum;
+
+
+if (sum <= 250){
+  sum = 4.95
+} else if (sum > 250 && sum <= 500 ) {
+  sum = 6.70
+} else if (sum > 500 && sum <=750) {
+  sum = 7.60
+} else if (sum > 750 && sum <= 1000) {
+  sum = 8.25
+} else if (sum >1000 && sum <= 2000 ) {
+  sum = 9.55
+} else if (sum > 2000 && sum <= 5000) {
+  sum = 14.65
+} else if (sum > 5000 && sum <= 10000){
+  sum = 21.30
+} else {
+  sum =  26.95
+}
+
+ return sum;
+
 } 
 
+export function getShippingCost (){
+  
+}

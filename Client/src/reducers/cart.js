@@ -2,6 +2,7 @@ import { ADD_TO_CART, REMOVE_ARTICLE, REMOVE_ONE_ITEM } from "../actions/cart";
 
 const initialState = {
   cart : [],
+  quantity : 0,
   totalPrice : 0,
   addItemAnimation : false,
 };
@@ -24,20 +25,20 @@ const {type, payload } = action
               ...item,
               quantity : item.quantity + payload.formData.quantity,
               total : item.total + payload.formData.total,
-              totalWeight:item.weight + payload.formData.totalWeight
+              totalWeight:item.totalWeight + payload.formData.totalWeight
             }
     // if the product is not in the cart, i don't do anything yet
             : item
           ),
     // to get the total price of the cart, i add the total price from the product added to the total already in the cart
-          totalPrice: state.totalPrice + payload.formData.total
+          totalPrice: state.totalPrice + payload.formData.total,
         };
       }
     // if the product is not in the cart, i add it and all its properties in the crt trhough the sent payload
       return {
         ...state,
         cart: [...state.cart, payload.formData],
-        totalPrice: state.totalPrice + payload.formData.total, 
+        totalPrice: state.totalPrice + payload.formData.total,
       };
 
   case REMOVE_ONE_ITEM:
@@ -54,11 +55,11 @@ const {type, payload } = action
             ...item,
             quantity : item.quantity - 1,
             total : item.total - payload.formData.price,
-            totalWeight: item.totalWeight - payload.formData.totalWeight
+            totalWeight: item.totalWeight - payload.formData.weight
           }
           : item
         ),
-        totalPrice: state.totalPrice - payload.formData.price
+        totalPrice: state.totalPrice - payload.formData.price,
       };
     }
 

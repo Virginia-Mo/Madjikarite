@@ -68,6 +68,7 @@ const product = useSelector((state) => (
     total : product.price * parseInt(data.get("quantity")),
     image : product.pictures[0].url,
     packaging : product.packaging,
+    weight: product.weight,
     totalWeight : product.weight * parseInt(data.get("quantity")),
   };
   console.log(formData);
