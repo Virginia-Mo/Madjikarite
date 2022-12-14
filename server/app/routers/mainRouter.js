@@ -6,13 +6,14 @@ const productRouter = require('./productRouter');
 const profileRouter = require('./profileRouter');
 const mainController = require('../controllers/mainController');
 const controllerWrapper = require('../helpers/controllerWrapper');
+const authUser = require('../helpers/userMiddleware');
 
 // We create a new router
 const router = new Router();
 
 // We redirect to the main controller
 router.get('/', controllerWrapper(mainController.homePage));
-router.get('/shopping-cart', controllerWrapper(mainController.shoppingCartPage));
+router.get('/shopping-cart', authUser, controllerWrapper(mainController.shoppingCartPage));
 router.route('/contact')
     .get(controllerWrapper(mainController.contactPage))
     .post(controllerWrapper(mainController.postForm));

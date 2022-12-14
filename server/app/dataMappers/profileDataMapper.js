@@ -8,7 +8,7 @@ const profileDataMapper = {
     },
     // Get one user from the database
     async getOneUserWithEmail(email) {
-        const result = await client.query('SELECT * FROM "user" WHERE email = $1', [email]);
+        const result = await client.query('SELECT "id", "first_name", "last_name", "password", "role_id" FROM "user" WHERE email = $1', [email]);
         return result.rows[0];
     },
     // Update a profile in the database
@@ -38,9 +38,9 @@ const profileDataMapper = {
         const result = await client.query('INSERT INTO "live_in" (user_id, address_id) VALUES ($1, $2) RETURNING *', [id, addressId]);
         return result.rows[0];
     },
-    async getOneAddress(id) {
-        const result = await client.query('SELECT * FROM "address" WHERE id = $1', [id]);
-        return result.rows[0];
+    async getOneAddress(id, address) {
+        const result = await client.query('SELECT "address"."id", "address"."address", "address"."zip_code", "address"."city", "address"."country" FROM "address" JOIN "live_in" ON "live_in"."address_id" = "address"."id" JOIN "user" ON "live_in"."user_id" = "user"."id" WHERE "user"."id" = $1', [id]);
+        return result.rows[address];
     },
     async updateAddress(id, address) {
         const result = await client.query('UPDATE "address" SET address = $2, zip_code = $3, city = $4, country = $5 WHERE id = $1 RETURNING *', [id, address.address, address.zip_code, address.city, address.country]);
@@ -48,7 +48,7 @@ const profileDataMapper = {
     },
     async deleteAddress(id) {
         const result = await client.query('DELETE FROM "address" WHERE id = $1', [id]);
-        return result.rows[0];
+        return result.rows[id];
     },
 };
 

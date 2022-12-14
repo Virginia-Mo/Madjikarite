@@ -5,14 +5,13 @@ const client = require('../helpers/db');
 
 const adminDataMapper = {
     // create a new product
-    // TODO : ajouter les images dans les requêtes
     async createNewProduct(product) {
-        const result = await client.query('INSERT INTO product (name, short_description,full_description, ingredients, packaging, price, stock, category_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *', [product.name, product.short_description, product.full_description, product.ingredients, product.packaging, product.price, product.stock, product.category_id]);
+        const result = await client.query('INSERT INTO product (name, short_description, full_description, ingredients, packaging, weight, price, stock, category_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *', [product.name, product.short_description, product.full_description, product.ingredients, product.packaging, product.weight, product.price, product.stock, product.category_id]);
         return result.rows[0];
     },
     // update a product
     async updateProduct(newData) {
-        const result = await client.query('UPDATE product SET name = $2, short_description = $3, full_description = $4, ingredients = $5, packaging = $6, price = $7, stock = $8, category_id = $9 WHERE id = $1 RETURNING *', newData);
+        const result = await client.query('UPDATE product SET name = $2, short_description = $3, full_description = $4, ingredients = $5, packaging = $6, weight = $7, price = $8, stock = $9, category_id = $10 WHERE id = $1 RETURNING *', newData);
         return result.rows[0];
     },
     // delete a product
@@ -27,7 +26,7 @@ const adminDataMapper = {
     },
     // get the user that made the order
     async getOneOrderUser(id) {
-        const result = await client.query('SELECT "shopping_cart"."id" AS "Numéro de commande", "user"."civility", "user"."last_name", "user"."first_name", "user"."email", "user"."phone_number" FROM "shopping_cart" JOIN "user" ON "shopping_cart"."user_id" = "user"."id" WHERE "shopping_cart"."id" = $1', [id]);
+        const result = await client.query('SELECT "shopping_cart"."id" AS "Numéro de commande", "user"."id" AS "user_id", "user"."civility", "user"."last_name", "user"."first_name", "user"."email", "user"."phone_number" FROM "shopping_cart" JOIN "user" ON "shopping_cart"."user_id" = "user"."id" WHERE "shopping_cart"."id" = $1', [id]);
         return result.rows[0];
     },
     // get all addresses of a user
