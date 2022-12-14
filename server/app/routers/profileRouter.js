@@ -10,6 +10,9 @@ const { Router } = require('express');
 const profileController = require('../controllers/profileController');
 const controllerWrapper = require('../helpers/controllerWrapper');
 const authUser = require('../helpers/userMiddleware');
+// const validate = require('../validations/validate');
+// const profileCreateSchema = require('../validations/schemas/profileCreateSchema');
+// const loginSchema = require('../validations/schemas/loginSchema');
 
 const router = new Router();
 

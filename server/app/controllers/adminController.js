@@ -73,13 +73,9 @@ const adminController = {
 
     // get an order page
     async getAnOrderPage(req, res) {
-        // TODO : delete req.params.id
-        req.params = {
-            id: 2,
-        };
         const orderId = parseInt(req.params.id, 10);
         const user = await adminDataMapper.getOneOrderUser(orderId);
-        const addresses = await adminDataMapper.getAllAddressesOfAUser(user.user_id);
+        const addresses = await adminDataMapper.getAllAddressesOfAUser(user.id);
         if (!user) {
             throw new NotFoundError('La commande n\'existe pas');
         }
