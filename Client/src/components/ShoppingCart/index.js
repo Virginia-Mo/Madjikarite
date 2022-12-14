@@ -3,25 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from '../../actions/cart';
 import Slide from '../Slide';
 import ShoppingLine from './ShoppingLine';
+import { getWeightQuantity } from "src/selectors/getCartQuantity";
 import './style.scss';
+import { useEffect } from 'react';
 
 function cart() {
-  
+
   const dispatch = useDispatch()
   const cart = useSelector((state)=> state.cart.cart)
   const totalPrice = useSelector((state)=> state.cart.totalPrice)
-
-  // I add an item to the cart
-  const handleChange = (price, id) => {
-
-    const formData = {
-      id: id,
-      quantity: 1,
-      price : parseInt(price),
-      total : parseInt(price) * 1
-    }
-    dispatch(addItemToCart(formData))
-  }
+const shipping = useSelector((state) => (
+    getWeightQuantity()
+  ));
 
   const handleSubmit = (event)=> {
     event.preventDefault();
@@ -33,7 +26,6 @@ function cart() {
       totalPrice : totalPrice,
       message: data.get("message")
   };
-     
     console.log(formData)
     }
   
@@ -51,7 +43,9 @@ function cart() {
         )}
 {/* If there's at list an item in the cart show : */}
         {cart.length > 0 && cart.map((item) => (
-          <ShoppingLine item={item} />
+          <ShoppingLine 
+          key={item.id}
+          item={item} />
         ))}
       </section>
       <section className="cart__totalContainer">
@@ -67,11 +61,15 @@ function cart() {
         
         <div className="cart__total">
           <p>Total des produits: <span>{totalPrice} €</span></p>
-          <p>Frais de port: <span>En cours...</span></p>
+          <p>Frais de port: <span>{shipping}</span></p> 
           <p><strong>TOTAL</strong>: <span>{totalPrice} €</span></p>
         </div>
         <div className="cart__coupon">
           <p>Carte cadeaux: <span>???</span></p>
+        </div>
+        <div className="cart__button">
+          <button type="button" className='cart__button--submit' >Calculer les frais de port</button>
+
         </div>
         <div className="cart__button">
           <button type="submit" className='cart__button--submit'>Valider la commande</button>

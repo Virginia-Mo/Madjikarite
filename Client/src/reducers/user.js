@@ -1,15 +1,23 @@
 import { CHANGE_INPUT_VALUE, USER_SAVE } from '../actions/user';
 
-export const initialState = {
-  email: '',
-  password: '', 
-
+export const initialState = { 
+  civility:"",
+  first_name: "", 
+  last_name: "", 
+  password: "", 
+  passwordConfirmation: "",
+  email: "", 
+  address: "", 
+  zip_code: "",
+  city: "",
+  country: "",  
+  phone_number: 0,
   logged: false,
-
+  token : ""
 };
 
 const reducer = (state = initialState, action = {}) => {
-  const { type, value } = action; // value = { name: 'email', value: '
+  const { type, payload } = action; // value = { name: 'email', value: '
 
   switch (type) {
     case CHANGE_INPUT_VALUE:
@@ -22,6 +30,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
+        token: payload.user.token
       };
       
     default:

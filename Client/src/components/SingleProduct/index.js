@@ -34,8 +34,8 @@ const product = useSelector((state) => (
 // Getting the value for the number input
   const value = useSelector((state) => state.user[name]);
 
-  const handleChange = (event) => {
-    dispatch(changeInputValue(product.product_name, event.target.value));
+  const handleChange = (name,event) => {
+    dispatch(changeInputValue(name, event.target.value));
   };
 
   // handling the click to toggle the description and compositon display
@@ -67,8 +67,10 @@ const product = useSelector((state) => (
     price : parseInt(product.price),
     total : product.price * parseInt(data.get("quantity")),
     image : product.pictures[0].url,
-    packaging : product.packaging
+    packaging : product.packaging,
+    totalWeight : product.weight * parseInt(data.get("quantity")),
   };
+  console.log(formData);
     dispatch(addItemToCart(formData))
   }
  
@@ -96,7 +98,7 @@ const product = useSelector((state) => (
             className="singleProduct__input--number"
             value={value}
             defaultValue="1"
-            onChange={handleChange}
+            onChange={() => handleChange(name, event)}
       />
           <button type='submit' className="cart-button" ref={buttonAnimation}> 
           <span className="add-to-cart" ref={addToCart}>Ajouter au panier</span> 

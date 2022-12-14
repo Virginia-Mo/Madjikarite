@@ -11,6 +11,15 @@ export function changeInputValue(key, value) {
   };
 }
 
+//Action pour créer un compte 
+export const SIGN_UP_USER = 'SIGN_UP_USER';
+
+export function signUpUser() {
+  return {
+    type: SIGN_UP_USER,
+  };
+}
+
 // Action pour se connecter
 export const LOGIN = 'LOGIN';
 

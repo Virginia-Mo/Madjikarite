@@ -24,6 +24,7 @@ const {type, payload } = action
               ...item,
               quantity : item.quantity + payload.formData.quantity,
               total : item.total + payload.formData.total,
+              totalWeight:item.weight + payload.formData.totalWeight
             }
     // if the product is not in the cart, i don't do anything yet
             : item
@@ -37,27 +38,27 @@ const {type, payload } = action
         ...state,
         cart: [...state.cart, payload.formData],
         totalPrice: state.totalPrice + payload.formData.total, 
- 
       };
 
   case REMOVE_ONE_ITEM:
     // Same process than for adding items but this one remove 1 item from the quantity
     const item2 = state.cart.find(
-      product => product.id === payload.id,
+      product => product.id === payload.formData.id,
     );
 
     if (item2) {
       return {
         ...state,
-        cart: state.cart.map(item => item.id === payload.id
+        cart: state.cart.map(item => item.id === payload.formData.id
           ? {
             ...item,
             quantity : item.quantity - 1,
-            total : item.total - payload.price,
+            total : item.total - payload.formData.price,
+            totalWeight: item.totalWeight - payload.formData.totalWeight
           }
           : item
         ),
-        totalPrice: state.totalPrice - payload.price
+        totalPrice: state.totalPrice - payload.formData.price
       };
     }
 

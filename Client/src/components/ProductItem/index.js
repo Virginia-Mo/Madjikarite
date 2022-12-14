@@ -8,7 +8,7 @@ import './style.scss';
 
 function ProductItem({
   // eslint-disable-next-line camelcase
-  id, pictures, product_name, category_name, short_description, packaging, price,
+  id, pictures, product_name, category_name, short_description, packaging, price,weight
 }){
   const dispatch = useDispatch()
   const cartIcon = useRef()
@@ -30,7 +30,8 @@ function ProductItem({
     price : parseInt(price),
     total : parseInt(price) * 1,
     image : image,
-    packaging : packaging
+    packaging : packaging,
+    weight : weight,
   }
   dispatch(addItemToCart(formData))
   setTimeout(function() {

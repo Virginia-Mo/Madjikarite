@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { IoBasketOutline, IoBasketSharp } from 'react-icons/io5';
 import { RiAccountCircleFill, RiAccountCircleLine } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
-import getCartQuantity from '../../../selectors/getCartQuantity';
+import { getCartQuantity } from '../../../selectors/getCartQuantity';
 import './style.scss';
 import 'animate.css';
 

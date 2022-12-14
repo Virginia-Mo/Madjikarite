@@ -19,10 +19,10 @@ export function addItemToCart(formData) {
 
 export const REMOVE_ONE_ITEM = 'REMOVE_ONE_ITEM';
 
-export function minusItemFromCart(price,id) {
+export function minusItemFromCart(formData) {
   return {
     type: REMOVE_ONE_ITEM,
-    payload: { price,id },
+    payload: {formData },
   };
 }
   export const REMOVE_ARTICLE = 'REMOVE_ARTICLE';
