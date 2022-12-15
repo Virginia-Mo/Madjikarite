@@ -1,0 +1,25 @@
+@use 'src/styles/vars' as v;
+
+@media (max-width: 600px) {
+  .menu-burger {
+    position: absolute;
+    left: 0;
+    top: 3.7rem;
+
+    &__list {
+      z-index: 10;
+    }
+
+    &__item {
+      background-color: #ffffff;
+      font-family: v.$font-paragraph;
+      padding: 0.9rem;
+      font-size: 2rem;
+      border-bottom: 0.2rem solid #b0afafe5;
+    
+      &--about-us {
+        background-color: v.$color-beige;
+      }
+    }
+  }
+}

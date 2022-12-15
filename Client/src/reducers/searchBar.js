@@ -1,8 +1,9 @@
-import { SEARCH_CHANGE, DISPLAY_SEARCH_PRODUCTS } from '../actions/searchBar';
+import { SEARCH_CHANGE, DISPLAY_SEARCH_PRODUCTS, DISPLAY_MENU } from '../actions/searchBar';
 
 const initialState = {
   search: '',
   products: [],
+  openMenu: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -18,6 +19,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         products: payload.value,
       };
+    case DISPLAY_MENU:
+      return {
+        ...state,
+        openMenu: !state.openMenu
+      };
+
     default:
       return state;
   }

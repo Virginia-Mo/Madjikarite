@@ -7,6 +7,7 @@
   &__list {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
   }
 
@@ -15,22 +16,18 @@
     height: 6rem;
     padding: 2rem 4rem;
     border-right: 0.2rem solid #b0afafe5;
+    font-size: 2rem;
+    font-family: v.$font-paragraph;
     
     &:hover {
       border-bottom: 0.5rem solid v.$color-brown;
       box-sizing: border-box;
       color: v.$color-brown;
-      // font-weight: 600;
     }
   }
 
   &__item--first {
-    border-left: 0.2rem solid rgba(161, 155, 155, 0.561);
-  }
-
-  &__link, &__under-link {
-    font-size: 2rem;
-    font-family: v.$font-paragraph;
+    border-left: 0.2rem solid #b0afafe5;
   }
 
   &__item--about-us {
@@ -41,26 +38,36 @@
     display: none;
     position: absolute;
     left: 0;
+  }
+
+  &__under-item {
+    font-size: 2rem;
+    font-family: v.$font-paragraph;
+    padding: 1.2rem;
+    background-color: #ffffffe5;
+    text-align: left;
+    color: #000000e5;
+    border-bottom: 0.2rem solid #f4f2f2e5;
+    &:hover {
+      background-color: #f4f2f2e5;
+      color: v.$color-brown;
     }
+  }
+  
 }
 
 .nav-bar__item--about-us:hover > .nav-bar__under-list {
   display: block;
   margin-top: 2rem;
   z-index: 99;
+  
 }
 
-.nav-bar__under-item {
-  padding: 1.2rem;
-  background-color: rgba(255, 255, 255, 0.9);
-  text-align: left;
-  color: #000000e5;
-  font-weight: 500;
-  border-bottom: 0.2rem solid rgba(190, 189, 189, 0.466);
-
-  &:hover {
-    background-color: #f4f2f2e5;
-    color: v.$color-brown;
-    // font-weight: 600;
+@media (max-width: 600px) {
+  .nav-bar {
+    &__item {
+      display: none;
+    }
   }
 }
+

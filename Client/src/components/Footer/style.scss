@@ -4,20 +4,19 @@
   width: 100%;
   height: 20vh;
   margin-top: 3rem;
-  padding: 2rem;
-  display: flex;
-  justify-content: space-between;
-  background-color: v.$color-brown;
-  color: rgba(255, 255, 255, 0.9);
 
-  h3 {
-    font-size: 1.8rem;
-    font-family: v.$font-paragraph;
-  }
+  &__top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: v.$color-brown;
 
-  p {
-    font-size: 1.3rem;
-    line-height: 1.8rem;
+    p {
+      font-size: 1.3rem;
+      line-height: 1.8rem;
+      color: #fff;
+    }
   }
 
   &__contact-container {
@@ -27,31 +26,56 @@
 
   &__contact {
     display: flex;
+    justify-content: left;
+    align-content: center;
     margin-bottom: 1rem;
 
-    &-form {
-      display: flex;
-      flex-direction: column;
-      margin-left: 1rem;
-    }
-
     &-icon {
-    font-size: 5rem;
-    margin-right: 1rem;
+    font-size: 7rem;
+    color: #fff;
+    margin: auto;
     }
-  }  
+    h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: v.$font-paragraph;
+      color: #fff;
+      margin: auto;
+    }
+  } 
+
+  &__link-form-contact {
+    margin-bottom: 1rem;
+  }
+
+
+  &__social-media {
+    width: 10%;
+    background-color: #fff;
+    border-radius: 1.5rem;
+    text-align: center;
+    padding: 4rem 2rem;
+    h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: v.$font-paragraph;
+      color: v.$color-brown;
+      margin-bottom: 1.5rem;
+    }
+    &-icon {
+      font-size: 6rem;
+      color: v.$color-brown;
+      margin: 0 0.5rem;
+    }
+  }
 
   &__legal {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    align-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: v.$font-paragraph;
+    height: 22%;
+    padding: 1rem;
   }
 
-  &__social-media-icon {
-    font-size: 5rem;
-    margin-top: 1rem;
-    margin-right: 1.5rem;
-  }
 }
 

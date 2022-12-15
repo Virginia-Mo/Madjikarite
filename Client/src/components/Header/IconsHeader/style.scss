@@ -8,10 +8,9 @@
     text-decoration: underline;
   }
 
-  &__basket, &__account {
-    width: 5rem;
+  &__basket, &__account, &__contact {
+    font-size: 5rem;
     border-radius: 50%;
-    background-color: transparent;
     color: #000;
     display: flex;
     justify-content: center;
@@ -25,13 +24,16 @@
       color: v.$color-light-brown;
     }
   }
-    
 
   &__container-basket, &__container-account {
     margin-left: 2.5rem;
     text-align: center;
-    font-size: 5rem;
-    font-weight: 100;
+  }
+
+  &__container-contact {
+    display: none;
   }
 }
+
+
 
