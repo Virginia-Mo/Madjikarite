@@ -121,13 +121,10 @@ const profileController = {
             }
         }
         if (password) {
-            console.log('je passe dans la boucle');
             const encryptedPassword = await bcrypt.hash(password, 10);
-            // TODO: mettre en dynamique
-            newData.splice(5, 1, encryptedPassword);
+            newData.splice((newData.length - 1), 1, encryptedPassword);
         }
         // We send the new data to the database
-        console.log(newData);
         await profileDataMapper.updateProfile(newData);
         res.json({ message: 'Votre profil a bien été mis à jour' });
     },
