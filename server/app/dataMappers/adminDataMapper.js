@@ -21,23 +21,18 @@ const adminDataMapper = {
     },
     // get all the orders
     async getAllOrders() {
-        const result = await client.query('SELECT * FROM "shopping_cart"');
+        const result = await client.query('SELECT * FROM "order"');
         return result.rows;
     },
     // get the user that made the order
     async getOneOrderUser(id) {
-        const result = await client.query('SELECT "shopping_cart"."id" AS "Numéro de commande", "user"."id" AS "user_id", "user"."last_name", "user"."first_name", "user"."email", "user"."phone_number" FROM "shopping_cart" JOIN "user" ON "shopping_cart"."user_id" = "user"."id" WHERE "shopping_cart"."id" = $1', [id]);
+        const result = await client.query('SELECT "order"."id" AS "order_number", "user"."id" AS "user_id", "user"."last_name", "user"."first_name", "user"."email", "user"."phone_number", "address"."id" AS "address_id", "address"."address", "address"."zip_code", "address"."city", "address"."country" FROM "order" JOIN "user" ON "order"."user_id" = "user"."id" JOIN "live_in" ON "live_in"."user_id" = "user"."id" JOIN "address" ON "live_in"."address_id" = "address"."id" WHERE "order"."id" = $1', [id]);
         return result.rows[0];
     },
-    // get all addresses of a user
-    async getAllAddressesOfAUser(id) {
-        const result = await client.query('SELECT "address"."address", "address"."zip_code", "address"."city", "address"."country" FROM "user" JOIN "live_in" ON "live_in"."user_id" = "user"."id" JOIN "address" ON "live_in"."address_id" = "address"."id" WHERE "user"."id" = $1', [id]);
-        return result.rows;
-    },
-    // get all items of an order
-    async getAllItemsOfAnOrder(id) {
-        const result = await client.query('SELECT "product_id", "product"."name", "quantity", "product"."packaging", "product"."weight", "product"."price" FROM "shopping_cart_lign" JOIN "product" ON "shopping_cart_lign"."product_id" = "product"."id" WHERE shopping_cart_id = $1', [id]);
-        return result.rows;
+    // get the products of the order
+    async getOneOrderProducts(id) {
+        const result = await client.query('SELECT "cart", "message", "final_price", "created_at" AS "order_date" FROM "order" WHERE "id" = $1', [id]);
+        return result.rows[0];
     },
     // delete an order
     async deleteOrder(id) {
