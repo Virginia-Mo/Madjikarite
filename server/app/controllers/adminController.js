@@ -76,11 +76,14 @@ const adminController = {
         const orderId = parseInt(req.params.id, 10);
         const user = await adminDataMapper.getOneOrderUser(orderId);
         const order = await adminDataMapper.getOneOrderProducts(orderId);
-        console.log(order);
         if (!user) {
             throw new NotFoundError('La commande n\'existe pas');
         }
-        res.json({ user, order });
+        const newOrder = [];
+        for (let i = 0; i < order.cart.length; i += 1) {
+            newOrder.push(JSON.parse(order.cart[i]));
+        }
+        res.json({ user, order: newOrder });
     },
 
     // update order
