@@ -1,6 +1,6 @@
 BEGIN;
 
-TRUNCATE "role", "address", "user", "user_review", "shopping_cart_lign", "shopping_cart", "live_in" RESTART IDENTITY;
+TRUNCATE "role", "address", "user", "user_review", "order", "live_in" RESTART IDENTITY;
 
 INSERT INTO "role" ("name") 
 VALUES
@@ -27,19 +27,11 @@ VALUES
     (3, 'Pas mal, mais je préfère le savon solide à la lavande', 2, 3),
     (5, 'Très bien', 2, 1);
 
-INSERT INTO "shopping_cart" ("total_price", "message", "user_id") 
-VALUES
-    ('12.95', 'cadeau', 1),
-    ('9.99', 'tiens', 2),
-    (9523, 'whaa', 3);
-
-INSERT INTO "shopping_cart_lign" ("quantity", "shopping_cart_id", "product_id") 
-VALUES
-    (1, 1, 1),
-    (2, 1, 2),
-    (1, 2, 1),
-    (1, 3, 2),
-    (3, 3, 3);
+-- INSERT INTO "order" ("cart", "message", "final_price", "user_id", "address_id") 
+-- VALUES
+    -- ('["{"id": 1, "name": "test", "quantity": 2, "price": 6, "total": 12}", "{"id": 2, "name": "test2", "quantity": 4, "price": 6, "total": 24}"]', 'cadeau', 40.50, 3, 3),
+    -- ('{{{"id", 2}, {"name", "test2"}, {"quantity", 1}, {"price", 6}, {"total", 6}}, {{"id", 8}, {"name", "test8"}, {"quantity", 5}, {"price", 6}, {"total", 30}}}', 'cadeau', 62, 3, 3),
+    -- ('{{{"id", 3}, {"name", "test3"}, {"quantity", 3}, {"price", 6}, {"total", 18}}, {{"id", 10}, {"name", "test10"}, {"quantity", 6}, {"price", 6}, {"total", 36}}}', 'cadeau', 75, 1, 1);
 
 INSERT INTO "live_in" ("user_id", "address_id") 
 VALUES

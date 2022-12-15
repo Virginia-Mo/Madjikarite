@@ -67,7 +67,26 @@ const adminController = {
 
     // get all the order page
     async viewListingOrder(req, res) {
+        // get all the orders
         const orders = await adminDataMapper.getAllOrders();
+        let currentProducts = [];
+        // loop on orders
+        for (let i = 0; i < orders.length; i += 1) {
+            // loop on cart
+            for (let index = 0; index < orders[i].cart.length; index += 1) {
+                // for each cart, parse the cart into JSOn to get the right format
+                const products = JSON.parse(orders[i].cart[index]);
+                // push the products into the currentProducts array
+                currentProducts.push(products);
+            }
+            // delete the old cart format from the orders
+            delete orders[i].cart;
+            // add the new cart format to the orders
+            orders[i].cart = currentProducts;
+            // reset the currentProducts array for the next order
+            currentProducts = [];
+        }
+        // orders.cart = newOrder;
         res.json(orders);
     },
 
@@ -75,12 +94,15 @@ const adminController = {
     async getAnOrderPage(req, res) {
         const orderId = parseInt(req.params.id, 10);
         const user = await adminDataMapper.getOneOrderUser(orderId);
-        const addresses = await adminDataMapper.getAllAddressesOfAUser(user.id);
+        const order = await adminDataMapper.getOneOrderProducts(orderId);
         if (!user) {
             throw new NotFoundError('La commande n\'existe pas');
         }
-        const orderDetails = await adminDataMapper.getAllItemsOfAnOrder(orderId);
-        res.json({ 'Numéro de commande et client': user, 'Adresses du client': addresses, 'Détails de la commande': orderDetails });
+        const newOrder = [];
+        for (let i = 0; i < order.cart.length; i += 1) {
+            newOrder.push(JSON.parse(order.cart[i]));
+        }
+        res.json({ user, order: newOrder });
     },
 
     // update order

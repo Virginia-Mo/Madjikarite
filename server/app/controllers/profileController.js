@@ -105,7 +105,7 @@ const profileController = {
     async updateProfile(req, res) {
         const { id } = req.user;
         // We get all the old data from the database
-        const oldData = await profileDataMapper.getOneUser(id);
+        const oldData = await profileDataMapper.getOneUserWithId(id);
         const newData = [];
         newData.push(id);
         const { password } = req.body;
@@ -122,8 +122,7 @@ const profileController = {
         }
         if (password) {
             const encryptedPassword = await bcrypt.hash(password, 10);
-            // TODO: mettre en dynamique
-            newData.splice(6, 1, encryptedPassword);
+            newData.splice((newData.length - 1), 1, encryptedPassword);
         }
         // We send the new data to the database
         await profileDataMapper.updateProfile(newData);
@@ -148,6 +147,7 @@ const profileController = {
         const address = await profileDataMapper.getOneAddress(req.user.id, addressNumber);
         res.json(address);
     },
+    // TODO: mauvaise modification, pour le moment modifie l'adresse ayant l'id du user
     async updateAddress(req, res) {
         const address = await profileDataMapper.updateAddress(req.user.id, req.body);
         res.json(address);
