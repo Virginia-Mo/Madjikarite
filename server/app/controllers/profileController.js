@@ -105,7 +105,7 @@ const profileController = {
     async updateProfile(req, res) {
         const { id } = req.user;
         // We get all the old data from the database
-        const oldData = await profileDataMapper.getOneUser(id);
+        const oldData = await profileDataMapper.getOneUserWithId(id);
         const newData = [];
         newData.push(id);
         const { password } = req.body;
@@ -121,11 +121,13 @@ const profileController = {
             }
         }
         if (password) {
+            console.log('je passe dans la boucle');
             const encryptedPassword = await bcrypt.hash(password, 10);
             // TODO: mettre en dynamique
-            newData.splice(6, 1, encryptedPassword);
+            newData.splice(5, 1, encryptedPassword);
         }
         // We send the new data to the database
+        console.log(newData);
         await profileDataMapper.updateProfile(newData);
         res.json({ message: 'Votre profil a bien été mis à jour' });
     },
