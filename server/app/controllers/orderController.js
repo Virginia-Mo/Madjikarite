@@ -9,11 +9,17 @@ const orderController = {
     // Post the order from the shopping cart page
     async postOrder(req, res) {
         const addresses = await profileDataMapper.getAddresses(req.user.id);
-        const result = await orderDataMapper.postOrder(req.body, req.user.id, addresses);
-        if (!result) {
+        const order = await orderDataMapper.postOrder(req.body, req.user.id, addresses);
+        if (!order) {
             throw new Error('Erreur lors de la création de la commande');
         }
-        res.json(result);
+        const newOrder = [];
+        for (let i = 0; i < order.cart.length; i += 1) {
+            newOrder.push(JSON.parse(order.cart[i]));
+        }
+        delete order.cart;
+        order.cart = newOrder;
+        res.json(order);
     },
 };
 
