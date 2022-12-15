@@ -1,5 +1,3 @@
--- Deploy madjikarite:init to pg
-
 BEGIN;
 
 DROP TABLE IF EXISTS "role",
@@ -7,8 +5,7 @@ DROP TABLE IF EXISTS "role",
 "live_in",
 "user_review",
 "category",
-"shopping_cart_lign",
-"shopping_cart",
+"order",
 "product",
 "user";
 
@@ -54,7 +51,7 @@ CREATE TABLE "product" (
     "ingredients" TEXT NOT NULL,
     "packaging" TEXT NOT NULL,
     "weight" INT NOT NULL,
-    "price" NUMERIC(6, 2) NOT NULL,
+    "price" NUMERIC NOT NULL,
     "stock" INT DEFAULT 0,
     "category_id" INT NOT NULL REFERENCES "category" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -72,11 +69,13 @@ CREATE TABLE "user_review" (
 );
 
 
-CREATE TABLE "shopping_cart" (
+CREATE TABLE "order" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "total_price" NUMERIC(9,2) NOT NULL,
+    "cart" TEXT[][] NOT NULL,
     "message" TEXT NOT NULL,
+    "final_price" NUMERIC NOT NULL,
     "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    "address_id" INT NOT NULL REFERENCES "address" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
@@ -87,16 +86,6 @@ CREATE TABLE "live_in" (
     "address_id" INT NOT NULL REFERENCES "address" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ 
-);
-
-
-CREATE TABLE "shopping_cart_lign" (
-    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "quantity" INT NOT NULL,
-    "shopping_cart_id" INT NOT NULL REFERENCES "shopping_cart" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
-    "product_id" INT NOT NULL REFERENCES "product" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
-    "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    "updated_at" TIMESTAMPTZ
 );
 
 COMMIT;

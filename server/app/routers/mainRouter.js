@@ -4,16 +4,15 @@ const aboutUsRouter = require('./aboutUsRouter');
 const adminRouter = require('./adminRouter');
 const productRouter = require('./productRouter');
 const profileRouter = require('./profileRouter');
+const orderRouter = require('./orderRouter');
 const mainController = require('../controllers/mainController');
 const controllerWrapper = require('../helpers/controllerWrapper');
-const authUser = require('../helpers/userMiddleware');
 
 // We create a new router
 const router = new Router();
 
 // We redirect to the main controller
 router.get('/', controllerWrapper(mainController.homePage));
-router.get('/shopping-cart', authUser, controllerWrapper(mainController.shoppingCartPage));
 router.route('/contact')
     .get(controllerWrapper(mainController.contactPage))
     .post(controllerWrapper(mainController.postForm));
@@ -23,6 +22,7 @@ router.use(aboutUsRouter);
 router.use(adminRouter);
 router.use(productRouter);
 router.use(profileRouter);
+router.use(orderRouter);
 
 // We do not forget to export the module to get access to it from everywhere
 module.exports = router;
