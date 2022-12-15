@@ -147,6 +147,7 @@ const profileController = {
         const address = await profileDataMapper.getOneAddress(req.user.id, addressNumber);
         res.json(address);
     },
+    // TODO: mauvaise modification, pour le moment modifie l'adresse ayant l'id du user
     async updateAddress(req, res) {
         const address = await profileDataMapper.updateAddress(req.user.id, req.body);
         res.json(address);

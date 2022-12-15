@@ -36,7 +36,7 @@ const adminDataMapper = {
     },
     // delete an order
     async deleteOrder(id) {
-        const result = await client.query('DELETE FROM "shopping_cart" WHERE id = $1', [id]);
+        const result = await client.query('DELETE FROM "order" WHERE id = $1', [id]);
         return result.rows[0];
     },
 };

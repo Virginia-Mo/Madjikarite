@@ -67,7 +67,26 @@ const adminController = {
 
     // get all the order page
     async viewListingOrder(req, res) {
+        // get all the orders
         const orders = await adminDataMapper.getAllOrders();
+        let currentProducts = [];
+        // loop on orders
+        for (let i = 0; i < orders.length; i += 1) {
+            // loop on cart
+            for (let index = 0; index < orders[i].cart.length; index += 1) {
+                // for each cart, parse the cart into JSOn to get the right format
+                const products = JSON.parse(orders[i].cart[index]);
+                // push the products into the currentProducts array
+                currentProducts.push(products);
+            }
+            // delete the old cart format from the orders
+            delete orders[i].cart;
+            // add the new cart format to the orders
+            orders[i].cart = currentProducts;
+            // reset the currentProducts array for the next order
+            currentProducts = [];
+        }
+        // orders.cart = newOrder;
         res.json(orders);
     },
 
