@@ -49,13 +49,10 @@ const profileController = {
         console.log(req.body);
         const {
             // eslint-disable-next-line max-len
-            civility, last_name, first_name, email, phone_number, password, address, zip_code, city, country,
+            last_name, first_name, email, phone_number, password, address, zip_code, city, country,
         } = req.body;
         // We verify is all the fields are filled
         const bodyErrors = [];
-        if (!civility) {
-            bodyErrors.push('La civilité est obligatoire');
-        }
         if (!last_name) {
             bodyErrors.push('Le nom est obligatoire');
         }
@@ -78,7 +75,6 @@ const profileController = {
             const encryptedPassword = await bcrypt.hash(password, 10);
             // We send all the data to the database
             const user = await profileDataMapper.createAccount({
-                civility,
                 last_name,
                 first_name,
                 email,
