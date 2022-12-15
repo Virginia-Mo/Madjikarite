@@ -42,7 +42,7 @@ function Search() {
       <IoSearch className="search__icon" />
       <form action="" className="search__form" onSubmit={handleSubmit}>
         <input
-          className="form__input"
+          className="search__input"
           type="text"
           placeholder="Rechercher un article..."
           value={search}

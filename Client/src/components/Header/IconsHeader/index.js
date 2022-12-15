@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { IoBasketOutline, IoBasketSharp } from 'react-icons/io5';
-import { RiAccountCircleFill, RiAccountCircleLine } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
+import { IoBasketOutline, IoBasketSharp, IoMailOutline } from 'react-icons/io5';
+import { RiAccountCircleFill, RiAccountCircleLine } from "react-icons/ri";
 import { getCartQuantity } from '../../../selectors/getCartQuantity';
 import { logout } from '../../../actions/user';
 import { useNavigate } from 'react-router';
@@ -22,8 +22,13 @@ function IconsHeader() {
   
   return (
     <div className="header-icons">
+      <Link to="/contact">
+        <div className="header-icons__container-contact">
+          <IoMailOutline className="header-icons__contact"/>
+        </div>
+      </Link>
 
-    <Link to="/shoppingcart">
+      <Link to="/shoppingcart">
         <div className="header-icons__container-basket">
         { cart.length === 0 &&  <IoBasketOutline className="header-icons__basket"/> }
         { cart.length > 0 && (
@@ -48,7 +53,8 @@ function IconsHeader() {
         
       </div>
     </Link>
-      {/* <div><RiAccountCircleFill /></div> */}
+      {/* <div><RiAccountCircleFil /l></div> */}
+
     </div>
   );
 }
