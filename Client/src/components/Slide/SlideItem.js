@@ -1,28 +1,34 @@
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 function SlideItem({
-  nom, image, categorie, prix,
+  id, product_name, pictures, category_name, price,
 }) {
+  const slug = id;
+  const image = pictures[0].url
   return (
+    <Link to={`/product/${slug}`}>
     <article className="SlideItem">
       <div className="SlideItem__imgContainer">
-        <img src={image} alt={nom} className="SlideItem__img" />
+        <img src={image} alt={product_name} className="SlideItem__img" />
       </div>
       <div className="SlideItem__contentDiv">
-        <h4 className="SlideItem__title">{nom}</h4>
-        <p className="SlideItem__price"><span>Catégorie:</span>  {categorie}</p>
-        <p className="SlideItem__price"><span>Prix:</span>  {prix} €</p>
+        <h4 className="SlideItem__title">{product_name}</h4>
+        <p className="SlideItem__price"><span>Catégorie:</span>  {category_name}</p>
+        <p className="SlideItem__price"><span>Prix:</span>  {price} €</p>
       </div>
     </article>
+    </Link>
   );
 }
 
-SlideItem.propTypes = {
-  nom: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  categorie: PropTypes.string.isRequired,
-  prix: PropTypes.number.isRequired,
-};
+// SlideItem.propTypes = {
+//   product_name: PropTypes.string.isRequired,
+//   pictures: PropTypes.arrayOf {
+//    PropTypes.string.isRequired,
+//   }
+//   category_name: PropTypes.string.isRequired,
+//   price: PropTypes.number.isRequired,
+// };
 export default SlideItem;

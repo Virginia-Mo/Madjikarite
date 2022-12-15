@@ -6,6 +6,7 @@ import logo from 'src/assets/imgs/logo-header.png';
 
 import './styles.scss';
 import NavBarMobile from '../NavBarMobile';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (

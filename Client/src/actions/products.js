@@ -13,19 +13,20 @@ export function handleComposition() {
 
   };
 }
-export const PRODUCT_BY_CATEGORY = 'PRODUCT_BY_CATEGORY';
+export const GET_PRODUCTS = 'GET_PRODUCTS';
 
-export function fetchProductByCategory() {
+export function fetchProducts() {
   return {
-    type: PRODUCT_BY_CATEGORY,
+    type: GET_PRODUCTS,
   };
 }
 
-export const SAVE_PRODUCT_BY_CATEGORY = 'SAVE_PRODUCT_BY_CATEGORY';
+export const SAVE_PRODUCTS = 'SAVE_PRODUCTS';
 
 export function saveProducts(products) {
   return {
-    type: SAVE_PRODUCT_BY_CATEGORY,
+    type: SAVE_PRODUCTS,
     payload : { products },
   };
 }
+

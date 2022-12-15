@@ -15,6 +15,7 @@ function Field({
   const value = useSelector((state) => state.user[name]);
 
   const handleChange = (event) => {
+    console.log("CHANGE")
     dispatch(changeInputValue(name, event.target.value));
   };
 
@@ -23,7 +24,7 @@ function Field({
   return (
     <div className="field">
       <label
-        htmlFor={inputId}
+       forhtml={inputId}
         className="field__label"
       >
         {placeholder}
@@ -32,10 +33,11 @@ function Field({
         id={inputId}
         name={name}
         type={type}
-//        placeholder={placeholder}
+        placeholder={placeholder}
         className="field__input"
         value={value}
         onChange={handleChange}
+        
       />
 
     </div>

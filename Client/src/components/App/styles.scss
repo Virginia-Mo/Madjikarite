@@ -10,6 +10,12 @@ p {
   font-family: v.$font-paragraph;
   font-size: v.$font-size-p;
 }
+h2, h4 {
+  text-transform: lowercase;
+}
+h2:first-letter, h4:first-letter {
+  text-transform:uppercase;
+}
 .mainTitle__h2 {
   font-size: v.$font-size-t;
   font-family: v.$font-title;
@@ -18,7 +24,7 @@ p {
   margin-bottom: 5rem;
   border-top: solid 1px rgba(134, 134, 134, 0.459);
   border-bottom: solid 1px rgba(134, 134, 134, 0.459);
-  width: 50%;
+  // width: 50%;
   margin: 5rem auto 2rem;
   padding: 2rem;
   & span {
@@ -31,3 +37,8 @@ p {
     padding-top: 16rem;
   }
 } 
+@media screen and (max-width : 1024px) {
+  .mainTitle__h2 {
+    font-size: 3.5rem;
+  }
+}

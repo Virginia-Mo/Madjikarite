@@ -1,16 +1,16 @@
 import axios from 'axios';
-// import products from "src/Data/data"
-import { PRODUCT_BY_CATEGORY, saveProductByCategory } from '../actions/products';
+import { GET_PRODUCTS, saveProducts } from '../actions/products';
 
 const API_BASE_URL = 'https://madjikarite.onrender.com';
 
 const productsAPI = (store) => (next) => (action) => {
   switch (action.type) {
-    case PRODUCT_BY_CATEGORY:
+    case GET_PRODUCTS:
+      console.log("APICALL");
       axios
         .get(`${API_BASE_URL}/products`)
         .then((response) => {
-          console.log(response.data);
+          console.log("API");
           store.dispatch(saveProducts(response.data));
         })
         .catch((error) => console.log(error))

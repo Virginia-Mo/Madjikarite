@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import { IoSearch } from 'react-icons/io5';
 
-import data from 'src/Data/data';
 import noix from 'src/assets/imgs/noix.png';
 
 import { changeSearch, displaySearchRequest } from '../../actions/searchBar';
@@ -16,11 +15,13 @@ function Search() {
   // I get the value of the search bar
   const search = useSelector((state) => state.searchBar.search);
   // I get the products from the data
-  const products = data.produits;
+  const products = useSelector((state) => state.products.listProducts);
   // I filter the products according to the search bar value
   const filteredProducts = products.filter((product) => (
-    product.nom.toLowerCase().includes(search.toLowerCase())
-      || product.categorie.toLowerCase().includes(search.toLowerCase())));
+    product.product_name.toLowerCase().includes(search.toLowerCase())
+       || product.category_name.toLowerCase().includes(search.toLowerCase())
+      )
+      );
 
   // I dispatch the value of the search bar
   const handleChange = (event) => {

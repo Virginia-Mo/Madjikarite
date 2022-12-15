@@ -1,41 +1,101 @@
 @use 'sass:color';
 @use 'src/styles/vars' as v;
 
-h1 {
-  font-family: v.$font-title;
-  font-size: v.$font-size-t;
-  margin-bottom: 5rem;
-}
 
 .delete {
   display: flex;
-  flex-direction: wrap;
-  align-content: space-around;
-  gap: 1rem;
-  width: 50%;
-  height: auto;
-  margin: 0 auto;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  flex-direction: inherit;
+  align-items: flex-startfle;
+  width: 70%;
+  height: 60%;
+  border: none;
+  gap: 12rem;
+  margin: 14rem;
+
+&__title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  font-family: v.$font-title;
+  font-size: v.$font-size-t;
+  text-align: center;
+}
+&__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 2rem;
+  width: 60%;
+  height: 80%;
+  margin-top: non;
+  margin-left: inherit;
+  margin-right: inherit;
+  margin-bottom: 20rem;
+  padding: v.$gutter;
+  font-family: v.$font-paragraph;
+  font-size: v.$font-size-p;
+  border: v.$border;
+  border-radius: v.$border-radius;
+}
+  &__text--paragraph {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    line-height: 2rem;
+    margin-bottom: 3rem;
+    padding: v.$gutter;
+    font-family: v.$font-paragraph;
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
+    background-color: v.$color-green;
+    font-size: v.$font-size-p;
+    padding: v.$gutter;
+    border: none;
+    border-radius: 1rem;
+    margin-top: 10rem;
+    font-family: v.$font-paragraph;
+    &:hover {
+      background-color: color.scale(v.$color-light-brown, $lightness: -10%);
+    }
+  }
+}
+
+.deleteAside {
+  width: 15%;
+  height: 50%;
   border: 2px solid #ccc;
   border-radius: 0.5rem;
-  padding: 2rem;
   font-family: v.$font-paragraph;
   font-size: v.$font-size-p;
-
-  &__button {
-  margin: 0 auto;
-  width: fit-content;
+  text-align: left;
+  align-items: flex-start;
+  margin-left: 0;
   background-color: v.$color-green;
-  font-size: v.$font-size-p;
-  padding: 1rem;
   border: none;
-  border-radius: 1rem;
-  margin-top: 1rem;
-  font-family: v.$font-paragraph;
+  padding: v.$gutter;
+  &__lien {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    height: auto;
+    font-family: v.$font-paragraph;
+    font-size: v.$font-size-p;
+    text-align: left;
+    align-items: flex-start;
+    margin-left: 0;
+    background-color: v.$color-green;
+    border: none;
+    padding: v.$gutter;
+    border-bottom: solid 1px v.$color-light-brown;
+    &:hover {
+      background-color: v.$color-light-brown;
+    }
   }
-  &__button:hover {
-  background-color: color.scale(v.$color-green, $lightness: -10%);
-  }
-
 }

@@ -1,7 +1,7 @@
 // == Import
 import WelcomePage from '../WelcomePage';
 import { Route, Routes } from 'react-router-dom';
-import { fetchProductByCategory } from '../../actions/products';
+import { fetchProducts } from '../../actions/products';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,24 +10,25 @@ import Footer from '../Footer';
 import Cart from '../ShoppingCart';
 import Header from 'src/components/Header';
 import SearchResults from 'src/components/SearchResults';
-import SingleProduct from 'src/components/SingleProduct';
 import CustomerAccount from 'src/components/CustomerAccount';
 import CustomerAdress from '../CustomerAccount/CustomerAdress';
 import DeleteAccount from '../CustomerAccount/DeleteAccount';
 import LoginForm from 'src/components/LoginForm';
 import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
+import SheaBenefits from '../SheaBenefits';
+import SingleProduct from '../SingleProduct';
+import Workers from '../Workers';
+import Process from '../Process';
 import './styles.scss';
 
 
 // == Composant
 function App() {
   const dispatch = useDispatch();
-  const categoryProducts = useSelector((state) => state.products.categoryProducts);
 
     useEffect(() => {
-        dispatch(fetchProductByCategory());
-        console.log("useEffect" + categoryProducts)
+        dispatch(fetchProducts());
       }, []); // au 1er rendu
 
   return (
@@ -61,6 +62,21 @@ function App() {
         />
 
         <Route
+        path="/sheabenefits"
+        element={<SheaBenefits />}
+        />
+
+        <Route
+        path="/workers"
+        element={<Workers />}
+        />
+
+        <Route
+        path="/process"
+        element={<Process />}
+        />
+        
+        <Route
         path="/customeraccount"
         element={<CustomerAccount />} 
         />
@@ -81,7 +97,7 @@ function App() {
         />
 
         <Route
-          path="searchedproduct"
+          path="/product/:slug"
           element={<SingleProduct />}
         />
 
@@ -95,19 +111,10 @@ function App() {
           element={<ContactUs />}
         />
 
-        <Route
-          path="/customeraccount"
-          element={<CustomerAccount />}
-        />
+        <Route 
+        path="/category${slug}/product"
+        element={<SearchResults />} />
 
-          <Route
-          path="/customeraccount/adress"
-          element={<CustomerAdress />}
-        />
-         <Route
-          path="/customeraccount/delete"
-          element={<DeleteAccount />}
-        />
         <Route
           path="*"
           element={<Error />}
