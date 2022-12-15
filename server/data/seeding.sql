@@ -29,7 +29,7 @@ VALUES
 
 INSERT INTO "order" ("cart", "message", "final_price", "user_id", "address_id") 
 VALUES
-    ('{{{"id", 1}, {"name", "test"}, {"quantity", 2}, {"price", 6}, {"total", 12}}, {{"id", 2}, {"name", "test2"}, {"quantity", 4}, {"price", 6}, {"total", 24}}}', 'cadeau', 40.50, 3, 3),
+    -- ('["{"id": 1, "name": "test", "quantity": 2, "price": 6, "total": 12}", "{"id": 2, "name": "test2", "quantity": 4, "price": 6, "total": 24}"]', 'cadeau', 40.50, 3, 3),
     ('{{{"id", 2}, {"name", "test2"}, {"quantity", 1}, {"price", 6}, {"total", 6}}, {{"id", 8}, {"name", "test8"}, {"quantity", 5}, {"price", 6}, {"total", 30}}}', 'cadeau', 62, 3, 3),
     ('{{{"id", 3}, {"name", "test3"}, {"quantity", 3}, {"price", 6}, {"total", 18}}, {{"id", 10}, {"name", "test10"}, {"quantity", 6}, {"price", 6}, {"total", 36}}}', 'cadeau', 75, 1, 1);
 

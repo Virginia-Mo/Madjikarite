@@ -9,8 +9,9 @@ const orderController = {
     // Post the order from the shopping cart page
     async postOrder(req, res) {
         const addresses = await profileDataMapper.getAddresses(req.user.id);
-        console.log(addresses);
+        console.log(req.body);
         const result = await orderDataMapper.postOrder(req.body, req.user.id, addresses);
+        console.log(result);
         if (!result) {
             throw new Error('Erreur lors de la création de la commande');
         }

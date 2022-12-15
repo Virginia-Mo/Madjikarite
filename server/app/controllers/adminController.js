@@ -75,7 +75,6 @@ const adminController = {
     async getAnOrderPage(req, res) {
         const orderId = parseInt(req.params.id, 10);
         const user = await adminDataMapper.getOneOrderUser(orderId);
-        console.log(user);
         const order = await adminDataMapper.getOneOrderProducts(orderId);
         console.log(order);
         if (!user) {
