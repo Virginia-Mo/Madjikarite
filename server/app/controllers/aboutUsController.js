@@ -17,5 +17,5 @@ const aboutUsController = {
         res.json({ page: 'page bienfaits' });
     },
 };
-
+// TODO: a supprimer
 module.exports = aboutUsController;
