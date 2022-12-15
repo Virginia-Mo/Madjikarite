@@ -7,8 +7,7 @@ DROP TABLE "role",
 "live_in",
 "user_review",
 "category",
-"shopping_cart_lign",
-"shopping_cart",
+"order",
 "product",
 "user";
 

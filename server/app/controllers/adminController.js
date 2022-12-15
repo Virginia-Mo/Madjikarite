@@ -75,12 +75,15 @@ const adminController = {
     async getAnOrderPage(req, res) {
         const orderId = parseInt(req.params.id, 10);
         const user = await adminDataMapper.getOneOrderUser(orderId);
-        const addresses = await adminDataMapper.getAllAddressesOfAUser(user.user_id);
+        const order = await adminDataMapper.getOneOrderProducts(orderId);
         if (!user) {
             throw new NotFoundError('La commande n\'existe pas');
         }
-        const orderDetails = await adminDataMapper.getAllItemsOfAnOrder(orderId);
-        res.json({ 'Numéro de commande et client': user, 'Adresses du client': addresses, 'Détails de la commande': orderDetails });
+        const newOrder = [];
+        for (let i = 0; i < order.cart.length; i += 1) {
+            newOrder.push(JSON.parse(order.cart[i]));
+        }
+        res.json({ user, order: newOrder });
     },
 
     // update order
