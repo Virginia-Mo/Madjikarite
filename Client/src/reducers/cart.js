@@ -1,15 +1,23 @@
-import { ADD_TO_CART, REMOVE_ARTICLE, REMOVE_ONE_ITEM } from "../actions/cart";
+import { ADD_TO_CART, GET_FINAL_PRICE, REMOVE_ARTICLE, REMOVE_ONE_ITEM } from "../actions/cart";
 
 const initialState = {
   cart : [],
   quantity : 0,
   totalPrice : 0,
+  final_price : 0,
   addItemAnimation : false,
 };
 
 function reducer(state = initialState, action = {}) {
 const {type, payload } = action
   switch (type) {
+    case GET_FINAL_PRICE :
+      return {
+        ...state,
+        final_price : payload.total + payload.shipping
+      }
+
+
     case ADD_TO_CART:
       //  checking if the product I added to the cart is already in the cart
       const item = state.cart.find(

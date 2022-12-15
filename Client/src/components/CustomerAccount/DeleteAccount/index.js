@@ -1,25 +1,31 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { deleteAccount } from '../../../actions/user';
 
 import './style.scss'
 
 function DeleteAccount() {
+  const dispatch= useDispatch()
+  const handleClick = () => {
+    dispatch(deleteAccount())
+  }
   return (
 
     <>
-    <h2 className="delete__title">Supprimer mon compte</h2>
+    <h2 className="customerAccount__title">Supprimer mon compte</h2>
 
   
 
-    <div className="delete">
+    <div className="customerAccount__div">
 
 
     <div className="deleteAside">
-      <p className="deleteAside__lien">Informations du compte</p>
+    <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
       <NavLink to="/customeraccount/adress"><p className="deleteAside__lien">Adresses</p></NavLink>
       <p className="deleteAside__lien">Historiques des commandes</p>
-      <p className="deleteAside__lien">Supprimer son compte</p>
+      <NavLink to="/customeraccount/deleteaccount"><p className="deleteAside__lien">Supprimer mon compte</p></NavLink>
     </div> 
 
       <div className="delete__text">
@@ -29,7 +35,7 @@ function DeleteAccount() {
         et de votre historique de commandes.</p>
         <p className="delete__text--paragraph">Afin de confirmer votre choix, veuillez saisir votre mot de passe.</p>
 
-      <button type="button" className="delete__button">Mot de passe</button>
+      <button type="button" className="delete__button" onClick={handleClick}>Supprimer mon compte</button>
     </div>
     
     </div>

@@ -1,21 +1,19 @@
 import axios from "axios";
-import { SIGN_UP_USER } from "../actions/user";
-import {  saveUser } from '../actions/user';
+import { SIGN_UP_USER, LOGIN, DELETE_ACCOUNT, GET_ACCOUNT, UPDATE_ACCOUNT } from "../actions/user";
+import {  saveUser, saveUserInfos } from '../actions/user';
+import { deleteAccount } from "../actions/user";
 
 const API_BASE_URL = 'https://madjikarite.onrender.com';
 
 const usersAPI = (store) => (next) => (action) => {
 
-    switch (action.type) {
+  switch (action.type) {
 
     case SIGN_UP_USER:
-        const { user : { civility,first_name, last_name, password, email, address, zip_code, city, country, phone_number }} = store.getState();
+      const { user : { first_name, last_name, password, email, address, zip_code, city, country, phone_number }} = store.getState();
        
-       
-        
-    axios 
+      axios 
         .post(`${API_BASE_URL}/signup`, {
-          civility,
             first_name, 
             last_name, 
             password, 
@@ -28,46 +26,110 @@ const usersAPI = (store) => (next) => (action) => {
         })
         .then((response) => {
             console.log(response);
-            // navigate('/');
-            store.dispatch(saveUser(response.data));
+            const { token } = response.data;
+            localStorage.setItem('token', token);
+            localStorage.setItem('logged', true);
+            store.dispatch(saveUser());
             if (response.status === 200) {
               window.location.href = '/';
             }
-        
         })
         .catch((error) => {
             console.log(error.statusText);
         });
-           next(action);
+        next(action);
         break;
+  
         
-    // case LOGIN: {
-    // // on récupère `state` grâce à `store.getState()`
-    // //    const state = store.getState();
-    // // destructuring sur 2 niveaux
-    // //  - `state.user` → on décompose `state` pour assigner à `user`
-    // //      const { user } = store.getState();
-    // //  - on renomme `user` avec les `:`
-    // //      const { user: nouveauNom } = store.getState();
-    // //  - on décompose `user` pour assigner à `email` et `password`
-    // const { user: { email, password } } = store.getState();
+    case LOGIN: {
+      const { user: { email, password } } = store.getState();
 
-    // axios
-    //   .post(`${API_BASE_URL}/login`, {
-    //     email: email,
-    //     password: password,
-    //   })
-    //   .then((response) => {
-    //     // console.log(response.data);
-    //     store.dispatch(saveUser(response.data));
-    //   })
-    //   .catch((error) => {
-    //     // @TODO : manage errors → state.user.loading + message + …
-    //     console.log(error);
-    //   });
-    // next(action);
-    // break;
-    // }
+      axios
+        .post(`${API_BASE_URL}/login`, {
+          email: email,
+          password: password,
+        })
+        .then((response) => {
+          console.log(response + "CONNEXION OK");
+          const { token } = response.data;
+          localStorage.setItem('token', token);
+          localStorage.setItem('logged', true);
+        
+           store.dispatch(saveUser());
+          if (response.status === 200) {
+            window.location.href = '/';
+          }
+        })
+        .catch((error) => {
+          // @TODO : manage errors → state.user.loading + message + …
+          console.log(error);
+        });
+        next(action);
+        break;
+      }
+
+    case DELETE_ACCOUNT: {
+      const token = localStorage.getItem('token');
+
+      axios
+        .delete(`${API_BASE_URL}/profile`, {
+          headers: {
+            Authorization: `bearer ${token}`
+          },
+        })
+        .then((response) => {
+          localStorage.clear();
+          alert(response.data.message);
+          if (response.status === 200) {
+            window.location.href = '/';
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+        next(action);
+        break;
+    }
+
+    case GET_ACCOUNT: {
+      const token = localStorage.getItem('token');
+
+      axios
+        .get(`${API_BASE_URL}/profile`, {
+          headers: {
+            Authorization: `bearer ${token}`
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          store.dispatch(saveUserInfos(response.data));
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+        next(action);
+        break;
+    }
+
+    case UPDATE_ACCOUNT: {
+      const token = localStorage.getItem('token');
+
+      axios
+        .patch(`${API_BASE_URL}/profile`, {
+          headers: {
+            Authorization: `bearer ${token}`
+          },
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+
+        next(action);
+        break;
+    }
 
   default:
     next(action);

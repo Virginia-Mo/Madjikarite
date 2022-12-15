@@ -35,16 +35,20 @@ function CustomerAdress() {
 
   return (
     
-    <><h2 className="customerAdress__title">Adresse de livraison</h2><div className="customerAdress">
+  <><h2 className="customerAdress__title">Adresse de livraison</h2>
 
-      <div className="customerAside">
-      <p className="customerAside__lien">Informations du compte</p>
-      <p className="customerAside__lien">Adresses</p>
-      <p className="customerAside__lien">Historiques des commandes</p>
-      <NavLink to="/customeraccount/delete"> <p className="customerAside__lien">Supprimer son compte</p></NavLink>
-    </div> 
 
-    <form className="customerAdress__form" onSubmit={handleSubmit}>
+
+      <div className="customerAccount__div">
+
+        <div className="deleteAside">
+          <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
+          <NavLink to="/customeraccount/adress"><p className="deleteAside__lien">Adresses</p></NavLink>
+          <p className="deleteAside__lien">Historiques des commandes</p>
+          <NavLink to="/customeraccount/deleteaccount"><p className="deleteAside__lien">Supprimer mon compte</p></NavLink>
+        </div>
+
+        <form className="customerAdress__form" onSubmit={handleSubmit}>
           <Field
             name="Adresse de livraison"
             type="text"
@@ -62,12 +66,12 @@ function CustomerAdress() {
             name="Téléphone"
             type="text"
             placeholder="Téléphone" />
-          <button className="customerAdress__button" type="submit">Ajouter une nouvelle adresse</button>
+          <button className="customerAdress__button" type="submit">Modifier mon adresse</button>
 
         </form>
 
-    </div></>
-
+      </div>
+    </>
    
   );
 }

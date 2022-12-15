@@ -5,12 +5,13 @@ import { changeInputValue } from 'src/actions/user';
 
 import './style.scss';
 
-function Field({
+function FieldAccount({
   name,
   placeholder,
   type,
-
-}) {
+  label
+}) 
+{
   const dispatch = useDispatch();
   const value = useSelector((state) => state.user[name]);
 
@@ -23,10 +24,10 @@ function Field({
   return (
     <div className="field">
       <label
-       htmlFor={inputId}
+       forhtml={inputId}
         className="field__label"
       >
-        {placeholder}
+      {label}
       </label>
       <input
         id={inputId}
@@ -43,11 +44,11 @@ function Field({
   );
 }
 
-Field.propTypes = {
+FieldAccount.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 };
-Field.defaultProps = {
+FieldAccount.defaultProps = {
   placeholder: ""
 };
-export default Field;
+export default FieldAccount;

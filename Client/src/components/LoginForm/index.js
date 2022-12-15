@@ -1,6 +1,6 @@
 // Login page
 import { useDispatch, useSelector } from 'react-redux';
-
+import {useNavigate} from 'react-router-dom';
 import { login } from 'src/actions/user';
 import Field from './Field';
 
@@ -14,11 +14,15 @@ import { Link } from 'react-router-dom';
 
 function LoginForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const loading = useSelector((state) => state.user.loading);
-
+const token = localStorage.getItem("token")
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(login());
+      if (token){
+        navigate("/")
+      }
   };
 
   return (
@@ -50,7 +54,7 @@ function LoginForm() {
             {loading ? 'Chargement...' : 'Connexion'}
           </button>
         </form>
-        <Link to="/customeraccount">
+        <Link to="/signup">
         <p className='login__signUp'>Créer un compte utilisateur</p>
         </Link> 
       </div>

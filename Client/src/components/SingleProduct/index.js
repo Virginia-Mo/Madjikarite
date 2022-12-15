@@ -31,6 +31,7 @@ const product = useSelector((state) => (
   const activeDescription = useSelector((state) => state.products.activeDescription)
   const activeComposition = useSelector((state) => state.products.activeComposition)
 
+
 // Getting the value for the number input
   const value = useSelector((state) => state.user[name]);
 
