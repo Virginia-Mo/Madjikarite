@@ -46,7 +46,6 @@ const profileController = {
     // Send all the data from the form to the database and let
     // the visitor as connected to his account
     async createAccount(req, res) {
-        console.log(req.body);
         const {
             // eslint-disable-next-line max-len
             last_name, first_name, email, phone_number, password, address, zip_code, city, country,

@@ -33,8 +33,6 @@ const newAccount = joi.object({
     password: joi.string()
         .regex(strongPasswordRegex)
         .required(),
-    civility: joi.string()
-        .required(),
     first_name: joi.string()
         .regex(constraintName)
         .min(2)
