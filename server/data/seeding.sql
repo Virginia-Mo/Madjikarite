@@ -14,11 +14,11 @@ VALUES
     ('54 avenida de la mare', '12902', 'Madrid', 'Espagne'),
     ('18 rue de la chute', '35510', 'Paris', 'France');
 
-INSERT INTO "user" ("civility", "first_name", "last_name", "email", "phone_number", "password", "role_id" ) 
+INSERT INTO "user" ("first_name", "last_name", "email", "phone_number", "password", "role_id" ) 
 VALUES
-    ('M', 'Larry', 'Bambelle', 'larry.bambelle@gmail.com', '0606060606', '$2b$10$vh9rQ95D3gJ255hDcAqUcerl9pXyvhMwqUue1Mydf63W9Lac5lkYe', 1),
-    ('Mme', 'Sarah', 'Courci', 'sarah.courci@hotmail.fr', '0612345678', '$2b$10$vh9rQ95D3gJ255hDcAqUcerl9pXyvhMwqUue1Mydf63W9Lac5lkYe', 2),
-    ('M', 'Dave', 'Lopper', 'dave.lopper@yahoo.com', '0698765432', '$2b$10$vh9rQ95D3gJ255hDcAqUcerl9pXyvhMwqUue1Mydf63W9Lac5lkYe', 2);
+    ('Larry', 'Bambelle', 'larry.bambelle@gmail.com', '0606060606', '$2b$10$vh9rQ95D3gJ255hDcAqUcerl9pXyvhMwqUue1Mydf63W9Lac5lkYe', 1),
+    ('Sarah', 'Courci', 'sarah.courci@hotmail.fr', '0612345678', '$2b$10$vh9rQ95D3gJ255hDcAqUcerl9pXyvhMwqUue1Mydf63W9Lac5lkYe', 2),
+    ('Dave', 'Lopper', 'dave.lopper@yahoo.com', '0698765432', '$2b$10$vh9rQ95D3gJ255hDcAqUcerl9pXyvhMwqUue1Mydf63W9Lac5lkYe', 2);
 
 INSERT INTO "user_review" ("note", "content", "product_id", "user_id") 
 VALUES
