@@ -36,7 +36,7 @@ const adminDataMapper = {
     },
     // get all items of an order
     async getAllItemsOfAnOrder(id) {
-        const result = await client.query('SELECT "product_id", "product"."name", "quantity", "product"."packaging", "product"."price" FROM "shopping_cart_lign" JOIN "product" ON "shopping_cart_lign"."product_id" = "product"."id" WHERE shopping_cart_id = $1', [id]);
+        const result = await client.query('SELECT "product_id", "product"."name", "quantity", "product"."packaging", "product"."weight", "product"."price" FROM "shopping_cart_lign" JOIN "product" ON "shopping_cart_lign"."product_id" = "product"."id" WHERE shopping_cart_id = $1', [id]);
         return result.rows;
     },
     // delete an order
