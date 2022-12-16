@@ -113,9 +113,10 @@ const usersAPI = (store) => (next) => (action) => {
 
     case UPDATE_ACCOUNT: {
       const token = localStorage.getItem('token');
+      const { user: { first_name, last_name, password, email, phone_number } } = store.getState();
 
       axios
-        .patch(`${API_BASE_URL}/profile`, {
+        .patch(`${API_BASE_URL}/profile`,{first_name, last_name, password, email, phone_number}, {
           headers: {
             Authorization: `bearer ${token}`
           },
