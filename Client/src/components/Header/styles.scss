@@ -10,7 +10,11 @@
   padding-right: 1.5rem;
   padding-left: 1.5rem;
   margin-bottom: 0.8rem;
-  box-shadow: 0px 3px 4px 3px rgba(111, 112, 111, 0.537);
+  box-shadow: 0px 3px 4px 3px #64636352;
+
+  &__nav-mobile {
+    display: none;
+  }
 
   &__title-bar {
     display: flex;
@@ -20,12 +24,43 @@
 
     h1 {
       font-size: 3rem;
-      color: rgb(0, 0, 0);
-      text-shadow: 1px -1px 0 #76767682;
+      color: #000000;
+      text-shadow: 0.1rem 0.1rem 0 #76767682;
       font-family: v.$font-title;
-      margin-bottom: 0;
-      //font-weight: 600;       
+      margin-bottom: 0;      
     }
 
   }
+}
+
+@media (max-width: 600px) {
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+
+    &__logo-container {
+      width: 7rem;
+    }
+
+    &__title-bar {
+     h1 {
+       font-size: 1.8rem;
+      }
+    }
+    .header-icons {
+      display: none;
+      &__cart {
+        display: none;
+      }
+    }
+  }
+
 }

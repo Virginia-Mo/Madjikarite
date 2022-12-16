@@ -20,6 +20,7 @@ import SheaBenefits from '../SheaBenefits';
 import SingleProduct from '../SingleProduct';
 import Workers from '../Workers';
 import Process from '../Process';
+import SignUp from '../SignUp';
 import './styles.scss';
 
 
@@ -27,10 +28,15 @@ import './styles.scss';
 function App() {
   const dispatch = useDispatch();
 
+  const storage = localStorage
+console.log(storage);
     useEffect(() => {
         dispatch(fetchProducts());
       }, []); // au 1er rendu
 
+      // useEffect(() => {
+      //   localStorage.getItem('token');
+      // },);
   return (
     <div className="app">
       <Header />
@@ -77,17 +83,20 @@ function App() {
         />
         
         <Route
+        path="/signup"
+        element={<SignUp />} 
+        />
+        <Route
         path="/customeraccount"
         element={<CustomerAccount />} 
         />
-
         <Route
-        path="/customeradress"
+        path="/customeraccount/adress"
         element={<CustomerAdress />}
         />
 
         <Route
-        path="/deleteaccount"
+        path="/customeraccount/deleteaccount"
         element={<DeleteAccount />}
         />
 

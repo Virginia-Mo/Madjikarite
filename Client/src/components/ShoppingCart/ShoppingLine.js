@@ -1,26 +1,39 @@
 import './style.scss';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { addItemToCart,minusItemFromCart, removeArticleFromCart } from '../../actions/cart';
 import { HiOutlineTrash } from "react-icons/hi2";
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function ShoppingLine({item}) { 
-console.log(item);
   const dispatch = useDispatch()
-// const image = item.pictures[0].url
-  const handleChange = (price, id) => {
+  const slug = item.id;
+  const cart = useSelector((state) => state.cart.cart)
+useEffect(()=> {
+  for (item of cart){
+  if (item.quantity <= 0){
+   console.log("0quantity");
+   dispatch(removeArticleFromCart(item.id,item.total))
+  }
+}
+},[cart])
 
-    const formData = {
-      id: id,
-      quantity: 1,
-      price : parseInt(price),
-      total : parseInt(price) * 1,
-      packaging : item.packaging
-    }
+const formData = {
+  id: item.id,
+  quantity: 1,
+  price : parseInt(item.price),
+  total : parseInt(item.price) * 1,
+  packaging : item.packaging,
+  weight: item.weight,
+  totalWeight : item.weight * 1
+}
+console.log(item.price+ "et" + formData.total);
+  const handleChange = () => {
     dispatch(addItemToCart(formData))
   }
 
-  const handleChangeMinus= (price, id) => {
-    dispatch(minusItemFromCart(price,id))
+  const handleChangeMinus= () => {
+     dispatch(minusItemFromCart(formData))
   }
 
   const removeArticle= (id,total) => {
@@ -28,11 +41,12 @@ console.log(item);
   }
 
   return (
-
-   <article className='cart__articles'>
+    <article className='cart__articles'>
+    <Link to={`/product/${slug}`}>
  <div className="cart__articles--imageDiv">
      <img src={item.image} alt={item.name} className="cart__articles--image"/>
    </div>   
+   </Link>
    <div className="cart__articlesDiv">
    <div className="cart__articles__details">
       <h2 className="cart__articles__details--h2">{item.name}</h2>
@@ -42,13 +56,14 @@ console.log(item);
       <button
       type='button'
       className='cart__articles__button--btn cart__articles__button--btnLeft'
-      onClick={() => handleChange(item.price, item.id)}>+</button></div>
+      onClick={handleChange}>+</button></div>
       
-      <p className='cart__articles__button--quantity'>{item.quantity}</p>
+     <p className='cart__articles__button--quantity'>{item.quantity}</p> 
+      
       <button
       type='button'
       className='cart__articles__button--btn cart__articles__button--btnRight'
-      onClick={() => handleChangeMinus(+item.price, item.id)}>-</button>
+      onClick={handleChangeMinus}>-</button>
       </div>
       </div>
      
@@ -61,6 +76,7 @@ console.log(item);
       </div>
        </div>
   </article>
+     
         );
    }
 

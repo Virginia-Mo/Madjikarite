@@ -1,15 +1,28 @@
-import { CHANGE_INPUT_VALUE, USER_SAVE } from '../actions/user';
+import { CHANGE_INPUT_VALUE, USER_SAVE, LOGOUT, DELETE_ACCOUNT, SAVE_USER_INFOS } from '../actions/user';
 
-export const initialState = {
-  email: '',
-  password: '', 
+const token = localStorage.getItem("token");
+const logged = localStorage.getItem("logged")
 
-  logged: false,
-
+export const initialState = { 
+  quantity : 0,
+  first_name: "", 
+  last_name: "", 
+  password: "", 
+  passwordConfirmation: "",
+  email: "", 
+  address: "", 
+  zip_code: "",
+  city: "",
+  country: "",  
+  phone_number: 0,
+  userInfos : [],
+  message : "",
+  // logged: false,
+  // token : token
 };
 
 const reducer = (state = initialState, action = {}) => {
-  const { type, value } = action; // value = { name: 'email', value: '
+  const { type, payload } = action; // value = { name: 'email', value: '
 
   switch (type) {
     case CHANGE_INPUT_VALUE:
@@ -22,7 +35,25 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
+        // token: payload.user.token
       };
+
+    case SAVE_USER_INFOS : 
+    return {
+      ...state,
+      userInfos : payload.user
+    }
+
+    // case LOGOUT:
+    //   return {
+    //     ...state,
+    //     logged: false,
+    //   }
+    
+    case DELETE_ACCOUNT:
+      return {
+        ...state,
+      }
       
     default:
       return state;

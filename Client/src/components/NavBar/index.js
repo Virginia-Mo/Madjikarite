@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+
+
 import './style.scss';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -8,46 +11,63 @@ function NavBar() {
   return (
     <nav className="nav-bar">
       <ul className="nav-bar__list">
-
-      {/* { products.map((product)=> (
-        <NavLink to={`/category${product.category_id}/products`} className="nav-bar__link">{product.category_name}</NavLink>
-      ))} */}
+      <Link to="/">
         <li className="nav-bar__item nav-bar__item--first">
-        <a href="/" className="nav-bar__link">Savons solides</a>
-        </li> 
-        <li className="nav-bar__item">
-          <a href="/" className="nav-bar__link">Savons liquides</a>
+          Savons solides
         </li>
+      </Link>
+      <Link to="/">
         <li className="nav-bar__item">
-          <a href="/" className="nav-bar__link">Savons ronds</a>
+          Savons liquides
         </li>
+      </Link>
+      <Link to="/">
         <li className="nav-bar__item">
-          <a href="/" className="nav-bar__link">Beurres corporels</a>
+          Savons ronds
         </li>
+      </Link>
+      <Link to="/">
         <li className="nav-bar__item">
-          <a href="/" className="nav-bar__link">Beurres à lèvres</a>
+         Beurres corporels
         </li>
+      </Link>
+      <Link to="/">
         <li className="nav-bar__item">
-          <a href="/" className="nav-bar__link">Cadeaux de Noël</a>
-        </li> 
+          Beurres à lèvres
+        </li>
+      </Link>
+      <Link to="/">
+        <li className="nav-bar__item">
+          Cadeaux de Noël
+        </li>
+      </Link>
         <li className="nav-bar__item nav-bar__item--about-us">
-          <p className="nav-bar__link">À propos de Madjikarité</p>
+          À propos de Madjikarité
           <ul className="nav-bar__under-list">
+          <Link to="/">
             <li className="nav-bar__under-item">
-              <NavLink to="/aboutus" className="nav-bar__under-link">Découvrir le projet Madjikarité</NavLink>
+              Découvrir le projet Madjikarité
             </li>
+          </Link>
+          <Link to="/">
             <li className="nav-bar__under-item">
-              <NavLink to="/workers" className="nav-bar__under-link">Nos productrices</NavLink>
+              Nos productrices
             </li>
+          </Link>
+          <Link to="/">
             <li className="nav-bar__under-item">
-              <NavLink to="/sheabenefits" className="nav-bar__under-link">Les vertus du karité</NavLink>
+              Les vertus du karité
             </li>
+          </Link>
+          <Link to="/">
             <li className="nav-bar__under-item">
-              <a href="/" className="nav-bar__under-link">Processus de fabrication</a>
+              Processus de fabrication
             </li>
+          </Link>
           </ul>
         </li>
       </ul>
+
     </nav>
   );
 }

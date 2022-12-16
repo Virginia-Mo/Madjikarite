@@ -75,11 +75,11 @@ function ProductSlide({product}) {
 );
     };
 
-ProductSlide.propTypes = {
-  nom: PropTypes.string.isRequired,
-  image : PropTypes.arrayOf(
-      PropTypes.string
-  ).isRequired
+// ProductSlide.propTypes = {
+//   nom: PropTypes.string.isRequired,
+//   image : PropTypes.arrayOf(
+//       PropTypes.string
+//   ).isRequired
   
-}
+// }
 export default ProductSlide

@@ -23,7 +23,7 @@ function Field({
   return (
     <div className="field">
       <label
-        htmlFor={inputId}
+       htmlFor={inputId}
         className="field__label"
       >
         {placeholder}
@@ -32,10 +32,11 @@ function Field({
         id={inputId}
         name={name}
         type={type}
-//        placeholder={placeholder}
+        placeholder={placeholder}
         className="field__input"
         value={value}
         onChange={handleChange}
+        
       />
 
     </div>

@@ -1,109 +1,105 @@
-//customer account page with form to create a new account
 import { useDispatch, useSelector } from 'react-redux';
-
-import Field from '../LoginForm/Field';
-
-import { USER_SAVE } from 'src/actions/user';
+import { useEffect } from 'react';
+// import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import FieldAccount from '../CustomerAccount/FieldAccount';
+import { updateAccount, getAccount } from 'src/actions/user';
 
 import './style.scss';
 
+
 function CustomerAccount() {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.user.loading);
+  // const navigate = useNavigate();
+  useEffect(() => {
+    dispatch(getAccount());
+  }, []); // au 1er rendu
+  
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    const form = evt.target;
-    const data = new FormData(form);
-    const user = {
-      firstname: data.get('Prénom'),
-      lastname: data.get('Nom'),
-      password: data.get('Mot de passe'),
-      passwordConfirm: data.get('Confirmation du mot de passe'),
-      email: data.get('Email'),
-      address: data.get('Adresse de livraison'),
-      postalCode: data.get('Code postal'),
-      city: data.get('Ville'),
-      phone: data.get('Téléphone'),
-    };
+  const userInfos = useSelector((state) => state.user.userInfos);
 
-    dispatch({
-      type: USER_SAVE,
-      payload: { user },
-    });
-  };  
+  const password = useSelector((state) => state.user.password );
+  const passwordConfirmation = useSelector((state) => state.user.passwordConfirmation);
+
+  console.log(userInfos);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("SUBMIT DONE");
+       
+      if (password !== passwordConfirmation){
+        alert("Mot de passe incorrect")
+        return
+      };
+        
+       dispatch(updateAccount());
+    } 
+ 
 
   return (
-    <div className="customerAccount">
 
-    <form className="customerAccount__form" onSubmit={handleSubmit}>
+   <><h2 className="customerAccount__title">Modification de votre compte</h2>
+   <div className="customerAccount__div">
 
-    <h2 className="customerAccount__title">Création de compte</h2>
-
-    <div className="box__container">
-
-    <div className="box__container--left">
-    
-    <div className="civility">
-        <input  type="checkbox" name="civilité"  />
-        <label for="civilité">M.</label>
-        <input  type="checkbox" name="civilité"  />
-        <label for="civilité">Mme</label>
-    </div>
-    
-        <Field
-          name="Prénom"
-          type="text"
-          placeholder="Prénom" />
-        <Field
-          name="Nom"
-          type="text"
-          placeholder="Nom" />
-        <Field
-          name="Mot de passe"
-          type="password"
-          placeholder="Mot de passe" />
-        <Field
-          name="Confirmation du mot de passe"
-          type="password"
-          placeholder="Confirmation du mot de passe"
-        />  
+      <div className="deleteAside">
+        <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
+        <NavLink to="/customeraccount/adress"><p className="deleteAside__lien">Adresses</p></NavLink>
+        <p className="deleteAside__lien">Historiques des commandes</p>
+        <NavLink to="/customeraccount/deleteaccount"><p className="deleteAside__lien">Supprimer mon compte</p></NavLink>
       </div>
+      <div className="customerAccount">
+        <form className="customerAccount__form" onSubmit={handleSubmit}>
 
-      <div className="box__container--right">
-        <Field
-          name="Email"
-          type="email"
-          placeholder="Email" />
-        <Field
-          name="Adresse de livraison"
-          type="text"
-          placeholder="Adresse de livraison" />
-        <Field
-          name="Code postal"
-          type="text"
-          placeholder="Code postal" />
-        <Field
-          name="Ville"
-          type="text"
-          placeholder="Ville" />
-        <Field
-          name="Téléphone"
-          type="text "
-          placeholder="Téléphone"
-        />  
+          <div className="box__container">
+
+            <div className="box__container--left">
+              <FieldAccount
+                name="first_name"
+                type="text"
+                placeholder={userInfos.first_name}
+                label="Prénom" />
+
+              <FieldAccount
+                name="last_name"
+                type="text"
+                placeholder={userInfos.last_name}
+                label="Nom" />
+
+              <FieldAccount
+                name="email"
+                type="email"
+                placeholder={userInfos.email}
+                label="Email" />
+            </div>
+
+            <div className="box__container--right">
+              <FieldAccount
+                name="phone_number"
+                type="tel"
+                placeholder={userInfos.phone_number}
+                label="Numéro de téléphone" />
+              <FieldAccount
+                name="password"
+                type="password"
+                placeholder="Mot de passe"
+                label="Mot de Passe" />
+              <small>Votre mot de passe doit contenir : -1 Majuscule, -1 Caractère spécial, -1 chiffre et 8 Caractères minimum.</small>
+              <FieldAccount
+                name="passwordConfirmation"
+                type="password"
+                placeholder="Confirmation du mot de passe"
+                label="Mot de Passe" />
+            </div>
+          </div>
+          <button
+            className="customerAccount__button"
+            type="submit"
+          >
+            Modifier les infos
+          </button>
+        </form>
       </div>
-    </div>
-        <button
-          className="customerAccount__button"
-          type="submit"
-          disabled={loading}
-        >
-          {loading ? 'En cours...' : 'Valider'}
-        </button>
-      </form>
-       </div>
-    
+    </div></>
   );
 }
 

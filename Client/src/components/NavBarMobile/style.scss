@@ -1,0 +1,44 @@
+@use 'src/styles/vars' as v;
+
+.nav-bar-mobile {
+  display: none;  
+}
+
+@media (max-width: 600px) {
+  .nav-bar-mobile {
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #d4d4d4ee;
+
+    &__menu-icon, &__close-icon{
+      font-size: 3rem;
+      color: #343333;
+    } 
+
+    .header-icons {
+      display: block;
+      display: flex;
+
+      &__basket, &__account, &__contact {
+        font-size: 3rem;
+        justify-content: right;
+      }
+      &__container-basket, &__container-account {
+        margin-left: 1rem;
+      }
+      &__container-contact {
+        display: block;
+      }
+      &__link-text {
+        display: none;
+      }
+    }
+  }
+}
+
+

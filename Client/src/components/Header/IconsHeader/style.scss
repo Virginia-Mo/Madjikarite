@@ -8,10 +8,9 @@
     text-decoration: underline;
   }
 
-  &__basket, &__account {
-    width: 5rem;
+  &__basket, &__account, &__contact {
+    font-size: 5rem;
     border-radius: 50%;
-    background-color: transparent;
     color: #000;
     display: flex;
     justify-content: center;
@@ -26,25 +25,29 @@
     }
   }
 
-  &__cart { 
-      position: absolute;
-      font-size: 2rem;
-      font-family: v.$font-paragraph;
-      background-color:v.$color-light-green;
-      border-radius: 50%;
-      bottom: 2rem;
-      right: 1.5rem;
-      width: 2rem;
-      height: 2rem;
-  }
-
   &__container-basket, &__container-account {
     margin-left: 2.5rem;
     text-align: center;
-    font-size: 5rem;
-    font-weight: 100;
   }
-}
-  .header-icons__container-basket {
+  &__container-basket {
     position: relative;
-}
+  }
+  &__container-contact {
+    display: none;
+  }
+  &__cart {
+      background-color: v.$color-light-green;
+      border-radius: 50%;
+      bottom: 2rem;
+      height: 2rem;
+      width: 2rem;
+      position: absolute;
+      right: 2rem;
+      font-size: 1.9rem;
+      font-family: v.$font-paragraph
+  };
+  }
+
+
+
+
