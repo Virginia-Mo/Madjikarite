@@ -44,22 +44,22 @@ function NavBar() {
         <li className="nav-bar__item nav-bar__item--about-us">
           À propos de Madjikarité
           <ul className="nav-bar__under-list">
-          <Link to="/">
+          <Link to="/aboutus">
             <li className="nav-bar__under-item">
               Découvrir le projet Madjikarité
             </li>
           </Link>
-          <Link to="/">
+          <Link to="/workers">
             <li className="nav-bar__under-item">
               Nos productrices
             </li>
           </Link>
-          <Link to="/">
+          <Link to="/sheabenefits">
             <li className="nav-bar__under-item">
               Les vertus du karité
             </li>
           </Link>
-          <Link to="/">
+          <Link to="/process">
             <li className="nav-bar__under-item">
               Processus de fabrication
             </li>
