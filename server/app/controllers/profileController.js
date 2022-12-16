@@ -99,7 +99,13 @@ const profileController = {
     // Show the profile page
     async profilePage(req, res) {
         const profile = await profileDataMapper.getOneUserWithId(req.user.id);
-        res.json(profile);
+        const profileData = {
+            last_name: profile.last_name,
+            first_name: profile.first_name,
+            email: profile.email,
+            phone_number: profile.phone_number,
+        };
+        res.json(profileData);
     },
     // Send the new data to the database
     async updateProfile(req, res) {
@@ -109,20 +115,31 @@ const profileController = {
         const newData = [];
         newData.push(id);
         const { password } = req.body;
-        // We loop through the new data to check if the user has changed something
-        // If he has changed something, we add the new data to the newData array
-        // Else, we add the old data to the newData array
-        // eslint-disable-next-line no-restricted-syntax, guard-for-in
-        for (const key in req.body) {
-            if (req.body[key] === '') {
-                newData.push(oldData[key]);
-            } else {
-                newData.push(req.body[key]);
-            }
+        if (!req.body.last_name) {
+            newData.push(oldData.last_name);
+        } else {
+            newData.push(req.body.last_name);
+        }
+        if (!req.body.first_name) {
+            newData.push(oldData.first_name);
+        } else {
+            newData.push(req.body.first_name);
+        }
+        if (!req.body.email) {
+            newData.push(oldData.email);
+        } else {
+            newData.push(req.body.email);
+        }
+        if (!req.body.phone_number) {
+            newData.push(oldData.phone_number);
+        } else {
+            newData.push(req.body.phone_number);
         }
         if (password) {
             const encryptedPassword = await bcrypt.hash(password, 10);
-            newData.splice((newData.length - 1), 1, encryptedPassword);
+            newData.splice((newData.length), 1, encryptedPassword);
+        } else {
+            newData.push(oldData.password);
         }
         // We send the new data to the database
         await profileDataMapper.updateProfile(newData);
