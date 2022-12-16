@@ -13,7 +13,9 @@ function Header() {
     <header className="header">
       <NavBarMobile />
       <div>
+      <Link to="/">
         <img src={logo} className="header__logo-container" alt="logo de madjikarite" />
+        </Link>
       </div>
       <div className="header__title-bar">
         <h1>Soins biologiques et équitables à base de karité</h1>

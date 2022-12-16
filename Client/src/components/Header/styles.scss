@@ -57,6 +57,9 @@
     }
     .header-icons {
       display: none;
+      &__cart {
+        display: none;
+      }
     }
   }
 
