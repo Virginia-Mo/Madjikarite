@@ -23,10 +23,7 @@ const profileDataMapper = {
     },
     async getOneUserWithId(id) {
         const result = await client.query('SELECT * FROM "user" WHERE id = $1', [id]);
-        return {
-            // eslint-disable-next-line max-len
-            last_name: result.rows[0].last_name, first_name: result.rows[0].first_name, email: result.rows[0].email, phone_number: result.rows[0].phone_number,
-        };
+        return result.rows[0];
     },
     async getAddresses(id) {
         const result = await client.query('SELECT "address"."id", "address"."address", "address"."zip_code", "address"."city", "address"."country" FROM "user" JOIN "live_in" ON "live_in"."user_id" = "user"."id" JOIN "address" ON "live_in"."address_id" = "address"."id" WHERE "user"."id" = $1', [id]);
