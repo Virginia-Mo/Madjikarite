@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 const jwt = require('jsonwebtoken');
 
-const token = {
+const tokenHandler = {
     // create a token with the user id and the role
     createToken: (user) => {
         const payload = {
@@ -36,6 +36,13 @@ const token = {
         const accessToken = jwt.sign(payload, secret, options);
         return accessToken;
     },
+    // verify the token for the email validation
+    verifyEmailVerificationToken: (req, _, next) => {
+        jwt.verify(req.params.token, process.env.EMAIL_TOKEN_SECRET, (err, user) => {
+            if (err) throw new Error('Invalid token');
+            req.user = user;
+        });
+    },
     // create a token for the password reset
     createResetPasswordToken: (user) => {
         const payload = {
@@ -57,4 +64,4 @@ const token = {
     },
 };
 
-module.exports = token;
+module.exports = tokenHandler;

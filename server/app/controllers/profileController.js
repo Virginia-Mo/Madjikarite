@@ -2,7 +2,7 @@
 const bcrypt = require('bcrypt');
 const profileDataMapper = require('../dataMappers/profileDataMapper.js');
 const emailVerification = require('../helpers/securityMail.js');
-const token = require('../helpers/token.js');
+const token = require('../helpers/tokenHandler.js');
 const UserInputError = require('../helpers/userInputError.js');
 
 const profileController = {
@@ -94,8 +94,9 @@ const profileController = {
                 firstName: user.first_name,
                 role: user.role_id,
             };
-            emailVerification.sendEmail(user);
-            res.json({ firstName: user.first_name, token: token.createToken(tokenUser) });
+            const emailToken = emailVerification.sendEmailValidation(user);
+            // eslint-disable-next-line max-len
+            res.json({ firstName: user.first_name, token: token.createToken(tokenUser), emailToken });
         }
     },
     // Show the profile page

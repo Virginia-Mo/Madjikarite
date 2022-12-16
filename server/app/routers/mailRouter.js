@@ -15,4 +15,6 @@ router.route('/reset-password/:id/:token')
     .get(mailController.getResetPassword)
     .post(mailController.postResetPassword);
 
+router.get('/verify-email/:id/:token', mailController.getVerifyEmail);
+
 module.exports = router;
