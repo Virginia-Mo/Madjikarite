@@ -53,7 +53,7 @@ console.log(storage);
 
       <Routes>
         <Route
-          path="/"
+          path="/"                                   
           element={<WelcomePage />}
         />
 
