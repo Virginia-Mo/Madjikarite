@@ -23,6 +23,33 @@ const token = {
             next();
         });
     },
+    createEmailValidationToken: (user) => {
+        const payload = {
+            id: user.id,
+            firstname: user.firstname,
+        };
+        const options = { expiresIn: '10m' };
+        const secret = process.env.EMAIL_TOKEN_SECRET;
+        const accessToken = jwt.sign(payload, secret, options);
+        return accessToken;
+    },
+    createResetPasswordToken: (user) => {
+        const payload = {
+            id: user.id,
+            firstname: user.firstname,
+            password: user.password,
+        };
+        const options = { expiresIn: '10m' };
+        const secret = process.env.EMAIL_TOKEN_SECRET;
+        const accessToken = jwt.sign(payload, secret, options);
+        return accessToken;
+    },
+    verifyResetPasswordToken: (req, _, next) => {
+        jwt.verify(req.params.token, process.env.EMAIL_TOKEN_SECRET, (err, user) => {
+            if (err) throw new Error('Invalid token');
+            req.user = user;
+        });
+    },
 };
 
 module.exports = token;

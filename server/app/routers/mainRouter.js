@@ -5,6 +5,7 @@ const adminRouter = require('./adminRouter');
 const productRouter = require('./productRouter');
 const profileRouter = require('./profileRouter');
 const orderRouter = require('./orderRouter');
+const mailRouter = require('./mailRouter');
 const mainController = require('../controllers/mainController');
 const controllerWrapper = require('../helpers/controllerWrapper');
 
@@ -23,6 +24,7 @@ router.use(adminRouter);
 router.use(productRouter);
 router.use(profileRouter);
 router.use(orderRouter);
+router.use(mailRouter);
 
 // We do not forget to export the module to get access to it from everywhere
 module.exports = router;
