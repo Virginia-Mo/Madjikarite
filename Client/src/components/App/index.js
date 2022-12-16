@@ -47,7 +47,7 @@ function App() {
 
       <Routes>
         <Route
-          path="/"
+          path="/"                                   
           element={<WelcomePage />}
         />
 
