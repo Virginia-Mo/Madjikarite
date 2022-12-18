@@ -1,5 +1,6 @@
 import { useEffect, useState,useRef} from "react"
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from "react-router-dom";
 import { fetchOrders } from 'src/actions/admin';
 import { saveOrders } from "../../../actions/admin";
 import axios from 'axios';
@@ -76,8 +77,11 @@ function ordersByAdmin() {
   
     <div className='backOffice__container'>
       <div className="backOffice__div">
-       
         <h1 className="backOffice__h1"><strong>Bienvenue</strong>, Yanki ! </h1>
+      <div className="deleteAside">
+          <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
+          
+        </div>
         <h2 className="backOffice__h2">Commandes</h2>
         <div className="backOffice__mainContainer">
           <div className="backOffice__filter">

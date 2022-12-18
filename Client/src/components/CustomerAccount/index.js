@@ -34,7 +34,7 @@ function CustomerAccount() {
         
        dispatch(updateAccount());
     } 
- 
+    const user = useSelector((state) => state.user.userInfos.email)
 
   return (
 
@@ -43,9 +43,17 @@ function CustomerAccount() {
 
       <div className="deleteAside">
         <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
-        <NavLink to="/customeraccount/adress"><p className="deleteAside__lien">Adresses</p></NavLink>
-        <p className="deleteAside__lien">Historiques des commandes</p>
-        <NavLink to="/customeraccount/deleteaccount"><p className="deleteAside__lien">Supprimer mon compte</p></NavLink>
+       { (user !== "larry.bambelle@gmail.com" && (
+         <>
+         <NavLink to="/customeraccount/adress"><p className="deleteAside__lien">Adresses</p></NavLink>
+         <p className="deleteAside__lien">Historiques des commandes</p>
+         <NavLink to="/customeraccount/deleteaccount"><p className="deleteAside__lien">Supprimer mon compte</p></NavLink>
+         </>
+       ))} 
+        { (user === "larry.bambelle@gmail.com") && ( 
+          <NavLink to="/admin/orders"><p className="deleteAside__lien">Home</p></NavLink> 
+          )}
+        
       </div>
       <div className="customerAccount">
         <form className="customerAccount__form" onSubmit={handleSubmit}>

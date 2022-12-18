@@ -14,12 +14,13 @@ function IconsHeader() {
   const dispatch = useDispatch()
   const logged = localStorage.getItem("logged")
   const navigate = useNavigate()
+
   const handleClick = () => {
     localStorage.clear();
     // dispatch(logout())
       window.location.href = '/';
     }
-  
+
   return (
     <div className="header-icons">
       <Link to="/contact">
@@ -59,8 +60,8 @@ function IconsHeader() {
           <button className="header-icons__link-text" onClick={handleClick}>Se déconnecter</button>
              </>
         )}
-       
-       
+
+
       </div>
  
       {/* <div><RiAccountCircleFil /l></div> */}
