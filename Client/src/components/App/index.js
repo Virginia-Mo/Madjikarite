@@ -3,7 +3,7 @@ import WelcomePage from '../WelcomePage';
 import { Route, Routes } from 'react-router-dom';
 import { fetchProducts } from '../../actions/products';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import NavBar from '../NavBar';
 import Footer from '../Footer';
@@ -21,6 +21,7 @@ import SingleProduct from '../SingleProduct';
 import Workers from '../Workers';
 import Process from '../Process';
 import SignUp from '../SignUp';
+import OrdersByAdmin from '../Admin/OrdersByAdmin'
 import './styles.scss';
 
 
@@ -32,16 +33,14 @@ function App() {
 console.log(storage);
     useEffect(() => {
         dispatch(fetchProducts());
+
       }, []); // au 1er rendu
 
-      // useEffect(() => {
-      //   localStorage.getItem('token');
-      // },);
   return (
     <div className="app">
       <Header />
       <NavBar />
-     
+     <main>
       {/* <div>
          {/* <ul> */}
        {/* { categoryProducts.map((product) => (
@@ -125,10 +124,16 @@ console.log(storage);
         element={<SearchResults />} />
 
         <Route
+          path="/admin/orders"
+          element={<OrdersByAdmin />}
+        />
+
+        <Route
           path="*"
           element={<Error />}
         />
       </Routes>
+      </main>
 <Footer />
     </div>
   );

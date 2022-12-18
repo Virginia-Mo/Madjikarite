@@ -17,7 +17,7 @@ function IconsHeader() {
   const handleClick = () => {
     localStorage.clear();
     // dispatch(logout())
-      // window.location.href = '/';
+      window.location.href = '/';
     }
   
   return (
@@ -40,19 +40,29 @@ function IconsHeader() {
         </div>
       </Link>
       {/* <div></div>  */}
-    <Link to="/loginForm">
+    
       <div className="header-icons__container-account">
-        <RiAccountCircleLine className="header-icons__account"/>
+      <Link to="/loginForm">  
+        {!logged  && (
+           <>
+           <RiAccountCircleLine className="header-icons__account" />
+           <p className="header-icons__link-text">Se connecter</p>
+           </>)}
+         </Link>
+     
         {logged && (
-          <><Link to="/customerAccount">
-              <p className="header-icons__link-text">Mon compte</p>
-            </Link>
-            <button className="header-icons__link-text" onClick={handleClick}>Se déconnecter</button></>
+          <>
+           <Link to="/customerAccount">
+          <RiAccountCircleFill className="header-icons__account" />
+          <p className="header-icons__link-text">Mon compte</p> 
+          </Link>
+          <button className="header-icons__link-text" onClick={handleClick}>Se déconnecter</button>
+             </>
         )}
-        {!logged  && (<p className="header-icons__link-text">Se connecter</p>)}
-        
+       
+       
       </div>
-    </Link>
+ 
       {/* <div><RiAccountCircleFil /l></div> */}
 
     </div>
