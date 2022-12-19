@@ -21,6 +21,7 @@ const mailController = {
         const { id } = req.params;
         // We check if the user exists in the database
         const user = await profileDataMapper.getOneUserWithId(id);
+        req.user = user;
         if (!user) {
             throw new Error('Cet utilisateur n\'existe pas');
         }
@@ -37,6 +38,7 @@ const mailController = {
         if (!user) {
             throw new Error('Cet utilisateur n\'existe pas');
         }
+        req.user = user;
         // We check if the token is valid
         tokenHandler.verifyResetPasswordToken(req, res, next);
         const { password } = req.body;
