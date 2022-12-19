@@ -38,6 +38,7 @@ CREATE TABLE "user" (
     "first_name" TEXT NOT NULL,
     "last_name" TEXT NOT NULL,
     "email" TEXT NOT NULL UNIQUE,
+    "email_verified" BOOLEAN DEFAULT FALSE,
     "phone_number" INT NOT NULL,
     "password" TEXT NOT NULL,
     "role_id" INT REFERENCES "role" ("id") ON DELETE CASCADE ON UPDATE CASCADE DEFAULT 2,

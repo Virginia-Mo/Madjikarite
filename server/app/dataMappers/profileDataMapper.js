@@ -47,6 +47,14 @@ const profileDataMapper = {
         const result = await client.query('DELETE FROM "address" WHERE id = $1', [id]);
         return result.rows[id];
     },
+    async updatePassword(id, password) {
+        const result = await client.query('UPDATE "user" SET password = $2 WHERE id = $1 RETURNING *', [id, password]);
+        return result.rows[0];
+    },
+    async updateEmailVerified(id) {
+        const result = await client.query('UPDATE "user" SET email_verified = true WHERE id = $1 RETURNING *', [id]);
+        return result.rows[0];
+    },
 };
 
 module.exports = profileDataMapper;
