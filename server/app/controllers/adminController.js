@@ -102,7 +102,8 @@ const adminController = {
         for (let i = 0; i < order.cart.length; i += 1) {
             newOrder.push(JSON.parse(order.cart[i]));
         }
-        res.json({ user, order: newOrder });
+        delete order.cart;
+        res.json({ user, cart: newOrder, order });
     },
 
     // update order
