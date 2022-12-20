@@ -13,10 +13,10 @@
 
   &__item {
     display: block;
-    height: 6rem;
-    padding: 2rem 4rem;
+    height: 5rem;
+    padding: 1.6rem 3rem;
     border-right: 0.2rem solid #b0afafe5;
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-family: v.$font-paragraph;
     
     &:hover {
@@ -41,7 +41,7 @@
   }
 
   &__under-item {
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-family: v.$font-paragraph;
     padding: 1.2rem;
     background-color: #ffffffe5;
@@ -58,12 +58,12 @@
 
 .nav-bar__item--about-us:hover > .nav-bar__under-list {
   display: block;
-  margin-top: 2rem;
-  z-index: 99;
+  margin-top: 1.4rem;
+  z-index: 9;
   
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1060px) {
   .nav-bar {
     &__item {
       display: none;

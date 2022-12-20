@@ -35,10 +35,22 @@ h2:first-letter, h4:first-letter {
 @media (max-width: 600px) {
   .app {
     padding-top: 16rem;
+    h2 {
+      font-size: 3rem;
+    }
   }
 } 
-@media screen and (max-width : 1024px) {
-  .mainTitle__h2 {
-    font-size: 3.5rem;
+
+@media (max-width : 1060px) {
+  .app {
+    padding-top: 16rem;
+
+    h2 {
+      font-size: 3.5rem;
+    }
   }
+
+  // .mainTitle__h2 {
+  //   font-size: 3.5rem;
+  // }
 }

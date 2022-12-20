@@ -1,7 +1,7 @@
 // == Import
 import WelcomePage from '../WelcomePage';
 import { Route, Routes } from 'react-router-dom';
-import { fetchProducts } from '../../actions/products';
+import { fetchProducts, fetchCategories } from '../../actions/products';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -20,6 +20,7 @@ import SheaBenefits from '../SheaBenefits';
 import SingleProduct from '../SingleProduct';
 import Workers from '../Workers';
 import Process from '../Process';
+import Category from '../Category';
 import './styles.scss';
 
 
@@ -29,13 +30,17 @@ function App() {
 
     useEffect(() => {
         dispatch(fetchProducts());
+        dispatch(fetchCategories());
       }, []); // au 1er rendu
+
+ 
 
   return (
     <div className="app">
       <Header />
       <NavBar />
      
+      
       {/* <div>
          {/* <ul> */}
        {/* { categoryProducts.map((product) => (
@@ -112,8 +117,8 @@ function App() {
         />
 
         <Route 
-        path="/category${slug}/product"
-        element={<SearchResults />} />
+        path="/category/:id"
+        element={<Category />} />
 
         <Route
           path="*"
