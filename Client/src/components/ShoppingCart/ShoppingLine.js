@@ -52,18 +52,18 @@ console.log(item.price+ "et" + formData.total);
       <h2 className="cart__articles__details--h2">{item.name}</h2>
       
       <div className='cart__articles__button'>
+      
       <div className='cart__articles__button--hover'>
       <button
       type='button'
       className='cart__articles__button--btn cart__articles__button--btnLeft'
-      onClick={handleChange}>+</button></div>
-      
+      onClick={handleChangeMinus}>-</button></div>
      <p className='cart__articles__button--quantity'>{item.quantity}</p> 
       
       <button
       type='button'
       className='cart__articles__button--btn cart__articles__button--btnRight'
-      onClick={handleChangeMinus}>-</button>
+      onClick={handleChange}>+</button>
       </div>
       </div>
      

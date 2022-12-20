@@ -19,7 +19,7 @@ function Header() {
       </div>
       <div className="header__title-bar">
         <h1>Soins biologiques et équitables à base de karité</h1>
-        <Search />
+         <Search />
       </div>  
       <IconsHeader />
     </header>

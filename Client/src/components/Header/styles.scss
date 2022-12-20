@@ -1,7 +1,8 @@
 @use 'src/styles/vars' as v;
 
 .header {
-  background: v.$color-green;
+  background: rgb(221,229,182);
+  background: linear-gradient(90deg, rgba(221,229,182,1) 0%, rgba(173,193,120,1) 50%, rgba(221,229,182,1) 100%);
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -33,7 +34,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1060px) {
 
   .header {
     flex-direction: column;

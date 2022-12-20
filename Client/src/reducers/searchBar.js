@@ -14,11 +14,14 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         search: payload.value,
       };
+    
     case DISPLAY_SEARCH_PRODUCTS:
       return {
         ...state,
         products: payload.value,
       };
+    
+    // Toggle the burger menu
     case DISPLAY_MENU:
       return {
         ...state,

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { GET_ORDERS, saveOrders } from '../actions/admin';
-import { GET_PRODUCTS_BY_ADMIN, SAVE_PRODUCTS_BY_ADMIN } from '../actions/admin';
 
 const API_BASE_URL = 'https://madjikarite.onrender.com';
 
@@ -28,10 +27,8 @@ const adminAPI = (store) => (next) => (action) => {
       break;
 
     default:
-
       next(action);
-  }};
+  }
+};
 
 export default adminAPI;
-
-        

@@ -1,8 +1,9 @@
-import { HANDLE_DESCRIPTION, HANDLE_COMPOSITION, SAVE_PRODUCTS, DISPLAY_ICON} from "../actions/products";
+import { HANDLE_DESCRIPTION, HANDLE_COMPOSITION, SAVE_PRODUCTS, SAVE_CATEGORIES} from "../actions/products";
 
 
 export const initialState = {
   listProducts :[],
+  listCategories :[],
   activeDescription : true,
   activeComposition : false,
 }
@@ -28,6 +29,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         listProducts: payload.products,
+      };
+    case SAVE_CATEGORIES:
+      return {
+        ...state,
+        listCategories: payload.categories,
       };
     default:
       return state;

@@ -1,5 +1,5 @@
 @use 'sass:color';
-@use 'src/styles/vars';
+@use 'src/styles/vars' as vars;
 
 .customerAccount {
   width: 70%;
@@ -9,6 +9,16 @@
   border: 2px solid #ccc;
   border-radius: 0.5rem;
 
+  &__h1 {
+    text-align: center;
+    height: 10rem;
+    background-color: vars.$color-light-green;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 3rem;
+  }
   &__title {
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -101,4 +111,10 @@
   font-size: vars.$font-size-p;
   font-family: vars.$font-paragraph;
   margin-bottom: 1rem;
+}
+@media screen and (max-width:1024px){
+  h2  {
+    font-size : 3.6rem;
+    margin-left: 0;
+  }
 }

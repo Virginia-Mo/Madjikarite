@@ -14,9 +14,11 @@
       box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
       background-color: rgba(239, 238, 238, 0.648);
     }
+
     &__div {
       position: relative;
     }
+
     &__button {
       position: absolute;
       bottom: 3rem;
@@ -28,39 +30,39 @@
       background-color: transparent;
       border: none;
       padding-top: 0.8rem;
-  }
-  &__button:hover {
-    background-color: v.$color-green;
-  }
-    img {
-      width: auto;
-      max-height: 29rem;
-      border-radius: 1rem;
-      max-width: 100%;
-      width: 85%;
     }
 
-}
-.product-item__image {
-  text-align: center;
-}
+    &__button:hover {
+    background-color: v.$color-green;
+    }
 
-.product-item__content h4 { 
-    font-family: v.$font-title;
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 1.5rem;
-    word-break: break-word;
-}
-
-.product-item__content p {
-    margin-top: 0.9rem;
-    line-height: 2.6rem;
-    & span {
-        text-decoration: underline;
+    &__image {
+      text-align: center;
+      img {
+      max-width: 85%;
+      max-height: 29rem;
+      border-radius: 1rem;
       }
-} 
+    }
+
+    &__content h4 { 
+      font-family: v.$font-title;
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1.5rem;
+      word-break: break-word;
+    }
+
+    &__content p {
+      font-size: 1.8rem;
+      margin-top: 0.9rem;
+      line-height: 2.6rem;
+      & span {
+          text-decoration: underline;
+        }
+    } 
+  }
 
 @media screen and (max-width: 1024px) {
   .product-item {

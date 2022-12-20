@@ -67,7 +67,8 @@
 }
 
 .deleteAside {
-  width: 15%;
+  position: relative;
+  width: auto;
   height: 50%;
   border: 2px solid #ccc;
   border-radius: 0.5rem;
@@ -97,5 +98,16 @@
     &:hover {
       background-color: v.$color-light-brown;
     }
+  }
+}
+@media screen and (max-width: 600px){
+  .deleteAside {
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px){
+  .deleteAside {
+    width: 70%;
+   margin: 0 auto;
   }
 }

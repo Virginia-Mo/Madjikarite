@@ -1,69 +1,75 @@
-import { Link } from 'react-router-dom';
-
-
-import './style.scss';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import './style.scss';
+
+
 function NavBar() {
-  const products = useSelector((state) => state.products.listProducts);
-  
+
+  const categories = useSelector((state) => state.products.listCategories);       
+
   return (
+
+
     <nav className="nav-bar">
+
       <ul className="nav-bar__list">
-      <Link to="/">
-        <li className="nav-bar__item nav-bar__item--first">
-          Savons solides
-        </li>
-      </Link>
-      <Link to="/">
-        <li className="nav-bar__item">
-          Savons liquides
-        </li>
-      </Link>
-      <Link to="/">
-        <li className="nav-bar__item">
-          Savons ronds
-        </li>
-      </Link>
-      <Link to="/">
-        <li className="nav-bar__item">
-         Beurres corporels
-        </li>
-      </Link>
-      <Link to="/">
-        <li className="nav-bar__item">
-          Beurres à lèvres
-        </li>
-      </Link>
-      <Link to="/">
-        <li className="nav-bar__item">
-          Cadeaux de Noël
-        </li>
-      </Link>
+      {/* // i display the categories name to the nav bar */}
+      { categories.map((category)=> (
+        
+        <NavLink 
+          to={`/category/${category.id}`} 
+          className="nav-bar__link"
+          key={category.id}
+        >
+          <li className="nav-bar__item" >
+          {category.name}
+          </li>
+        </NavLink>
+        
+      ))}
+
         <li className="nav-bar__item nav-bar__item--about-us">
           À propos de Madjikarité
+
           <ul className="nav-bar__under-list">
-          <Link to="/">
-            <li className="nav-bar__under-item">
-              Découvrir le projet Madjikarité
-            </li>
-          </Link>
-          <Link to="/">
-            <li className="nav-bar__under-item">
-              Nos productrices
-            </li>
-          </Link>
-          <Link to="/">
-            <li className="nav-bar__under-item">
-              Les vertus du karité
-            </li>
-          </Link>
-          <Link to="/">
-            <li className="nav-bar__under-item">
-              Processus de fabrication
-            </li>
-          </Link>
+ 
+            <NavLink 
+                to="/aboutus" 
+                className="nav-bar__under-link"
+            >
+              <li className="nav-bar__under-item">
+                Découvrir le projet Madjikarité
+              </li>
+            </NavLink>
+            
+            <NavLink 
+              to="/workers"
+              className="nav-bar__under-link"
+            >
+              <li className="nav-bar__under-item">
+                Nos productrices
+              </li>
+            </NavLink>
+            
+            <NavLink
+              to="/sheabenefits"
+              className="nav-bar__under-link"
+            >
+              <li className="nav-bar__under-item">
+                Les vertus du karité
+              </li>
+            </NavLink>
+            
+            <NavLink
+              to="/process"
+              className="nav-bar__under-link"
+            >
+              <li className="nav-bar__under-item">
+                Processus de fabrication
+              </li>
+            </NavLink>
+
           </ul>
         </li>
       </ul>
