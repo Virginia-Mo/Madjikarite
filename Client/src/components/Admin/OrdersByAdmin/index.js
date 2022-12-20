@@ -1,9 +1,11 @@
 import { useEffect, useState,useRef} from "react"
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link} from "react-router-dom";
 import { fetchOrders } from 'src/actions/admin';
 import { saveOrders } from "../../../actions/admin";
 import axios from 'axios';
+import { MdFilterAlt } from "react-icons/md";
+
 const API_BASE_URL = 'https://madjikarite.onrender.com';
 
 import './style.scss'
@@ -14,6 +16,7 @@ function ordersByAdmin() {
 //  const dispatch = useDispatch()
    const [orders, setOrders] = useState([]);
    const [sortType, setSortType] = useState("");
+   
     useEffect(() => {
       const token = localStorage.getItem('token');
       axios
@@ -46,6 +49,13 @@ function ordersByAdmin() {
       sortArray(sortType);
     }, [sortType]);
 
+const handleClick = (event) => {
+  event.preventDefault();
+const select = document.querySelector(".backOffice__filter--select")
+select.classList.toggle("backOffice__filter--select--show")
+
+}
+
 // const [count,setCount]= useState(0)
 //     const handleCheckbox =(event) =>{
 //     console.log(event.target.checked);
@@ -75,15 +85,20 @@ function ordersByAdmin() {
 
   return (
   
-    <div className='backOffice__container'>
+    <div className='backOffice__container'>      
+       <div className="backOffice__Div">
+       <h2 className="customerAccount__title">Commandes</h2>
+       </div>
       <div className="backOffice__div">
-        <h1 className="backOffice__h1"><strong>Bienvenue</strong>, Yanki ! </h1>
+       
       <div className="deleteAside">
-          <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
-          
+      <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
+      <NavLink to="/admin/products"><p className="deleteAside__lien">Produits</p></NavLink> 
+     <NavLink to="/admin/orders"><p className="deleteAside__lien">Commandes</p></NavLink>
+     <NavLink to="/"><p className="deleteAside__lien">Compte Clients</p></NavLink>
         </div>
-        <h2 className="backOffice__h2">Commandes</h2>
-        <div className="backOffice__mainContainer">
+ 
+       <div className="backOffice__mainContainer">
           <div className="backOffice__filter">
             <form action="" className="backOffice__filter__form">
             <div className="backOffice__top">
@@ -105,10 +120,11 @@ function ordersByAdmin() {
                   </>)} */}
             </div>
             <div className="backOffice__top2">
-            <label htmlFor="filter">Filtrer par :</label>
+            <label htmlFor="filter" className="backOffice__filter--label">Filtrer par :</label>
+            <button type="button" className="backOffice__filter--button"><MdFilterAlt onClick={handleClick} /></button>
             <select 
             name="filter"
-            id=""
+            className="backOffice__filter--select"
             onChange={(event) => setSortType(event.target.value)}>
               <option value="created_at">Date</option>
               <option value="id"> N° de la commande</option>
@@ -118,10 +134,10 @@ function ordersByAdmin() {
            
              </form>
           </div>
-          <div className="backOffice__formDiv">
-          <table>
+          <div className="backOffice__table">
+          <table className="backOffice__table--table">
 
-          <thead>
+          <thead className="backOffice__table--thead">
 
         <tr>
             {/* <th><input type='checkbox' onChange={handleChanges} className="backOffice__formDiv__box" /> 
@@ -133,19 +149,31 @@ function ordersByAdmin() {
         </tr>
 
 </thead>
-<tbody>
-       { orders.map(order => (
+<tbody className="backOffice__table--tbody">
+     { orders.map(order => (
+      
       <tr
       key ={order.id}>
+     
       {/* <td> <input type='checkbox'
       onChange={handleCheckbox}
       className="inputRefs"></input></td> */}
-           
-            <td>{order.id}</td>
-            <td>{order.final_price}€</td>
-            <td>{order.created_at}</td>
-             <td>{order.message}</td>
-        </tr>
+      <td data-label="N° de commande" className="backOffice__table--td">         
+        <Link to={`/admin/order/${order.id}`} > {order.id}   </Link> 
+        </td>
+      
+      <td data-label="Total" className="backOffice__table--td">
+        <Link to={`/admin/order/${order.id}`} > {order.final_price}€ </Link> </td>
+      <td data-label="Date" className="backOffice__table--td">
+        <Link to={`/admin/order/${order.id}`} > {order.created_at} </Link> </td>
+      <td data-label="Message" className="backOffice__table--td">
+      <Link to={`/admin/order/${order.id}`} > 
+      {(order.message !== "") && (<span>{order.message}</span>)}
+             {(order.message == "") && (<span>-</span>)}
+       </Link> </td>
+          
+         </tr>  
+     
     ))}
        
     </tbody>

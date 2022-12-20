@@ -22,6 +22,7 @@ import Workers from '../Workers';
 import Process from '../Process';
 import SignUp from '../SignUp';
 import OrdersByAdmin from '../Admin/OrdersByAdmin'
+import SingleOrderByAdmin from '../Admin/OrdersByAdmin/SingleOrderByAdmin';
 import './styles.scss';
 
 
@@ -119,15 +120,19 @@ console.log(storage);
           element={<ContactUs />}
         />
 
-        <Route 
+        {/* <Route 
         path="/category${slug}/product"
-        element={<SearchResults />} />
+        element={<SearchResults />} /> */}
 
         <Route
           path="/admin/orders"
           element={<OrdersByAdmin />}
         />
+      <Route
+      path="/admin/order/:slug"
+      element={<SingleOrderByAdmin />} 
 
+      />
         <Route
           path="*"
           element={<Error />}

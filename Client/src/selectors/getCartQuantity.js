@@ -51,7 +51,3 @@ if ( sum > 0 && sum <= 250){
  return sum;
 
 } 
-
-export function getShippingCost (){
-  
-}

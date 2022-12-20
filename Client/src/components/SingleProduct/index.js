@@ -6,7 +6,7 @@ import { FaSquareFull, FaShoppingCart } from "react-icons/fa";
 import { handleDescription, handleComposition }from '../../actions/products';
 import { changeInputValue } from 'src/actions/user';
 import { addItemToCart} from '../../actions/cart';
-import {findProduct } from '../../selectors/singleProduct';
+import {findProduct } from '../../selectors/getSingleProduct';
 import ProductSlide from './ProductSlide'
 import Slide from '../Slide';
 import './style.scss';
