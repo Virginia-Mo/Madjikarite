@@ -1,4 +1,4 @@
-import { CHANGE_INPUT_VALUE, USER_SAVE, LOGOUT, DELETE_ACCOUNT, SAVE_USER_INFOS } from '../actions/user';
+import { CHANGE_INPUT_VALUE, USER_SAVE, LOGOUT, DELETE_ACCOUNT, SAVE_USER_INFOS, SAVE_USER_ADDRESS } from '../actions/user';
 
 const token = localStorage.getItem("token");
 const logged = localStorage.getItem("logged")
@@ -16,6 +16,7 @@ export const initialState = {
   country: "",  
   phone_number: 0,
   userInfos : [],
+  userAddress:"",
   message : "",
   // logged: false,
   // token : token
@@ -42,6 +43,12 @@ const reducer = (state = initialState, action = {}) => {
     return {
       ...state,
       userInfos : payload.user
+    }
+
+    case SAVE_USER_ADDRESS : 
+    return {
+      ...state,
+      userAddress : payload.user
     }
 
     // case LOGOUT:

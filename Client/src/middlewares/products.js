@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { GET_PRODUCTS, saveProducts } from '../actions/products';
+import { GET_PRODUCTS_BY_ADMIN, saveProductsByAdmin } from '../actions/products';
 
 const API_BASE_URL = 'https://madjikarite.onrender.com';
 
@@ -17,9 +18,7 @@ const productsAPI = (store) => (next) => (action) => {
 
     default:
       next(action);
-  }
+  } 
 };
 
 export default productsAPI;
-
-

@@ -1,6 +1,6 @@
 import axios from "axios";
-import { SIGN_UP_USER, LOGIN, DELETE_ACCOUNT, GET_ACCOUNT, UPDATE_ACCOUNT } from "../actions/user";
-import {  saveUser, saveUserInfos } from '../actions/user';
+import { SIGN_UP_USER, LOGIN, DELETE_ACCOUNT, GET_ACCOUNT, UPDATE_ACCOUNT, GET_ADDRESS,SAVE_USER_ADDRESS, UPDATE_ADDRESS } from "../actions/user";
+import {  saveUser, saveUserInfos, saveUserAddress } from '../actions/user';
 import { deleteAccount } from "../actions/user";
 
 const API_BASE_URL = 'https://madjikarite.onrender.com';
@@ -39,8 +39,7 @@ const usersAPI = (store) => (next) => (action) => {
         });
         next(action);
         break;
-  
-        
+
     case LOGIN: {
       const { user: { email, password } } = store.getState();
 
@@ -66,7 +65,7 @@ const usersAPI = (store) => (next) => (action) => {
         });
         next(action);
         break;
-      }
+    }
 
     case DELETE_ACCOUNT: {
       const token = localStorage.getItem('token');
@@ -111,11 +110,51 @@ const usersAPI = (store) => (next) => (action) => {
         break;
     }
 
+    case GET_ADDRESS: {
+      const token = localStorage.getItem('token');
+
+      axios
+        .get(`${API_BASE_URL}/profile/addresses`, {
+          headers: {
+            Authorization: `bearer ${token}`
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          store.dispatch(saveUserAddress(response.data[0]));
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+        next(action);
+        break;
+    }
+
     case UPDATE_ACCOUNT: {
       const token = localStorage.getItem('token');
 
       axios
         .patch(`${API_BASE_URL}/profile`, {
+          headers: {
+            Authorization: `bearer ${token}`
+          },
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+        next(action);
+        break;
+    }
+
+    case UPDATE_ADDRESS: {
+      const token = localStorage.getItem('token');
+      const { user: { address, zip_code ,city, country, userAdress : {id}}} = store.getState()
+
+      axios
+        .patch(`${API_BASE_URL}/profile/address${id}`, {address,zip_code,city,country} ,{
           headers: {
             Authorization: `bearer ${token}`
           },

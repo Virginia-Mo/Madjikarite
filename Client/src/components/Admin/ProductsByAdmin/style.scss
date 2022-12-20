@@ -1,0 +1,210 @@
+@use 'src/styles/vars' as v;
+
+
+#menu, #menu-bg{
+  display: none;
+}
+.backOffice {
+  &__container {
+    font-family: v.$font-paragraph ;
+  }
+ &__div {
+   display: flex;
+   gap: 5rem;
+ }
+  &__h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin: 3rem auto;
+  }
+  &__mainContainer {
+    background-color: v.$color-beige;
+    border-radius: 2rem;
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem 5rem 3rem
+  }
+  &__formDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+    width: 10rem;
+    height: 3rem;
+    font-family: v.$font-paragraph;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    padding:v.$gutter;
+    border: none;
+    background-color: v.$color-green;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: v.$color-brown;
+        color: v.$color-beige;
+      }
+    }
+  &__top2 {
+    // text-align:center;
+   border-radius: 20px;
+    border: solid 1px grey;
+  padding: 0.5rem 1rem;
+    // margin-bottom: 3rem;
+  background-color: #cfb9612e;
+  }
+  &__top {
+    font-size: 1.7rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+  &__filter {
+    
+        &--button {
+          display: none;
+        }
+
+    &__form label {
+    font-size: 1.7rem;
+  
+    }  
+    &__form {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.555);
+        padding-bottom: 2rem;
+
+    & select {
+      width: 8rem;
+      height: 3rem;
+      background-color: transparent;
+      border: none;
+      font-size: 1.7rem;
+      text-align: center;
+      font-family: v.$font-paragraph;
+      & option {
+        background-color: rgba(207,185,97,.18);
+        text-align: left;
+      }
+    }
+  }
+  }
+  &__table--table {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 4.5rem;
+  }
+  &__table--thead {
+    font-weight: 700;
+    border-bottom: solid 1px rgba(128, 128, 128, 0.555);
+  }
+  &__table--tbody tr{
+    border-bottom: solid 1px rgba(128, 128, 128, 0.555);
+    }
+ 
+ &__formDiv__box {
+   font-style: 500;
+ }
+}
+
+.backOffice__form__input {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  font-size: v.$font-size-p;
+  font-family: v.$font-paragraph;
+  background-color: transparent;
+  &__input {
+    width: 20rem;
+    height: 3rem;
+    font-size: v.$font-size-p;
+    font-family: v.$font-paragraph;
+    background-color: transparent;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #menu, #menu-bg {
+    display: block;
+  }
+  .backOffice__table{
+    &--table {
+    border: 0;
+  }
+
+  &--table caption {
+    font-size: 1.6rem;
+  }
+  
+  &--thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  &--table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  &--table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
+    text-align: right;
+  }
+  &--table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+  
+  &--table td:last-child {
+    border-bottom: 0;
+  }
+  }
+  .backOffice__filter {
+      &--select {
+        display: none;
+        &--show {
+      display: block;
+    }
+  }
+  &--label {
+    display: none;
+  }
+  &--button {
+      border: none;
+      background-color: transparent;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 2.5rem;
+      display: block;
+        &--button--hide {
+          display: none;
+        }}
+  }
+  .backOffice__top2 {
+    padding: 0;
+  border-radius: 11px;
+  } 
+  .backOffice__div {
+    flex-direction: column;
+  }
+}

@@ -23,7 +23,7 @@ function DeleteAccount() {
 
     <div className="deleteAside">
     <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
-      <NavLink to="/customeraccount/adress"><p className="deleteAside__lien">Adresses</p></NavLink>
+      <NavLink to="/customeraccount/address"><p className="deleteAside__lien">Adresses</p></NavLink>
       <p className="deleteAside__lien">Historiques des commandes</p>
       <NavLink to="/customeraccount/deleteaccount"><p className="deleteAside__lien">Supprimer mon compte</p></NavLink>
     </div> 

@@ -56,6 +56,16 @@ export function saveUserInfos(user) {
   };
 }
 
+export const SAVE_USER_ADDRESS = 'SAVE_USER_ADDRESS';
+
+export function saveUserAddress(user) {
+  return {
+    type: SAVE_USER_ADDRESS,
+    payload: { user },
+  };
+}
+
+
 export const GET_ACCOUNT = 'GET_ACCOUNT';
 
 export function getAccount(user) {
@@ -64,6 +74,15 @@ export function getAccount(user) {
     payload: { user },
   }
 }
+
+export const GET_ADDRESS = 'GET_ADDRESS';
+
+export function getAddress() {
+  return {
+    type: GET_ADDRESS,
+  };
+}
+
 
 export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
 
@@ -82,3 +101,13 @@ export function updateAccount(user) {
     payload: { user },
   };
 }
+
+export const UPDATE_ADDRESS = 'UPDATE_ADDRESS';
+
+export function updateAddress(user) {
+  return {
+    type: UPDATE_ADDRESS,
+    payload: { user },
+  };
+}
+

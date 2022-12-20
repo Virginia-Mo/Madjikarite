@@ -11,7 +11,7 @@ import Cart from '../ShoppingCart';
 import Header from 'src/components/Header';
 import SearchResults from 'src/components/SearchResults';
 import CustomerAccount from 'src/components/CustomerAccount';
-import CustomerAdress from '../CustomerAccount/CustomerAdress';
+import CustomerAddress from '../CustomerAccount/CustomerAddress';
 import DeleteAccount from '../CustomerAccount/DeleteAccount';
 import LoginForm from 'src/components/LoginForm';
 import ContactUs from '../ContactUs';
@@ -21,6 +21,11 @@ import SingleProduct from '../SingleProduct';
 import Workers from '../Workers';
 import Process from '../Process';
 import SignUp from '../SignUp';
+import OrdersByAdmin from '../Admin/OrdersByAdmin';
+import ProductsByAdmin from '../Admin/ProductsByAdmin';
+import NewProductByAdmin from '../Admin/ProductsByAdmin/NewProductByAdmin';
+import ProductPageByAdmin from '../Admin/ProductsByAdmin/ProductPageByAdmin';
+
 import './styles.scss';
 
 
@@ -91,8 +96,8 @@ console.log(storage);
         element={<CustomerAccount />} 
         />
         <Route
-        path="/customeraccount/adress"
-        element={<CustomerAdress />}
+        path="/customeraccount/address"
+        element={<CustomerAddress />}
         />
 
         <Route
@@ -120,9 +125,26 @@ console.log(storage);
           element={<ContactUs />}
         />
 
+        <Route
+          path="/admin/orders"
+          element={<OrdersByAdmin />}
+        />
+        
         <Route 
         path="/category${slug}/product"
         element={<SearchResults />} />
+
+        <Route
+        path="/admin/products"
+        element={<ProductsByAdmin />} />
+
+        <Route
+        path="/admin/productPage/:slug"
+        element={<ProductPageByAdmin />} />
+
+        <Route
+        path="/admin/new-product"
+        element={<NewProductByAdmin />} />
 
         <Route
           path="*"
