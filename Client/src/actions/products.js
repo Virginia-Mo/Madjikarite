@@ -35,3 +35,16 @@ export function saveProducts(products) {
     payload : { products },
   };
 }
+// Action to get the categories
+export function fetchCategories() {
+  return {
+    type: GET_CATEGORIES,
+  };
+}
+// Action to save the categories
+export function saveCategories(categories) {
+  return {
+    type: SAVE_CATEGORIES,
+    payload : { categories },
+  };
+}

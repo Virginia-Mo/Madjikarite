@@ -40,16 +40,17 @@
 .nav li {
   list-style: none;
   padding: 12px 0;
+  border-bottom: solid 1px v.$color-light-brown;
 }
 
 .nav li a {
-  color: white;
+  color: black;
   font-size: 20px;
   text-decoration: none;
 }
 
 .nav li a:hover {
-  font-weight: bold;
+ color: white;
 }
 
 .menu-bg, #menu {
@@ -63,7 +64,7 @@
   width: 0;
   height: 0;
   margin: 40rem 0 2rem 2rem;
-  background: radial-gradient(circle, v.$color-light-brown, v.$color-light-brown);
+  background: radial-gradient(circle, v.$color-green, v.$color-green);
   border-radius: 50%;
   transition: 0.3s ease;
 }

@@ -10,6 +10,8 @@ import { getAddress } from 'src/actions/user';
 import './style.scss';
 import FieldAccount from '../FieldAccount';
 import { updateAddress, saveUserAddress } from '../../../actions/user';
+import NavBarAdmin from '../../Admin/NavBarAdmin/NavBarAdmin';
+import NavBarCustomer from '../NavBarCustomer/NavBarCustomer';
 
 function CustomerAddress() {
   const dispatch = useDispatch();
@@ -31,14 +33,10 @@ function CustomerAddress() {
   return (
     
   <><h2 className="customerAdress__title">Adresse de livraison</h2>
-  <div className="deleteAside">
-      <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
-      <NavLink to="/customeraccount/address"><p className="deleteAside__lien">Adresses</p></NavLink>
-      <p className="deleteAside__lien">Historiques des commandes</p>
-      <NavLink to="/customeraccount/deleteaccount"><p className="deleteAside__lien">Supprimer mon compte</p></NavLink>
-    </div>
+  <div className="customerAccount__div">
+<NavBarCustomer />
    
-      <div className="customerAdress">
+      <div className="customerAccount">
         <form className="customerAdress__form" onSubmit={handleSubmit}>
           <FieldAccount
             name="Adresse de livraison"
@@ -63,7 +61,7 @@ function CustomerAddress() {
           <button className="customerAdress__button" type="submit">Modifier mon adresse</button>
 
         </form> 
-    
+        </div>
       </div>
       </>   
   );

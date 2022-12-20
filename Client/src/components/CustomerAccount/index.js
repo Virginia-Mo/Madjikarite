@@ -7,6 +7,8 @@ import { updateAccount, getAccount } from 'src/actions/user';
 
 import './style.scss';
 import 'animate.css';
+import NavBarCustomer from './NavBarCustomer/NavBarCustomer';
+import NavBarAdmin from '../Admin/NavBarAdmin/NavBarAdmin';
 
 
 function CustomerAccount() {
@@ -32,7 +34,6 @@ function CustomerAccount() {
         alert("Mot de passe incorrect")
         return
       };
-        
        dispatch(updateAccount());
     } 
     const user = useSelector((state) => state.user.userInfos.email)
@@ -42,25 +43,20 @@ function CustomerAccount() {
    <>
     <h1 className="customerAccount__h1 animate__animated animate__fadeIn"><strong>Bienvenue</strong>, {userName} ! </h1>
     <h2 className="customerAccount__title">Modification de votre compte</h2>
+    
    <div className="customerAccount__div">
-    <div className="deleteAside">
-   <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
     { (user !== "larry.bambelle@gmail.com" && (
      <>
-     <NavLink to="/customeraccount/adress"><p className="deleteAside__lien">Adresses</p></NavLink>
-     <p className="deleteAside__lien">Historiques des commandes</p>
-     <NavLink to="/customeraccount/deleteaccount"><p className="deleteAside__lien">Supprimer mon compte</p></NavLink>
+    <NavBarCustomer />
      </>
    ))} 
     { (user === "larry.bambelle@gmail.com") && ( 
       <>
-    <NavLink to="/admin/products"><p className="deleteAside__lien">Produits</p></NavLink> 
-     <NavLink to="/admin/orders"><p className="deleteAside__lien">Commandes</p></NavLink>
-     <NavLink to="/"><p className="deleteAside__lien">Compte Clients</p></NavLink>
+      <NavBarAdmin />
      </>
       )}
     
-  </div>
+  
       <div className="customerAccount">
         <form className="customerAccount__form" onSubmit={handleSubmit}>
 
@@ -112,8 +108,9 @@ function CustomerAccount() {
             Modifier les infos
           </button>
         </form>
-      </div>
-    </div></>
+        </div>
+        </div>
+    </>
   );
 }
 

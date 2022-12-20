@@ -4,7 +4,8 @@ import { useParams } from 'react-router';
 import { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import "./singleOrderByAdmin.scss"
-import "./menuBurger.scss"
+
+import NavBarAdmin from '../NavBarAdmin/NavBarAdmin';
 const API_BASE_URL = 'https://madjikarite.onrender.com';
 
 function SingleOrderByAdmin() {
@@ -13,10 +14,7 @@ function SingleOrderByAdmin() {
   const [singleOrder, setSingleOrder] = useState([])
   const [user,setUser] = useState([])
   const [details, setDetails] = useState([])
-  const menubar = useRef()
-  const nav = useRef()
-  const menubg = useRef()
-
+ 
   useEffect(() => {
       const token = localStorage.getItem('token');
       axios
@@ -57,43 +55,14 @@ function SingleOrderByAdmin() {
         });
   }
 
-  const menuOnClick = () => {
-   menubar.current.classList.toggle("change");
-    nav.current.classList.toggle("change");
-   menubg.current.classList.toggle("change-bg");
-  }
+
   return (
   <div className="backOffice__container">
     <div className="backOffice__Div">
        <h2 className="customerAccount__title">Commande sélectionnée</h2>
        </div>
-      <div className="backOffice__div">
-      <div className="backOffice__menuContainer">
-      <div className="deleteAside">
-      <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
-      <NavLink to="/admin/products"><p className="deleteAside__lien">Produits</p></NavLink> 
-     <NavLink to="/admin/orders"><p className="deleteAside__lien">Commandes</p></NavLink>
-     <NavLink to="/"><p className="deleteAside__lien">Compte Clients</p></NavLink>
-        </div>
- 
-      <div id="menu">
-  <div id="menu-bar" ref={menubar} onClick={menuOnClick}>
-    <div id="bar1" className="bar"></div>
-    <div id="bar2" className="bar"></div>
-    <div id="bar3" className="bar"></div>
-  </div>
-  <nav className="nav" id="nav" ref={nav}>
-    <ul>
-   <li><NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink></li> 
-    <li><NavLink to="/admin/products"><p className="deleteAside__lien">Produits</p></NavLink> </li>
-   <li><NavLink to="/admin/orders"><p className="deleteAside__lien">Commandes</p></NavLink></li> 
-    <li><NavLink to="/"><p className="deleteAside__lien">Compte Clients</p></NavLink></li>
-    </ul>
-  </nav> 
-</div>
-</div>
-<div className="menu-bg" id="menu-bg" ref={menubg}></div>
- 
+      <div className="customerAccount__div">
+     <NavBarAdmin />
 
          <div className="backOffice__mainContainer">
 <div className="backOffice__singleproduct">

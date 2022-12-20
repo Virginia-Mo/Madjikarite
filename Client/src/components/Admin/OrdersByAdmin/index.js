@@ -1,8 +1,6 @@
 import { useEffect, useState,useRef} from "react"
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Link} from "react-router-dom";
-import { fetchOrders } from 'src/actions/admin';
-import { saveOrders } from "../../../actions/admin";
 import axios from 'axios';
 import { MdFilterAlt } from "react-icons/md";
 
@@ -10,6 +8,7 @@ const API_BASE_URL = 'https://madjikarite.onrender.com';
 
 import './style.scss'
 import 'animate.css';
+import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 
 function ordersByAdmin() {
   // const orders = useSelector((state)=> state.admin.listOrders)
@@ -89,14 +88,8 @@ select.classList.toggle("backOffice__filter--select--show")
        <div className="backOffice__Div">
        <h2 className="customerAccount__title">Commandes</h2>
        </div>
-      <div className="backOffice__div">
-       
-      <div className="deleteAside">
-      <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
-      <NavLink to="/admin/products"><p className="deleteAside__lien">Produits</p></NavLink> 
-     <NavLink to="/admin/orders"><p className="deleteAside__lien">Commandes</p></NavLink>
-     <NavLink to="/"><p className="deleteAside__lien">Compte Clients</p></NavLink>
-        </div>
+      <div className="customerAccount__div">
+   <NavBarAdmin />
  
        <div className="backOffice__mainContainer">
           <div className="backOffice__filter">

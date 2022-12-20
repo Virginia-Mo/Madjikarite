@@ -1,6 +1,5 @@
 @use 'src/styles/vars' as v;
 
-
 #menu, #menu-bg{
   display: none;
 }
@@ -87,10 +86,13 @@
    font-style: 500;
  }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 600px) {
   #menu, #menu-bg {
     display: block;
   }
+}
+@media screen and (max-width: 1024px) {
+
   .backOffice__table{
     &--table {
     border: 0;
@@ -161,4 +163,5 @@
   .backOffice__div {
     flex-direction: column;
   }
+
 }

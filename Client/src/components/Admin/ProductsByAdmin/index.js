@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import Search from "../../Search";
 
 import './style.scss';
-
+import './../OrdersByAdmin/style.scss'
 import axios from "axios";
+import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 
 
 const API_BASE_URL = "https://madjikarite.onrender.com";
@@ -58,11 +59,10 @@ function ProductsByAdmin() {
 
   return (
     <div className="backOffice__container">
-
-      <h1 className="backOffice__h1"><strong>Bienvenue</strong>, Yanki!</h1>
   
-      <h2 className="backOffice__h2">Produits en vente</h2>
-
+      <h2 className="customerAccount__title">Produits en vente</h2>
+      <div className="customerAccount__div">
+        <NavBarAdmin />
       <div className="backOffice__mainContainer">
 
       <div className="backOffice__top">
@@ -79,9 +79,9 @@ function ProductsByAdmin() {
       <div className="backOffice__filter">
      
       <div className="backOffice__formDiv">
-          <table>
+          <table className="backOffice__table--table">
 
-          <thead>
+          <thead className="backOffice__table--thead">
 
         <tr>
             <th>Id:</th> 
@@ -100,13 +100,17 @@ function ProductsByAdmin() {
       onChange={handleCheckbox}
       className="inputRefs"></input></td> */}
            
-            <td> 
+            <td data-label="Id" className="backOffice__table--td"> 
               <Link to={`/admin/productPage/${product.id}`} > {product.id}   </Link> 
             </td>
-            <td>{product.product_name}€</td>
-            <td>{product.price}</td>
-            <td>{product.product_category}</td>
-            <td>{product.stock}</td>
+            <td data-label="Nom du produit" className="backOffice__table--td">
+            <Link to={`/admin/productPage/${product.id}`} > {product.product_name} </Link></td>
+            <td data-label="Prix" className="backOffice__table--td">
+            <Link to={`/admin/productPage/${product.id}`} > {product.price}€ </Link></td>
+            <td data-label="Catégorie" className="backOffice__table--td">
+            <Link to={`/admin/productPage/${product.id}`} > {product.product_category} </Link> </td>
+            <td data-label="Stock" className="backOffice__table--td">
+            <Link to={`/admin/productPage/${product.id}`} >  {product.stock}</Link></td>
         </tr>
     ))}
        
@@ -114,6 +118,7 @@ function ProductsByAdmin() {
 </table>
  </div>
 
+    </div>
     </div>
     </div>
     </div>

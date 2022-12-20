@@ -17,23 +17,18 @@ function Category() {
     product.category_id === nb
   ));
   
-  // const categories = useSelector((state) => state.products.listCategories);
+  const categories = useSelector((state) => state.products.listCategories);
   
-  // const categorie = categories.filter((category) => (
-  //   category.id === nb
-  // ));
-
-
-  //console.log(categorie.name]);
-  // I display the name of the category
-  // const categoryTitle = categorie.name;
+  const categorie = categories.find((category) => (
+    category.id === nb
+  ));
 
   return (
 
-    <main className="main-category">
+    <main >
+   { categorie && (<h2 className='mainTitle__h2'>{categorie.name}</h2>)   }
     
-    {/* <h2>{categoryTitle}</h2> */}
-
+    <div className="main-category">
       {
         // I display every product of the category
         productsByCategory.map((product) => (
@@ -43,7 +38,7 @@ function Category() {
           />
         ))
       }
-      
+    </div> 
     </main>
 
   );

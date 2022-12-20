@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 import './style.scss';
 
 import axios from "axios";
@@ -66,17 +66,12 @@ function productPageByAdmin () {
 
   const token = localStorage.getItem('token');
 
-  
-
-
   return (
-    <div className="backOffice__container">
-
-     <h1 className="backOffice__h1"><strong>Bienvenue</strong>, Yanki</h1>
-
+    <div className="backOffice__container"> 
+       <h2 className="customerAccount__title">Nouveau produit</h2>
+       <div className="customerAccount__div">
+        <NavBarAdmin />
       <div className="backOffice__mainContainer">
-
-        <h2 className="backOffice__h2">Nouveau produit</h2>
 
       <form className="backOffice__form" onSubmit={handleSubmit}>
 
@@ -140,7 +135,7 @@ function productPageByAdmin () {
        <button className="backOffice__form__button" type="submit"
          >Modifier</button>
  </form>
-
+</div>
 
     </div>
     </div>

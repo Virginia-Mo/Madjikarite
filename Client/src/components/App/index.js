@@ -26,6 +26,7 @@ import OrdersByAdmin from '../Admin/OrdersByAdmin';
 import ProductsByAdmin from '../Admin/ProductsByAdmin';
 import NewProductByAdmin from '../Admin/ProductsByAdmin/NewProductByAdmin';
 import ProductPageByAdmin from '../Admin/ProductsByAdmin/ProductPageByAdmin';
+import SingleOrderByAdmin from '../Admin/OrdersByAdmin/SingleOrderByAdmin';
 
 import './styles.scss';
 

@@ -24,6 +24,9 @@
       box-sizing: border-box;
       color: v.$color-brown;
     }
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 
   &__item--first {

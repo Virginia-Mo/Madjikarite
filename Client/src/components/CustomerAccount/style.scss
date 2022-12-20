@@ -1,6 +1,8 @@
 @use 'sass:color';
 @use 'src/styles/vars' as vars;
-
+.active {
+  background-color: vars.$color-light-brown;
+}
 .customerAccount {
   width: 70%;
   height: auto;
@@ -113,8 +115,11 @@
   margin-bottom: 1rem;
 }
 @media screen and (max-width:1024px){
-  h2  {
+  .customerAccount__title {
     font-size : 3.6rem;
     margin-left: 0;
+  }
+  .customerAccount__div {
+    flex-direction: column;
   }
 }

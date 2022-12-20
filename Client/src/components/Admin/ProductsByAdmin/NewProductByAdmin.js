@@ -1,7 +1,7 @@
 //fonctionnalité codée sans redux suite problème d'accès au store en tant qu'admin
 
 import React, { useEffect, useState } from "react";
-
+import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 import { Link } from "react-router-dom";
 
 import './style.scss';
@@ -76,10 +76,10 @@ function newProductByAdmin () {
   return (
     <div className="backOffice__container">
 
-      <h1 className="backOffice__h1"><strong>Bienvenue</strong>, Yanki!</h1>
-
-      <h2 className="backOffice__h2">Nouveau produit</h2>
+      <h2 className="customerAccount__title">Nouveau produit</h2>
       
+      <div className="customerAccount__div">
+        <NavBarAdmin />
       <div className="backOffice__mainContainer">
 
       <form className="backOffice__form" action="POST"  onSubmit={handleSubmit}>
@@ -151,7 +151,7 @@ function newProductByAdmin () {
         </div>
  </form>
 
-
+</div>
     </div>
     </div>
   );

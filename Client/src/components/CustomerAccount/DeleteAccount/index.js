@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { deleteAccount } from '../../../actions/user';
+import NavBarCustomer from '../NavBarCustomer/NavBarCustomer';
 
 import './style.scss'
 
@@ -19,15 +20,7 @@ function DeleteAccount() {
   
 
     <div className="customerAccount__div">
-
-
-    <div className="deleteAside">
-    <NavLink to="/customeraccount"><p className="deleteAside__lien">Informations du compte</p></NavLink>
-      <NavLink to="/customeraccount/address"><p className="deleteAside__lien">Adresses</p></NavLink>
-      <p className="deleteAside__lien">Historiques des commandes</p>
-      <NavLink to="/customeraccount/deleteaccount"><p className="deleteAside__lien">Supprimer mon compte</p></NavLink>
-    </div> 
-
+      <NavBarCustomer />
       <div className="delete__text">
 
         <p className="delete__text--paragraph">Vous êtes sur le point de supprimer votre compte.
