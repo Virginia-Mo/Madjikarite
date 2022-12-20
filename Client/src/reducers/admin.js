@@ -1,12 +1,22 @@
-// export const initialState = {
-  
-// };
+import { SAVE_ORDERS } from "../actions/admin";
 
-// const reducer = (state = initialState, action = {}) => {
-//   switch (action.type) {
-//     default:
-//       return state;
-//   }
-// }
+const initialState = {
+  listOrders : [],
+};
 
-// export default reducer;
+function reducer(state = initialState, action = {}) {
+const {type, payload } = action
+
+  switch (type) {
+
+    case SAVE_ORDERS : 
+    return {
+      ...state,
+      listOrders : payload.orders
+    };
+    default:
+      return state;
+  }
+}
+
+export default reducer;

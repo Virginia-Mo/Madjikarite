@@ -14,7 +14,8 @@ function Workers() {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
-  }, []);
+    window.scroll(0, 0);
+  },[]);
 
   return (
 

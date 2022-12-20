@@ -1,34 +1,38 @@
+import { useEffect } from 'react';
 import { IoSadOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import Slide from '../Slide';
 import ShoppingLine from './ShoppingLine';
+import { getFinalPrice,submitOrder } from '../../actions/cart';
 import { getWeightQuantity } from "src/selectors/getCartQuantity";
+import FieldAccount from '../CustomerAccount/FieldAccount';
 import './style.scss';
 
 function cart() {
-
   const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getFinalPrice(totalPrice, shipping))
+  })
+
   const cart = useSelector((state)=> state.cart.cart)
   const totalPrice = useSelector((state)=> state.cart.totalPrice)
   const shipping = useSelector((state) => (
     getWeightQuantity()
   ));
+
+  // Getting the final price with shipping included
   const finalPrice = shipping + totalPrice
+
   const handleSubmit = (event)=> {
     event.preventDefault();
- 
-    const form = event.target;
-    const data = new FormData(form);
-    const formData = {
-      cart: cart,
-      totalPrice : totalPrice,
-      message: data.get("message")
-  };
-  if(totalPrice <=0){
-    return
-  }
-    console.log(formData)
+    console.log("click");
+    // Submit unabled with totalPrice = 0
+    if(totalPrice <=0){
+      console.log("No order");
+      return
     }
+    dispatch(submitOrder())
+     }; 
   
   
   return (
@@ -54,23 +58,23 @@ function cart() {
         <form action=""
           className='cart__totalContainer__form'
           onSubmit={handleSubmit}>
-          <label htmlFor="message">Une information à me transmettre ? N'hésitez pas !</label>
-          <textarea
-            name="message"
-            placeholder='Votre message ici'
-            className='cart__totalContainer__input'></textarea>
+          <FieldAccount
+                name="message"
+                type="text"
+                placeholder="Votre message ici"
+                label="Une information à me transmettre ? N'hésitez pas !" />
         
         <div className="cart__total">
           <p>Total des produits: <span>{totalPrice} €</span></p>
           <p>Frais de port: <span>{shipping}€</span></p> 
           <p><strong>TOTAL</strong>: <span>{finalPrice} €</span></p>
         </div>
-        <div className="cart__coupon">
+        {/* <div className="cart__coupon">
           <p>Carte cadeaux: <span>???</span></p>
-        </div>
+        </div> */}
        
         <div className="cart__button">
-          <button type="submit" className='cart__button--submit'>Valider la commande</button>
+          <button type="submit" className='cart__button--submit' onSubmit={handleSubmit}>Valider la commande</button>
         </div>
 </form>
       </section>

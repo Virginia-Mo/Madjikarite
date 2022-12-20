@@ -3,7 +3,7 @@ import WelcomePage from '../WelcomePage';
 import { Route, Routes } from 'react-router-dom';
 import { fetchProducts, fetchCategories } from '../../actions/products';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import NavBar from '../NavBar';
 import Footer from '../Footer';
@@ -21,6 +21,9 @@ import SingleProduct from '../SingleProduct';
 import Workers from '../Workers';
 import Process from '../Process';
 import Category from '../Category';
+import SignUp from '../SignUp';
+import OrdersByAdmin from '../Admin/OrdersByAdmin'
+import SingleOrderByAdmin from '../Admin/OrdersByAdmin/SingleOrderByAdmin';
 import './styles.scss';
 
 
@@ -28,6 +31,8 @@ import './styles.scss';
 function App() {
   const dispatch = useDispatch();
 
+  const storage = localStorage
+console.log(storage);
     useEffect(() => {
         dispatch(fetchProducts());
         dispatch(fetchCategories());
@@ -39,8 +44,7 @@ function App() {
     <div className="app">
       <Header />
       <NavBar />
-     
-      
+     <main>
       {/* <div>
          {/* <ul> */}
        {/* { categoryProducts.map((product) => (
@@ -52,7 +56,7 @@ function App() {
 
       <Routes>
         <Route
-          path="/"
+          path="/"                                   
           element={<WelcomePage />}
         />
 
@@ -82,17 +86,20 @@ function App() {
         />
         
         <Route
+        path="/signup"
+        element={<SignUp />} 
+        />
+        <Route
         path="/customeraccount"
         element={<CustomerAccount />} 
         />
-
         <Route
-        path="/customeradress"
+        path="/customeraccount/adress"
         element={<CustomerAdress />}
         />
 
         <Route
-        path="/deleteaccount"
+        path="/customeraccount/deleteaccount"
         element={<DeleteAccount />}
         />
 
@@ -119,12 +126,25 @@ function App() {
         <Route 
         path="/category/:id"
         element={<Category />} />
+        {/* <Route 
+        path="/category${slug}/product"
+        element={<SearchResults />} /> */}
 
+        <Route
+          path="/admin/orders"
+          element={<OrdersByAdmin />}
+        />
+      <Route
+      path="/admin/order/:slug"
+      element={<SingleOrderByAdmin />} 
+
+      />
         <Route
           path="*"
           element={<Error />}
         />
       </Routes>
+      </main>
 <Footer />
     </div>
   );

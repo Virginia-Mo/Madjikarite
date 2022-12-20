@@ -45,7 +45,7 @@ function Slide() {
           prevEl: '.slide__button-prev',
         }}
         breakpoints={sliderSettings}
-        spaceBetween={80}
+        spaceBetween={20}
         slidesPerView={3}
         grabCursor
         modules={[Pagination, Navigation]}
