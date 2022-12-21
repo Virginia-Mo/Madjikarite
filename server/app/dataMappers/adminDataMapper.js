@@ -9,6 +9,12 @@ const adminDataMapper = {
         const result = await client.query('INSERT INTO product (name, short_description, full_description, ingredients, packaging, weight, price, stock, category_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *', [product.name, product.short_description, product.full_description, product.ingredients, product.packaging, product.weight, product.price, product.stock, product.category_id]);
         return result.rows[0];
     },
+    // add a picture to a product
+    async addPictureToProduct(id, picture) {
+        const insertPicture = await client.query('INSERT INTO picture (name, url) VALUES ($1, $2) RETURNING *', [picture.picture_name, picture.picture_url]);
+        const insertRepresent = await client.query('INSERT INTO represent (product_id, picture_id) VALUES ($1, $2) RETURNING *', [id, insertPicture.rows[0].id]);
+        return insertRepresent.rows[0];
+    },
     // update a product
     async updateProduct(newData) {
         const result = await client.query('UPDATE product SET name = $2, short_description = $3, full_description = $4, ingredients = $5, packaging = $6, weight = $7, price = $8, stock = $9, category_id = $10 WHERE id = $1 RETURNING *', newData);

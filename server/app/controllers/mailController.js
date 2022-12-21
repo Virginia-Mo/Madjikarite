@@ -34,7 +34,6 @@ const mailController = {
         const { id } = req.params;
         // We check if the user exists in the database
         const user = await profileDataMapper.getOneUserWithId(id);
-        console.log(user);
         if (!user) {
             throw new Error('Cet utilisateur n\'existe pas');
         }
@@ -42,12 +41,10 @@ const mailController = {
         // We check if the token is valid
         tokenHandler.verifyResetPasswordToken(req, res, next);
         const { password } = req.body;
-        console.log(password);
         // We encrypt the new password
         const encryptedPassword = await bcrypt.hash(password, 10);
         // We send the new password to the database
-        const result = await profileDataMapper.updatePassword(user.id, encryptedPassword);
-        console.log(result);
+        await profileDataMapper.updatePassword(user.id, encryptedPassword);
         res.json({ message: 'Votre mot de passe a bien été modifié' });
     },
     async getVerifyEmail(req, res, next) {

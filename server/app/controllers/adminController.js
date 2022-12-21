@@ -8,7 +8,15 @@ const adminController = {
     // Homepage back office
     async getProductsPage(req, res) {
         const products = await productDataMapper.getAllProduct();
-        res.json(products);
+        const newProducts = [];
+        for (let i = 0, len = products.length; i < len; i += 1) {
+            // eslint-disable-next-line no-await-in-loop
+            const picture = await productDataMapper.getAllPictures(products[i].id);
+            const newProduct = products[i];
+            newProduct.pictures = picture;
+            newProducts.push(newProduct);
+        }
+        res.json(newProducts);
     },
 
     // get the create new product page
@@ -20,7 +28,7 @@ const adminController = {
     async validateFormNewProduct(req, res) {
         if (!req.body.name || !req.body.short_description
             || !req.body.full_description || !req.body.ingredients
-            || !req.body.packaging || !req.body.price || !req.body.stock
+            || !req.body.packaging || !req.body.price || !req.body.weight
             || !req.body.category_id) {
             throw new UserInputError('Tous les champs ne sont pas remplis');
         }
@@ -28,7 +36,8 @@ const adminController = {
         if (!product) {
             throw new UserInputError('Le produit n\'a pas pu être créé');
         }
-        res.json(product);
+        const picture = await adminDataMapper.addPictureToProduct(product.id, req.body);
+        res.json({ product, picture });
     },
 
     // get one product page
@@ -37,7 +46,15 @@ const adminController = {
         if (!product) {
             throw new NotFoundError('Le produit n\'existe pas');
         }
-        res.json(product);
+        const newProducts = [];
+        const pictures = await productDataMapper.getAllPictures(product.id);
+        const newProduct = product;
+        newProduct.pictures = pictures;
+        newProducts.push(newProduct);
+        if (!product) {
+            throw new NotFoundError('Le produit demandé n\'existe pas');
+        }
+        res.json(newProducts);
     },
 
     // update product
