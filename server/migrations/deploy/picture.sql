@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS "picture", "represent";
 
 CREATE TABLE "picture" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "name" TEXT NOT NULL,
+    "name" TEXT,
     "description" TEXT,
     "url" TEXT NOT NULL,
     "created_at" TIMESTAMP NOT NULL DEFAULT NOW(),

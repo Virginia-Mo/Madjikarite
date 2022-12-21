@@ -1,5 +1,6 @@
 /* eslint-disable consistent-return */
 const jwt = require('jsonwebtoken');
+const ForbiddenError = require('./ForbiddenError.js');
 
 const tokenHandler = {
     // create a token with the user id and the role
@@ -18,9 +19,9 @@ const tokenHandler = {
     verifyToken: (req, res, next) => {
         const authHeader = req.headers.authorization;
         const accessToken = authHeader && authHeader.split(' ')[1];
-        if (accessToken == null) throw new Error('No token');
+        if (accessToken == null) throw new ForbiddenError('Vous devez être connecté pour accéder à cette page');
         jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-            if (err) throw new Error('Invalid token');
+            if (err) throw new ForbiddenError('Votre session a expiré');
             req.user = user;
             next();
         });

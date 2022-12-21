@@ -11,6 +11,7 @@ const orderController = {
         const addresses = await profileDataMapper.getAddresses(req.user.id);
         const order = await orderDataMapper.postOrder(req.body, req.user.id, addresses);
         if (!order) {
+            // TODO: changer format de l'erreur
             throw new Error('Erreur lors de la création de la commande');
         }
         const newOrder = [];

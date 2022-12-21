@@ -33,6 +33,7 @@ const mainController = {
         }
 
         if (bodyErrors.length) {
+            // TODO: changer format de l'erreur
             res.status(400).json({ errors: bodyErrors });
         // If all the fields are filled, we send the form to the database
         } else {
