@@ -11,7 +11,7 @@ const adminDataMapper = {
     },
     // add a picture to a product
     async addPictureToProduct(id, picture) {
-        const insertPicture = await client.query('INSERT INTO picture (name, url) VALUES ($1, $2) RETURNING *', [picture.name, picture.url]);
+        const insertPicture = await client.query('INSERT INTO "picture"."url" VALUES ($1) RETURNING *', [picture.url]);
         const insertRepresent = await client.query('INSERT INTO represent (product_id, picture_id) VALUES ($1, $2) RETURNING *', [id, insertPicture.rows[0].id]);
         return insertRepresent.rows[0];
     },
