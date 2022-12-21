@@ -16,7 +16,8 @@ function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const loading = useSelector((state) => state.user.loading);
-const token = localStorage.getItem("token")
+  const messageError = useSelector((state) => state.user.messageError);
+  const token = localStorage.getItem("token")
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(login());
@@ -41,11 +42,12 @@ const token = localStorage.getItem("token")
             name="email"
             placeholder="Email"
             type="email" />
+          
           <Field
             name="password"
             placeholder="Mot de passe"
             type="password" />
-
+        <div className='message'>{messageError}</div>
 
           <button
             type="submit"

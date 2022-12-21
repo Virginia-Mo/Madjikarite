@@ -1,8 +1,8 @@
 import axios from "axios";
 import { SIGN_UP_USER, LOGIN, DELETE_ACCOUNT, GET_ACCOUNT, UPDATE_ACCOUNT, GET_ADDRESS,SAVE_USER_ADDRESS, UPDATE_ADDRESS } from "../actions/user";
-import {  saveUser, saveUserInfos, saveUserAddress } from '../actions/user';
+import {  saveUser, saveUserInfos, saveUserAddress, getMessageError } from '../actions/user';
 import { deleteAccount } from "../actions/user";
-
+import { useSelector } from "react-redux";
 const API_BASE_URL = 'https://madjikarite.onrender.com';
 
 const usersAPI = (store) => (next) => (action) => {
@@ -57,9 +57,20 @@ const usersAPI = (store) => (next) => (action) => {
            store.dispatch(saveUser());
           if (response.status === 200) {
             window.location.href = '/';
+          } 
+
+          if (error.response.status === 400) {
+            store.dispatch(getMessageError(error.response.data.error))
           }
+
         })
         .catch((error) => {
+          // if (error.response.status === 400) {
+          //   store.dispatch(getMessageError(error.response.data.error))
+          // }
+          console.log(error.response.data.error);
+          store.dispatch(getMessageError(error.response.data.error))
+     
           // @TODO : manage errors → state.user.loading + message + …
           console.log(error);
         });
@@ -135,7 +146,7 @@ const usersAPI = (store) => (next) => (action) => {
       const { user: { first_name, last_name, password, email, phone_number } } = store.getState();
 
       axios
-        .patch(`${API_BASE_URL}/profile`,{first_name, last_name, password, email, phone_number}, {
+        .patch(`${API_BASE_URL}/profile`,{first_name, last_name, password, email, phone_number}, { 
           headers: {
             Authorization: `bearer ${token}`
           },
@@ -152,10 +163,10 @@ const usersAPI = (store) => (next) => (action) => {
 
     case UPDATE_ADDRESS: {
       const token = localStorage.getItem('token');
-      const { user: { address, zip_code ,city, country, userAdress : {id}}} = store.getState()
-
+      const { user: { address, zip_code ,city, country, id }} = store.getState()
+      // const id = useSelector((state)=> state.user.userAddress.id)
       axios
-        .patch(`${API_BASE_URL}/profile/address${id}`, {address,zip_code,city,country} ,{
+        .patch(`${API_BASE_URL}/profile/address${id}`, {address,zip_code,city,country,id} ,{
           headers: {
             Authorization: `bearer ${token}`
           },

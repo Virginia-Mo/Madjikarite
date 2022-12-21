@@ -10,8 +10,10 @@ import './style.scss'
 function DeleteAccount() {
   const dispatch= useDispatch()
   const handleClick = () => {
+   if (window.confirm('Etes-vous sûr de vouloir supprimer votre compte ?'))
     dispatch(deleteAccount())
-  }
+   }
+  
   return (
 
     <>

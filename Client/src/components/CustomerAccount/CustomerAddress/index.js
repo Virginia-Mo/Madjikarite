@@ -20,7 +20,6 @@ function CustomerAddress() {
     dispatch(getAddress());
   }, []); // au 1er rendu
   
-
   let userAddress = useSelector((state) => state.user.userAddress);
 
   console.log(userAddress);
@@ -38,23 +37,24 @@ function CustomerAddress() {
    
       <div className="customerAccount">
         <form className="customerAdress__form" onSubmit={handleSubmit}>
+          
           <FieldAccount
-            name="Adresse de livraison"
+            name="address"
             type="text"
             placeholder={userAddress.address}
             label="Adresse de livraison" />
           <FieldAccount
-            name="Code postal"
+            name="zip_code"
             type="text"
             placeholder={userAddress.zip_code}
             label="Code postal" />
           <FieldAccount
-            name="Ville"
+            name="city"
             type="text"
             placeholder={userAddress.city}
             label="Ville" />
           <FieldAccount
-            name="Pays"
+            name="country"
             type="text"
             placeholder={userAddress.country}
             label="Pays" />

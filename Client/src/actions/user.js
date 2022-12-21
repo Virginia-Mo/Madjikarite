@@ -3,7 +3,7 @@ export const SIGN_UP_USER = 'SIGN_UP_USER';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const USER_SAVE = 'USER_SAVE';
-
+export const GET_MESSAGE_ERROR = 'GET_MESSAGE_ERROR'
 // Action to change the value of an input
 export function changeInputValue(key, value) {
   return {
@@ -26,6 +26,14 @@ export function signUpUser() {
 export function login() {
   return {
     type: LOGIN,
+  };
+}
+
+
+export function getMessageError(messageError) {
+  return {
+    type: GET_MESSAGE_ERROR,
+    payload : {messageError}
   };
 }
 
