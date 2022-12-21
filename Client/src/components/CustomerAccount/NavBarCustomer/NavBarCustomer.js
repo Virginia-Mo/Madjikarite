@@ -7,7 +7,6 @@ function NavBarCustomer() {
   const nav = useRef()
   const menubg = useRef()
 
-
   const menuOnClick = () => {
     menubar.current.classList.toggle("change");
      nav.current.classList.toggle("change");
