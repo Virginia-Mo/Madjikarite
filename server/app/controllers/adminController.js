@@ -76,6 +76,23 @@ const adminController = {
         const product_id = parseInt(req.params.id, 10);
         const oldData = await productDataMapper.getOneProduct(product_id);
         // TODO: vérifier que le produit existe bien
+        if (req.body.picture_url) {
+            const newPictureUrl = req.body.picture_url.split(',');
+            const newPictures = [];
+            for (let i = 0, len = newPictureUrl.length; i < len; i += 1) {
+                const picture = {
+                    url: newPictureUrl[i],
+                    // eslint-disable-next-line camelcase
+                    product_id,
+                };
+                newPictures.push(picture);
+            }
+            await adminDataMapper.deletePictures(product_id);
+            for (let i = 0, len = newPictures.length; i < len; i += 1) {
+            // eslint-disable-next-line no-await-in-loop
+                await adminDataMapper.addPictureToProduct(product_id, newPictures[i]);
+            }
+        }
         const newData = [];
         newData.push(product_id);
         // eslint-disable-next-line no-restricted-syntax

@@ -38,6 +38,7 @@ const tokenHandler = {
         return accessToken;
     },
     // verify the token for the email validation
+    // eslint-disable-next-line no-unused-vars
     verifyEmailVerificationToken: (req, _, next) => {
         jwt.verify(req.params.token, process.env.EMAIL_TOKEN_SECRET, (err, user) => {
             if (err) throw new Error('Invalid token');
@@ -56,6 +57,7 @@ const tokenHandler = {
         return accessToken;
     },
     // verify the token for the password reset
+    // eslint-disable-next-line no-unused-vars
     verifyResetPasswordToken: (req, _, next) => {
         // eslint-disable-next-line max-len
         jwt.verify(req.params.token, process.env.EMAIL_TOKEN_SECRET + req.user.password, (err, user) => {
