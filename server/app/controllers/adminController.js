@@ -37,18 +37,14 @@ const adminController = {
             throw new UserInputError('Le produit n\'a pas pu être créé');
         }
         // eslint-disable-next-line camelcase
-        const { picture_name, picture_url } = req.body;
-        // eslint-disable-next-line camelcase
-        const newPictureName = picture_name.split(',');
+        const { picture_url } = req.body;
         // eslint-disable-next-line camelcase
         const newPictureUrl = picture_url.split(',');
-        for (let i = 0, len = newPictureName.length; i < len; i += 1) {
+        for (let i = 0, len = newPictureUrl.length; i < len; i += 1) {
             const picture = {
-                name: newPictureName[i],
                 url: newPictureUrl[i],
                 product_id: product.id,
             };
-            console.log(picture);
             // eslint-disable-next-line no-await-in-loop
             const newPicture = await adminDataMapper.addPictureToProduct(product.id, picture);
             if (!newPicture) {
