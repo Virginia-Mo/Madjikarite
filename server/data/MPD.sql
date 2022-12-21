@@ -75,7 +75,7 @@ CREATE TABLE "user_review" (
 CREATE TABLE "order" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "cart" TEXT[] NOT NULL,
-    "message" TEXT NOT NULL,
+    "message" TEXT,
     "final_price" NUMERIC NOT NULL,
     "user_id" INT NOT NULL REFERENCES "user" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     "address_id" INT NOT NULL REFERENCES "address" ("id") ON DELETE CASCADE ON UPDATE CASCADE,

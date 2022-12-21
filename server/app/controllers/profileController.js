@@ -102,6 +102,7 @@ const profileController = {
     // Show the profile page
     async profilePage(req, res) {
         const profile = await profileDataMapper.getOneUserWithId(req.user.id);
+        // TODO: erreur si pas de profil
         const profileData = {
             last_name: profile.last_name,
             first_name: profile.first_name,
@@ -115,6 +116,7 @@ const profileController = {
         const { id } = req.user;
         // We get all the old data from the database
         const oldData = await profileDataMapper.getOneUserWithId(id);
+        // TODO: erreur si pas de profil
         const newData = [];
         newData.push(id);
         const { password } = req.body;
@@ -151,25 +153,30 @@ const profileController = {
     // Delete the account from the database
     async deleteProfile(req, res) {
         await profileDataMapper.deleteProfile(req.user.id);
+        // TODO: vérification si le compte a bien été supprimé
         res.json({ message: 'Votre compte à bien été supprimé' });
     },
     async addressPage(req, res) {
         const addresses = await profileDataMapper.getAddresses(req.user.id);
+        // TODO: erreur si pas d'adresse
         return res.json(addresses);
     },
     async createAddress(req, res) {
         const { id } = req.user;
         const address = await profileDataMapper.createAddress(id, req.body);
+        // TODO: erreur si pas d'adresse
         res.json(address);
     },
     async getOneAddress(req, res) {
         const addressNumber = req.params.id - 1;
         const address = await profileDataMapper.getOneAddress(req.user.id, addressNumber);
+        // TODO: erreur si pas d'adresse
         res.json(address);
     },
     // TODO: mauvaise modification, pour le moment modifie l'adresse ayant l'id du user
     async updateAddress(req, res) {
         const address = await profileDataMapper.updateAddress(req.user.id, req.body);
+        // TODO: erreur si pas d'adresse
         res.json(address);
     },
     async deleteAddress(req, res) {
