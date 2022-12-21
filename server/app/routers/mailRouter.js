@@ -1,20 +1,16 @@
 const { Router } = require('express');
 const mailController = require('../controllers/mailController');
-// const controllerWrapper = require('../helpers/controllerWrapper');
-// const authUser = require('../helpers/userMiddleware');
-// const validate = require('../validations/validate');
-// const profileCreateSchema = require('../validations/schemas/profileCreateSchema');
-// const loginSchema = require('../validations/schemas/loginSchema');
+const controllerWrapper = require('../helpers/controllerWrapper');
 
 const router = new Router();
 
 router.route('/forgot-password')
-    .post(mailController.postForgotPassword);
+    .post(controllerWrapper(mailController.postForgotPassword));
 
 router.route('/reset-password/:id/:token')
-    .get(mailController.getResetPassword)
-    .post(mailController.postResetPassword);
+    .get(controllerWrapper(mailController.getResetPassword))
+    .post(controllerWrapper(mailController.postResetPassword));
 
-router.get('/verify-email/:id/:token', mailController.getVerifyEmail);
+router.get('/verify-email/:id/:token', controllerWrapper(mailController.getVerifyEmail));
 
 module.exports = router;

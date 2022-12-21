@@ -1,4 +1,6 @@
 /* eslint-disable camelcase */
+const UserInputError = require('../helpers/userInputError');
+
 const mainController = {
 
     // Show the homepage
@@ -33,8 +35,7 @@ const mainController = {
         }
 
         if (bodyErrors.length) {
-            // TODO: changer format de l'erreur
-            res.status(400).json({ errors: bodyErrors });
+            throw new UserInputError('Tous les champs doivent être remplis', bodyErrors);
         // If all the fields are filled, we send the form to the database
         } else {
             res.json({ message: 'Votre message a bien été envoyé' });

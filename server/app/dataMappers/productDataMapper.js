@@ -3,7 +3,7 @@ const client = require('../helpers/db');
 const productDataMapper = {
     // Get all the product of a category
     async getAllProductOfACategory(id) {
-        const result = await client.query('SELECT "product"."id", "product"."name" AS "product_name", "product"."short_description", "product"."full_description", "product"."ingredients", "product"."packaging", "product"."weight", "product"."price", "product"."stock", "product"."category_id", "category"."name" AS "category_name", "product"."created_at" FROM "product" JOIN "category" ON "product"."category_id" = "category"."id" WHERE "category_id" = $1', [id]);
+        const result = await client.query('SELECT "product"."id", "product"."name" AS "product_name", "product"."short_description", "product"."full_description", "product"."ingredients", "product"."packaging", "product"."weight", "product"."price", "product"."stock", "product"."category_id", "category"."name" AS "category_name", "product"."created_at" FROM "product" JOIN "category" ON "product"."category_id" = "category"."id" WHERE "category_id" = $1 ORDER BY "product"."id"', [id]);
         return result.rows;
     },
     // Get all the pictures
