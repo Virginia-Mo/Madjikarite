@@ -20,7 +20,7 @@ const emailVerification = {
         // Mail options
         const mailOptions = {
             from: process.env.EMAIL,
-            to: process.env.EMAIL,
+            to: user.email,
             subject: 'Test',
             text: `Veuillez cliquer sur le lien suivant pour être redirigé vers la page de création d'un nouveau mot de passe : http://localhost:3000/reset-password/${user.id}/${resetPasswordToken} `,
         };
@@ -52,7 +52,7 @@ const emailVerification = {
         // Mail options
         const mailOptions = {
             from: process.env.EMAIL,
-            to: process.env.EMAIL,
+            to: user.email,
             subject: 'Test',
             text: `Veuillez cliquer sur le lien suivant pour valider votre adresse mail : http://localhost:3000/verify-email/${user.id}/${resetPasswordToken} `,
         };

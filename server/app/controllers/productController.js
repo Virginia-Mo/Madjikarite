@@ -44,7 +44,7 @@ const productController = {
             newProduct.pictures = picture;
             newProducts.push(newProduct);
         }
-        res.json(products);
+        res.json(newProducts);
     },
     // get all categories page
     async getAllCategories(req, res) {

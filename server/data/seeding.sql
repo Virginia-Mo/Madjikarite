@@ -18,7 +18,7 @@ INSERT INTO "user" ("first_name", "last_name", "email", "email_verified", "phone
 VALUES
     ('Larry', 'Bambelle', 'larry.bambelle@gmail.com', true, '0606060606', '$2b$10$vh9rQ95D3gJ255hDcAqUcerl9pXyvhMwqUue1Mydf63W9Lac5lkYe', 1),
     ('Sarah', 'Courci', 'sarah.courci@hotmail.fr', true , '0612345678', '$2b$10$vh9rQ95D3gJ255hDcAqUcerl9pXyvhMwqUue1Mydf63W9Lac5lkYe', 2),
-    ('Dave', 'Lopper', 'contact.madjikarite@gmail.com', true, '0698765432', '$2b$10$vh9rQ95D3gJ255hDcAqUcerl9pXyvhMwqUue1Mydf63W9Lac5lkYe', 2);
+    ('Dave', 'Lopper', 'dave.lopper@gmail.com', true, '0698765432', '$2b$10$vh9rQ95D3gJ255hDcAqUcerl9pXyvhMwqUue1Mydf63W9Lac5lkYe', 2);
 
 INSERT INTO "user_review" ("note", "content", "product_id", "user_id") 
 VALUES
