@@ -34,25 +34,31 @@ const ContactUs = () => {
 
   return (
     <div className="contact-us">
+
       <h2 className="contact-us__title">Formulaire de contact</h2>
+
       <form className="contact-us-form" ref={form} onSubmit={sendEmail}>
         <div className="contact-us-form__container">
-          <div className="contact-us-form__container-left">
-            <label className="contact-us-form__label">Votre nom</label>
-            <input className="contact-us-form__input" type="text" name="user_name" required="required"/>
-            <label className="contact-us-form__label">Votre courriel</label>
-            <input className="contact-us-form__input" type="email" name="user_email" required="required"/>
-          </div>
-          <div className="contact-us-form__container-right">
-            <label className="contact-us-form__label">Message</label>
-            <textarea className="contact-us-form__textarea" name="message" required="required"/>
-          </div> 
-        </div>
-        <ReCaptcha 
+          <label className="contact-us-form__label">
+            Votre nom
+          </label>
+          <input className="contact-us-form__input" type="text" name="user_name" required="required"/>
+          <label className="contact-us-form__label">
+            Votre courriel
+          </label>
+          <input className="contact-us-form__input" type="email" name="user_email" required="required"/>
+          <label className="contact-us-form__label">
+            Message
+          </label>
+          <textarea className="contact-us-form__textarea" name="message" required="required"/>
+          <ReCaptcha 
             className="contact-us-form__recaptcha"
             sitekey={process.env.CAPTCHA_SITE_KEY} 
-        />     
-        <input className="contact-us-form__submit-button" type="submit" value="Envoyer votre message" />
+            size="compact"
+          />     
+          <input className="contact-us-form__submit-button" type="submit" value="Envoyer votre message" />
+        </div>
+
       </form>
     </div>
   );

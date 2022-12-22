@@ -4,8 +4,15 @@
   flex-wrap: wrap;
   justify-content: center;
 
+  &__link-text {
+    font-size: 1.6rem;
+    font-family: v.$font-paragraph;
+    color: #000;
+  }
+
   &__link-text:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 
   &__basket, &__account, &__contact {

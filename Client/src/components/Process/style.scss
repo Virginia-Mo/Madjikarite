@@ -48,3 +48,21 @@
     }
   }
 }
+
+@media screen and (max-width: 1060px) {
+  .process {
+    &__article {
+      width: 40%;
+      height: auto;
+      &--title {
+        font-size: 3rem;
+      &--icon {
+        font-size: 3rem;
+      &--text {
+        font-size: 1.8rem;
+      } 
+    }
+  }
+}
+}
+}

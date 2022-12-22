@@ -7,73 +7,53 @@
   &__top {
     width: 100%;
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 0.7rem 1.5rem;
     background-color: v.$color-brown;
-
-    p {
-      font-size: 1.3rem;
-      line-height: 1.8rem;
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: v.$font-paragraph;
       color: #fff;
+      // margin-bottom: 0.5rem;
     }
-  }
-
-  &__contact-container {
-    display: flex;
-    flex-direction: column;
   }
 
   &__contact {
     display: flex;
-    justify-content: left;
-    align-content: center;
-    margin-bottom: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     &-icon {
-    font-size: 7rem;
+    font-size: 6rem;
     color: #fff;
-    margin: auto;
+    // margin: auto;
     }
-    h3 {
-      font-size: 2rem;
-      font-weight: 700;
-      font-family: v.$font-paragraph;
-      color: #fff;
-      margin: auto;
-    }
+
   } 
 
-  &__link-form-contact {
-    margin-bottom: 1rem;
-  }
-
-
   &__social-media {
-    width: 10%;
-    background-color: #fff;
-    border-radius: 1.5rem;
     text-align: center;
-    padding: 4rem 2rem;
-    h3 {
-      font-size: 2rem;
-      font-weight: 800;
-      font-family: v.$font-paragraph;
-      color: v.$color-brown;
-      margin-bottom: 1.5rem;
-    }
+    padding: 1rem 1rem;
+
     &-icon {
-      font-size: 6rem;
-      color: v.$color-brown;
+      font-size: 4rem;
+      color: #fff;
       margin: 0 0.5rem;
     }
   }
 
   &__legal {
+    height: 22%;
+    padding: 1rem;
+    background-color: #fff;
     text-align: center;
     font-size: 1.5rem;
     font-family: v.$font-paragraph;
-    height: 22%;
-    padding: 1rem;
+
   }
 
 }
@@ -89,9 +69,10 @@
       width: 100%;
     }
 
-    &__contact-container {
+    &__contact {
       display: none;
     }
+
     &__social-media {
       display: flex;
       justify-content: center;
@@ -118,8 +99,8 @@
           color: #fff;
           margin: 0 0.5rem;
         }
-
       }
+
     &__legal {
       text-align: center;
       font-size: 1.2rem;
