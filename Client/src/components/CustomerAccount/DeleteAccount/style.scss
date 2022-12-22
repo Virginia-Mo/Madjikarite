@@ -58,7 +58,6 @@
     padding: v.$gutter;
     border: none;
     border-radius: 1rem;
-    margin-top: 10rem;
     font-family: v.$font-paragraph;
     &:hover {
       background-color: color.scale(v.$color-light-brown, $lightness: -10%);

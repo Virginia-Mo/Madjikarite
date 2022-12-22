@@ -61,7 +61,7 @@
   background-color: #fff;
   border-radius: 0.5rem;
   width: 50%;
-  height: 50rem;
+  height: auto;
 
 }
 
@@ -81,20 +81,20 @@
 }
 
 .box__container--right {
-  height: 50rem;
+  height: auto;
   width: 50%;
 
 }
 
 .customerAccount__button {
   margin: 0 auto;
-  width: 10rem;
   background-color: vars.$color-green;
   font-size: vars.$font-size-p;
   padding: 1rem;
   border: none;
   border-radius: 1rem;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   font-family: vars.$font-paragraph;
   &:hover {
     background-color: vars.$color-light-brown;
