@@ -29,7 +29,6 @@ function productPageByAdmin () {
           .catch((error) => console.log(error))
       }
     , [])
-      console.log(product);
 
       const handleSubmit = (event) => {
       const token = localStorage.getItem('token');  
@@ -205,6 +204,7 @@ function productPageByAdmin () {
 
     </div>
     </div>
+    
   );
 }
 
