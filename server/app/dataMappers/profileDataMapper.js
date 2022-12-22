@@ -18,6 +18,12 @@ const profileDataMapper = {
     },
     // Delete a profile from the database
     async deleteProfile(id) {
+        const addresses = await client.query('SELECT "address"."id" FROM "user" JOIN "live_in" ON "live_in"."user_id" = "user"."id" JOIN "address" ON "live_in"."address_id" = "address"."id" WHERE "user"."id" = $1', [id]);
+        // eslint-disable-next-line no-plusplus
+        for (let i = 0; i < addresses.rows.length; i++) {
+            // eslint-disable-next-line no-await-in-loop
+            await client.query('DELETE FROM "address" WHERE id = $1', [addresses.rows[i].id]);
+        }
         const result = await client.query('DELETE FROM "user" WHERE id = $1', [id]);
         return result.rows[0];
     },
