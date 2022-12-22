@@ -22,7 +22,7 @@ const emailVerification = {
             from: process.env.EMAIL,
             to: user.email,
             subject: 'Test',
-            text: `Veuillez cliquer sur le lien suivant pour être redirigé vers la page de création d'un nouveau mot de passe : http://localhost:3000/reset-password/${user.id}/${resetPasswordToken} `,
+            text: `Veuillez cliquer sur le lien suivant pour être redirigé vers la page de création d'un nouveau mot de passe : ${process.env.SERVER_URL}/reset-password/${user.id}/${resetPasswordToken} `,
         };
 
         // Send the mail
@@ -54,7 +54,7 @@ const emailVerification = {
             from: process.env.EMAIL,
             to: user.email,
             subject: 'Test',
-            text: `Veuillez cliquer sur le lien suivant pour valider votre adresse mail : http://localhost:3000/verify-email/${user.id}/${resetPasswordToken} `,
+            text: `Veuillez cliquer sur le lien suivant pour valider votre adresse mail : ${process.env.SERVER_URL}/verify-email/${user.id}/${resetPasswordToken} `,
         };
 
         // Send the mail
