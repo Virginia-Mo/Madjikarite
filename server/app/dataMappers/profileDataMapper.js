@@ -30,6 +30,7 @@ const profileDataMapper = {
         return result.rows;
     },
     async createAddress(id, address) {
+        // We need to insert the address first, then insert the live_in relation
         const resultAddress = await client.query('INSERT INTO "address" (address, zip_code, city, country) VALUES ($1, $2, $3, $4) RETURNING "address"."id"', [address.address, address.zip_code, address.city, address.country]);
         const addressId = resultAddress.rows[0].id;
         const result = await client.query('INSERT INTO "live_in" (user_id, address_id) VALUES ($1, $2) RETURNING *', [id, addressId]);
