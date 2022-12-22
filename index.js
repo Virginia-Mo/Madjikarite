@@ -29,6 +29,10 @@ app.use(session({
 // We use the router
 app.use(router);
 
+app.get('*', (req, res) => {
+    res.status(404).json({ error: 'Page not found' });
+});
+
 // We start the server
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);

@@ -22,7 +22,7 @@ const profileController = {
         }
         // We check if the email is in the database
         const user = await profileDataMapper.getOneUserWithEmail(email);
-        if (!user) throw new UserInputError('Utilisateur inconnu');
+        if (!user) throw new UserInputError('Utilisateur inconnu ou mot de passe incorrect');
         // We check if the password is correct
         const result = await bcrypt.compare(password, user.password);
         // If the password is correct, we create a session
@@ -32,7 +32,7 @@ const profileController = {
             role: user.role_id,
         };
         if (!result) {
-            throw new UserInputError('Mot de passe incorrect');
+            throw new UserInputError('Utilisateur inconnu ou mot de passe incorrect');
         }
         return res.json({ firstName: user.first_name, token: token.createToken(tokenUser) });
     },
@@ -102,7 +102,7 @@ const profileController = {
     // Show the profile page
     async profilePage(req, res) {
         const profile = await profileDataMapper.getOneUserWithId(req.user.id);
-        // TODO: erreur si pas de profil
+        if (!profile) throw new UserInputError('Utilisateur inconnu');
         const profileData = {
             last_name: profile.last_name,
             first_name: profile.first_name,
@@ -116,7 +116,7 @@ const profileController = {
         const { id } = req.user;
         // We get all the old data from the database
         const oldData = await profileDataMapper.getOneUserWithId(id);
-        // TODO: erreur si pas de profil
+        if (!oldData) throw new UserInputError('Utilisateur inconnu');
         const newData = [];
         newData.push(id);
         const { password } = req.body;
@@ -153,30 +153,29 @@ const profileController = {
     // Delete the account from the database
     async deleteProfile(req, res) {
         await profileDataMapper.deleteProfile(req.user.id);
-        // TODO: vérification si le compte a bien été supprimé
         res.json({ message: 'Votre compte à bien été supprimé' });
     },
     async addressPage(req, res) {
         const addresses = await profileDataMapper.getAddresses(req.user.id);
-        // TODO: erreur si pas d'adresse
+        if (!addresses) throw new UserInputError('Aucune adresse trouvée pour cet utilisateur');
         return res.json(addresses);
     },
     async createAddress(req, res) {
         const { id } = req.user;
         const address = await profileDataMapper.createAddress(id, req.body);
-        // TODO: erreur si pas d'adresse
+        if (!address) throw new UserInputError('Impossible de créer l\'adresse');
         res.json(address);
     },
     async getOneAddress(req, res) {
         const addressNumber = req.params.id - 1;
         const address = await profileDataMapper.getOneAddress(req.user.id, addressNumber);
-        // TODO: erreur si pas d'adresse
+        if (!address) throw new UserInputError('Impossible de trouver l\'adresse');
         res.json(address);
     },
     // TODO: mauvaise modification, pour le moment modifie l'adresse ayant l'id du user
     async updateAddress(req, res) {
         const address = await profileDataMapper.updateAddress(req.user.id, req.body);
-        // TODO: erreur si pas d'adresse
+        if (!address) throw new UserInputError('Impossible de modifier l\'adresse');
         res.json(address);
     },
     async deleteAddress(req, res) {

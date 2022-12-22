@@ -29,7 +29,9 @@ const productController = {
         }
         const newProducts = [];
         const pictures = await productDataMapper.getAllPictures(product.id);
-        // TODO: erreur ou alerte si pas de photo
+        if (!pictures) {
+            throw new NotFoundError('Aucune photo trouvée pour ce produit');
+        }
         const newProduct = product;
         newProduct.pictures = pictures;
         newProducts.push(newProduct);
@@ -38,7 +40,9 @@ const productController = {
     // Show all the product
     async getAllProducts(req, res) {
         const products = await productDataMapper.getAllProduct();
-        // TODO: si pas de produits, renvoyer une erreur
+        if (!products) {
+            throw new NotFoundError('Aucun produit trouvé');
+        }
         const newProducts = [];
         for (let i = 0, len = products.length; i < len; i += 1) {
             // eslint-disable-next-line no-await-in-loop
@@ -52,7 +56,9 @@ const productController = {
     // get all categories page
     async getAllCategories(req, res) {
         const categories = await productDataMapper.getAllCategories();
-        // TODO: si pas de catégories, renvoyer une erreur
+        if (!categories) {
+            throw new NotFoundError('Aucune catégorie trouvée');
+        }
         res.json(categories);
     },
 };
