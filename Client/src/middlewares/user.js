@@ -35,7 +35,8 @@ const usersAPI = (store) => (next) => (action) => {
             }
         })
         .catch((error) => {
-            console.log(error.statusText);
+            console.log(error);
+            store.dispatch(getMessageError("Le compte utilisateur n'a pas pu être créer, merci de remplir tous les champs requis."))
         });
         next(action);
         break;
@@ -59,15 +60,9 @@ const usersAPI = (store) => (next) => (action) => {
             window.location.href = '/';
           } 
 
-          if (error.response.status === 400) {
-            store.dispatch(getMessageError(error.response.data.error))
-          }
 
         })
         .catch((error) => {
-          // if (error.response.status === 400) {
-          //   store.dispatch(getMessageError(error.response.data.error))
-          // }
           console.log(error.response.data.error);
           store.dispatch(getMessageError(error.response.data.error))
      

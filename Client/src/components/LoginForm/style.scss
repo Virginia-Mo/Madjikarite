@@ -85,6 +85,22 @@ margin: 1rem 0 4rem;
   border-radius: 0 0.5rem 0.5rem 0;
   }
 }
+@media screen and (max-width : 1024px){
+  .login {
+    flex-direction: column;
+    width: 85%;
+    &__title {
+      font-size: 3.6rem;
+    }
+  }
+  .left__box, .right__box {
+    width: 100%;
+    height:auto
+  }
+  .left__box {
+    padding: 0;
+  }
+}
 
 
 

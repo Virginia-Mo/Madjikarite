@@ -2,19 +2,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
 import Field from '../LoginForm/Field';
-
+import { resetMessageError } from '../../actions/user';
 import { signUpUser } from 'src/actions/user';
-
+import { useEffect } from 'react';
 import './style.scss';
 
 function SignUp() {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
-  
+  const messageError = useSelector((state)=> state.user.messageError)
   const logged = useSelector((state) => state.user.logged);
   const loading = useSelector((state) => state.user.loading);
   const password = useSelector((state) => state.user.password );
   const passwordConfirmation = useSelector((state) => state.user.passwordConfirmation);
+
+  useEffect(() => {
+    dispatch(resetMessageError())
+  }, [])
 
   const handleSubmit = (event) => {
 
@@ -58,7 +62,8 @@ function SignUp() {
               name="passwordConfirmation"
               type="password"
               placeholder="Confirmation du mot de passe" />
-     <small>Votre mot de passe doit contenir : -1 Majuscule, -1 Caractère spécial, -1 chiffre et 8 Caractères minimum.</small>
+     <small>Votre mot de passe doit contenir : <br/> 
+     -1 Majuscule, -1 Caractère spécial, -1 chiffre et 8 Caractères minimum.</small>
             <Field
               name="email"
               type="email"
@@ -96,6 +101,7 @@ function SignUp() {
         >
           {loading ? 'En cours...' : 'Valider'}
         </button>
+        { (messageError != " ") && (<div className="message animate__animated animate__zoomIn"><p>{messageError}</p></div>)}
       </form>
     </div></>
     

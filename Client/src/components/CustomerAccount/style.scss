@@ -3,6 +3,9 @@
 .active {
   background-color: vars.$color-light-brown;
 }
+.customerAccount__h1 strong::first-letter{
+    text-transform: uppercase;
+}
 .customerAccount {
   width: 70%;
   height: auto;
@@ -20,6 +23,7 @@
     justify-content: center;
     align-items: center;
     padding-left: 3rem;
+
   }
   &__title {
     margin-top: 4rem;
@@ -42,6 +46,7 @@
   gap: 5rem;
   margin: 0 4rem;
   position: relative;
+  width: 93%;
 }
 .box__container {
   display: flex;
@@ -116,11 +121,27 @@
   margin-bottom: 1rem;
 }
 @media screen and (max-width:1024px){
+  .customerAccount {
+    width: 90%;
+  }
   .customerAccount__title {
     font-size : 3.6rem;
-    margin-left: 0;
+    margin: 4rem 7rem 0;
   }
   .customerAccount__div {
     flex-direction: column;
+    margin: 0;
+    gap: 1.5rem;
+  }
+  .box__container {
+    flex-direction: column;
+  }
+  .box__container--right, .box__container--left {
+    width: 100%;
+    height: 100%;
+  }
+  .customerAccount__button {
+    width: auto;
+    margin: 1rem;
   }
 }

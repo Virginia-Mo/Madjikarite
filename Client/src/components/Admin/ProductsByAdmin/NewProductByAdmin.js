@@ -71,8 +71,8 @@ function newProductByAdmin () {
       .then((response) => {
         console.log(response);
         setMessageOrder(response.data.message)
-        form.current.style.display = "none",
-        messageProduct.current.style.removeProperty("display")
+        form.style.display = "none",
+        messageProduct.style.removeProperty("display")
       })
       .catch((error) => {
         console.log(error);
@@ -83,7 +83,7 @@ function newProductByAdmin () {
   return (
     <div className="backOffice__container">
 
-      <h2 className="customerAccount__title">Nouveau produit</h2>
+      <h2 className="customerAccount__title customerAccount__title--admin">Nouveau produit</h2>
       
       <div className="customerAccount__div">
         <NavBarAdmin />
@@ -91,26 +91,23 @@ function newProductByAdmin () {
 
       <form className="backOffice__form" action="POST"  onSubmit={handleSubmit} ref={form}>
 
-      <button className="backOffice__button" type="submit"
-        >Ajouter un produit</button>
-
         <div className="backOffice__formDetails">
 
         <div className="backOffice__formDetails--left">
 
         <div className="backOffice__form__input">
           <label htmlFor="name">Nom du produit</label>
-          <input type="text" name="name" value={name}/>
+          <input type="text" name="name" value={name} className="field__input"/>
         </div>
 
         <div className="backOffice__form__input">
           <label htmlFor="price">Prix</label>
-          <input type="text" name="price" value={price}/>
+          <input type="text" name="price" value={price} className="field__input"/>
         </div>
 
         <div className="backOffice__form__input">
           <label htmlFor="category">Catégorie</label>
-          <select name="category">
+          <select name="category" className="field__input">
             <option value="1">savons solides</option>
             <option value="2">savons liquides</option>
             <option value="3">beurres corporels</option>
@@ -125,34 +122,34 @@ function newProductByAdmin () {
         <div className="backOffice__formDetails--middle">
         <div className="backOffice__form__input">
           <label htmlFor="description">Description courte</label>
-          <input type="text" name="short_description" value={short_description}/>
+          <input type="text" name="short_description" value={short_description} className="field__input"/>
         </div>
       
         <div className="backOffice__form__input">
           <label htmlFor="image">Description complète</label>
-          <textarea type="text" name="full_description" value={full_description}/>
+          <textarea type="text" name="full_description" value={full_description} className="field__input"/>
         </div>
         
         <div className="backOffice__form__input">
           <label htmlFor="image">Ingrédients</label>
-          <input type="text" name="ingredients" value={ingredients}/>
+          <input type="text" name="ingredients" value={ingredients} className="field__input"/>
         </div>
 
         <div className="backOffice__form__input">
           <label htmlFor="weight">Poids</label>
-          <input type="text" name="packaging" value={packaging}/>
+          <input type="text" name="packaging" value={packaging} className="field__input"/>
         </div>
         </div>
 
         <div className="backOffice__formDetails--right">
         <div className="backOffice__form__input">
           <label htmlFor="stock">Stock</label>
-          <input type="text" name="stock" value={stock}/>
+          <input type="text" name="stock" value={stock} className="field__input"/>
         </div>
 
         <div className="backOffice__form__input">
           <label htmlFor="stock">Weight</label>
-          <input type="text" name="weight" value={weight}/>
+          <input type="text" name="weight" value={weight} className="field__input"/>
         </div>
 
         <div className="backOffice__form__input">
@@ -160,9 +157,12 @@ function newProductByAdmin () {
           <textarea name="picture_url" id="" cols="30" rows="10">
           </textarea>
         </div>  
-        
-        </div>
-        </div>
+           </div> </div>
+        <button className="backOffice__button" type="submit"
+        >Ajouter un produit</button>
+
+     
+       
       </form>
       </div>
       </div> 

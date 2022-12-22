@@ -110,4 +110,12 @@
     width: 70%;
    margin: 0 auto;
   }
+  .delete{
+  &__text {
+    width: 90%;
+    margin: auto;
+  }
+&__button {
+  margin: 0 auto;
+}}
 }

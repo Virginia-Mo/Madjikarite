@@ -39,13 +39,12 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    margin: 2rem 0;
-    width: 10rem;
-    height: 3rem;
+    margin: 2rem auto;
+    height: 4rem;
     font-family: v.$font-paragraph;
-    font-size: 1.5rem;
+    font-size: 2rem;
     border-radius: 1rem;
-    padding:v.$gutter;
+    padding:v.$gutter * 1.5;
     border: none;
     background-color: v.$color-green;
     cursor: pointer;
@@ -159,7 +158,24 @@
   }
 }
 @media screen and (max-width: 1024px) {
-
+  .messageOrder {
+    left: 11%;
+    top: 44%;
+    margin-top: 2rem;
+  } 
+  .customerAccount__title--admin {
+    margin: 7rem 7rem 0;
+  }
+  .backOffice{
+  &__formDetails {
+    flex-direction: column;
+  }
+  &__button {
+    width: auto;
+    margin: 2rem auto;
+    font-size: 2rem;
+    padding: 2rem 1.2rem;
+  }}
   .backOffice__table{
     &--table {
     border: 0;
@@ -208,6 +224,9 @@
         &--show {
       display: block;
     }
+  }
+  &__form {
+    flex-direction: column;
   }
   &--label {
     display: none;

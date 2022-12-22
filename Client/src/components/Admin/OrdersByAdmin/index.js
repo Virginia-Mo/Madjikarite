@@ -91,10 +91,10 @@ select.classList.toggle("backOffice__filter--select--show")
    <NavBarAdmin />
  
        <div className="backOffice__mainContainer">
-          <div className="backOffice__filter">
+          {/* <div className="backOffice__filter">
             <form action="" className="backOffice__filter__form">
             <div className="backOffice__top">
-             {/* {(count === 1) && 
+             {(count === 1) && 
              (<>
              <span>{count} élément sélectionné</span>
              <button type="button"> 
@@ -109,7 +109,7 @@ select.classList.toggle("backOffice__filter--select--show")
              <HiOutlineTrash
                   className='cart__articles__icon' />
                   Supprimer</button>
-                  </>)} */}
+                  </>)} 
             </div>
             <div className="backOffice__top2">
             <label htmlFor="filter" className="backOffice__filter--label">Filtrer par :</label>
@@ -125,7 +125,7 @@ select.classList.toggle("backOffice__filter--select--show")
             </div>
            
              </form>
-          </div>
+          </div> */}
           <div className="backOffice__table">
           <table className="backOffice__table--table">
 

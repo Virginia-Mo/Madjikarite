@@ -17,7 +17,7 @@ function DeleteAccount() {
   return (
 
     <>
-    <h2 className="customerAccount__title">Supprimer mon compte</h2>
+    <h1 className="customerAdress__title">Supprimer mon compte</h1>
 
   
 

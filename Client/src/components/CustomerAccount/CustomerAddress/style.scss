@@ -87,3 +87,9 @@
   background-color: color.scale(v.$color-light-brown, $lightness: -10%);
   }
 }
+@media screen and (max-width:1024px) {
+  .customerAdress__title { 
+    font-size: 3.6rem;
+    margin: 10rem 0 0;
+}
+}

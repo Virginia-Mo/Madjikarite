@@ -34,8 +34,11 @@
       &__container-contact {
         display: block;
       }
-      &__link-text {
+      &__link-text1 {
         display: none;
+      }
+      &__link-text {
+        font-size: 1.4rem;
       }
     }
   }

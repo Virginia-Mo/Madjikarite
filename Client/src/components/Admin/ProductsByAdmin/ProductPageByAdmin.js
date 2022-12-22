@@ -137,29 +137,29 @@ function productPageByAdmin () {
 
         <div className="backOffice__form__input" >
           <label htmlFor="name">Nom du produit</label>
-        <input type="text" name="name"  placeholder={product.product_name} />
+        <input type="text" name="name"  placeholder={product.product_name} className="field__input" />
         </div>
 
         <div className="backOffice__form__input">
           <label htmlFor="price">Prix</label>
-          <input type="number" name="price" placeholder={product.price}/>
+          <input type="number" name="price" placeholder={product.price} className="field__input"/>
         </div>
 
         <div className="backOffice__form__input">
           <label htmlFor="description">Description courte</label>
-          <input type="text" name="short_description" placeholder={product.short_description} />
+          <input type="text" name="short_description" placeholder={product.short_description} className="field__input" />
         </div>
 
         <div className="backOffice__form__input">
           <label htmlFor="weight">Poids</label>
-          <input type="text" name="packaging" placeholder={product.packaging}/>
+          <input type="text" name="packaging" placeholder={product.packaging} className="field__input"/>
         </div>
         </div>
 
         <div className="backOffice__formDetail--middle">
         <div className="backOffice__form__input">
           <label htmlFor="category">Catégorie</label>
-          <select name="category">
+          <select name="category" className="field__input">
             <option value="1">savons solides</option>
             <option value="2">savons liquides</option>
             <option value="3">beurres corporels</option>
@@ -174,12 +174,12 @@ function productPageByAdmin () {
 
         <div className="backOffice__form__input">
           <label htmlFor="image">Description complète</label>
-          <textarea type="text" name="full_description" cols="30" rows="10" placeholder={product.full_description}></textarea>
+          <textarea type="text" name="full_description" cols="30" rows="10" placeholder={product.full_description} className="field__input"></textarea>
         </div>
         
         <div className="backOffice__form__input">
           <label htmlFor="image">Ingrédients</label>
-          <input type="text" name="ingredients" placeholder={product.ingredients}/>
+          <input type="text" name="ingredients" placeholder={product.ingredients} className="field__input"/>
         </div>
         </div>
 
@@ -187,28 +187,28 @@ function productPageByAdmin () {
 
         <div className="backOffice__form__input">
           <label htmlFor="stock">Stock</label>
-          <input type="number" name="stock" placeholder={product.stock}/>
+          <input type="number" name="stock" placeholder={product.stock} className="field__input"/>
         </div>
 
         <div className="backOffice__form__input">
           <label htmlFor="stock">Weight</label>
-          <input type="number" name="weight" placeholder={product.weight} />
+          <input type="number" name="weight" placeholder={product.weight} className="field__input" />
         </div> 
  
         <div className="backOffice__form__input">
           <label htmlFor="picture_url">Adresse URL de l'image</label>
-          <textarea name="picture_url" id="" cols="30" rows="10" >
+          <textarea name="picture_url" id="" cols="30" rows="10" className="field__input">
           </textarea>
         </div>  
 
         </div>
 </div> 
-     
-       <button className="backOffice__form__button" type="submit"
+     <div>
+       <button className="backOffice__button" type="submit"
          >Modifier</button>
 
-       <button className="backOffice__form__button" type="button" onClick={handleDelete}
-          >Supprimer</button>  
+       <button className="backOffice__button" type="button" onClick={handleDelete}
+          >Supprimer</button>  </div>
  </form>
 </div>
 

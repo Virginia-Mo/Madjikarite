@@ -48,11 +48,11 @@ function CustomerAccount() {
 
   return (
    <>
-    <h1 className="customerAccount__h1 animate__animated animate__fadeIn"><strong>Bienvenue</strong>, {userName} ! </h1>
-    <h2 className="customerAccount__title">Modification de votre compte</h2>
+    <h2 className="customerAccount__h1 animate__animated animate__fadeIn"><strong>Bienvenue</strong>, {userName} ! </h2>
+    <h1 className="customerAccount__title">Modification de votre compte</h1>
     
    <div className="customerAccount__div">
-    { (user !== "larry.bambelle@gmail.com" && (
+{ (user !== "larry.bambelle@gmail.com" && (
      <>
     <NavBarCustomer />
      </>
@@ -62,7 +62,7 @@ function CustomerAccount() {
       <NavBarAdmin />
      </>
       )}
-    
+ 
   
       <div className="customerAccount">
         <form className="customerAccount__form" onSubmit={handleSubmit} ref={formAccount}>

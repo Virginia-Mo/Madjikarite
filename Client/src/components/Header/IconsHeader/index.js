@@ -37,7 +37,7 @@ function IconsHeader() {
           <IoBasketSharp className="header-icons__basket" />
           <div className="header-icons__cart animate__animated animate__zoomIn">{sum}</div></>
         )}
-        <p className="header-icons__link-text">Mon panier</p>
+        <p className="header-icons__link-text1">Mon panier</p>
         </div>
       </Link>
       {/* <div></div>  */}
@@ -47,7 +47,7 @@ function IconsHeader() {
         {!logged  && (
            <>
            <RiAccountCircleLine className="header-icons__account" />
-           <p className="header-icons__link-text">Se connecter</p>
+           <p className="header-icons__link-text1">Se connecter</p>
            </>)}
          </Link>
      
