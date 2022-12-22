@@ -7,12 +7,15 @@ import Field from './Field';
 import logo from '../../assets/imgs/logo-header.png';
 import img from '../../assets/imgs/sheaCream.jpeg'
 import './style.scss';
-import Header from '../Header';
-import NavBar from '../NavBar';
-import Footer from '../Footer';
+import 'animate.css'
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { resetMessageError } from '../../actions/user';
 
 function LoginForm() {
+  useEffect(()=> {
+    dispatch(resetMessageError())
+  },[])
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const loading = useSelector((state) => state.user.loading);
@@ -47,7 +50,7 @@ function LoginForm() {
             name="password"
             placeholder="Mot de passe"
             type="password" />
-        <div className='message'>{messageError}</div>
+         { (messageError != " ") && (<div className="message animate__animated animate__zoomIn"><p>{messageError}</p></div>)}
 
           <button
             type="submit"

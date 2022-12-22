@@ -1,6 +1,6 @@
 //fonctionnalité codée sans redux suite problème d'accès au store en tant qu'admin
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
@@ -12,8 +12,11 @@ const API_BASE_URL = "https://madjikarite.onrender.com";
 
 function productPageByAdmin () {
     const { slug } = useParams();
+    const form2 = useRef()
     const [product, setProduct] = useState([]);
-    const [message, setMessage] = useState()
+    const messageProduct2 = useRef()
+    const [messageOrder, setMessageOrder] = useState()
+
     useEffect(() => {
     const token = localStorage.getItem('token');
         axios
@@ -70,8 +73,14 @@ function productPageByAdmin () {
         })
       .then((response) => {
           console.log(response);
+          setMessageOrder("Le produit a bien été modifié")
+          form2.current.style.display = "none",
+          messageProduct2.current.style.removeProperty("display")
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error)
+        setMessageOrder(error.response.data.error)
+      });
   };
   
   const handleDelete = (event) => {
@@ -85,9 +94,10 @@ function productPageByAdmin () {
         },
       })
     .then((response) => {
-        console.log(response.message);
-        
-        
+        console.log(response);
+        setMessageOrder(response.data.message)
+        form2.current.style.display = "none",
+        messageProduct2.current.style.removeProperty("display")
     })
     .catch((error) => console.log(error));
   };
@@ -117,9 +127,9 @@ function productPageByAdmin () {
        <h2 className="customerAccount__title">Produit sélectionné</h2>
        <div className="customerAccount__div">
         <NavBarAdmin />
-      <div className="backOffice__mainContainer">
+      <div className="backOffice__mainContainer" >
 
-      <form className="backOffice__form" onSubmit={handleSubmit}>
+      <form className="backOffice__form backOffice__form2" action="POST"  onSubmit={handleSubmit} ref={form2}>
 
       <div className="backOffice__formDetails">
 
@@ -203,6 +213,9 @@ function productPageByAdmin () {
 </div>
 
     </div>
+   { messageOrder && (<div className="messageOrder animate__animated animate__bounceIn" ref={messageProduct2}>
+      <p>{messageOrder}</p>
+    </div>)} 
     </div>
     
   );

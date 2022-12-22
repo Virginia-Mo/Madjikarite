@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Search from "../../Search";
-
+import { AiOutlinePlus } from "react-icons/ai";
+import { MdFilterAlt } from "react-icons/md";
 import './style.scss';
 import './../OrdersByAdmin/style.scss'
 import axios from "axios";
@@ -12,13 +13,38 @@ import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 const API_BASE_URL = "https://madjikarite.onrender.com";
 
 function ProductsByAdmin() {
-  
   const [productsByAdmin, setProductsByAdmin] = useState([]);
   
   const [deleted, setDeleted] = useState(false);
 
-
+  const [sortType, setSortType] = useState("");
   const token = localStorage.getItem('token');
+
+   useEffect(() => {
+      console.log(sortType);
+      const sortArray = type => {
+        const types = {
+          id: 'id',
+          product_name: 'product_name',
+          price: 'price',
+          category_name: 'category_name',
+          stock: 'stock',
+        };
+        const sortProperty = types[type];
+        console.log(sortProperty);
+        const sorted = [...productsByAdmin].sort((p1, p2) => (p1[sortProperty] < p2[sortProperty]) ? 1 : (p1[sortProperty] > p2[sortProperty]) ? -1 : 0);
+        setProductsByAdmin(sorted);
+      };
+  
+      sortArray(sortType);
+    }, [sortType]);
+
+
+    const handleClick = (event) => {
+      event.preventDefault();
+    const select = document.querySelector(".backOffice__filter--select")
+    select.classList.toggle("backOffice__filter--select--show")
+    }    
 
   const handleDelete = () => {
     axios
@@ -64,31 +90,50 @@ function ProductsByAdmin() {
       <div className="customerAccount__div">
         <NavBarAdmin />
       <div className="backOffice__mainContainer">
-
-      <div className="backOffice__top">
-
+   <div className="backOffice__filter">
+   <form action="" className="backOffice__filter__form">
+  <div className="backOffice__top">
       <div className="backOffice__addProduct">
-        <button className="backOffice__button" type="button">
-          <Link to="/admin/new-product">Ajouter un produit</Link>
+        <button className="backOffice__button backOffice__button--add" type="button">
+          <Link to="/admin/new-product" className="backOffice__button--link"> 
+          <span className="backOffice__button--add--Plus"><AiOutlinePlus /></span>  Ajouter un produit</Link>
         </button>
-      </div>
-      <div className="backOffice__searchBar"><Search /></div>
+     
+      {/* <div className="backOffice__searchBar"><Search /></div> */}
 
       </div>
-      
-      <div className="backOffice__filter">
-     
+      </div>
+   
+      <div className="backOffice__top2 backOffice__top2--orders">
+            <label htmlFor="filter" className="backOffice__filter--label">Filtrer par :</label>
+            <button type="button" className="backOffice__filter--button"><MdFilterAlt onClick={handleClick} /></button>
+            <select 
+            name="filter"
+            className="backOffice__filter--select"
+            onChange={(event) => setSortType(event.target.value)}>
+              <option value="id">Id</option>
+              <option value="product_name">Nom du produit</option>
+              <option value="price">Prix total</option>
+              <option value="category_name">Catégorie</option>
+              <option value="stock">Stock</option>
+            </select>
+            </div>
+
+            </form>
+          </div>
+
+
       <div className="backOffice__formDiv">
           <table className="backOffice__table--table">
 
           <thead className="backOffice__table--thead">
 
         <tr>
-            <th>Id:</th> 
-            <th>Nom du produit:</th>
-            <th>Prix:</th>
-            <th>Catégorie:</th>
-            <th>Stock:</th>
+            <th data-type="id" onClick={(event) => setSortType(event.target.dataset.type)}>Id:</th> 
+            <th data-type="product_name" onClick={(event) => setSortType(event.target.dataset.type)}>Nom du produit:</th>
+            <th data-type="price" onClick={(event) => setSortType(event.target.dataset.type)}>Prix:</th>
+            <th data-type="category_name" onClick={(event) => setSortType(event.target.dataset.type)}>Catégorie:</th>
+            <th data-type="stock" onClick={(event) => setSortType(event.target.dataset.type)}>Stock:</th>
         </tr>
 
 </thead>
@@ -121,7 +166,7 @@ function ProductsByAdmin() {
     </div>
     </div>
     </div>
-    </div>
+    
   );
 }
 

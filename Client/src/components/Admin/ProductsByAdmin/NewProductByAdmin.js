@@ -1,9 +1,9 @@
 //fonctionnalité codée sans redux suite problème d'accès au store en tant qu'admin
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef} from "react";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 import { Link } from "react-router-dom";
-
+import 'animate.css';
 import './style.scss';
 
 import axios from "axios";
@@ -11,7 +11,9 @@ import axios from "axios";
 const API_BASE_URL = "https://madjikarite.onrender.com";
 
 function newProductByAdmin () {
-  
+  const form = useRef()
+  const messageProduct = useRef()
+  const [messageOrder, setMessageOrder] = useState()
   const [newProductByAdmin, setNewProductByAdmin] = useState([
     {
       name: '',
@@ -30,7 +32,6 @@ function newProductByAdmin () {
 
   const token = localStorage.getItem('token');
 
-  
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(event.target);
@@ -62,7 +63,6 @@ function newProductByAdmin () {
       stock: product.stock,
       weight: product.weight,
       picture_url: product.picture_url
-
     }, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -70,9 +70,13 @@ function newProductByAdmin () {
     })
       .then((response) => {
         console.log(response);
+        setMessageOrder(response.data.message)
+        form.current.style.display = "none",
+        messageProduct.current.style.removeProperty("display")
       })
       .catch((error) => {
         console.log(error);
+        setMessageOrder(error.response.data.error)
       });
   };
 
@@ -83,9 +87,9 @@ function newProductByAdmin () {
       
       <div className="customerAccount__div">
         <NavBarAdmin />
-      <div className="backOffice__mainContainer">
+      <div className="backOffice__mainContainer" >
 
-      <form className="backOffice__form" action="POST"  onSubmit={handleSubmit}>
+      <form className="backOffice__form" action="POST"  onSubmit={handleSubmit} ref={form}>
 
       <button className="backOffice__button" type="submit"
         >Ajouter un produit</button>
@@ -126,7 +130,7 @@ function newProductByAdmin () {
       
         <div className="backOffice__form__input">
           <label htmlFor="image">Description complète</label>
-          <input type="text" name="full_description" value={full_description}/>
+          <textarea type="text" name="full_description" value={full_description}/>
         </div>
         
         <div className="backOffice__form__input">
@@ -161,8 +165,13 @@ function newProductByAdmin () {
         </div>
       </form>
       </div>
-      </div>
+      </div> 
+    { messageOrder && (<div className="messageOrder animate__animated animate__bounceIn" ref={messageProduct}>
+      <p>{messageOrder}</p>
+    </div>)} 
     </div>
+
+
   );
 }
 

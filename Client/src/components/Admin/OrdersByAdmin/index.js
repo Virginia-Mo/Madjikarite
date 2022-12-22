@@ -14,7 +14,7 @@ function ordersByAdmin() {
   // const orders = useSelector((state)=> state.admin.listOrders)
 //  const dispatch = useDispatch()
    const [orders, setOrders] = useState([]);
-   const [sortType, setSortType] = useState("");
+   const [sortType1, setSortType1] = useState("");
    
     useEffect(() => {
       const token = localStorage.getItem('token');
@@ -32,21 +32,20 @@ function ordersByAdmin() {
         .catch((error) => console.log(error))
     }, [])
     useEffect(() => {
-      console.log(sortType);
-      const sortArray = type => {
-        const types = {
+      const sortArray1 = type => {
+        const types1 = {
+          id: 'id',
           final_price: 'final_price',
           created_at: 'created_at',
-          id: 'id',
         };
-        const sortProperty = types[type];
-        console.log(sortProperty);
-        const sorted = [...orders].sort((p1, p2) => (p1[sortProperty] < p2[sortProperty]) ? 1 : (p1[sortProperty] > p2[sortProperty]) ? -1 : 0);;
-        setOrders(sorted);
+        const sortProperty1 = types1[type];
+        const sorted1 = [...orders].sort((p1, p2) => (p1[sortProperty1] < p2[sortProperty1]) ? 1 : (p1[sortProperty1] > p2[sortProperty1]) ? -1 : 0);;
+        console.log(sorted1);
+        setOrders(sorted1);
       };
-  
-      sortArray(sortType);
-    }, [sortType]);
+      sortArray1(sortType1);
+     
+    }, [sortType1]);
 
 const handleClick = (event) => {
   event.preventDefault();
@@ -118,7 +117,7 @@ select.classList.toggle("backOffice__filter--select--show")
             <select 
             name="filter"
             className="backOffice__filter--select"
-            onChange={(event) => setSortType(event.target.value)}>
+            onChange={(event) => setSortType1(event.target.value)}>
               <option value="created_at">Date</option>
               <option value="id"> N° de la commande</option>
               <option value="final_price">Prix total</option>
@@ -135,9 +134,9 @@ select.classList.toggle("backOffice__filter--select--show")
         <tr>
             {/* <th><input type='checkbox' onChange={handleChanges} className="backOffice__formDiv__box" /> 
             </th> */}
-            <th>N° de la commande</th> 
-            <th>Total</th>
-             <th>Date</th>
+            <th data-type="id" onClick={(event) => setSortType1(event.target.dataset.type)}>N° de la commande</th> 
+            <th data-type="final_price" onClick={(event) => setSortType1(event.target.dataset.type)}>Total</th>
+             <th data-type="created_at" onClick={(event) => setSortType1(event.target.dataset.type)}>Date</th>
              <th>Message</th>
         </tr>
 

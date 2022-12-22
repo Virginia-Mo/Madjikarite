@@ -42,5 +42,18 @@ export function submitOrder(formData) {
   };
 }
 
+export const GET_MESSAGE_BUTTON = 'GET_MESSAGE_BUTTON'
 
+export function getMessageButton() {
+  return {
+    type: GET_MESSAGE_BUTTON,
+  };
+}
+export const RESET_MESSAGE_BUTTON = 'RESET_MESSAGE_BUTTON'
+
+export function resetMessageButton() {
+  return {
+    type: RESET_MESSAGE_BUTTON,
+  };
+}
 

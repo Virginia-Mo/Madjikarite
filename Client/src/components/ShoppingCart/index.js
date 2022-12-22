@@ -3,17 +3,24 @@ import { IoSadOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import Slide from '../Slide';
 import ShoppingLine from './ShoppingLine';
-import { getFinalPrice,submitOrder } from '../../actions/cart';
+import { getFinalPrice,resetMessageButton,submitOrder } from '../../actions/cart';
 import { getWeightQuantity } from "src/selectors/getCartQuantity";
 import FieldAccount from '../CustomerAccount/FieldAccount';
+import { resetMessageError } from '../../actions/user';
 import './style.scss';
+import 'animate.css';
 
 function cart() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getFinalPrice(totalPrice, shipping))
   })
+  useEffect(() => {
+    dispatch(resetMessageError())
+  }, [])
+
   const messageError = useSelector((state)=> state.user.messageError)
+  const messageButton = useSelector((state)=> state.cart.messageButton)
   const cart = useSelector((state)=> state.cart.cart)
   const totalPrice = useSelector((state)=> state.cart.totalPrice)
   const shipping = useSelector((state) => (
@@ -25,13 +32,14 @@ function cart() {
 
   const handleSubmit = (event)=> {
     event.preventDefault();
-    console.log("click");
     // Submit unabled with totalPrice = 0
     if(totalPrice <=0){
       console.log("No order");
       return
     }
     dispatch(submitOrder())
+
+    dispatch(resetMessageButton())
      }; 
   
   
@@ -74,9 +82,9 @@ function cart() {
         </div> */}
        
         <div className="cart__button">
-          <button type="submit" className='cart__button--submit' onSubmit={handleSubmit}>Valider la commande</button>
+          <button type="submit" className='cart__button--submit' onSubmit={handleSubmit}>{messageButton}</button>
         </div>
-        <div className="message">{messageError}</div>
+        { (messageError != " ") && (<div className="message animate__animated animate__zoomIn"><p>{messageError}</p></div>)}
 </form>
       </section>
     </div>

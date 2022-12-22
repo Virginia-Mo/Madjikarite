@@ -9,12 +9,15 @@ import NavBarAdmin from '../NavBarAdmin/NavBarAdmin';
 const API_BASE_URL = 'https://madjikarite.onrender.com';
 
 function SingleOrderByAdmin() {
-
+  const mainRef = useRef()
+  const messageOrderRef = useRef()
   const { slug } = useParams();
   const [singleOrder, setSingleOrder] = useState([])
   const [user,setUser] = useState([])
   const [details, setDetails] = useState([])
- 
+  const [messageOrder1, setMessageOrder] = useState()
+
+  console.log(mainRef);
   useEffect(() => {
       const token = localStorage.getItem('token');
       axios
@@ -44,14 +47,15 @@ function SingleOrderByAdmin() {
           },
         })
         .then((response) => {
-          alert(response.data.message);
-          if (response.status === 200) {
-            window.location.href = '/admin/orders';
-          }
+          setMessageOrder(response.data.message)
+          
+          mainRef.current.style.display = "none",
+          messageOrderRef.current.style.removeProperty("display")
         
         })
         .catch((error) => {
           console.log(error)
+          setMessageOrder(error.response.data.error)
         });
   }
 
@@ -64,8 +68,8 @@ function SingleOrderByAdmin() {
       <div className="customerAccount__div">
      <NavBarAdmin />
 
-         <div className="backOffice__mainContainer">
-<div className="backOffice__singleproduct">
+         <div className="backOffice__mainContainer" ref={mainRef}>
+<div className="backOffice__singleproduct" >
   <section className="singleOrder__order">
     <p><span className='singleProduct--span'>Date de la commande :</span> {details.order_date}  </p>
     <div className="singleProduct--div">
@@ -120,6 +124,9 @@ function SingleOrderByAdmin() {
       </div>
   </div> 
   </div>
+ { messageOrder1 && (<div className="messageOrder animate__animated animate__bounceIn" ref={messageOrderRef}>
+      <p>{messageOrder1}</p>
+    </div>)} 
   </div>
   )
   ;

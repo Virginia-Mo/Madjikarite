@@ -1,10 +1,10 @@
-import { CHANGE_INPUT_VALUE, USER_SAVE, LOGOUT, DELETE_ACCOUNT, SAVE_USER_INFOS, SAVE_USER_ADDRESS, GET_MESSAGE_ERROR } from '../actions/user';
+import { CHANGE_INPUT_VALUE, USER_SAVE, LOGOUT, DELETE_ACCOUNT, SAVE_USER_INFOS, SAVE_USER_ADDRESS, GET_MESSAGE_ERROR, RESET_MESSAGE_ERROR } from '../actions/user';
 
 const token = localStorage.getItem("token");
 const logged = localStorage.getItem("logged")
 
 export const initialState = { 
-  quantity : 0,
+  quantity: 0 ,
   first_name: "", 
   last_name: "", 
   password: "", 
@@ -14,11 +14,11 @@ export const initialState = {
   zip_code: "",
   city: "",
   country: "",  
-  phone_number: 0,
+  phone_number: null,
   userInfos : [],
   userAddress:"",
   message : "",
-  messageError : ""
+  messageError : "",
   // logged: false,
   // token : token
 };
@@ -68,7 +68,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
        messageError : payload.messageError
       }  
-
+    case RESET_MESSAGE_ERROR:
+        return {
+          ...state,
+         messageError : " ",
+        
+        }  
         
     default:
       return state;

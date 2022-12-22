@@ -1,5 +1,20 @@
 @use 'src/styles/vars' as v;
 
+.message {
+  border: solid 1px red;
+  text-align: center;
+  
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f38f8fb4;
+  width: 95%;
+  
+  & p {
+    font-size: 1.7rem;
+    font-size: v.$font-paragraph;
+  }
+}
 .cart {
   &__articlesDiv {
     display: flex;

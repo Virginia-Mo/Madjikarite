@@ -153,9 +153,11 @@ const usersAPI = (store) => (next) => (action) => {
         })
         .then((response) => {
           console.log(response);
+          store.dispatch(getMessageError(response.data.message))
         })
         .catch((error) => {
           console.log(error)
+          store.dispatch(getMessageError(error.response.data.error))
         });
         next(action);
         break;
@@ -173,9 +175,11 @@ const usersAPI = (store) => (next) => (action) => {
         })
         .then((response) => {
           console.log(response);
+          store.dispatch(getMessageError("Votre adresse a bien été modifiée"))
         })
         .catch((error) => {
           console.log(error)
+          store.dispatch(getMessageError(error.response.data.error))
         });
 
         next(action);

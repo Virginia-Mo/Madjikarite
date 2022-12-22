@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SUBMIT_ORDER } from '../actions/cart';
+import { getMessageButton, SUBMIT_ORDER } from '../actions/cart';
 import { getMessageError } from '../actions/user';
 const API_BASE_URL = 'https://madjikarite.onrender.com';
 
@@ -18,6 +18,7 @@ const cartAPI = (store) => (next) => (action) => {
       )
       .then((response) => {
           console.log(response);
+          store.dispatch(getMessageButton())
       })
       .catch((error) => {
         store.dispatch(getMessageError(" Vous devez être connecté(e) pour commander"))

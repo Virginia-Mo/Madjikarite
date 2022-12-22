@@ -4,6 +4,7 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const USER_SAVE = 'USER_SAVE';
 export const GET_MESSAGE_ERROR = 'GET_MESSAGE_ERROR'
+export const RESET_MESSAGE_ERROR = 'RESET_MESSAGE_ERROR'
 // Action to change the value of an input
 export function changeInputValue(key, value) {
   return {
@@ -34,6 +35,12 @@ export function getMessageError(messageError) {
   return {
     type: GET_MESSAGE_ERROR,
     payload : {messageError}
+  };
+}
+
+export function resetMessageError() {
+  return {
+    type: RESET_MESSAGE_ERROR,
   };
 }
 

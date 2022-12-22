@@ -1,4 +1,4 @@
-import { ADD_TO_CART, GET_FINAL_PRICE, REMOVE_ARTICLE, REMOVE_ONE_ITEM } from "../actions/cart";
+import { ADD_TO_CART, GET_FINAL_PRICE, GET_MESSAGE_BUTTON, REMOVE_ARTICLE, REMOVE_ONE_ITEM, RESET_MESSAGE_BUTTON } from "../actions/cart";
 
 const initialState = {
   cart : [],
@@ -6,6 +6,7 @@ const initialState = {
   totalPrice : 0,
   final_price : 0,
   addItemAnimation : false,
+  messageButton : "Valider la commande"
 };
 
 function reducer(state = initialState, action = {}) {
@@ -81,8 +82,20 @@ const {type, payload } = action
         cart: state.cart.filter(item => item.id !== payload.id ),
         totalPrice: state.totalPrice - payload.total
       };
-    
-    default:
+  case GET_MESSAGE_BUTTON:
+    return {
+      ...state,
+      messageButton: "Merci pour votre commande !"
+    }
+
+    case RESET_MESSAGE_BUTTON:
+      return {
+        ...state,
+       messageButton : "Valider votre commande",
+       cart : [],
+       totalPrice : 0,
+      }
+   default:
       return state;
     };
   }

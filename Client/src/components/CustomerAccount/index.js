@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import FieldAccount from '../CustomerAccount/FieldAccount';
@@ -9,13 +9,18 @@ import './style.scss';
 import 'animate.css';
 import NavBarCustomer from './NavBarCustomer/NavBarCustomer';
 import NavBarAdmin from '../Admin/NavBarAdmin/NavBarAdmin';
-
+import { resetMessageError } from '../../actions/user';
 
 function CustomerAccount() {
   const dispatch = useDispatch();
+  const formAccount = useRef()
+  const messageAccount = useRef()
+  const messageError = useSelector((state)=> state.user.messageError)
   // const navigate = useNavigate();
   useEffect(() => {
     dispatch(getAccount());
+    dispatch(resetMessageError())
+
   }, []); // au 1er rendu
   
 
@@ -34,7 +39,9 @@ function CustomerAccount() {
         alert("Mot de passe incorrect")
         return
       };
-       dispatch(updateAccount());
+       dispatch(updateAccount()) 
+    formAccount.current.style.display = "none",
+    messageAccount.current.style.removeProperty("display");
     } 
     const user = useSelector((state) => state.user.userInfos.email)
     const userName = useSelector((state) => state.user.userInfos.first_name)
@@ -58,7 +65,7 @@ function CustomerAccount() {
     
   
       <div className="customerAccount">
-        <form className="customerAccount__form" onSubmit={handleSubmit}>
+        <form className="customerAccount__form" onSubmit={handleSubmit} ref={formAccount}>
 
           <div className="box__container">
 
@@ -109,6 +116,10 @@ function CustomerAccount() {
           </button>
         </form>
         </div>
+        { messageError && (
+          <div className="messageOrder animate__animated animate__bounceIn" ref={messageAccount}>
+      <p>{messageError}</p>
+    </div>)}
         </div>
     </>
   );

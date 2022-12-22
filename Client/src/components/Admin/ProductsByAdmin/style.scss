@@ -1,6 +1,10 @@
 @use 'src/styles/vars' as v;
 
-
+.messageOrder {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+}
 #menu, #menu-bg{
   display: none;
 }
@@ -22,7 +26,8 @@
     border-radius: 2rem;
     width: 80%;
     margin: 0 auto;
-    padding: 2rem 5rem 3rem
+    padding: 2rem 5rem 3rem;
+    position: relative;
   }
   &__formDetails {
     display: flex;
@@ -48,6 +53,19 @@
       &:hover {
         background-color: v.$color-brown;
         color: v.$color-beige;
+      }
+       &--link {
+        display: flex;
+      }
+      &--add {
+        width: 17rem;
+        font-size: 1.6rem;
+     
+        &--Plus {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
   &__top2 {
@@ -95,6 +113,7 @@
     }
   }
   }
+
   &__table--table {
     width: 100%;
     text-align: center;
@@ -113,7 +132,9 @@
    font-style: 500;
  }
 }
-
+.backOffice__top2--orders {
+  height: 4rem;
+}
 .backOffice__form__input {
   display: flex;
   flex-direction: column;

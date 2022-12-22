@@ -27,7 +27,7 @@ import ProductsByAdmin from '../Admin/ProductsByAdmin';
 import NewProductByAdmin from '../Admin/ProductsByAdmin/NewProductByAdmin';
 import ProductPageByAdmin from '../Admin/ProductsByAdmin/ProductPageByAdmin';
 import SingleOrderByAdmin from '../Admin/OrdersByAdmin/SingleOrderByAdmin';
-
+import Error from '../Error404';
 import './styles.scss';
 
 
