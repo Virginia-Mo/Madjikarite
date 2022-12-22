@@ -3,7 +3,7 @@ import WelcomePage from '../WelcomePage';
 import { Route, Routes } from 'react-router-dom';
 import { fetchProducts, fetchCategories } from '../../actions/products';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 
 import NavBar from '../NavBar';
 import Footer from '../Footer';
@@ -34,15 +34,13 @@ import './styles.scss';
 // == Composant
 function App() {
   const dispatch = useDispatch();
-
+const listProducts= useSelector((state) => state.products.listProducts)
   const storage = localStorage
 console.log(storage);
     useEffect(() => {
         dispatch(fetchProducts());
         dispatch(fetchCategories());
       }, []); // au 1er rendu
-
- 
 
   return (
     <div className="app">

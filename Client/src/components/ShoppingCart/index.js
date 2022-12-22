@@ -13,7 +13,7 @@ function cart() {
   useEffect(() => {
     dispatch(getFinalPrice(totalPrice, shipping))
   })
-
+  const messageError = useSelector((state)=> state.user.messageError)
   const cart = useSelector((state)=> state.cart.cart)
   const totalPrice = useSelector((state)=> state.cart.totalPrice)
   const shipping = useSelector((state) => (
@@ -76,6 +76,7 @@ function cart() {
         <div className="cart__button">
           <button type="submit" className='cart__button--submit' onSubmit={handleSubmit}>Valider la commande</button>
         </div>
+        <div className="message">{messageError}</div>
 </form>
       </section>
     </div>

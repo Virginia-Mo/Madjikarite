@@ -108,7 +108,7 @@ function ProductsByAdmin() {
             <td data-label="Prix" className="backOffice__table--td">
             <Link to={`/admin/productPage/${product.id}`} > {product.price}€ </Link></td>
             <td data-label="Catégorie" className="backOffice__table--td">
-            <Link to={`/admin/productPage/${product.id}`} > {product.product_category} </Link> </td>
+            <Link to={`/admin/productPage/${product.id}`} > {product.category_name} </Link> </td>
             <td data-label="Stock" className="backOffice__table--td">
             <Link to={`/admin/productPage/${product.id}`} >  {product.stock}</Link></td>
         </tr>

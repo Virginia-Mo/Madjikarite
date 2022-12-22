@@ -54,10 +54,10 @@ function IconsHeader() {
         {logged && (
           <>
            <Link to="/customerAccount">
-          <RiAccountCircleFill className="header-icons__account" />
-          <p className="header-icons__link-text">Mon compte</p> 
-          </Link>
-          <button className="header-icons__link-text" onClick={handleClick}>Se déconnecter</button>
+          <RiAccountCircleFill className="header-icons__account" /> </Link>
+          <p className="header-icons__link-text" onClick={handleClick}>Se déconnecter</p> 
+    
+        
              </>
         )}
 

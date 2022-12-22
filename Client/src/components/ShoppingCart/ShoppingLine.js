@@ -24,7 +24,7 @@ const formData = {
   price : parseInt(item.price),
   total : parseInt(item.price) * 1,
   packaging : item.packaging,
-  weight: item.weight,
+  weight: parseInt(item.weight),
   totalWeight : item.weight * 1
 }
 console.log(item.price+ "et" + formData.total);

@@ -46,6 +46,9 @@ function newProductByAdmin () {
       ingredients: data.get("ingredients"),
       stock: parseInt(data.get("stock")),
       weight: parseInt(data.get("weight")),
+      picture_name: data.get("picture_name"),
+      picture_url: data.get("picture_url"),
+
     }
    console.log(product);
     axios.post(`${API_BASE_URL}/admin/new-product`, {
@@ -57,8 +60,8 @@ function newProductByAdmin () {
       full_description: product.full_description,
       ingredients: product.ingredients,
       stock: product.stock,
-      weight: product.weight
-      // pictures: pictures,
+      weight: product.weight,
+      picture_url: product.picture_url
 
     }, {
       headers: {
@@ -147,16 +150,21 @@ function newProductByAdmin () {
           <label htmlFor="stock">Weight</label>
           <input type="text" name="weight" value={weight}/>
         </div>
-        </div>
-        </div>
- </form>
 
-</div>
-    </div>
+        <div className="backOffice__form__input">
+          <label htmlFor="picture_url">Adresse URL de l'image</label>
+          <textarea name="picture_url" id="" cols="30" rows="10">
+          </textarea>
+        </div>  
+        
+        </div>
+        </div>
+      </form>
+      </div>
+      </div>
     </div>
   );
 }
-
 
 export default newProductByAdmin;
 
