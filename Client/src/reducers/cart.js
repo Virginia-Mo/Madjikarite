@@ -33,7 +33,7 @@ const {type, payload } = action
               ...item,
               quantity : item.quantity + payload.formData.quantity,
               total : item.total + payload.formData.total,
-              totalWeight:item.totalWeight + payload.formData.totalWeight
+              totalWeight: item.totalWeight + payload.formData.totalWeight
             }
     // if the product is not in the cart, i don't do anything yet
             : item
