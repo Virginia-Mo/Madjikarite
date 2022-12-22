@@ -39,7 +39,6 @@
       font-weight: 700;
       font-family: v.$font-paragraph;
       color: #fff;
-      margin: auto;
     }
   } 
 
@@ -50,20 +49,18 @@
 
   &__social-media {
     width: 10%;
-    background-color: #fff;
-    border-radius: 1.5rem;
     text-align: center;
     padding: 4rem 2rem;
     h3 {
       font-size: 2rem;
       font-weight: 800;
       font-family: v.$font-paragraph;
-      color: v.$color-brown;
+      color: #fff;
       margin-bottom: 1.5rem;
     }
     &-icon {
       font-size: 6rem;
-      color: v.$color-brown;
+      color: #fff;
       margin: 0 0.5rem;
     }
   }

@@ -26,6 +26,10 @@
       padding: 0.9rem;
       font-size: 2rem;
       border-bottom: 0.2rem solid #b0afafe5;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
     
       &--about-us {
         background-color: v.$color-beige;

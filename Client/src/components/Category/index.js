@@ -18,7 +18,7 @@ function Category() {
   ));
   
   const categories = useSelector((state) => state.products.listCategories);
-  
+  // I find the category to display the name
   const categorie = categories.find((category) => (
     category.id === nb
   ));
