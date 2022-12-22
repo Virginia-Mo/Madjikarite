@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import { IoSearch } from 'react-icons/io5';
 
-import noix from 'src/assets/imgs/noix.png';
+import noix from 'src/assets/imgs/search_bar_noix.png';
 
 import { changeSearch, displaySearchRequest } from '../../actions/searchBar';
 

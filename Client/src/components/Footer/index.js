@@ -7,33 +7,42 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <footer className="footer">
+
       <div className="footer__top">
-        <div className="footer__contact-container">
-          <div className="footer__contact">
-            <MdContactMail className="footer__contact-icon"/>
-            <h3>CONTACT</h3>
-          </div>
-          <div className="footer__adress">
-            <p className="footer__link-form-contact">
-              <Link to="/contact">Accéder au formulaire de contact</Link>
-            </p>
-            <p>Adresse postale :</p>
+
+        <div className="footer__contact">
+          <h3>CONTACT</h3>
+            <Link to="/contact">
+              <MdContactMail className="footer__contact-icon"/>
+            </Link>
+        </div>
+            {/* <p>Adresse postale :</p>
             <p>Madjikarité</p>
             <p>363 avenue des anciens combattants</p>
-            <p>62232 Fouquiéres les Béthune</p>
-          </div>
-        </div>
+            <p>62232 Fouquiéres les Béthune</p> */}
+
         <div className="footer__social-media">
+
           <h3>SUIVEZ-NOUS</h3>
           <div className="footer__social-media-icons">
+          <Link to="https://www.facebook.com/Madjikarite/">
             <RiFacebookCircleFill className="footer__social-media-icon" />
+          </Link>
+          <Link to="">
             <RiTwitterFill className="footer__social-media-icon" />
+          </Link>
           </div>
+
         </div>
+
       </div>
-      <p className="footer__legal">
-        <Link to="">Mentions légales  </Link>|  © 2022 Madjikarité
-      </p>
+
+      <div className="footer__bottom"></div>
+        <p className="footer__legal">
+          <Link to="">Mentions légales  </Link>|  © 2022 Madjikarité
+        </p>
+      <div className="footer__bottom"></div>
+      
     </footer>
   );
 }

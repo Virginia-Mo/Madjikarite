@@ -18,9 +18,9 @@
   &__item {
     display: block;
     height: 5rem;
-    padding: 1.6rem 3rem;
+    padding: 1.6rem 2.5rem;
     border-right: 0.2rem solid #b0afafe5;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     font-family: v.$font-paragraph;
     
     &:hover {
@@ -47,12 +47,12 @@
     font-size: 1.7rem;
     font-family: v.$font-paragraph;
     padding: 1.2rem;
-    background-color: #ffffffe5;
+    background-color: #ffffff;
     text-align: left;
     color: #000000e5;
     border-bottom: 0.2rem solid #f4f2f2e5;
     &:hover {
-      background-color: #f4f2f2e5;
+      background-color: #f4f2f2;
       color: v.$color-brown;
     }
   }
