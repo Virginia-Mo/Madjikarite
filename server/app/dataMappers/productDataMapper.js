@@ -18,12 +18,12 @@ const productDataMapper = {
     },
     // Get all the product
     async getAllProduct() {
-        const result = await client.query('SELECT "product"."id", "product"."name" AS "product_name", "product"."short_description", "product"."full_description", "product"."ingredients", "product"."packaging", "product"."weight", "product"."price", "product"."stock", "product"."category_id", "category"."name" AS "category_name", "product"."created_at" FROM "product" JOIN "category" ON "product"."category_id" = "category"."id"');
+        const result = await client.query('SELECT "product"."id", "product"."name" AS "product_name", "product"."short_description", "product"."full_description", "product"."ingredients", "product"."packaging", "product"."weight", "product"."price", "product"."stock", "product"."category_id", "category"."name" AS "category_name", "product"."created_at" FROM "product" JOIN "category" ON "product"."category_id" = "category"."id" ORDER BY "product"."id"');
         return result.rows;
     },
     // get all categories
     async getAllCategories() {
-        const result = await client.query('SELECT * FROM category');
+        const result = await client.query('SELECT * FROM category ORDER BY id');
         return result.rows;
     },
 };

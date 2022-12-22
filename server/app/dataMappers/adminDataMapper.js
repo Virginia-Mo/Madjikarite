@@ -37,7 +37,7 @@ const adminDataMapper = {
     },
     // get all the orders
     async getAllOrders() {
-        const result = await client.query('SELECT * FROM "order"');
+        const result = await client.query('SELECT * FROM "order" ORDER BY "created_at" DESC');
         return result.rows;
     },
     // get the user that made the order
