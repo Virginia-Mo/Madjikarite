@@ -30,7 +30,7 @@ const emailVerification = {
             if (error) {
                 console.log(error);
             } else {
-                console.log(`Email sent: ${info.response}`);
+                console.log(`Un email a été envoyé à ${user.email}`);
             }
         });
         return resetPasswordToken;
@@ -62,7 +62,7 @@ const emailVerification = {
             if (error) {
                 console.log(error);
             } else {
-                console.log(`Email sent: ${info.response}`);
+                console.log(`Un email a été envoyé à ${user.email}`);
             }
         });
         return resetPasswordToken;

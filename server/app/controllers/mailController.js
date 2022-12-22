@@ -58,7 +58,7 @@ const mailController = {
         tokenHandler.verifyEmailVerificationToken(req, res, next);
         // We update the user's emailVerified field
         await profileDataMapper.updateEmailVerified(user.id);
-        res.json({ message: 'Votre email a bien été vérifié' });
+        res.render('/', { message: 'Votre email a bien été vérifié' });
     },
 };
 
