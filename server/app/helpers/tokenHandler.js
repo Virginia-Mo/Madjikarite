@@ -9,6 +9,7 @@ const tokenHandler = {
             id: user.id,
             firstname: user.firstname,
             role: user.role,
+            email_verified: user.email_verified,
         };
         const options = { expiresIn: '1h' };
         const secret = process.env.ACCESS_TOKEN_SECRET;
@@ -21,7 +22,7 @@ const tokenHandler = {
         const accessToken = authHeader && authHeader.split(' ')[1];
         if (accessToken == null) throw new ForbiddenError('Vous devez être connecté pour accéder à cette page');
         jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-            if (err) throw new ForbiddenError('Votre session a expiré');
+            if (err) throw new ForbiddenError('Vous n\'êtes pas connecté ou votre session a expiré');
             req.user = user;
             next();
         });

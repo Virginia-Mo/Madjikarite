@@ -93,6 +93,7 @@ const profileController = {
                 id: user.id,
                 firstName: user.first_name,
                 role: user.role_id,
+                email_verified: user.email_verified,
             };
             const emailToken = emailVerification.sendEmailValidation(user);
             // eslint-disable-next-line max-len

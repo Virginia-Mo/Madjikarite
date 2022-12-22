@@ -12,6 +12,7 @@ const controllerWrapper = require('../helpers/controllerWrapper');
 const authUser = require('../helpers/userMiddleware');
 const validate = require('../validations/validate');
 const newAccountSchema = require('../validations/schemas/newAccountSchema');
+// const isEmailVerified = require('../helpers/isEmailVerified');
 
 const router = new Router();
 
