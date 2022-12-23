@@ -11,8 +11,7 @@ const profileController = require('../controllers/profileController');
 const controllerWrapper = require('../helpers/controllerWrapper');
 const authUser = require('../helpers/userMiddleware');
 const validate = require('../validations/validate');
-// const loginSchema = require('../validations/schemas/loginSchema');
-const newAccount = require('../validations/schemas/newAccountSchema');
+const newAccountSchema = require('../validations/schemas/newAccountSchema');
 
 const router = new Router();
 
@@ -22,7 +21,7 @@ router.route('/login')
 router.get('/logout', controllerWrapper(profileController.logout));
 router.route('/signup')
     .get(controllerWrapper(profileController.signupPage))
-    .post(validate('body', newAccount), controllerWrapper(profileController.createAccount));
+    .post(validate('body', newAccountSchema), controllerWrapper(profileController.createAccount));
 router.route('/profile')
     .get(authUser, controllerWrapper(profileController.profilePage))
     .patch(authUser, controllerWrapper(profileController.updateProfile))

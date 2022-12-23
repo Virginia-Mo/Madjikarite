@@ -18,6 +18,12 @@ const profileDataMapper = {
     },
     // Delete a profile from the database
     async deleteProfile(id) {
+        const addresses = await client.query('SELECT "address"."id" FROM "user" JOIN "live_in" ON "live_in"."user_id" = "user"."id" JOIN "address" ON "live_in"."address_id" = "address"."id" WHERE "user"."id" = $1', [id]);
+        // eslint-disable-next-line no-plusplus
+        for (let i = 0; i < addresses.rows.length; i++) {
+            // eslint-disable-next-line no-await-in-loop
+            await client.query('DELETE FROM "address" WHERE id = $1', [addresses.rows[i].id]);
+        }
         const result = await client.query('DELETE FROM "user" WHERE id = $1', [id]);
         return result.rows[0];
     },
@@ -36,9 +42,9 @@ const profileDataMapper = {
         const result = await client.query('INSERT INTO "live_in" (user_id, address_id) VALUES ($1, $2) RETURNING *', [id, addressId]);
         return result.rows[0];
     },
-    async getOneAddress(id, address) {
+    async getOneAddress(id) {
         const result = await client.query('SELECT "address"."id", "address"."address", "address"."zip_code", "address"."city", "address"."country" FROM "address" JOIN "live_in" ON "live_in"."address_id" = "address"."id" JOIN "user" ON "live_in"."user_id" = "user"."id" WHERE "user"."id" = $1', [id]);
-        return result.rows[address];
+        return result.rows[0];
     },
     async updateAddress(id, address) {
         const result = await client.query('UPDATE "address" SET address = $2, zip_code = $3, city = $4, country = $5 WHERE id = $1 RETURNING *', [id, address.address, address.zip_code, address.city, address.country]);
