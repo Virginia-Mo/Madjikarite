@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 const bcrypt = require('bcrypt');
 const profileDataMapper = require('../dataMappers/profileDataMapper.js');
-const emailVerification = require('../helpers/securityMail.js');
+// const emailVerification = require('../helpers/securityMail.js');
 const token = require('../helpers/tokenHandler.js');
 const UserInputError = require('../helpers/userInputError.js');
 
@@ -95,9 +95,9 @@ const profileController = {
                 role: user.role_id,
                 email_verified: user.email_verified,
             };
-            const emailToken = emailVerification.sendEmailValidation(user);
+            // const emailToken = emailVerification.sendEmailValidation(user);
             // eslint-disable-next-line max-len
-            res.json({ firstName: user.first_name, token: token.createToken(tokenUser), emailToken });
+            res.json({ firstName: user.first_name, token: token.createToken(tokenUser) });
         }
     },
     // Show the profile page
