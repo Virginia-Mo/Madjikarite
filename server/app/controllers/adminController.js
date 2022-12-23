@@ -97,7 +97,7 @@ const adminController = {
         // TODO: comparer l'id du produit qui doit être supprimé et vérifier
         // s'il a bien disparu de la BDD
 
-        res.json({ message: 'Le produit à été supprimé' });
+        res.json({ message: 'Le produit a été supprimé' });
     },
 
     // get all the order page
@@ -145,7 +145,7 @@ const adminController = {
 
     // update order
     updateOrder(req, res) {
-        res.json({ page: 'La commande à été mise à jour' });
+        res.json({ page: 'La commande a été mise à jour' });
     },
 
     // delete order
@@ -153,7 +153,7 @@ const adminController = {
         const id = parseInt(req.params.id, 10);
         await adminDataMapper.deleteOrder(id);
         // TODO: vérifier que la commande a bien été supprimée
-        res.json({ message: 'La commande à été supprimé' });
+        res.json({ message: 'La commande a été supprimée' });
     },
 };
 

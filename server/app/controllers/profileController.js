@@ -154,7 +154,7 @@ const profileController = {
     // Delete the account from the database
     async deleteProfile(req, res) {
         await profileDataMapper.deleteProfile(req.user.id);
-        res.json({ message: 'Votre compte à bien été supprimé' });
+        res.json({ message: 'Votre compte a bien été supprimé' });
     },
     async addressPage(req, res) {
         const addresses = await profileDataMapper.getAddresses(req.user.id);
@@ -168,14 +168,21 @@ const profileController = {
         res.json(address);
     },
     async getOneAddress(req, res) {
-        const addressNumber = req.params.id - 1;
-        const address = await profileDataMapper.getOneAddress(req.user.id, addressNumber);
+        const address = await profileDataMapper.getOneAddress(req.user.id);
         if (!address) throw new UserInputError('Impossible de trouver l\'adresse');
         res.json(address);
     },
     // TODO: mauvaise modification, pour le moment modifie l'adresse ayant l'id du user
     async updateAddress(req, res) {
-        const address = await profileDataMapper.updateAddress(req.user.id, req.body);
+        const data = req.body;
+        const oldAdress = await profileDataMapper.getOneAddress(req.user.id);
+        // eslint-disable-next-line no-restricted-syntax
+        for (const key in data) {
+            if (data[key] === '') {
+                data[key] = oldAdress[key];
+            }
+        }
+        const address = await profileDataMapper.updateAddress(oldAdress.id, data);
         if (!address) throw new UserInputError('Impossible de modifier l\'adresse');
         res.json(address);
     },
