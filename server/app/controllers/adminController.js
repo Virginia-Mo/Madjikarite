@@ -8,7 +8,9 @@ const adminController = {
     // Homepage back office
     async getProductsPage(req, res) {
         const products = await productDataMapper.getAllProduct();
-        // TODO: si pas de produits, renvoyer une erreur
+        if (!products) {
+            throw new NotFoundError('Aucun produit trouvé');
+        }
         const newProducts = [];
         for (let i = 0, len = products.length; i < len; i += 1) {
             // eslint-disable-next-line no-await-in-loop
@@ -75,7 +77,9 @@ const adminController = {
         // eslint-disable-next-line camelcase
         const product_id = parseInt(req.params.id, 10);
         const oldData = await productDataMapper.getOneProduct(product_id);
-        // TODO: vérifier que le produit existe bien
+        if (!oldData) {
+            throw new NotFoundError('Le produit demandé n\'existe pas');
+        }
         const newData = [];
         newData.push(product_id);
         // eslint-disable-next-line no-restricted-syntax
@@ -87,14 +91,15 @@ const adminController = {
             }
         }
         const updatedProduct = await adminDataMapper.updateProduct(newData);
-        // TODO: vérifier que le produit a bien été mis à jour
+        if (!updatedProduct) {
+            throw new UserInputError('Le produit n\'a pas pu être mis à jour');
+        }
         res.json(updatedProduct);
     },
 
     // delete product
     async deleteProduct(req, res) {
         await adminDataMapper.deleteProduct(req.params.id);
-        // TODO: comparer l'id du produit qui doit être supprimé et vérifier
         // s'il a bien disparu de la BDD
 
         res.json({ message: 'Le produit a été supprimé' });
@@ -104,7 +109,9 @@ const adminController = {
     async viewListingOrder(req, res) {
         // get all the orders
         const orders = await adminDataMapper.getAllOrders();
-        // TODO: si pas de commandes, renvoyer l'info
+        if (!orders) {
+            throw new NotFoundError('Aucune commande trouvée');
+        }
         let currentProducts = [];
         // loop on orders
         for (let i = 0; i < orders.length; i += 1) {
@@ -131,7 +138,9 @@ const adminController = {
         const orderId = parseInt(req.params.id, 10);
         const user = await adminDataMapper.getOneOrderUser(orderId);
         const order = await adminDataMapper.getOneOrderProducts(orderId);
-        // TODO: vérifier que la commande existe bien
+        if (!order) {
+            throw new NotFoundError('La commande n\'existe pas');
+        }
         if (!user) {
             throw new NotFoundError('L\'utilisateur n\'existe pas');
         }
@@ -152,7 +161,6 @@ const adminController = {
     async deleteOrder(req, res) {
         const id = parseInt(req.params.id, 10);
         await adminDataMapper.deleteOrder(id);
-        // TODO: vérifier que la commande a bien été supprimée
         res.json({ message: 'La commande a été supprimée' });
     },
 };
