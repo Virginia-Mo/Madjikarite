@@ -48,11 +48,12 @@
   &__p__link {
     font-size: 2rem;
     display: flex;
+    flex-direction: row-reverse;
     line-height: 5rem;
     margin-top: 4rem;
   }
   &__arrow {
-    font-size: 8rem;
+    font-size: 7rem;
   }
 }
 
