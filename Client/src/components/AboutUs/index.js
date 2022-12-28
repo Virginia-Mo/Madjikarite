@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import YankiPresentation from 'src/assets/imgs/yankiPresentation.jpg';
 import YankiHistory from 'src/assets/imgs/yankiHistory.jpg';
 
+
 import AOS from 'aos';
 
 import "aos/dist/aos.css";
@@ -20,13 +21,13 @@ function AboutUs() {
 
     <main className="aboutUs">
 
-    <h2 className="mainTitle__h2">Nos engagements</h2>
+    <h2 className="aboutUs__title">Nos engagements</h2>
 
-    <section className="valuesSection">
+    <section className="values">
 
-      <div className="articleA">   
-        <div className="articleA__originalText"><p className="articleA__originalText--title">La lutte contre l'excision</p></div>
-        <div className="articleA__hoverText">La lutte contre l’excision doit s’intensifier. 
+      <div className="values__article">   
+        <div className="values__article--textA"><p className="values__article--title">La lutte contre l'excision</p></div>
+        <div className="values__hoverText">La lutte contre l’excision doit s’intensifier. 
           Bien que cette pratique soit interdite, les cas d’excision se multiplient au Tchad. 
           Les normes sociales et les traditions séculaires sont souvent bien plus fortes que la peur 
           d’une condamnation. Mais au-delà d’un changement de mentalité et de comportement, il s’agit 
@@ -34,27 +35,27 @@ function AboutUs() {
         </div>
       </div>
 
-      <div className="articleB">
-        <div className="articleB__originalText"><p className="articleB__originalText--title">La lutte pour l'égalité homme - femme</p></div>
-        <div className="articleB__hoverText">La lutte pour l’égalité homme - femme est un enjeu majeur 
+      <div className="values__article">
+        <div className="values__article--textB"><p className="values__article--title">La lutte pour l'égalité homme - femme</p></div>
+        <div className="values__hoverText">La lutte pour l’égalité homme - femme est un enjeu majeur 
           pour Madjikarité. J’ai donc créé un produit naturel d’excellente qualité pour la beauté de votre 
           peau, mais également une marque qui destinée à promouvoir l’autonomisation financière des femmes 
           et à lutter contre leur pauvreté en milieu rural.
         </div>  
       </div>
 
-      <div className="articleC">
-        <div className="articleC__originalText"><p className="articleC__originalText--title">Le respect de l'environnement</p></div>
-        <div className="articleC__hoverText">La désertification est un problème majeur. Contrairement aux cultures 
+      <div className="values__article">
+        <div className="values__article--textC"><p className="values__article--title">Le respect de l'environnement</p></div>
+        <div className="values__hoverText">La désertification est un problème majeur. Contrairement aux cultures 
         destinées à l’exportation, l’arbre de  karité est un arbre sauvage qui permet de lutter contre ce phénomène 
         de désertification. Cependant, la filière karité est peu développée 
         au Tchad alors qu’il est établi par de nombreuses études qu’elle peut être un levier de développement pour ce pays. 
         </div>
       </div>
 
-      <div className="articleD">
-        <div className="articleD__originalText"><p className="articleD__originalText--title">La qualité de nos produits</p></div>
-        <div className="articleD__hoverText">Un autre enjeu est d’offrir aux consommateurs des produits de qualité 
+      <div className="values__article">
+        <div className="values__article--textD"><p className="values__article--title">La qualité de nos produits</p></div>
+        <div className="values__hoverText">Un autre enjeu est d’offrir aux consommateurs des produits de qualité 
         issus du commerce équitable. Je propose une gamme de soins cosmétiques, fabriqués à la main dans mon atelier en France. 
         J’utilise comme base, un beurre de karité pur, non raffiné, provenant d’une agriculture biologique au Burkina, où les 
         coopératives sont déjà formées aux techniques de production.  

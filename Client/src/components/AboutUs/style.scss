@@ -16,201 +16,6 @@
   }
 }
 
-.valuesSection {
-    display: flex;
-    margin: 5rem 0;
-    height: 40rem;
-
-}
-
-.articleA {
-  display: flex;
-  width: 25%;
-  height: auto;
-  &__originalText {
-    &--title{
-      font-size: v.$font-size-t;
-      font-family: v.$font-title;
-      color: beige;
-      width: 100%;
-      height: 100%;
-      flex-direction: column-reverse;
-      display: flex;
-    }
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: v.$gutter;
-    margin: 0 2rem;
-    border-radius: 0.5rem;
-    background-image: url(../../assets/imgs/valueA.jpeg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  &:hover{
-    display: none;
-    + .articleA__hoverText {
-      display: block;
-      width: 100%;
-      height: 100%;
-      font-size: 2.5rem;
-      font-family: v.$font-paragraph;
-      text-align: justify;
-      padding: 2rem;
-      margin: 0 2rem;
-      border-radius: 0.5rem;
-      background-color: rgba(239, 238, 238, 0.648);
-      transition: ease-in-out 5ms;
-    }
-  }
-}
-  &__hoverText {
-    display: none;
-  }
-}
-
-.articleB {
-  display: flex;
-  width: 25%;
-  height: auto;
-  &__originalText {
-    &--title{
-      font-size: v.$font-size-t;
-      font-family: v.$font-title;
-      color: beige;
-      width: 100%;
-      height: 100%;
-      flex-direction: column-reverse;
-      display: flex;
-    }
-    display: block;
-    width: 100%;
-    height: 100%;
-    font-size: v.$font-size-t;
-    font-family: v.$font-title;
-    padding: v.$gutter;
-    margin: 0 2rem;
-    border-radius: 0.5rem;
-    background-image: url(../../assets/imgs/valueB.jpeg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  &:hover{
-    display: none;
-    + .articleB__hoverText {
-      display: block;
-      width: 100%;
-      height: 100%;
-      font-size: 2.5rem;
-      font-family: v.$font-paragraph;
-      text-align: justify;
-      padding: 2rem;
-      margin: 0 2rem;
-      border-radius: 0.5rem;
-      background-color: rgba(239, 238, 238, 0.648);
-      transition: ease-in-out 5ms;
-    }
-  }
-}
-  &__hoverText {
-    display: none;
-  }
-}
-
-.articleC {
-  display: flex;
-  width: 25%;
-  height: auto;
-  &__originalText {
-    &--title{
-      font-size: v.$font-size-t;
-      font-family: v.$font-title;
-      color: beige;
-      width: 100%;
-      height: 100%;
-      flex-direction: column-reverse;
-      display: flex;
-    }
-    display: block;
-    width: 100%;
-    height: 100%;
-    font-size: v.$font-size-t;
-    font-family: v.$font-title;
-    padding: v.$gutter;
-    margin: 0 2rem;
-    border-radius: 0.5rem;
-    background-image: url(../../assets/imgs/valueC.jpeg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  &:hover{
-    display: none;
-    + .articleC__hoverText {
-      display: block;
-      width: 100%;
-      height: 100%;
-      font-size: 2.5rem;
-      font-family: v.$font-paragraph;
-      text-align: justify;
-      padding: 2rem;
-      margin: 0 2rem;
-      border-radius: 0.5rem;
-      background-color: rgba(239, 238, 238, 0.648);
-      transition: ease-in-out 5ms;
-    }
-  }
-}
-  &__hoverText {
-    display: none;
-  }
-}
-
-.articleD {
-  display: flex;
-  width: 25%;
-  height: auto;
-  &__originalText {
-    &--title{
-      font-size: v.$font-size-t;
-      font-family: v.$font-title;
-      color: beige;
-      width: 100%;
-      height: 100%;
-      flex-direction: column-reverse;
-      display: flex;
-      ;
-    }
-    display: block;
-    width: 100%;
-    height: 100%;
-    font-size: v.$font-size-t;
-    font-family: v.$font-title;
-    padding: v.$gutter;
-    margin: 0 2rem;
-    border-radius: 0.5rem;
-    background-image: url(../../assets/imgs/valueD.jpeg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  &:hover{
-    display: none;
-    + .articleD__hoverText {
-      display: block;
-      width: 100%;
-      height: 100%;
-      font-size: 2.5rem;
-      font-family: v.$font-paragraph;
-      text-align: justify;
-      padding: 2rem;
-      margin: 0 2rem;
-      border-radius: 0.5rem;
-      background-color: rgba(239, 238, 238, 0.648);
-      transition: ease-in-out 5ms;
-    }
-  }
-}
-  &__hoverText {
-    display: none;
-  }
-}
-  
-
 .aboutUsBloc {
   &__article {
     display: flex;
@@ -249,6 +54,99 @@
   }
 }
 
+.values {
+  display: flex;
+  flex-direction: row;
+  margin: 5rem 0;
+  height: 40rem;
+  &__article {
+    display: flex;
+    width: 25%;
+    height: auto;
+    margin: 0 2rem;
+    border-radius: 0.5rem;
+  &--title {
+    font-size: 2.5rem;
+    font-family: v.$font-title;
+    text-transform: uppercase;
+    margin: 2rem 0;
+    padding: v.$gutter;
+    color: beige;
+    display: flex;
+    justify-content: flex-start;
+  }
+  &--textA {
+    display: block;
+    background-image: url(../../assets/imgs/valueA.jpeg);
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    &:hover {
+      display: none;
+      + .values__hoverText{
+        display: block;
+      }
+    }
+  }
+  &--textB {
+    display: block;
+    background-image: url(../../assets/imgs/valueB.jpeg);
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    &:hover {
+      display: none;
+      + .values__hoverText {
+        display: block;
+      }
+    }
+  }
+  &--textC {
+    display: block;
+    background-image: url(../../assets/imgs/valueC.jpeg);
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    &:hover {
+      display: none;
+      + .values__hoverText {
+        display: block;
+      }
+    }
+  }
+  &--textD {
+    display: block;
+    background-image: url(../../assets/imgs/valueD.jpeg);
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    &:hover {
+      display: none;
+      + .values__hoverText {
+        display: block;
+      }
+    }
+  }
+  .values__hoverText {
+    display: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    font-size: v.$font-size-p;
+    font-family: v.$font-paragraph;
+    text-align: justify;
+    padding: v.$gutter;
+    margin: 0 2rem;
+    border-radius: 0.5rem;
+    background-color: rgba(239, 238, 238, 0.648);
+    transition: ease-in-out 5ms;
+    }
+  }
+}
 
 @media screen and (max-width: 1060px) {
   .aboutUsBloc {
@@ -266,7 +164,7 @@
     }
     &__pDiv {
       width: 100%;
-      margin: 2rem 0 2rem;
+      margin: 1rem 0 1rem;
       padding: v.$gutter;
     }
     &__p {
@@ -277,69 +175,24 @@
     }
   }
 
-  .valuesSection{
+  .values {
     flex-direction: column;
-    align-items: center;
-    height: 160rem;
-  }
-
-  .articleA {
-    width: 60%;
-    height: 100%;
-    margin-bottom: 2rem;
-    &__originalText {
-      &--title{
-      font-size: 3rem;
-      line-height: 2.2rem;
-    }}
-    &__hoverText {
-      font-size: 1.8rem;
-      line-height: 2.2rem;
-    }
-  }
-
-  .articleB {
-    width: 60%;
-    height: 100%;
-    margin-bottom: 2rem;
-    &__originalText {
-      &--title{
-      font-size: 3rem;
-      line-height: 2.2rem;
-    }}
-    &__hoverText {
-      font-size: 1.8rem;
-      line-height: 2.2rem;
-    }
-  }
-
-  .articleC {
-    width: 60%;
-    height: 100%;
-    margin-bottom: 2rem;
-    &__originalText {
-      &--title{
-      font-size: 3rem;
-      line-height: 2.2rem;
-    }}
-    &__hoverText {
-      font-size: 1.8rem;
-      line-height: 2.2rem;
-    }
-  }
-
-  .articleD {
-    width: 60%;
-    height: 100%;
-    margin-bottom: 2rem;
-    &__originalText {
-      &--title{
-      font-size: 3rem;
-      line-height: 2.2rem;
-    }}
-    &__hoverText {
-      font-size: 1.8rem;
-      line-height: 2.2rem;
+    height: 180rem;
+    &__article {
+      width: 40%;
+      height: 100%;
+      margin: 2rem auto;
+      &--title {
+        font-size: 3rem;
+        line-height: normal;
+        margin: 1rem 0;
+        padding: v.$gutter;
+      } 
+      &--textA, &--textB, &--textC, &--textD {
+        height: 100%;
+        width: 100%;
+        line-height: 2rem;
+      }
     }
   }
 }
