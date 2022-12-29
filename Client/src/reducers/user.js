@@ -24,7 +24,7 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
-  const { type, payload } = action; // value = { name: 'email', value: '
+  const { type, payload } = action; 
 
   switch (type) {
     case CHANGE_INPUT_VALUE:
@@ -37,7 +37,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
-        // token: payload.user.token
       };
 
     case SAVE_USER_INFOS : 
@@ -52,12 +51,6 @@ const reducer = (state = initialState, action = {}) => {
       userAddress : payload.user
     }
 
-    // case LOGOUT:
-    //   return {
-    //     ...state,
-    //     logged: false,
-    //   }
-    
     case DELETE_ACCOUNT:
       return {
         ...state,
@@ -72,7 +65,6 @@ const reducer = (state = initialState, action = {}) => {
         return {
           ...state,
          messageError : " ",
-        
         }  
         
     default:

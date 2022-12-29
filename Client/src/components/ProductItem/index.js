@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import React, {useRef} from 'react'
+
 import { addItemToCart} from '../../actions/cart';
 import {  MdAddShoppingCart } from "react-icons/md";
 import './style.scss';
 
 function ProductItem({
   // eslint-disable-next-line camelcase
-  id, pictures, product_name, category_name, short_description, packaging, price, weight,totalWeight
+  id, pictures, product_name, category_name, short_description, packaging, price, weight
 }){
   const dispatch = useDispatch()
   const cartIcon = useRef()
@@ -19,6 +20,7 @@ function ProductItem({
     event.preventDefault()
     
     setTimeout(function() {
+      // changing the animation class on click
         cartIcon.current.classList.remove("animate__zoomIn");
         cartIcon.current.classList.add("animate__fadeOutUp")
     }, 200)
@@ -36,6 +38,7 @@ function ProductItem({
   }
   dispatch(addItemToCart(formData))
   setTimeout(function() {
+          // changing the animation class on click
     cartIcon.current.classList.remove("animate__fadeOutUp");
     cartIcon.current.classList.add("animate__zoomIn")
   }, 1000)
@@ -72,13 +75,15 @@ function ProductItem({
   );
 }
 
-// ProductItem.propTypes = {
-//   image: PropTypes.string.isRequired,
-//   nom: PropTypes.string.isRequired,
-//   categorie: PropTypes.string.isRequired,
-//   description_courte: PropTypes.string.isRequired,
-//   Conditionnement: PropTypes.string.isRequired,
-//   prix: PropTypes.number.isRequired,
-// };
+ProductItem.propTypes = {
+  id : PropTypes.number.isRequired,
+  pictures: PropTypes.array.isRequired,
+  product_name: PropTypes.string.isRequired,
+  category_name: PropTypes.string.isRequired,
+  short_description: PropTypes.string.isRequired,
+  packaging: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  weight : PropTypes.number.isRequired,
+};
 
 export default ProductItem;

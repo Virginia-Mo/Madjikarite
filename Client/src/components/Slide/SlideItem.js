@@ -23,12 +23,11 @@ function SlideItem({
   );
 }
 
-// SlideItem.propTypes = {
-//   product_name: PropTypes.string.isRequired,
-//   pictures: PropTypes.arrayOf {
-//    PropTypes.string.isRequired,
-//   }
-//   category_name: PropTypes.string.isRequired,
-//   price: PropTypes.number.isRequired,
-// };
+SlideItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  product_name: PropTypes.string.isRequired,
+  pictures: PropTypes.array.isRequired,
+  category_name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+};
 export default SlideItem;

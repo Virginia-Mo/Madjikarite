@@ -27,6 +27,7 @@ import ProductsByAdmin from '../Admin/ProductsByAdmin';
 import NewProductByAdmin from '../Admin/ProductsByAdmin/NewProductByAdmin';
 import ProductPageByAdmin from '../Admin/ProductsByAdmin/ProductPageByAdmin';
 import SingleOrderByAdmin from '../Admin/OrdersByAdmin/SingleOrderByAdmin';
+import Terms from '../Terms'
 import Error from '../Error404';
 import './styles.scss';
 
@@ -47,14 +48,6 @@ console.log(storage);
       <Header />
       <NavBar />
      <main>
-      {/* <div>
-         {/* <ul> */}
-       {/* { categoryProducts.map((product) => (
-          <li key={product.id}>Nom : {product.name}, Description : {product.short_description}</li>
-          )
-        )}
-        </ul> 
-      </div> */} 
 
       <Routes>
         <Route
@@ -133,10 +126,7 @@ console.log(storage);
         <Route 
         path="/category/:id"
         element={<Category />} />
-        {/* <Route 
-        path="/category${slug}/product"
-        element={<SearchResults />} /> */}
-
+ 
         <Route
           path="/admin/orders"
           element={<OrdersByAdmin />}
@@ -157,6 +147,12 @@ console.log(storage);
         <Route
         path="/admin/new-product"
         element={<NewProductByAdmin />} />
+
+
+        <Route
+          path="/terms"
+          element={<Terms />}
+        />
 
         <Route
           path="*"

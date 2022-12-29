@@ -1,21 +1,24 @@
 import { useEffect } from 'react';
-import { IoSadOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
-import Slide from '../Slide';
-import ShoppingLine from './ShoppingLine';
+import { IoSadOutline } from 'react-icons/io5';
 import { getFinalPrice,resetMessageButton,submitOrder } from '../../actions/cart';
 import { getWeightQuantity } from "src/selectors/getCartQuantity";
-import FieldAccount from '../CustomerAccount/FieldAccount';
 import { resetMessageError } from '../../actions/user';
+
+import FieldAccount from '../CustomerAccount/FieldAccount';
+import Slide from '../Slide';
+import ShoppingLine from './ShoppingLine';
 import './style.scss';
 import 'animate.css';
 
 function cart() {
   const dispatch = useDispatch()
   useEffect(() => {
+    // Getting the final price (products + shipping) each time the user change the cart
     dispatch(getFinalPrice(totalPrice, shipping))
   })
   useEffect(() => {
+    // Reset the error message in Redux state
     dispatch(resetMessageError())
   }, [])
 
@@ -23,6 +26,7 @@ function cart() {
   const messageButton = useSelector((state)=> state.cart.messageButton)
   const cart = useSelector((state)=> state.cart.cart)
   const totalPrice = useSelector((state)=> state.cart.totalPrice)
+
   const shipping = useSelector((state) => (
     getWeightQuantity()
   ));
@@ -41,7 +45,6 @@ function cart() {
 
     dispatch(resetMessageButton())
      }; 
-  
   
   return (
     <>

@@ -9,13 +9,13 @@ function Error() {
   return (
     <div className='error'>
     <div>
-    <p>404 Erreur, Page non trouvée</p>
+    <p>404 Erreur</p>
+    <p>Page non trouvée</p>
     </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-
+    <br />
+    <div>
+      <img src={img} alt="Image d'erreur" className='error__img'/>
+    </div>
     <div>
  <p>Cependant, vous pouvez trouver nos produits ici :</p>
  <br/>

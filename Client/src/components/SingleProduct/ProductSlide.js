@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState} from "react";
 import PropTypes from 'prop-types';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
-
-
 
 // Import Swiper styles
 import "swiper/css";
@@ -20,7 +18,7 @@ import "./style.scss";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
 function ProductSlide({product}) {
-  const { pictures, product_name, category_name } = product
+  const { pictures, product_name} = product
   const imageArray = pictures
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -75,11 +73,10 @@ function ProductSlide({product}) {
 );
     };
 
-// ProductSlide.propTypes = {
-//   nom: PropTypes.string.isRequired,
-//   image : PropTypes.arrayOf(
-//       PropTypes.string
-//   ).isRequired
-  
-// }
+ProductSlide.propTypes = {
+  product : PropTypes.shape({
+    pictures : PropTypes.array,
+    product_name : PropTypes.string,
+  }).isRequired
+}
 export default ProductSlide

@@ -31,7 +31,7 @@ function ProductsByAdmin() {
           stock: 'stock',
         };
         const sortProperty = types[type];
-        console.log(sortProperty);
+    // Making a new array with the sort method => the new array is sorted with the type chosen on click
         const sorted = [...productsByAdmin].sort((p1, p2) => (p1[sortProperty] < p2[sortProperty]) ? 1 : (p1[sortProperty] > p2[sortProperty]) ? -1 : 0);
         setProductsByAdmin(sorted);
       };
@@ -98,8 +98,6 @@ function ProductsByAdmin() {
           <Link to="/admin/new-product" className="backOffice__button--link"> 
           <span className="backOffice__button--add--Plus"><AiOutlinePlus /></span>  Ajouter un produit</Link>
         </button>
-     
-      {/* <div className="backOffice__searchBar"><Search /></div> */}
 
       </div>
       </div>
@@ -141,10 +139,6 @@ function ProductsByAdmin() {
        { productsByAdmin.map(product => (
       <tr
       key ={product.id}>
-      {/* <td> <input type='checkbox'
-      onChange={handleCheckbox}
-      className="inputRefs"></input></td> */}
-           
             <td data-label="Id" className="backOffice__table--td"> 
               <Link to={`/admin/productPage/${product.id}`} > {product.id}   </Link> 
             </td>
@@ -162,7 +156,6 @@ function ProductsByAdmin() {
     </tbody>
 </table>
  </div>
-
     </div>
     </div>
     </div>

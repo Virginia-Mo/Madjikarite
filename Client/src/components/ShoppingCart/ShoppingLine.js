@@ -1,9 +1,9 @@
-import './style.scss';
 import { useDispatch, useSelector} from 'react-redux';
-import { addItemToCart,minusItemFromCart, removeArticleFromCart } from '../../actions/cart';
 import { HiOutlineTrash } from "react-icons/hi2";
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { addItemToCart,minusItemFromCart, removeArticleFromCart } from '../../actions/cart';
+import './style.scss';
 
 function ShoppingLine({item}) { 
   const dispatch = useDispatch()
@@ -11,8 +11,8 @@ function ShoppingLine({item}) {
   const cart = useSelector((state) => state.cart.cart)
 useEffect(()=> {
   for (item of cart){
+    // Deleting the item from the cart if the user change to quantity to 0
   if (item.quantity <= 0){
-   console.log("0quantity");
    dispatch(removeArticleFromCart(item.id,item.total))
   }
 }
@@ -27,15 +27,12 @@ const formData = {
   weight: parseInt(item.weight),
   totalWeight : item.weight * 1
 }
-console.log(item.price+ "et" + formData.total);
   const handleChange = () => {
     dispatch(addItemToCart(formData))
   }
-
   const handleChangeMinus= () => {
      dispatch(minusItemFromCart(formData))
   }
-
   const removeArticle= (id,total) => {
     dispatch(removeArticleFromCart(id,total))
   }
@@ -76,7 +73,6 @@ console.log(item.price+ "et" + formData.total);
       </div>
        </div>
   </article>
-     
         );
    }
 

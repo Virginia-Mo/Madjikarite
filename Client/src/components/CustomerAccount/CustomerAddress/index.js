@@ -1,32 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
-
-import { NavLink } from 'react-router-dom';
-
-import Field from '../../LoginForm/Field';
-
 import { getAddress } from 'src/actions/user';
+import { updateAddress, resetMessageError } from '../../../actions/user';
 
-import './style.scss';
 import FieldAccount from '../FieldAccount';
-import { updateAddress, saveUserAddress, resetMessageError } from '../../../actions/user';
-import NavBarAdmin from '../../Admin/NavBarAdmin/NavBarAdmin';
 import NavBarCustomer from '../NavBarCustomer/NavBarCustomer';
+import './style.scss';
 
 function CustomerAddress() {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
   useEffect(() => {
     dispatch(getAddress());
     dispatch(resetMessageError())
   }, []); // au 1er rendu
 
-
   let userAddress = useSelector((state) => state.user.userAddress);
   const formAddress = useRef()
   const messageAddress = useRef()
   const messageError = useSelector((state) => state.user.messageError)
-  console.log(userAddress);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("SUBMIT DONE");

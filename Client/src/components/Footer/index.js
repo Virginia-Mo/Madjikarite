@@ -39,7 +39,7 @@ function Footer() {
 
       <div className="footer__bottom"></div>
         <p className="footer__legal">
-          <Link to="">Mentions légales  </Link>|  © 2022 Madjikarité
+          <Link to="/terms">Mentions légales  </Link>|  © 2022 Madjikarité
         </p>
       <div className="footer__bottom"></div>
       

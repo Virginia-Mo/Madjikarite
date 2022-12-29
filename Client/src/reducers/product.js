@@ -1,13 +1,11 @@
 import { HANDLE_DESCRIPTION, HANDLE_COMPOSITION, SAVE_PRODUCTS, SAVE_CATEGORIES} from "../actions/products";
 
-
 export const initialState = {
   listProducts :[],
   listCategories :[],
   activeDescription : true,
   activeComposition : false,
 }
-
 
 const reducer = (state = initialState, action = {}) => {
   const { type, payload } = action;

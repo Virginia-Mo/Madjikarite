@@ -1,10 +1,8 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { deleteAccount } from '../../../actions/user';
-import NavBarCustomer from '../NavBarCustomer/NavBarCustomer';
 
+import NavBarCustomer from '../NavBarCustomer/NavBarCustomer';
 import './style.scss'
 
 function DeleteAccount() {
@@ -18,8 +16,6 @@ function DeleteAccount() {
 
     <>
     <h1 className="customerAdress__title">Supprimer mon compte</h1>
-
-  
 
     <div className="customerAccount__div">
       <NavBarCustomer />
@@ -38,9 +34,5 @@ function DeleteAccount() {
     
   );
 }
-
-DeleteAccount.propTypes = {
-
-};
 
 export default DeleteAccount;
