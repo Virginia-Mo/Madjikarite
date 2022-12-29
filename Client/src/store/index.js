@@ -5,7 +5,7 @@ import reducer from '../reducers';
 import productsAPI from '../middlewares/products';
 import usersAPI from '../middlewares/user';
 import cartAPI from '../middlewares/cart';
-import adminAPI from '../middlewares/admin';
+// import adminAPI from '../middlewares/admin';
 // const store = createStore(
 //   reducer,
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
@@ -16,7 +16,7 @@ import adminAPI from '../middlewares/admin';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
-  applyMiddleware(productsAPI, usersAPI, cartAPI, adminAPI),
+  applyMiddleware(productsAPI, usersAPI, cartAPI),
 );
 
 const store = createStore(reducer, enhancers);

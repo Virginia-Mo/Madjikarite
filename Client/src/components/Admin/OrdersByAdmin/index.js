@@ -1,7 +1,6 @@
-import { useEffect, useState,useRef} from "react"
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Link} from "react-router-dom";
 import axios from 'axios';
+import { useEffect, useState,useRef} from "react"
+import { Link} from "react-router-dom";
 import { MdFilterAlt } from "react-icons/md";
 
 const API_BASE_URL = 'https://madjikarite.onrender.com';
@@ -64,7 +63,24 @@ select.classList.toggle("backOffice__filter--select--show")
    <NavBarAdmin />
  
        <div className="backOffice__mainContainer">
-
+       
+       <div className="backOffice__filter">
+   <form action="" className="backOffice__filter__form backOffice__filter__form--orders">
+      <div className="backOffice__top2 backOffice__top2--orders">
+            <label htmlFor="filter" className="backOffice__filter--label">Filtrer par :</label>
+            <button type="button" className="backOffice__filter--button"><MdFilterAlt onClick={handleClick} /></button>
+            <select 
+            name="filter"
+            className="backOffice__filter--select"
+            onChange={(event) => setSortType1(event.target.value)}>
+              <option value="id">Id</option>
+              <option value="created_at">Date</option>
+              <option value="final_price">Prix total</option>
+            </select>
+            </div>
+            </form>
+          </div>
+            
           <div className="backOffice__table">
           <table className="backOffice__table--table">
 

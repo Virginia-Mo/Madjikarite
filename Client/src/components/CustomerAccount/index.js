@@ -41,7 +41,7 @@ function CustomerAccount() {
 
   return (
    <>
-    <h2 className="customerAccount__h1 animate__animated animate__fadeIn"><strong>Bienvenue</strong>, {userName} ! </h2>
+    <h2 className="customerAccount__h1 animate__animated animate__fadeIn"><strong>Bienvenue</strong>, <span className="user"> {userName} </span> ! </h2>
     <h1 className="customerAccount__title">Modification de votre compte</h1>
     
    <div className="customerAccount__div">
@@ -103,7 +103,7 @@ function CustomerAccount() {
             className="customerAccount__button"
             type="submit"
           >
-            Modifier les infos
+            Modifier les informations
           </button>
         </form>
         </div>

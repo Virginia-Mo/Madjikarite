@@ -1,7 +1,6 @@
 //fonctionnalité codée sans redux suite problème d'accès au store en tant qu'admin
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Search from "../../Search";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdFilterAlt } from "react-icons/md";
 import './style.scss';
@@ -91,7 +90,7 @@ function ProductsByAdmin() {
         <NavBarAdmin />
       <div className="backOffice__mainContainer">
    <div className="backOffice__filter">
-   <form action="" className="backOffice__filter__form">
+   <form action="" className="backOffice__filter__form backOffice__filter__form--products">
   <div className="backOffice__top">
       <div className="backOffice__addProduct">
         <button className="backOffice__button backOffice__button--add" type="button">
@@ -111,7 +110,7 @@ function ProductsByAdmin() {
             onChange={(event) => setSortType(event.target.value)}>
               <option value="id">Id</option>
               <option value="product_name">Nom du produit</option>
-              <option value="price">Prix total</option>
+              <option value="price">Prix</option>
               <option value="category_name">Catégorie</option>
               <option value="stock">Stock</option>
             </select>
