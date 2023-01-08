@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 
 function NavBarAdmin() {
@@ -10,7 +10,7 @@ function NavBarAdmin() {
 
   const menuOnClick = () => {
     menubar.current.classList.toggle("change");
-     nav.current.classList.toggle("change");
+    nav.current.classList.toggle("change");
     menubg.current.classList.toggle("change-bg");
    }
   return (

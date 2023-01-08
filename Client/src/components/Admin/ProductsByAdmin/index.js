@@ -1,7 +1,6 @@
 //fonctionnalité codée sans redux suite problème d'accès au store en tant qu'admin
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Search from "../../Search";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdFilterAlt } from "react-icons/md";
 import './style.scss';
@@ -31,7 +30,7 @@ function ProductsByAdmin() {
           stock: 'stock',
         };
         const sortProperty = types[type];
-        console.log(sortProperty);
+    // Making a new array with the sort method => the new array is sorted with the type chosen on click
         const sorted = [...productsByAdmin].sort((p1, p2) => (p1[sortProperty] < p2[sortProperty]) ? 1 : (p1[sortProperty] > p2[sortProperty]) ? -1 : 0);
         setProductsByAdmin(sorted);
       };
@@ -91,15 +90,13 @@ function ProductsByAdmin() {
         <NavBarAdmin />
       <div className="backOffice__mainContainer">
    <div className="backOffice__filter">
-   <form action="" className="backOffice__filter__form">
+   <form action="" className="backOffice__filter__form backOffice__filter__form--products">
   <div className="backOffice__top">
       <div className="backOffice__addProduct">
         <button className="backOffice__button backOffice__button--add" type="button">
           <Link to="/admin/new-product" className="backOffice__button--link"> 
           <span className="backOffice__button--add--Plus"><AiOutlinePlus /></span>  Ajouter un produit</Link>
         </button>
-     
-      {/* <div className="backOffice__searchBar"><Search /></div> */}
 
       </div>
       </div>
@@ -113,7 +110,7 @@ function ProductsByAdmin() {
             onChange={(event) => setSortType(event.target.value)}>
               <option value="id">Id</option>
               <option value="product_name">Nom du produit</option>
-              <option value="price">Prix total</option>
+              <option value="price">Prix</option>
               <option value="category_name">Catégorie</option>
               <option value="stock">Stock</option>
             </select>
@@ -141,10 +138,6 @@ function ProductsByAdmin() {
        { productsByAdmin.map(product => (
       <tr
       key ={product.id}>
-      {/* <td> <input type='checkbox'
-      onChange={handleCheckbox}
-      className="inputRefs"></input></td> */}
-           
             <td data-label="Id" className="backOffice__table--td"> 
               <Link to={`/admin/productPage/${product.id}`} > {product.id}   </Link> 
             </td>
@@ -162,7 +155,6 @@ function ProductsByAdmin() {
     </tbody>
 </table>
  </div>
-
     </div>
     </div>
     </div>

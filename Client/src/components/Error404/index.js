@@ -8,18 +8,17 @@ import Slide from '../Slide';
 function Error() {
   return (
     <div className='error'>
+    <main>
+    <p>Page non trouvée</p>
     <div>
-    <p>404 Erreur, Page non trouvée</p>
-    </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-
-    <div>
- <p>Cependant, vous pouvez trouver nos produits ici :</p>
- <br/>
- <Slide /></div>
+      <img src={img} alt="Image d'erreur" className='error__img'/>
+    </div> 
+    </main>
+    <aside>
+      <p>Cependant, vous pouvez trouver nos produits ici :</p>
+      
+      <Slide />
+  </aside>
     </div>
   );
 }

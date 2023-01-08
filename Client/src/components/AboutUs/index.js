@@ -113,7 +113,7 @@ function AboutUs() {
               J’ai donc fait le choix d’une démarche d’économie sociale et solidaire. Il s’agit à la fois d’offrir aux consommateurs un produit naturel de qualité, et de donner
               une activité salariale aux femmes en milieu rural, pour lutter contre leur pauvreté.</p>
             <p className="aboutUsBloc__p">Découvrir plus en cliquant sur ce lien:</p>
-            <p className="aboutUsBloc__p"><href className="aboutUsBloc__link">https://www.histoiresordinaires.fr/Yankimadji-a-cree-son-entreprise-ici-pour-les-femmes-de-la-bas-au-Tchad_a2795.html</href></p>
+            <p className="aboutUsBloc__p"><a a href="https://www.histoiresordinaires.fr/Yankimadji-a-cree-son-entreprise-ici-pour-les-femmes-de-la-bas-au-Tchad_a2795.html" className="aboutUsBloc__link">https://www.histoiresordinaires.fr/Yankimadji-a-cree-son-entreprise-ici-pour-les-femmes-de-la-bas-au-Tchad_a2795.html</a></p>
           </div>
           <div className="aboutUsBloc__imgDiv">
             <img src={YankiHistory} alt="Yanki au Tchad" className="aboutUsBloc__img" />

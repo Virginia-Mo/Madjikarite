@@ -56,7 +56,9 @@
   margin: 0 auto;
   gap: 1rem;
 }
-
+.user::first-letter {
+  text-transform: uppercase;
+}
 .box__container--left {
   background-color: #fff;
   border-radius: 0.5rem;

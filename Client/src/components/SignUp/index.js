@@ -1,6 +1,5 @@
 //customer account page with form to create a new account
 import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 import Field from '../LoginForm/Field';
 import { resetMessageError } from '../../actions/user';
 import { signUpUser } from 'src/actions/user';
@@ -9,7 +8,6 @@ import './style.scss';
 
 function SignUp() {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
   const messageError = useSelector((state)=> state.user.messageError)
   const logged = useSelector((state) => state.user.logged);
   const loading = useSelector((state) => state.user.loading);
@@ -23,16 +21,8 @@ function SignUp() {
   const handleSubmit = (event) => {
 
     event.preventDefault();
-    console.log("SUBMIT DONE");
-       
-    if (password !== passwordConfirmation){
-      alert("Mot de passe incorrect")
-      return
-    } else {
-       dispatch(signUpUser());
+    dispatch(signUpUser());
     } 
-
-  };  
 
   return (
 
@@ -40,8 +30,6 @@ function SignUp() {
     <div className="customerAccount">
 
       <form className="customerAccount__form" onSubmit={handleSubmit}>
-
-
 
         <div className="box__container">
 

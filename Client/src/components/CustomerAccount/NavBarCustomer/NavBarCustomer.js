@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import {useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import './menuBurger.scss'
+
 function NavBarCustomer() {
 
   const menubar = useRef()
@@ -9,7 +10,7 @@ function NavBarCustomer() {
 
   const menuOnClick = () => {
     menubar.current.classList.toggle("change");
-     nav.current.classList.toggle("change");
+    nav.current.classList.toggle("change");
     menubg.current.classList.toggle("change-bg");
    }
   return (

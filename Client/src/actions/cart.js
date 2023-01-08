@@ -1,5 +1,5 @@
 export const GET_FINAL_PRICE = 'GET_FINAL_PRICE';
-
+// Action to get the final price of the order ( products + shopping)
 export function getFinalPrice(total, shipping) {
   return {
     type: GET_FINAL_PRICE,

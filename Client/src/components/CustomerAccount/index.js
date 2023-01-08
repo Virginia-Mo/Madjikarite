@@ -1,44 +1,37 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
-// import { useNavigate } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-import FieldAccount from '../CustomerAccount/FieldAccount';
 import { updateAccount, getAccount } from 'src/actions/user';
+import { resetMessageError } from '../../actions/user';
 
-import './style.scss';
-import 'animate.css';
+import FieldAccount from '../CustomerAccount/FieldAccount';
 import NavBarCustomer from './NavBarCustomer/NavBarCustomer';
 import NavBarAdmin from '../Admin/NavBarAdmin/NavBarAdmin';
-import { resetMessageError } from '../../actions/user';
+import './style.scss';
+import 'animate.css';
 
 function CustomerAccount() {
   const dispatch = useDispatch();
   const formAccount = useRef()
   const messageAccount = useRef()
   const messageError = useSelector((state)=> state.user.messageError)
-  // const navigate = useNavigate();
   useEffect(() => {
+    // getting the customer's infos
     dispatch(getAccount());
+    // reset the message error on the redux state
     dispatch(resetMessageError())
-
   }, []); // au 1er rendu
   
-
   const userInfos = useSelector((state) => state.user.userInfos);
-
   const password = useSelector((state) => state.user.password );
   const passwordConfirmation = useSelector((state) => state.user.passwordConfirmation);
 
-  console.log(userInfos);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("SUBMIT DONE");
-       
-      if (password !== passwordConfirmation){
-        alert("Mot de passe incorrect")
-        return
-      };
+      // if (password !== passwordConfirmation){
+      //   alert("Mot de passe incorrect")
+      //   return
+      // };
        dispatch(updateAccount()) 
     formAccount.current.style.display = "none",
     messageAccount.current.style.removeProperty("display");
@@ -48,7 +41,7 @@ function CustomerAccount() {
 
   return (
    <>
-    <h2 className="customerAccount__h1 animate__animated animate__fadeIn"><strong>Bienvenue</strong>, {userName} ! </h2>
+    <h2 className="customerAccount__h1 animate__animated animate__fadeIn"><strong>Bienvenue</strong>, <span className="user"> {userName} </span> ! </h2>
     <h1 className="customerAccount__title">Modification de votre compte</h1>
     
    <div className="customerAccount__div">
@@ -62,8 +55,6 @@ function CustomerAccount() {
       <NavBarAdmin />
      </>
       )}
- 
-  
       <div className="customerAccount">
         <form className="customerAccount__form" onSubmit={handleSubmit} ref={formAccount}>
 
@@ -112,7 +103,7 @@ function CustomerAccount() {
             className="customerAccount__button"
             type="submit"
           >
-            Modifier les infos
+            Modifier les informations
           </button>
         </form>
         </div>

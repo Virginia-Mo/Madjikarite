@@ -3,6 +3,7 @@
 #menu, #menu-bg{
   display: none;
 }
+
 .backOffice {
   &__container {
     font-family: v.$font-paragraph ;
@@ -48,10 +49,8 @@
     }  
     &__form {
         display: flex;
-        justify-content: space-between;
         border-bottom: 1px solid rgba(128, 128, 128, 0.555);
         padding-bottom: 2rem;
-
 
     & select {
       width: 8rem;
@@ -89,6 +88,12 @@
  &__formDiv__box {
    font-style: 500;
  }
+}
+.backOffice__filter__form--orders {
+  justify-content: flex-end;
+}
+.backOffice__filter__form--products {
+  justify-content: space-between;
 }
 @media screen and (max-width: 600px) {
   #menu, #menu-bg {

@@ -44,15 +44,6 @@ export function resetMessageError() {
   };
 }
 
-// // Action pour se déconnecter
-// export const LOGOUT = 'LOGOUT';
-
-// export function logout() {
-//   return {
-//     type: LOGOUT,
-//   };
-// }
-
 // Action to save user
 export function saveUser(user) {
   return {

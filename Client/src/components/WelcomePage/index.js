@@ -1,15 +1,13 @@
 import { Link } from 'react-router-dom';
 import React, { useEffect } from 'react';
+import AOS from 'aos';
+
 import SheaCream from 'src/assets/imgs/sheaCream.jpeg';
 import Producers from 'src/assets/imgs/producers.jpg';
 import Slide from '../Slide';
-import AOS from 'aos';
 
 import "aos/dist/aos.css";
 import './style.scss';
-import { useSelector } from 'react-redux';
-
-
 
 function WelcomePage() {
   useEffect(() => {
