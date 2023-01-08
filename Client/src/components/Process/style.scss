@@ -31,7 +31,7 @@
     font-size: v.$font-size-p;
     text-align: center;
     padding: 2rem;
-    background-color: #fff;
+    background-color: whitesmoke;
     border-radius: v.$border-radius;
     display: flex;
     flex-direction: column;
@@ -42,9 +42,10 @@
       font-family: v.$font-title;
       text-align: center;
     }
-    &--icon {
-      font-size: 3.5rem;
-      text-align: center;
+    &--img {
+      width: 20%;
+      height: auto;
+      margin: 0 auto;
     }
   }
 }
