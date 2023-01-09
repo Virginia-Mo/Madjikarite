@@ -23,7 +23,9 @@
     justify-content: center;
     align-items: center;
     padding-left: 3rem;
-
+    & .user {
+      margin-left: 1rem;
+    }
   }
   &__title {
     margin-top: 4rem;

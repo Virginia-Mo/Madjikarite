@@ -25,9 +25,9 @@ function Footer() {
 
           <h3>SUIVEZ-NOUS</h3>
           <div className="footer__social-media-icons">
-          <Link to="https://www.facebook.com/Madjikarite/">
+          <a href="https://www.facebook.com/Madjikarite/">
             <RiFacebookCircleFill className="footer__social-media-icon" />
-          </Link>
+          </a>
           <Link to="">
             <RiTwitterFill className="footer__social-media-icon" />
           </Link>
