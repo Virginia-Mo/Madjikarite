@@ -1,0 +1,76 @@
+@use 'src/styles/vars' as v;
+
+.nav-bar {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  .active {
+    background-color: #edededd3;
+  }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__item {
+    display: block;
+    height: 5rem;
+    padding: 1.6rem 2.5rem;
+    border-right: 0.2rem solid #b0afafe5;
+    font-size: 1.8rem;
+    font-family: v.$font-paragraph;
+    
+    &:hover {
+      border-bottom: 0.5rem solid v.$color-brown;
+      box-sizing: border-box;
+      color: v.$color-brown;
+    }
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__item--about-us {
+    position: relative;
+  }
+
+  &__under-list {
+    display: none;
+    position: absolute;
+    left: 0;
+  }
+
+  &__under-item {
+    font-size: 1.7rem;
+    font-family: v.$font-paragraph;
+    padding: 1.2rem;
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000e5;
+    border-bottom: 0.2rem solid #f4f2f2e5;
+    &:hover {
+      background-color: #f4f2f2;
+      color: v.$color-brown;
+    }
+  }
+  
+}
+
+.nav-bar__item--about-us:hover > .nav-bar__under-list {
+  display: block;
+  margin-top: 1.4rem;
+  z-index: 9;
+  
+}
+
+@media (max-width: 1060px) {
+  .nav-bar {
+    &__item {
+      display: none;
+    }
+  }
+}
+

@@ -1,0 +1,63 @@
+@use 'src/styles/vars' as v;
+
+.backOffice__singleproduct {
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-around;
+    margin: 3rem 0;
+  &--buttonDiv {
+    text-align: center;
+  }
+    &--button {
+      background-color: v.$color-light-green;
+      margin: 0 auto;
+      border: solid 1px v.$color-green;
+      border-radius: 1rem;
+      padding: 1rem;
+      font-size: 1.7rem;
+      &:hover {
+        background-color: v.$color-light-brown;
+        border: solid 1px v.$color-brown;
+      }
+    }
+}
+.singleProduct{
+
+&--span {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+}
+
+.singleOrder{
+  &__order {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+  &__user {
+    & ul {
+      margin: 2rem 0;
+    }
+    & li {
+      line-height: 3.2rem;
+    }
+}
+}
+.backOffice__menuContainer {
+  position: relative;
+}
+@media screen and (max-width : 1024px) {
+  .backOffice__singleproduct {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .singleProduct--span {
+    padding-bottom: 1rem;
+  }
+  .singleOrder__order p {
+    font-size: 2rem;
+  }
+}

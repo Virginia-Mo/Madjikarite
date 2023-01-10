@@ -1,0 +1,13 @@
+@use 'src/styles/vars' as v;
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+.searchedProduct__h3 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-family: v.$font-paragraph ;
+}

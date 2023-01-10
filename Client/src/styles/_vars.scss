@@ -1,0 +1,32 @@
+@use 'sass:color';
+  
+//Palette de couleurs
+$color-beige: #f0ead2 ;
+$color-light-green: #DDE5B6;
+$color-green: #ADC178;
+$color-light-brown: #A98467;
+$color-brown: #6c584c;
+
+// Police titre
+$font-title: 'Abhaya-SemiBold';
+// Taille titre
+$font-size-t: 4.6rem;
+
+// Police paragraphe
+$font-paragraph: 'Glacial-Indifference'; 
+// Taille de la police du paragraphe
+$font-size-p: 2.2rem;
+
+$gutter: 1rem;
+
+//form 
+$border-radius: 0.5rem;
+$border: 2px solid #ccc;
+
+//button
+$border-radius-button: 1rem;
+$button-background-color: $color-green;
+$button-font-size: $font-size-p;
+$button-padding: $gutter;
+$button-hover: $color-light-brown;
+  

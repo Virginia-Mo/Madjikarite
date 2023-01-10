@@ -1,0 +1,56 @@
+@use 'src/styles/vars' as v;
+
+.app {
+  width: 100%;
+}
+main {
+  margin: 5rem 0;
+}
+p {
+  font-family: v.$font-paragraph;
+  font-size: v.$font-size-p;
+}
+h2, h4 {
+  text-transform: lowercase;
+}
+h2:first-letter, h4:first-letter {
+  text-transform:uppercase;
+}
+.mainTitle__h2 {
+  font-size: v.$font-size-t;
+  font-family: v.$font-title;
+  text-align: center;
+  margin-top: 8rem;
+  margin-bottom: 5rem;
+  border-top: solid 1px rgba(134, 134, 134, 0.459);
+  border-bottom: solid 1px rgba(134, 134, 134, 0.459);
+  // width: 50%;
+  margin: 5rem auto 2rem;
+  padding: 2rem;
+  & span {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding-top: 16rem;
+    h2 {
+      font-size: 3rem;
+    }
+  }
+} 
+
+@media (max-width : 1060px) {
+  .app {
+    padding-top: 16rem;
+
+    h2 {
+      font-size: 3.5rem;
+    }
+  }
+
+  // .mainTitle__h2 {
+  //   font-size: 3.5rem;
+  // }
+}

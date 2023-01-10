@@ -1,0 +1,30 @@
+@use 'sass:color';
+@use 'src/styles/vars';
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: color.adjust(#fff, $alpha: -0.1);
+
+
+  &__label {
+    font-family: vars.$font-paragraph;
+    font-size: vars.$font-size-p;
+}
+
+  &__input {
+  padding: 0.5rem;
+  border: 2px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: color.adjust(#fff, $alpha: -0.1);
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  font-family: vars.$font-paragraph;
+  font-size: vars.$font-size-p;
+}
+}

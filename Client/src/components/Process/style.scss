@@ -1,0 +1,69 @@
+@use "src/styles/vars" as v;
+
+.hr {
+  margin: 5rem auto;
+  width: 90%;
+}
+
+.process {
+  &__section {
+    margin: 0 auto;
+    height: auto;
+    padding: v.$gutter;
+    background-image: url(../../assets/imgs/ennediMountains.jpeg); 
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__introduction {
+    margin: 5rem 0;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 2rem;
+    line-height: 3rem;
+    text-align: center;
+  }
+  &__article { 
+    width: 30%;
+    height: 25rem;
+    margin: 2rem auto 8rem auto;
+    font-family: v.$font-paragraph;
+    font-size: v.$font-size-p;
+    text-align: center;
+    padding: 2rem;
+    background-color: whitesmoke;
+    border-radius: v.$border-radius;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: justify;
+    &--title {
+      font-size: v.$font-size-t;
+      font-family: v.$font-title;
+      text-align: center;
+    }
+    &--img {
+      width: 20%;
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .process {
+    &__article {
+      width: 40%;
+      height: auto;
+      &--title {
+        font-size: 3rem;
+      &--icon {
+        font-size: 3rem;
+      &--text {
+        font-size: 1.8rem;
+      } 
+    }
+  }
+}
+}
+}
