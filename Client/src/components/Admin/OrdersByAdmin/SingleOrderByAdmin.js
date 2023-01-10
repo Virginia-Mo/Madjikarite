@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import "./singleOrderByAdmin.scss"
 import NavBarAdmin from '../NavBarAdmin/NavBarAdmin';
 
-const API_BASE_URL = 'https://madjikarite.onrender.com';
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 function SingleOrderByAdmin() {
   // Using Refs in order to call them for changing their class on the confirmation messages

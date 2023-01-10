@@ -3,7 +3,7 @@ import { useEffect, useState,useRef} from "react"
 import { Link} from "react-router-dom";
 import { MdFilterAlt } from "react-icons/md";
 
-const API_BASE_URL = 'https://madjikarite.onrender.com';
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 import './style.scss'
 import 'animate.css';

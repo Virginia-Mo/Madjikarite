@@ -2,7 +2,7 @@ import axios from "axios";
 import { SIGN_UP_USER, LOGIN, DELETE_ACCOUNT, GET_ACCOUNT, UPDATE_ACCOUNT, GET_ADDRESS,SAVE_USER_ADDRESS, UPDATE_ADDRESS } from "../actions/user";
 import {  saveUser, saveUserInfos, saveUserAddress, getMessageError } from '../actions/user';
 
-const API_BASE_URL = 'https://madjikarite.onrender.com';
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 const usersAPI = (store) => (next) => (action) => {
 

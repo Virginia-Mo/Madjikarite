@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GET_PRODUCTS, saveProducts, GET_CATEGORIES, saveCategories  } from '../actions/products';
 
-const API_BASE_URL = 'https://madjikarite.onrender.com';
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 const productsAPI = (store) => (next) => (action) => {
   switch (action.type) {

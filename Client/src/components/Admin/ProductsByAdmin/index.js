@@ -9,7 +9,7 @@ import axios from "axios";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 
 
-const API_BASE_URL = "https://madjikarite.onrender.com";
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 function ProductsByAdmin() {
   const [productsByAdmin, setProductsByAdmin] = useState([]);
